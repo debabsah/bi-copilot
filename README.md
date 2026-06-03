@@ -34,6 +34,28 @@ It's a copilot — so think of it as the board. You fly; it runs everything else
 
 ¹ `groundwork` already drafts several of these as knowledge-base artifacts (KPI contract, lineage map, findings, meeting briefing); the dedicated, interactive modules come next. &nbsp; ² the Socratic challenge is live inside `groundwork` today.
 
+## What you can ask it
+
+You don't run commands — you describe what you're dealing with, and the right capability picks it up. A sample across the lifecycle (today, every ✅ runs through `groundwork`; the ◐ rows show where the panel is headed):
+
+| Stage | You say… | What happens | Status |
+|---|---|---|---|
+| Understand | "I inherited this pipeline and don't get it — where do I start?" | Classifies the estate, reads it (code only), surfaces the unknowns, starts the knowledge base | ✅ |
+| Understand | "What don't I know about this system that I should?" | Runs the four-way gap engine and lists the highest-value unknowns | ✅ |
+| Continuity | "Catch me up — I've been off this for three weeks." | Reads the timeline + state and briefs you: where you are, what changed, what's next | ✅ |
+| Define | "The ticket just says 'improve sales reporting' — what do they actually need?" | Separates the stated ask from the real decision it has to support | ◐ |
+| Define | "Pin down what 'active customer' actually means before we build." | Drafts a KPI contract — definition, grain, formula, source, caveats, owner | ◐ |
+| Design | "What's the cleanest, most maintainable way to model this?" | Talks through the trade-offs and the failure modes to avoid | ◐ |
+| Build | "We decided to exclude refunds — capture that and why." | Logs the decision with its rationale and provenance, so it's never re-litigated | ✅ |
+| Validate | "Pressure-test this before my lead sees it — what would they attack?" | Red-teams your reasoning; surfaces the weakest links and the questions you'll get | ◐ |
+| Validate | "Is this number defensible? Rehearse defending it with me." | Plays the skeptic — the holes, the challenges, how you'd answer each | ◐ |
+| Deliver | "Turn these findings into a brief I can send." | Structures observation → implication → recommended action → what to watch | ◐ |
+| Deliver | "Show me where these numbers actually come from." | Builds a lineage map from the code you've pointed it at | ✅ |
+| Operate | "What's the right next move on this project?" | Infers where you are from the knowledge base and recommends the next step | ◐ |
+| Continuity | "The client just emailed a new constraint — log it." | Drops a dated event on the timeline with its source | ✅ |
+
+✅ live today (via `groundwork`) · ◐ on the flight plan
+
 ## Philosophy — the design *is* the product
 
 - **A peer, not a tutor.** It operates at your level: it does the work that's beneath you and argues with you about the work that isn't. No hand-holding, no lectures.
