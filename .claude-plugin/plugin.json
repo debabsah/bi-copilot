@@ -2,6 +2,6 @@
   "name": "bi-copilot",
   "version": "0.1.0",
   "description": "An expert BI guide for technical practitioners. v1 ships 'groundwork', a project-orientation guide that reads an unfamiliar BI/data estate, interviews you, surfaces what you don't know, and builds a living, agent-readable knowledge base.",
-  "author": "debabsah",
+  "author": { "name": "debabsah" },
   "license": "MIT"
 }
