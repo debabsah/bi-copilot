@@ -1,15 +1,15 @@
 {
   "name": "bi-copilot",
-  "description": "An expert copilot for analytics delivery: a growing bench of BI skills. Live: groundwork (orientation), requirements-interrogator (requirements), kpi-contract (metric definitions), and defend-my-number (defensibility).",
+  "description": "An expert copilot for analytics delivery: a growing bench of BI skills. Live: groundwork (orientation), requirements-interrogator (requirements), kpi-contract (metric definitions), defend-my-number (defensibility), and review-my-query (query review).",
   "owner": { "name": "debabsah" },
   "plugins": [
     {
       "name": "bi-copilot",
-      "description": "An expert copilot for analytics delivery, built as a growing bench of skills. Live: 'groundwork' (orient on an inherited estate and build a living knowledge base), 'requirements-interrogator' (drive a solution-shaped request to the real decision before building), 'kpi-contract' (pin a metric's exact definition and lock it as a versioned contract), and 'defend-my-number' (rehearse defending a number against a skeptic before the meeting).",
-      "version": "0.4.2",
+      "description": "An expert copilot for analytics delivery, built as a growing bench of skills. Live: 'groundwork' (orient on an inherited estate and build a living knowledge base), 'requirements-interrogator' (drive a solution-shaped request to the real decision before building), 'kpi-contract' (pin a metric's exact definition and lock it as a versioned contract), 'defend-my-number' (rehearse defending a number against a skeptic before the meeting), and 'review-my-query' (review the query or model behind a number against its locked definition, read-only).",
+      "version": "0.5.0",
       "author": { "name": "debabsah" },
       "category": "developer-tools",
-      "tags": ["bi", "analytics", "data-engineering", "etl", "orientation", "knowledge-base", "requirements", "kpi", "metric-definition", "reconciliation", "defensibility", "stakeholders"],
+      "tags": ["bi", "analytics", "data-engineering", "etl", "orientation", "knowledge-base", "requirements", "kpi", "metric-definition", "reconciliation", "defensibility", "stakeholders", "code-review", "query-review", "sql"],
       "source": "./"
     }
   ]

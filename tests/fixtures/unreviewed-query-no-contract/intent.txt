@@ -1,0 +1,3 @@
+All you have is this one-line intent (there is NO written/locked metric definition anywhere):
+
+  "vw_monthly_churn gives monthly customer churn for the board deck."

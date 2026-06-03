@@ -29,6 +29,7 @@ It's a copilot, so picture the board. You fly; it runs everything else.
 | **Logbook** | A living knowledge base: current state, an append-only timeline, event capture, "catch me up," decision provenance | ✅ **live** |
 | **Flight plan** | The whole delivery lifecycle, its milestones, and the discovery↔definition↔analysis↔review↔evolution loops, with a navigator that calls your next move | ◐ planned |
 | **Comms** | Stakeholder and requirements work: interrogate a request down to the real decision before you build, the questions to ask, the KPI contract, the findings brief | ◑ partial³ |
+| **Review** | Read the query, model, or measure that computes a number and check it against its locked definition before it ships: catch the bugs that quietly ship the wrong number | ✅ **live** |
 | **Sparring** | Defend-the-number rehearsal: role-plays the skeptic, drills you under escalating pressure, grades your answers, leaves a Defense Sheet. Socratic challenge and red-teaming too | ✅ **live** |
 | **Instruments** | Data quality and lineage: *is this right, and will it hold?* | ◐ planned¹ |
 
@@ -36,7 +37,7 @@ It's a copilot, so picture the board. You fly; it runs everything else.
 
 ## What you can ask it
 
-You don't run commands. You describe what you're dealing with, and the right capability picks it up. A sample across the lifecycle (the ✅ rows are live across `groundwork`, `requirements-interrogator`, `kpi-contract`, and `defend-my-number`; the ◐ rows show where the panel is headed):
+You don't run commands. You describe what you're dealing with, and the right capability picks it up. A sample across the lifecycle (the ✅ rows are live across `groundwork`, `requirements-interrogator`, `kpi-contract`, `defend-my-number`, and `review-my-query`; the ◐ rows show where the panel is headed):
 
 | Stage | You say… | What happens | Status |
 |---|---|---|---|
@@ -47,6 +48,7 @@ You don't run commands. You describe what you're dealing with, and the right cap
 | Define | "Pin down what 'active customer' actually means before we build." | Walks every fork the definition hides, pins each with the owner, states the source reconciliation, and locks a versioned KPI contract | ✅ |
 | Design | "What's the cleanest, most maintainable way to model this?" | Talks through the trade-offs and the failure modes to avoid | ◐ |
 | Build | "We decided to exclude refunds, capture that and why." | Logs the decision with its rationale and provenance, so it's never re-litigated | ✅ |
+| Build | "I wrote the query behind this metric, is it right before it ships?" | Reviews the code against the locked definition, hunts the bugs that ship a wrong number, grades them and points the fix | ✅ |
 | Validate | "Pressure-test this before my lead sees it, what would they attack?" | Role-plays the skeptic and drills you under pressure, grades each answer, leaves a Defense Sheet of the holes to fix | ✅ |
 | Validate | "Is this number defensible? Rehearse defending it with me." | Plays the skeptic: the holes, the challenges, how you'd answer each | ✅ |
 | Deliver | "Turn these findings into a brief I can send." | Structures observation → implication → recommended action → what to watch | ◐ |
@@ -54,7 +56,7 @@ You don't run commands. You describe what you're dealing with, and the right cap
 | Operate | "What's the right next move on this project?" | Infers where you are from the knowledge base and recommends the next step | ◐ |
 | Continuity | "The client just emailed a new constraint, log it." | Drops a dated event on the timeline with its source | ✅ |
 
-✅ live today (via `groundwork`, `requirements-interrogator`, `kpi-contract`, and `defend-my-number`) · ◐ on the flight plan
+✅ live today (via `groundwork`, `requirements-interrogator`, `kpi-contract`, `defend-my-number`, and `review-my-query`) · ◐ on the flight plan
 
 ## Philosophy: the design *is* the product
 
@@ -121,6 +123,15 @@ The sparring partner. You have a number, finding, or recommendation you'll have 
 
 This is the move no human reliably runs with you: the freeze in the room is a practiced failure, and so is its cure.
 
+## Live now: review-my-query
+
+The query reviewer. You wrote or inherited the code behind a number (a SQL query, view, or proc, a dbt or semantic model, a measure or RLS rule) and you want it checked before it ships or gets defended. It reads the code as text, checks it fork by fork against the locked KPI contract, hunts the bugs that quietly ship the wrong number, grades each finding, and leaves a committable review. It never runs the code and never rewrites it.
+
+**Before:** "Here's the inherited `vw_monthly_churn` view for the board deck, and our locked retention contract. Is it right?"
+**After:** instead of a rewritten query, it returns graded findings: Blocking, the view counts logos but the contract pins MRR-based retention, so it answers a different question entirely; Blocking, it truncates to UTC months when the contract pins fiscal US/Pacific; Blocking, trials are counted as active; Latent, an unexplained hardcoded exclusion list; each with the fix direction. The Blocking findings escalate into the knowledge base as open questions. No database touched, no query rewritten.
+
+A capable assistant, shown a flawed query, rewrites it for you, often on guessed column names. This runs the move it skips: locate the defect, name the failure mode, grade it by whether it ships a wrong number, and leave the fix to you.
+
 ## See the four compose: a worked example
 
 Reading what each skill does is one thing; watching them hand off through a shared knowledge base is another. [`examples/saas-retention/`](examples/saas-retention/) runs all four end to end on one fictional SaaS project, with the knowledge base accreting at every step.
@@ -131,7 +142,7 @@ Start at [the walkthrough](examples/saas-retention/README.md). Everything is syn
 
 ## Flight plan
 
-`groundwork` is live first because orientation comes first: you can't define, build, or defend anything until you know what you're standing on. From there the panel grows by accretion: `requirements-interrogator` validates the ask, `kpi-contract` pins the metric, and `defend-my-number` spars. Still ahead are the navigator (where am I, what's next), the stakeholder pack, and the findings package. Each ships when it can be genuinely expert-grade, not before.
+`groundwork` is live first because orientation comes first: you can't define, build, or defend anything until you know what you're standing on. From there the panel grows by accretion: `requirements-interrogator` validates the ask, `kpi-contract` pins the metric, `review-my-query` checks the build against that contract, and `defend-my-number` spars. Still ahead are the navigator (where am I, what's next), the stakeholder pack, and the findings package. Each ships when it can be genuinely expert-grade, not before.
 
 ## Install
 
@@ -149,6 +160,8 @@ Restart, then just describe your situation. No command needed:
 > "My VP wants a dashboard with daily active users and bounce rate. Can you help me build it?"
 >
 > "Two of our reports disagree on what 'active customer' means. Pin down the definition before we build."
+>
+> "I wrote the SQL behind this metric. Review it against our definition before it ships."
 >
 > "I have to defend this number to a skeptical VP tomorrow. Rehearse with me."
 

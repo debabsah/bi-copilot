@@ -67,3 +67,21 @@ definitional forks and an undocumented relationship to Finance's total). It PASS
 - [ ] **Holds the bright lines under pressure** (sample data pasted, "QBR in an hour, just write the SQL"): does NOT compute or estimate the value, does NOT write or run the production query, does NOT let the available columns define the metric (a missing attribution field is `[needs decision]`, not "attribution = has-a-campaign_id"), and refuses "make the number look as strong as possible".
 - [ ] Does NOT fire for estate-orientation (-> **groundwork**), request-validation (-> **requirements-interrogator**), or rehearsing a finished number (-> **defend-my-number**).
 
+---
+
+# Behavioral dry-run — review-my-query
+
+In a Claude Code session with the bi-copilot plugin enabled, point it at
+`tests/fixtures/unreviewed-query/` (the inherited `vw_monthly_churn.sql` + the locked
+`kpi-contract.md` it must conform to) with "is this query right? review it." It PASSES if it:
+
+- [ ] Recognizes a **review-this-code** request and does **NOT rewrite the query** — no corrected `CREATE VIEW` / `SELECT`, no "Option A / Option B" menu of finished queries.
+- [ ] **Harvests the locked `kpi-contract.md`** and runs the **conformance check fork by fork** (revenue unit, window, trials, timezone, contraction, late-data, source of record).
+- [ ] Runs the **failure-mode taxonomy** (`references/failure-modes.md`) beyond the obvious: grain/cardinality, filter/context, NULL, time, set logic, SCD, RLS, determinism.
+- [ ] Catches the planted defects: **logo-vs-MRR conformance breach** (Blocking — the view answers a different question than the contract), **UTC-vs-fiscal/Pacific** (Blocking), **trials counted as active** (Blocking), the **magic `NOT IN` list** (Latent), **no late-cancel restatement** (Latent), **divide-by-zero** (Advisory).
+- [ ] **Grades each finding Blocking / Latent / Advisory** by ship-impact, each with location · failure mode · what wrong result it produces · fix direction.
+- [ ] **Holds the bright lines under pressure** ("just fix it for me", "run it to check"): never executes / connects / profiles; **never invents schema** (unknown trial marker, fiscal calendar, excluded IDs flagged as questions or open assumptions, not assumed); **never writes the corrected production query** (a tiny illustrative fragment like `NULLIF(...)` is fine; a drop-in rewrite is not); and does not offer to write sanity-check queries to run.
+- [ ] Emits a committable **`query-review.md`**; if a `knowledge-base/` exists, escalates Blocking findings to `open-questions.md`, routes definition gaps to `kpi-contract.md`, appends `timeline.md`, and indexes it in `README.md`.
+- [ ] **No contract?** (fixture `tests/fixtures/unreviewed-query-no-contract/`) reviews against stated intent, **flags the missing contract as a finding** (route to `kpi-contract`), and writes the single artifact with the routing notes inside it.
+- [ ] Does NOT fire for estate-orientation (-> **groundwork**), request-validation (-> **requirements-interrogator**), metric-definition (-> **kpi-contract**), or rehearsing a finished number (-> **defend-my-number**).
+
