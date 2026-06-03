@@ -28,11 +28,11 @@ It's a copilot, so picture the board. You fly; it runs everything else.
 | **Checklists** | Completeness models per project type plus a four-way gap engine, so rigor doesn't depend on your memory | ✅ **live** |
 | **Logbook** | A living knowledge base: current state, an append-only timeline, event capture, "catch me up," decision provenance | ✅ **live** |
 | **Flight plan** | The whole delivery lifecycle, its milestones, and the discovery↔definition↔analysis↔review↔evolution loops, with a navigator that calls your next move | ◐ planned |
-| **Comms** | Stakeholder and meeting preparedness: prep packs, the questions to ask, the KPI contract, the findings brief | ◐ planned¹ |
+| **Comms** | Stakeholder and requirements work: interrogate a request down to the real decision before you build, the questions to ask, the KPI contract, the findings brief | ◑ partial³ |
 | **Sparring** | Defend-the-number rehearsal, Socratic challenge, red-teaming the analysis before your reviewer or stakeholder does | ◐ planned² |
 | **Instruments** | Data quality and lineage: *is this right, and will it hold?* | ◐ planned¹ |
 
-¹ `groundwork` already drafts several of these as knowledge-base artifacts (KPI contract, lineage map, findings, meeting briefing); the dedicated, interactive modules are next. &nbsp; ² the Socratic challenge is live inside `groundwork` today.
+¹ `groundwork` already drafts several of these as knowledge-base artifacts (KPI contract, lineage map, findings, meeting briefing); the dedicated, interactive modules are next. &nbsp; ² the Socratic challenge is live inside `groundwork` today. &nbsp; ³ `requirements-interrogator` is live: it drives a solution-shaped request down to the real decision and the gap between what was asked for and what that decision needs; the meeting-prep pack and findings brief are planned.
 
 ## What you can ask it
 
@@ -43,7 +43,7 @@ You don't run commands. You describe what you're dealing with, and the right cap
 | Understand | "I inherited this pipeline and don't get it, where do I start?" | Classifies the estate, reads it (code only), surfaces the unknowns, starts the knowledge base | ✅ |
 | Understand | "What don't I know about this system that I should?" | Runs the four-way gap engine and lists the highest-value unknowns | ✅ |
 | Continuity | "Catch me up, I've been off this for three weeks." | Reads the timeline and state, then briefs you: where you are, what changed, what's next | ✅ |
-| Define | "The ticket just says 'improve sales reporting,' what do they actually need?" | Separates the stated ask from the real decision it has to support | ◐ |
+| Define | "The ticket just says 'improve sales reporting,' what do they actually need?" | Interrogates the request down to the real decision, then surfaces the gap between what was asked for and what that decision needs | ✅ |
 | Define | "Pin down what 'active customer' actually means before we build." | Drafts a KPI contract: definition, grain, formula, source, caveats, owner | ◐ |
 | Design | "What's the cleanest, most maintainable way to model this?" | Talks through the trade-offs and the failure modes to avoid | ◐ |
 | Build | "We decided to exclude refunds, capture that and why." | Logs the decision with its rationale and provenance, so it's never re-litigated | ✅ |
@@ -54,7 +54,7 @@ You don't run commands. You describe what you're dealing with, and the right cap
 | Operate | "What's the right next move on this project?" | Infers where you are from the knowledge base and recommends the next step | ◐ |
 | Continuity | "The client just emailed a new constraint, log it." | Drops a dated event on the timeline with its source | ✅ |
 
-✅ live today (via `groundwork`) · ◐ on the flight plan
+✅ live today (via `groundwork` and `requirements-interrogator`) · ◐ on the flight plan
 
 ## Philosophy: the design *is* the product
 
@@ -94,6 +94,15 @@ flowchart TD
 
 Classify the project → ingest what you point it at (read-only) → run the four-mechanism gap engine → interview you for the highest-value gaps → write the knowledge base and append the timeline → report the picture, the open questions, and the single best next move.
 
+## Live now: requirements-interrogator
+
+The second skill to go live. When a stakeholder hands you a solution (named KPIs, a dashboard, a report) instead of a decision, it interrogates the request down to the decision that solution is meant to serve, then shows the gap between what was asked for and what the decision actually needs.
+
+**Before:** "Build me a dashboard with daily active users, session length, and bounce rate."
+**After:** the interrogation surfaces the real decision (keep investing in Feature A, or not), re-derives the metric that actually answers it (a Feature-A retention cohort), and returns a one-page brief with the requested-vs-derived delta and a verdict: proceed, reframe, or wrong-problem. No database touched. If the stakeholder is out, it hands you the exact questions to go ask instead of inventing their answers.
+
+A capable assistant already defines metrics carefully and checks feasibility, then builds the thing it was handed. This runs the move it skips: validate the problem first, so you build the right thing once.
+
 ## Flight plan
 
 `groundwork` is live first because orientation comes first: you can't define, build, or defend anything until you know what you're standing on. From there the rest of the panel follows by accretion: the navigator (where am I, what's next), the stakeholder and KPI-contract modules, the sparring and defend-the-number module, the findings package. Each ships when it can be genuinely expert-grade, not before.
@@ -110,14 +119,16 @@ In Claude Code:
 Restart, then just describe your situation. No command needed:
 
 > "I just inherited this reporting pipeline and I don't understand it. Where do I start?"
+>
+> "My VP wants a dashboard with daily active users and bounce rate. Can you help me build it?"
 
-`groundwork` takes it from there.
+The right skill takes it from there.
 
 ## FAQ
 
 **I already know what I'm doing, so why would I use this?** Because expertise isn't your bottleneck; bandwidth and continuity are. You *could* run a completeness check on every project, journal every decision, keep a living knowledge base, and prep every meeting. But solo, under constant interruption, you won't, every time. bi-copilot runs those disciplines tirelessly so your judgment goes where only it can. And on the hard calls it spars, so you've already heard the toughest question before you're in the room.
 
-**Why is so much still planned, with one module live?** On purpose. A module ships when it can be genuinely expert-grade at its job, not before. The architecture is built for the full panel: better one instrument you trust than seven you don't.
+**Why is so much still planned?** On purpose. A skill ships when it can be genuinely expert-grade at its job, not before. The architecture is built for the full panel: better a couple of instruments you trust than seven you don't.
 
 **Does it touch my data?** No. It reads code, definitions, docs, and static extracts you hand it, and refuses to connect to or query a live system. When data profiling is needed at scale, it hands off rather than reaching for the database.
 

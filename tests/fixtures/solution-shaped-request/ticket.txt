@@ -1,0 +1,14 @@
+From: Dana Okafor (VP Marketing)
+To: Analytics team
+Subject: Need a campaign dashboard
+
+Hey — can you build me a dashboard with these, broken down by campaign?
+
+  - weekly new signups
+  - email open rate
+  - number of social media followers
+
+I want to look at it in our Monday marketing sync. Would love it by next week.
+
+Thanks!
+Dana

@@ -1,7 +1,7 @@
 {
   "name": "bi-copilot",
-  "version": "0.1.0",
-  "description": "An expert BI guide for technical practitioners. v1 ships 'groundwork', a project-orientation guide that reads an unfamiliar BI/data estate, interviews you, surfaces what you don't know, and builds a living, agent-readable knowledge base.",
+  "version": "0.2.0",
+  "description": "An expert copilot for analytics delivery, built as a growing bench of skills. Live: 'groundwork' (orient on an unfamiliar or inherited estate and build a living knowledge base) and 'requirements-interrogator' (interrogate a solution-shaped request down to the real decision before you build).",
   "author": { "name": "debabsah" },
   "license": "MIT"
 }

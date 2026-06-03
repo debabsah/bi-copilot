@@ -12,6 +12,8 @@ EXPECTED = [
     "skills/groundwork/references/completeness-models.md",
     "skills/groundwork/references/kb-core-templates.md",
     "skills/groundwork/references/kb-catalog.md",
+    "skills/requirements-interrogator/SKILL.md",
+    "skills/requirements-interrogator/references/frameworks.md",
 ]
 fails = []
 
@@ -41,8 +43,15 @@ def check_skill(rel):
     n = len(body.strip().splitlines())
     if n > 200: fail(f"{rel}: body {n} lines > 200 (move depth to references/)")
 
-for rel in ("skills/groundwork/SKILL.md",):
-    check_skill(rel)
+# Validate every skill under skills/*/SKILL.md (accretion: new skills are auto-covered)
+skills_dir = os.path.join(ROOT, "skills")
+if os.path.isdir(skills_dir):
+    for name in sorted(os.listdir(skills_dir)):
+        skill_md = os.path.join("skills", name, "SKILL.md")
+        if os.path.isfile(os.path.join(ROOT, skill_md)):
+            check_skill(skill_md)
+        elif os.path.isdir(os.path.join(skills_dir, name)):
+            fail(f"skills/{name}/ has no SKILL.md")
 
 if fails:
     print("VALIDATION FAILED:")
