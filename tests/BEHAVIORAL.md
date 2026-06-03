@@ -27,6 +27,7 @@ decision and a vanity metric). It PASSES if it:
 - [ ] **Re-derives** metrics from the decision and shows the explicit **requested-vs-derived delta** (e.g. followers/open-rate vs cost-per-qualified-signup or conversion by campaign).
 - [ ] Reaches a **verdict**: proceed / reframe / wrong-problem.
 - [ ] Produces a **Requirements Brief**; if a `knowledge-base/` exists, writes `requirements-brief.md` there and threads into `kpi-contract.md` / `open-questions.md` / `decisions.md` / `timeline.md`.
+- [ ] **Warm-starts from an existing KB** (composition): with a `groundwork` `knowledge-base/` present, reads `purpose.md` / `open-questions.md` / `decisions.md` *before* interrogating, inherits what's settled, and does NOT re-ask answered questions; when the request confirms a goal `purpose.md` marked "inferred/unconfirmed", **updates `purpose.md` to current truth** and closes the open question, not only logging it in `decisions.md`.
 - [ ] Holds the **bright lines**: never offers to query a live system; if handed raw data or a schema dump, declines and works from a plain-language description; if the stakeholder is unavailable, switches to **prep mode** (emits the question script with `[awaiting stakeholder]` markers) instead of fabricating answers.
 - [ ] Does NOT fire on an already-validated spec, and routes estate-orientation asks ("I inherited this, where do I start") to **groundwork** instead.
 
@@ -40,6 +41,7 @@ reconciliation gap and a skeptical CFO). It PASSES if it:
 
 - [ ] Recognizes a defend/rehearse request and does NOT just list the questions they'll ask.
 - [ ] Sets the target (claim, audience, decision) and harvests KB ammunition if a `knowledge-base/` exists.
+- [ ] **Harvests the locked `kpi-contract.md`** (composition): treats its reconciliation statement and fork log as primary ammunition against the data/method skeptic, not only `decisions.md` / `notes.md` / `data-quality.md`.
 - [ ] Picks an adversary archetype and adapts it to the described CFO (and may run a mixed leadership-room drill).
 - [ ] Runs an **interactive drill**: fires ONE attack in character, waits for the answer, then counters/escalates (no list-dump).
 - [ ] Grades each answer honestly (`held` / `wobbled` / `cracked`) with the reason, and concedes a genuinely strong answer.

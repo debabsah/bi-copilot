@@ -24,6 +24,7 @@ A capable assistant *already* defines ambiguous metrics, checks feasibility, rec
 Violating the letter is violating the spirit: if you catch yourself scoping the dashboard "just to save time" before the decision is pinned, stop.
 
 ## The discipline (rigid order; one question at a time live, or scripted for prep)
+**Warm start first.** If a `knowledge-base/` exists (from `groundwork`), read `purpose.md`, `open-questions.md`, `decisions.md`, and any prior `requirements-brief.md` / `kpi-contract.md` *before* interrogating — inherit what's settled, treat its open questions as your starting gaps, and never re-ask what's already answered. Then:
 1. **Restate** the request as the *solution* it is ("You're asking for a dashboard of A, B, C").
 2. **Decision-backwards (the gate):** "What decision or action changes based on this? Who acts on it, and how often?" No answerable decision → flag as vanity metric and stop here.
 3. **XY split:** separate the asked-for solution (Y) from the underlying goal (X). Name both out loud.
@@ -46,6 +47,7 @@ Capture the result as a committable **Requirements Brief** (template in `referen
 - `knowledge-base/requirements-brief.md` — the brief itself, phase-tagged `[Define]`.
 - On a **proceed/reframe** verdict, seed/append `kpi-contract.md` with the metrics to lock.
 - Open stakeholder questions → `open-questions.md`; the reframe call + rationale → `decisions.md`; append the interrogation as a dated event in `timeline.md`.
+- **Update stale STATE, don't just append.** If the interrogation resolves or changes something an existing state file already asserts — a goal `purpose.md` marked "inferred/unconfirmed", a now-answered item in `open-questions.md` — edit that file to current truth (and close the question), not only log it in `decisions.md`. STATE is current truth (`groundwork`'s convention); a KB that contradicts itself is worse than one that stayed silent.
 
 ## Register (light)
 Experienced user: be terse, skip the rationale, batch the ladder into a tight confirm-the-defaults menu. New user: explain why each step matters and ask one question at a time. Either way, never re-ask what's already settled.
