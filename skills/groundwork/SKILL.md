@@ -6,7 +6,7 @@ allowed-tools: Read, Write
 
 # groundwork
 
-The senior who walks you onto an unfamiliar BI/data project: reads what exists, interviews you for the rest, surfaces what you don't know, and captures it into a living knowledge base you and other agents can resume from.
+The expert hand who walks you onto an unfamiliar BI/data project: reads what exists, interviews you for the rest, surfaces what you don't know, and captures it into a living knowledge base you and other agents can resume from.
 
 ## When to use
 Fire at the START of a new or inherited project, or when you've lost the thread. Inputs: an inherited data/analytics estate (pipelines, stored procedures, scheduled jobs, reports — any stack), a vague ticket, partial docs, or just a conversation. Triggers: "where do I start", "took over", "inherited", "catch me up", "I don't understand this".
