@@ -1,6 +1,6 @@
 ---
 name: groundwork
-description: Get oriented on an unfamiliar BI/data project and build a living knowledge base. Use at the START of a new or inherited project, or when you've lost the thread — point it at what you have (an inherited SSIS/stored-proc/SQL-Agent/DB2i estate, a vague ticket, partial docs, or nothing) and it reads what it can, interviews you for the rest, and surfaces what you don't know yet. Detects: "new project", "inherited", "took over", "where do I start", "don't understand this estate", "catch me up". Reads object definitions and static extracts you provide; never touches live systems and stops before running the analysis itself. Once the project is understood and a task is defined, proceed with the work directly instead.
+description: Get oriented on an unfamiliar BI/data project and build a living knowledge base. Use at the START of a new or inherited project, or when you've lost the thread — point it at what you have (an inherited data/analytics estate — pipelines, stored procedures, scheduled jobs, reports, any stack — a vague ticket, partial docs, or nothing) and it reads what it can, interviews you for the rest, and surfaces what you don't know yet. Detects: "new project", "inherited", "took over", "where do I start", "don't understand this estate", "catch me up". Reads object definitions and static extracts you provide; never touches live systems and stops before running the analysis itself. Once the project is understood and a task is defined, proceed with the work directly instead.
 allowed-tools: Read, Write
 ---
 
@@ -9,11 +9,11 @@ allowed-tools: Read, Write
 The senior who walks you onto an unfamiliar BI/data project: reads what exists, interviews you for the rest, surfaces what you don't know, and captures it into a living knowledge base you and other agents can resume from.
 
 ## When to use
-Fire at the START of a new or inherited project, or when you've lost the thread. Inputs: an inherited SSIS/proc/SQL-Agent/DB2i estate, a vague ticket, partial docs, or just a conversation. Triggers: "where do I start", "took over", "inherited", "catch me up", "I don't understand this".
+Fire at the START of a new or inherited project, or when you've lost the thread. Inputs: an inherited data/analytics estate (pipelines, stored procedures, scheduled jobs, reports — any stack), a vague ticket, partial docs, or just a conversation. Triggers: "where do I start", "took over", "inherited", "catch me up", "I don't understand this".
 Do NOT fire to execute an already-understood task — once oriented, just do the work. This skill orients; it does not build pipelines or run analysis.
 
 ## Bright line (non-negotiable)
-Orient by **reading what already exists** — proc SQL, SSIS `.dtsx`, job definitions, docs, and any **static extract or file the user hands you**. *Profiling* a provided artifact to understand it — grain, keys, coverage, value encodings, "is this field even populated?" — is expected; that's how you orient on a file-based estate. Profile by reading the artifact or a representative sample; large-scale profiling (counts / null-rates across millions of rows) is a data-analysis task — hand it off, don't attempt it on `Read` alone.
+Orient by **reading what already exists** — query/transformation code, pipeline and job definitions, docs, and any **static extract or file the user hands you**. *Profiling* a provided artifact to understand it — grain, keys, coverage, value encodings, "is this field even populated?" — is expected; that's how you orient on a file-based estate. Profile by reading the artifact or a representative sample; large-scale profiling (counts / null-rates across millions of rows) is a data-analysis task — hand it off, don't attempt it on `Read` alone.
 
 Two hard limits:
 - **Never touch live systems** — don't connect to, query, or pull from a live database or production feed. Work only from artifacts already given to you.

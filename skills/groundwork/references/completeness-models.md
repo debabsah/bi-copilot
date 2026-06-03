@@ -7,8 +7,8 @@ The guide's *thinking* layer: what a full understanding of each project type req
 
 ## Type A — Inherited data estate
 - **Purpose** — business process served; who/what consumes outputs.
-- **Data flow** — sources → transformations/business logic → targets (procs / SSIS data flows).
-- **Lineage & dependencies** — object DAG (SQL Agent job → SSIS package → proc → table), upstream/downstream.
+- **Data flow** — sources → transformations/business logic → targets (queries, procedures, pipeline data flows).
+- **Lineage & dependencies** — object DAG (scheduled job → pipeline/package → query/procedure → table), upstream/downstream.
 - **Orchestration** — schedule, run order, triggers.
 - **Reliability** — failure handling, restartability, data freshness/latency, alerting.
 - **Structure** — grain & keys of the important tables.
@@ -30,7 +30,7 @@ The guide's *thinking* layer: what a full understanding of each project type req
 - **Parity & validation** — how correctness is proven (reconciliation strategy).
 - **Cutover** — sequencing, downtime, rollback.
 - **Affected dependencies & consumers.**
-- **Risks/gotchas** — behavior/semantic differences (e.g., DB2i vs SQL Server).
+- **Risks/gotchas** — behavior/semantic differences between source and target platforms.
 
 ## Type D — New pipeline / integration
 - **Source system** — what it is, owner, access, grain, keys, volume, change-capture.

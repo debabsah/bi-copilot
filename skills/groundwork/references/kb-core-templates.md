@@ -23,8 +23,8 @@ Start here. This is the living understanding of the project, for me and for AI a
 ## knowledge-base/landscape.md
 ```markdown
 # Object & Data Landscape  [Understand]
-- Systems in play (SQL Server / DB2i / files / other):
-- Key objects (proc / SSIS package / SQL Agent job / table) — what each does:
+- Systems in play (databases / warehouses / files / pipelines / other):
+- Key objects (query/procedure / pipeline / scheduled job / report / table) — what each does:
 - How they connect (lineage / dependencies):
 - Grain & keys of important tables:
 ```
