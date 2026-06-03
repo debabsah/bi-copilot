@@ -84,12 +84,17 @@ The first instrument on the board: pre-flight. Point it at an unfamiliar estate:
 
 ```mermaid
 flowchart TD
-    IN["Inherited estate,<br/>vague ticket,<br/>partial docs,<br/>or a conversation"] --> GW["groundwork"]
-    GW -->|reads code and text only| GAP{"Gap engine<br/>completeness<br/>loose threads<br/>Socratic<br/>cross-check"}
+    E["Inherited estate<br/>pipelines, procs,<br/>jobs, reports<br/>any stack"] --> GW
+    TK["A vague ticket"] --> GW
+    DO["Partial docs"] --> GW
+    CV["Just a conversation,<br/>or nothing yet"] --> GW
+    GW["groundwork<br/>reads what exists,<br/>never live systems"] --> CL["Classify the project<br/>inherited estate /<br/>reporting request /<br/>migration /<br/>new pipeline"]
+    CL --> GAP{"Gap engine<br/>completeness<br/>loose threads<br/>Socratic<br/>cross-check"}
     GAP --> Q["Interview the<br/>highest-value gaps"]
     Q --> KB[("knowledge-base/")]
-    KB --> S["STATE<br/>purpose, landscape,<br/>open questions,<br/>decisions"]
-    KB --> T["CONTINUITY<br/>append-only timeline<br/>catch me up"]
+    KB --> ST["STATE<br/>purpose, landscape,<br/>open questions,<br/>decisions"]
+    KB --> CO["CONTINUITY<br/>append-only timeline,<br/>catch me up"]
+    KB --> RE["Report<br/>the picture,<br/>open questions,<br/>the next move"]
 ```
 
 Classify the project → ingest what you point it at (read-only) → run the four-mechanism gap engine → interview you for the highest-value gaps → write the knowledge base and append the timeline → report the picture, the open questions, and the single best next move.
