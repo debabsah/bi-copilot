@@ -1,6 +1,6 @@
 ---
 name: groundwork
-description: Get oriented on an unfamiliar BI/data project and build a living knowledge base. Use at the START of a new or inherited project, or when you've lost the thread — point it at what you have (an inherited SSIS/stored-proc/SQL-Agent/DB2i estate, a vague ticket, partial docs, or nothing) and it reads what it can, interviews you for the rest, and surfaces what you don't know yet. Detects: "new project", "inherited", "took over", "where do I start", "don't understand this estate", "catch me up". Reads code/text only — never connects to or queries live data. Once the project is understood and a task is defined, proceed with the work directly instead.
+description: Get oriented on an unfamiliar BI/data project and build a living knowledge base. Use at the START of a new or inherited project, or when you've lost the thread — point it at what you have (an inherited SSIS/stored-proc/SQL-Agent/DB2i estate, a vague ticket, partial docs, or nothing) and it reads what it can, interviews you for the rest, and surfaces what you don't know yet. Detects: "new project", "inherited", "took over", "where do I start", "don't understand this estate", "catch me up". Reads object definitions and static extracts you provide; never touches live systems and stops before running the analysis itself. Once the project is understood and a task is defined, proceed with the work directly instead.
 allowed-tools: Read, Write
 ---
 
@@ -13,15 +13,22 @@ Fire at the START of a new or inherited project, or when you've lost the thread.
 Do NOT fire to execute an already-understood task — once oriented, just do the work. This skill orients; it does not build pipelines or run analysis.
 
 ## Bright line (non-negotiable)
-Read **code, objects, and text only** (proc SQL, SSIS `.dtsx`, job definitions, docs). **Never connect to, query, or ingest live data.** If the user pastes data or query results, refuse and ask for a plain-language description or a sanitized object definition instead.
+Orient by **reading what already exists** — proc SQL, SSIS `.dtsx`, job definitions, docs, and any **static extract or file the user hands you**. *Profiling* a provided artifact to understand it — grain, keys, coverage, value encodings, "is this field even populated?" — is expected; that's how you orient on a file-based estate. Profile by reading the artifact or a representative sample; large-scale profiling (counts / null-rates across millions of rows) is a data-analysis task — hand it off, don't attempt it on `Read` alone.
+
+Two hard limits:
+- **Never touch live systems** — don't connect to, query, or pull from a live database or production feed. Work only from artifacts already given to you.
+- **Don't compute the deliverable** — profiling structure is not producing the answer. The moment you're calculating the actual metric or building the pipeline, orientation is over: stop and hand off to the real task.
+
+Violating the letter is violating the spirit: if you catch yourself running a live extract, or computing the KPI "just to check," stop.
 
 ## The loop (point-and-interrogate)
-1. **Classify** the project type — inherited estate / reporting request / migration / new pipeline. If unclear, ask. Load its checklist from `references/completeness-models.md`.
-2. **Ingest** what the user points you at; read it as text. Note what each object does and how they connect.
-3. **Run the gap engine** (below) to find what's unknown.
-4. **Interview** the user one question at a time for the highest-value gaps; adapt follow-ups; respect the bright line.
-5. **Write/update** the knowledge base (state) and **append** to the timeline (history) — see `references/kb-core-templates.md`.
-6. **Report**: the current picture + the top open questions + the single recommended next move.
+1. **Warm start** — before interviewing, harvest what's already known (this conversation, prior decisions, existing docs/KB) and pre-fill the KB + completeness checklist from it. Interview only the still-empty slots; never re-ask what's already settled.
+2. **Classify** the project type — inherited estate / reporting request / migration / new pipeline. If unclear, ask. Load its checklist from `references/completeness-models.md`.
+3. **Ingest** what the user points you at — object definitions and any static extract — reading and profiling it (see Bright line). Note what each object does and how they connect.
+4. **Run the gap engine** (below) to find what's unknown.
+5. **Interview** for the highest-value gaps — one at a time for newcomers, or batched into a short multiple-choice menu for experienced users (see Register); adapt follow-ups; respect the bright line.
+6. **Write/update** the knowledge base (state) and **append** to the timeline (history) — see `references/kb-core-templates.md`.
+7. **Report**: the current picture + the top open questions + the single recommended next move.
 
 ## Surfacing what you don't know (the gap engine — use all four)
 - **Completeness model:** compare what's known against the project-type checklist; flag empty slots.
@@ -31,25 +38,27 @@ Read **code, objects, and text only** (proc SQL, SSIS `.dtsx`, job definitions, 
 Comprehensive thinking, lean output: check everything; record only what matters.
 
 ## The knowledge base (state + continuity)
-Create/maintain `knowledge-base/` in the project repo (templates: `references/kb-core-templates.md`; optional artifacts: `references/kb-catalog.md`).
+Create/maintain `knowledge-base/` in the project directory (templates: `references/kb-core-templates.md`; optional artifacts: `references/kb-catalog.md`). If there's no git repo yet, still create the folder; if the project sits inside a larger unrelated repo, keep everything under the project's own subtree and don't assume you can commit it.
 - **Always-on core:** `README.md` (index), `purpose.md`, `landscape.md`, `open-questions.md`, `decisions.md`, `notes.md`, `timeline.md`, plus `AGENTS.md` at the project root.
 - **State** = current truth (update/overwrite). Tag each entry with the phase it satisfies (`[Understand]`, `[Define]`, …) so progress is legible.
 - **Continuity** = `timeline.md`, append-only. At the END of every session, append a dated entry (happened · decided · next · blocked). When the user reports an external event (email/meeting/doc), append it with date + source. Link state entries back to the timeline event that produced them (provenance).
 - **Resume:** when the user returns or says "catch me up", read `timeline.md` + the core, and brief them: where they are, what's happened since, what's next, what's waiting on whom.
 - **Adaptive catalog:** propose only the optional artifacts the project type needs; never instantiate the whole catalog. An irrelevant section simply doesn't exist.
+- **Right-size it:** on a small or single-session project the core files may start as brief stubs — even a line or two each — and grow as understanding does. Don't pad an empty section; an unknown one just says "(nothing yet)".
 
 ## Register (light)
-If the user is new to this kind of work, explain why each question/step matters. If they're experienced, be terse and just hunt gaps.
+If the user is new to this kind of work, explain why each question/step matters and ask one question at a time. If they're experienced, be terse, skip the rationale, and batch related gaps into a single multiple-choice menu instead of a slow serial interview.
 
 ## Red flags — STOP if you think these
 | Thought | Reality |
 |---|---|
 | "I'll just start building." | You don't understand it yet — orient first or you'll build the wrong thing. |
-| "Let me peek at the actual data to check." | Bright line: code/text only. Ask for a description, not a data pull. |
+| "I'll query the live database to check." | Bright line: never touch live systems. Profile only the static artifacts you were given. |
+| "I'll compute the actual metric to see." | That's the deliverable, not orientation — profile structure/coverage, then stop and hand off. |
 | "I'll write the KB at the end." | Capture as you go and journal each session, or the thread is lost. |
 | "I understand it well enough." | Run the completeness model anyway — the gap you can't see is the whole point. |
 
 ## References (load on demand)
-- `references/completeness-models.md` — load the matching project-type checklist at step 1.
+- `references/completeness-models.md` — load the matching project-type checklist when you classify (loop step 2).
 - `references/kb-core-templates.md` — when creating/updating the always-on core.
 - `references/kb-catalog.md` — when proposing optional artifacts.
