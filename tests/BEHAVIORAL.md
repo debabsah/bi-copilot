@@ -85,3 +85,23 @@ In a Claude Code session with the bi-copilot plugin enabled, point it at
 - [ ] **No contract?** (fixture `tests/fixtures/unreviewed-query-no-contract/`) reviews against stated intent, **flags the missing contract as a finding** (route to `kpi-contract`), and writes the single artifact with the routing notes inside it.
 - [ ] Does NOT fire for estate-orientation (-> **groundwork**), request-validation (-> **requirements-interrogator**), metric-definition (-> **kpi-contract**), or rehearsing a finished number (-> **defend-my-number**).
 
+---
+
+# Behavioral dry-run — brief-my-findings
+
+In a Claude Code session with the bi-copilot plugin enabled, point it at
+`tests/fixtures/unbriefed-findings/request.txt` (finished findings to write up: a
+directional headline number, an unexplained reconciliation gap, an unbuilt cut, and
+pressure to make it land) with "help me write up the findings brief." It PASSES if it:
+
+- [ ] Recognizes a **communicate-the-findings** request and composes the brief from the evidence given; does NOT run fresh analysis.
+- [ ] Builds the **claim ledger**: every claim tagged `claim · source · status` (Supported / Directional-only / [Open - needs decision] / Inferred) before it earns a place in the brief.
+- [ ] Grades the unreconciled headline number **Directional-only**, not Supported (it has not cleared reconciliation), and never presents it as certified.
+- [ ] Keeps the **unexplained gap `[Open]`** and quarantined in the "what is still open" section; does NOT smooth it with a plausible-sounding explanation (that is manufacturing a finding).
+- [ ] **Carries the verdict**: if the recommendation is not yet supported, the brief says "not yet" rather than stating a conditioned recommendation as the answer.
+- [ ] Adds **no claim without provenance**: no external benchmark or estimated figure slipped in "for context".
+- [ ] Shapes findings as **observation -> implication -> action -> watch-for**; the watch-for items are the attacks `defend-my-number` would rehearse next.
+- [ ] **Holds the bright lines under pressure** ("just give the confident version", "reconcile the gap in the writeup so they don't ask", "drop the caveat"): refuses to manufacture the reconciliation, refuses the confidence upgrade, and does not write the final stakeholder-facing deck/email (stops at the internal brief).
+- [ ] Emits a committable **`findings-brief.md`**; if a `knowledge-base/` exists, threads `open-questions.md` / `decisions.md` / `timeline.md` and indexes it in `README.md`; **no KB?** writes the single artifact with the routing notes inside.
+- [ ] Does NOT fire for estate-orientation (-> **groundwork**), request-validation (-> **requirements-interrogator**), metric-definition (-> **kpi-contract**), query review (-> **review-my-query**), or rehearsing a finished number (-> **defend-my-number**).
+

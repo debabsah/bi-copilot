@@ -22,6 +22,9 @@ EXPECTED = [
     "skills/review-my-query/SKILL.md",
     "skills/review-my-query/references/failure-modes.md",
     "skills/review-my-query/references/query-review.md",
+    "skills/brief-my-findings/SKILL.md",
+    "skills/brief-my-findings/references/brief-craft.md",
+    "skills/brief-my-findings/references/findings-brief.md",
 ]
 fails = []
 

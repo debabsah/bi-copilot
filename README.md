@@ -33,11 +33,11 @@ It's a copilot, so picture the board. You fly; it runs everything else.
 | **Sparring** | Defend-the-number rehearsal: role-plays the skeptic, drills you under escalating pressure, grades your answers, leaves a Defense Sheet. Socratic challenge and red-teaming too | ✅ **live** |
 | **Instruments** | Data quality and lineage: *is this right, and will it hold?* | ◐ planned¹ |
 
-¹ `groundwork` already drafts several of these as knowledge-base artifacts (lineage map, findings, meeting briefing); the dedicated, interactive modules are next. &nbsp; ³ `requirements-interrogator` and `kpi-contract` are live: the first drives a solution-shaped request down to the real decision and the gap between what was asked for and what that decision needs; the second pins a metric's exact definition (every fork, plus the source-of-record reconciliation) and locks it as a versioned contract. The meeting-prep pack and findings brief are planned.
+¹ `groundwork` already drafts several of these as knowledge-base artifacts (lineage map, findings, meeting briefing); the dedicated, interactive modules are next. &nbsp; ³ `requirements-interrogator` and `kpi-contract` are live: the first drives a solution-shaped request down to the real decision and the gap between what was asked for and what that decision needs; the second pins a metric's exact definition (every fork, plus the source-of-record reconciliation) and locks it as a versioned contract. The findings brief is live too (`brief-my-findings`); the stakeholder meeting-prep pack is planned.
 
 ## What you can ask it
 
-You don't run commands. You describe what you're dealing with, and the right capability picks it up. A sample across the lifecycle (the ✅ rows are live across `groundwork`, `requirements-interrogator`, `kpi-contract`, `defend-my-number`, and `review-my-query`; the ◐ rows show where the panel is headed):
+You don't run commands. You describe what you're dealing with, and the right capability picks it up. A sample across the lifecycle (the ✅ rows are live across `groundwork`, `requirements-interrogator`, `kpi-contract`, `defend-my-number`, `review-my-query`, and `brief-my-findings`; the ◐ rows show where the panel is headed):
 
 | Stage | You say… | What happens | Status |
 |---|---|---|---|
@@ -51,12 +51,12 @@ You don't run commands. You describe what you're dealing with, and the right cap
 | Build | "I wrote the query behind this metric, is it right before it ships?" | Reviews the code against the locked definition, hunts the bugs that ship a wrong number, grades them and points the fix | ✅ |
 | Validate | "Pressure-test this before my lead sees it, what would they attack?" | Role-plays the skeptic and drills you under pressure, grades each answer, leaves a Defense Sheet of the holes to fix | ✅ |
 | Validate | "Is this number defensible? Rehearse defending it with me." | Plays the skeptic: the holes, the challenges, how you'd answer each | ✅ |
-| Deliver | "Turn these findings into a brief I can send." | Structures observation → implication → recommended action → what to watch | ◐ |
+| Deliver | "Turn these findings into a brief I can send." | Composes the brief from your evidence, every claim sourced and graded, observation → implication → action → watch-for, with the open questions kept open and the verdict carried | ✅ |
 | Deliver | "Show me where these numbers actually come from." | Builds a lineage map from the code you've pointed it at | ✅ |
 | Operate | "What's the right next move on this project?" | Infers where you are from the knowledge base and recommends the next step | ◐ |
 | Continuity | "The client just emailed a new constraint, log it." | Drops a dated event on the timeline with its source | ✅ |
 
-✅ live today (via `groundwork`, `requirements-interrogator`, `kpi-contract`, `defend-my-number`, and `review-my-query`) · ◐ on the flight plan
+✅ live today (via `groundwork`, `requirements-interrogator`, `kpi-contract`, `defend-my-number`, `review-my-query`, and `brief-my-findings`) · ◐ on the flight plan
 
 ## Philosophy: the design *is* the product
 
@@ -132,6 +132,15 @@ The query reviewer. You wrote or inherited the code behind a number (a SQL query
 
 A capable assistant, shown a flawed query, rewrites it for you, often on guessed column names. This runs the move it skips: locate the defect, name the failure mode, grade it by whether it ships a wrong number, and leave the fix to you.
 
+## Live now: brief-my-findings
+
+The findings writer. Your analysis is done and you have to communicate it: write up the results, put together the brief, draft the readout for a board, an exec, or a VP. It composes the brief from the evidence on hand, forces every claim to carry its provenance and a status (Supported, Directional-only, open, or inferred), keeps the open questions open, and carries the analysis's verdict instead of smoothing it into a confident story. It writes the brief, not the final deck or email.
+
+**Before:** "NRR came out to 108%, but it isn't reconciled to Finance yet and the early-life cohort cut isn't built. The board meeting is in a few days. Write up the readout."
+**After:** instead of a confident "retention is healthy, invest in growth," it returns a brief that grades the 108% as directional (not yet reconciled), keeps the Finance gap and the missing cohort cut quarantined as open items, and carries the verdict as "not yet": do not present the recommendation until those close. No number computed, no gap explained away, no deck rendered.
+
+A capable assistant writes a clean, confident brief and, under the pull to make it land, smooths: it explains away an open gap, states a not-yet verdict as the answer, slips in a benchmark nobody measured. This runs the move it skips: source every claim, keep the open questions open, and carry the verdict honestly.
+
 ## See the five compose: a worked example
 
 Reading what each skill does is one thing; watching them hand off through a shared knowledge base is another. [`examples/saas-retention/`](examples/saas-retention/) runs all five end to end on one fictional SaaS project, with the knowledge base accreting at every step.
@@ -142,7 +151,7 @@ Start at [the walkthrough](examples/saas-retention/README.md). Everything is syn
 
 ## Flight plan
 
-`groundwork` is live first because orientation comes first: you can't define, build, or defend anything until you know what you're standing on. From there the panel grows by accretion: `requirements-interrogator` validates the ask, `kpi-contract` pins the metric, `review-my-query` checks the build against that contract, and `defend-my-number` spars. Still ahead are the navigator (where am I, what's next), the stakeholder pack, and the findings package. Each ships when it can be genuinely expert-grade, not before.
+`groundwork` is live first because orientation comes first: you can't define, build, or defend anything until you know what you're standing on. From there the panel grows by accretion: `requirements-interrogator` validates the ask, `kpi-contract` pins the metric, `review-my-query` checks the build against that contract, `defend-my-number` spars, and `brief-my-findings` writes up the result for the room. Still ahead are the navigator (where am I, what's next) and the stakeholder meeting-prep pack. Each ships when it can be genuinely expert-grade, not before.
 
 ## Install
 
@@ -164,6 +173,8 @@ Restart, then just describe your situation. No command needed:
 > "I wrote the SQL behind this metric. Review it against our definition before it ships."
 >
 > "I have to defend this number to a skeptical VP tomorrow. Rehearse with me."
+>
+> "The analysis is done. Help me write up the findings brief for the board."
 
 The right skill takes it from there.
 
