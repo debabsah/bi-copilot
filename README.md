@@ -121,6 +121,14 @@ The sparring partner. You have a number, finding, or recommendation you'll have 
 
 This is the move no human reliably runs with you: the freeze in the room is a practiced failure, and so is its cure.
 
+## See the four compose: a worked example
+
+Reading what each skill does is one thing; watching them hand off through a shared knowledge base is another. [`examples/saas-retention/`](examples/saas-retention/) runs all four end to end on one fictional SaaS project, with the knowledge base accreting at every step.
+
+Follow one thread. `groundwork` notices a throwaway line in a departed analyst's notes, that the churn view "never lines up" with Finance, and logs it. `requirements-interrogator` reframes the dashboard request to net revenue retention. `kpi-contract` formalizes that same Finance gap as a `[needs decision]`. Then `defend-my-number` gets cracked by exactly that unresolved gap and returns a "not yet" before a plausible-looking 108% reaches the board. One caveat, read on day one, four skills and a full lifecycle later, is what stops a bad number. No single skill carries that; the knowledge base does.
+
+Start at [the walkthrough](examples/saas-retention/README.md). Everything is synthetic: no real data, no number computed.
+
 ## Flight plan
 
 `groundwork` is live first because orientation comes first: you can't define, build, or defend anything until you know what you're standing on. From there the panel grows by accretion: `requirements-interrogator` validates the ask, `kpi-contract` pins the metric, and `defend-my-number` spars. Still ahead are the navigator (where am I, what's next), the stakeholder pack, and the findings package. Each ships when it can be genuinely expert-grade, not before.
