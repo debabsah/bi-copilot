@@ -9,7 +9,7 @@
       "version": "0.1.0",
       "author": { "name": "debabsah" },
       "category": "developer-tools",
-      "tags": ["bi", "data-engineering", "orientation", "knowledge-base", "ssis", "sql"],
+      "tags": ["bi", "analytics", "data-engineering", "etl", "orientation", "knowledge-base"],
       "source": "./"
     }
   ]
