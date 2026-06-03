@@ -32,11 +32,11 @@ It's a copilot, so picture the board. You fly; it runs everything else.
 | **Sparring** | Defend-the-number rehearsal: role-plays the skeptic, drills you under escalating pressure, grades your answers, leaves a Defense Sheet. Socratic challenge and red-teaming too | ✅ **live** |
 | **Instruments** | Data quality and lineage: *is this right, and will it hold?* | ◐ planned¹ |
 
-¹ `groundwork` already drafts several of these as knowledge-base artifacts (KPI contract, lineage map, findings, meeting briefing); the dedicated, interactive modules are next. &nbsp; ³ `requirements-interrogator` is live: it drives a solution-shaped request down to the real decision and the gap between what was asked for and what that decision needs; the meeting-prep pack and findings brief are planned.
+¹ `groundwork` already drafts several of these as knowledge-base artifacts (lineage map, findings, meeting briefing); the dedicated, interactive modules are next. &nbsp; ³ `requirements-interrogator` and `kpi-contract` are live: the first drives a solution-shaped request down to the real decision and the gap between what was asked for and what that decision needs; the second pins a metric's exact definition (every fork, plus the source-of-record reconciliation) and locks it as a versioned contract. The meeting-prep pack and findings brief are planned.
 
 ## What you can ask it
 
-You don't run commands. You describe what you're dealing with, and the right capability picks it up. A sample across the lifecycle (today, every ✅ runs through `groundwork`; the ◐ rows show where the panel is headed):
+You don't run commands. You describe what you're dealing with, and the right capability picks it up. A sample across the lifecycle (the ✅ rows are live across `groundwork`, `requirements-interrogator`, `kpi-contract`, and `defend-my-number`; the ◐ rows show where the panel is headed):
 
 | Stage | You say… | What happens | Status |
 |---|---|---|---|
@@ -44,7 +44,7 @@ You don't run commands. You describe what you're dealing with, and the right cap
 | Understand | "What don't I know about this system that I should?" | Runs the four-way gap engine and lists the highest-value unknowns | ✅ |
 | Continuity | "Catch me up, I've been off this for three weeks." | Reads the timeline and state, then briefs you: where you are, what changed, what's next | ✅ |
 | Define | "The ticket just says 'improve sales reporting,' what do they actually need?" | Interrogates the request down to the real decision, then surfaces the gap between what was asked for and what that decision needs | ✅ |
-| Define | "Pin down what 'active customer' actually means before we build." | Drafts a KPI contract: definition, grain, formula, source, caveats, owner | ◐ |
+| Define | "Pin down what 'active customer' actually means before we build." | Walks every fork the definition hides, pins each with the owner, states the source reconciliation, and locks a versioned KPI contract | ✅ |
 | Design | "What's the cleanest, most maintainable way to model this?" | Talks through the trade-offs and the failure modes to avoid | ◐ |
 | Build | "We decided to exclude refunds, capture that and why." | Logs the decision with its rationale and provenance, so it's never re-litigated | ✅ |
 | Validate | "Pressure-test this before my lead sees it, what would they attack?" | Role-plays the skeptic and drills you under pressure, grades each answer, leaves a Defense Sheet of the holes to fix | ✅ |
@@ -54,7 +54,7 @@ You don't run commands. You describe what you're dealing with, and the right cap
 | Operate | "What's the right next move on this project?" | Infers where you are from the knowledge base and recommends the next step | ◐ |
 | Continuity | "The client just emailed a new constraint, log it." | Drops a dated event on the timeline with its source | ✅ |
 
-✅ live today (via `groundwork`, `requirements-interrogator`, and `defend-my-number`) · ◐ on the flight plan
+✅ live today (via `groundwork`, `requirements-interrogator`, `kpi-contract`, and `defend-my-number`) · ◐ on the flight plan
 
 ## Philosophy: the design *is* the product
 
@@ -103,6 +103,15 @@ The second skill to go live. When a stakeholder hands you a solution (named KPIs
 
 A capable assistant already defines metrics carefully and checks feasibility, then builds the thing it was handed. This runs the move it skips: validate the problem first, so you build the right thing once.
 
+## Live now: kpi-contract
+
+The metric pinner. You're about to define a metric, lock it for a build team, or settle two reports that disagree on "the same" number. It walks every choice the definition silently makes, forces each to be pinned by the owner or flagged as an open decision, ties the metric to its source of record, and locks it as a versioned contract.
+
+**Before:** "Define marketing-attributed revenue for the QBR. Last quarter our number and Finance's were far apart and it got awkward."
+**After:** instead of one clean definition, it produces a fork log: revenue basis (bookings vs recognized), refunds (gross vs net), attribution model, period basis (calendar vs fiscal), and the rest, each pinned with a rationale or marked as the owner's call, plus the explicit reconciliation to Finance's total. The result is a committable KPI contract, versioned and ready to hand off. No database touched, no number computed.
+
+A capable assistant already writes a plausible definition and even recommends defaults. This runs the move it skips: surface every fork, let the owner pin it, and never let the data you happen to have define the metric.
+
 ## Live now: defend-my-number
 
 The sparring partner. You have a number, finding, or recommendation you'll have to defend in a room. It role-plays the skeptic you're about to face (the steamrolling exec, the data-method skeptic, the political pressurer who wants a different answer), drills you under escalating pressure one attack at a time, grades each answer honestly (held, wobbled, cracked), and leaves a committable Defense Sheet of the attacks, your best answers, and the holes still to fix.
@@ -114,7 +123,7 @@ This is the move no human reliably runs with you: the freeze in the room is a pr
 
 ## Flight plan
 
-`groundwork` is live first because orientation comes first: you can't define, build, or defend anything until you know what you're standing on. From there the rest of the panel follows by accretion: the navigator (where am I, what's next), the stakeholder and KPI-contract modules, the sparring and defend-the-number module, the findings package. Each ships when it can be genuinely expert-grade, not before.
+`groundwork` is live first because orientation comes first: you can't define, build, or defend anything until you know what you're standing on. From there the panel grows by accretion: `requirements-interrogator` validates the ask, `kpi-contract` pins the metric, and `defend-my-number` spars. Still ahead are the navigator (where am I, what's next), the stakeholder pack, and the findings package. Each ships when it can be genuinely expert-grade, not before.
 
 ## Install
 
@@ -130,6 +139,8 @@ Restart, then just describe your situation. No command needed:
 > "I just inherited this reporting pipeline and I don't understand it. Where do I start?"
 >
 > "My VP wants a dashboard with daily active users and bounce rate. Can you help me build it?"
+>
+> "Two of our reports disagree on what 'active customer' means. Pin down the definition before we build."
 >
 > "I have to defend this number to a skeptical VP tomorrow. Rehearse with me."
 

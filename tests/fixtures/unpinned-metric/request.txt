@@ -1,0 +1,18 @@
+Metric to define (for a kpi-contract dry-run)
+
+Context: quarterly business review. Last quarter, marketing's revenue number and
+Finance's board number were far apart and it got awkward in the room.
+
+What I need:
+  Define "marketing-attributed revenue" precisely enough that the data team can build it
+  consistently and we stop arguing about it.
+
+What we have (plain language, no schema dump):
+  - Campaigns run through HubSpot with attribution tracking.
+  - We sell annual and monthly B2B subscriptions, with mid-term upgrades, downgrades,
+    refunds, and cancellations.
+  - Finance publishes total company revenue in the board deck on a recognized-revenue
+    basis, separately from anything marketing reports.
+  - There is no documented reconciliation between marketing's number and Finance's total.
+
+What I want: a definition I can hand to the data team and sign off with Finance.

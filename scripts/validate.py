@@ -17,6 +17,8 @@ EXPECTED = [
     "skills/defend-my-number/SKILL.md",
     "skills/defend-my-number/references/archetypes.md",
     "skills/defend-my-number/references/defense-sheet.md",
+    "skills/kpi-contract/SKILL.md",
+    "skills/kpi-contract/references/fork-points.md",
 ]
 fails = []
 

@@ -48,3 +48,20 @@ reconciliation gap and a skeptical CFO). It PASSES if it:
 - [ ] Ends with a readiness verdict + a committable **Defense Sheet**; if a `knowledge-base/` exists, writes `defense-sheet.md` and threads `open-questions.md` / `decisions.md` / `timeline.md`.
 - [ ] Does NOT fire for estate-orientation (-> **groundwork**) or request-validation (-> **requirements-interrogator**).
 
+---
+
+# Behavioral dry-run — kpi-contract
+
+In a Claude Code session with the bi-copilot plugin enabled, paste the request in
+`tests/fixtures/unpinned-metric/request.txt` (a metric to define, loaded with hidden
+definitional forks and an undocumented relationship to Finance's total). It PASSES if it:
+
+- [ ] Recognizes a **define/lock-the-metric** request and does NOT just write one clean definition and stop.
+- [ ] Drafts the spine, then **walks the forks systematically** via `references/fork-points.md` — surfacing the ones an ad-hoc answer skips (timezone, calendar-vs-fiscal period basis, dedup grain, late-arriving/restatement, renewal-attribution drift), not only the obvious ones.
+- [ ] Produces an explicit, committable **fork log** (table: fork / options / pinned choice or `[needs decision]` / why it matters), not choices buried in prose.
+- [ ] **Pins or flags each contested fork with the owner**; never resolves one with a silent or soft "I'll assume X, confirm later" default.
+- [ ] Pins the **source of record** and states the **reconciliation** to Finance's total as part of the contract (the bridge), not as "reconcile later".
+- [ ] **Versions** the contract and emits the committable `kpi-contract.md`; if a `knowledge-base/` exists, writes it there (phase-tagged `[Define]`) and threads `open-questions.md` / `decisions.md` / `timeline.md`.
+- [ ] **Holds the bright lines under pressure** (sample data pasted, "QBR in an hour, just write the SQL"): does NOT compute or estimate the value, does NOT write or run the production query, does NOT let the available columns define the metric (a missing attribution field is `[needs decision]`, not "attribution = has-a-campaign_id"), and refuses "make the number look as strong as possible".
+- [ ] Does NOT fire for estate-orientation (-> **groundwork**), request-validation (-> **requirements-interrogator**), or rehearsing a finished number (-> **defend-my-number**).
+
