@@ -1,53 +1,53 @@
 # bi-copilot
 
-**A bench of senior BI & analytics mentors for [Claude Code](https://docs.claude.com/en/docs/claude-code) — an expert guide for the whole lifecycle of turning business uncertainty into decisions you can defend.**
+**Your expert copilot for analytics delivery — a second set of hands *and* a sparring partner.**
 
-Analytics work is rarely blocked by tools. It's blocked by *judgment*: a vague ask, a system nobody documented, a number you have to defend, a stakeholder you have to align. What you actually want isn't another dashboard generator — it's **a senior sitting beside you**. `bi-copilot` is that senior, delivered as an **architecture, not a chatbot**: a coherent method, broken into sharp skills you reach for when you need them, growing one mentor at a time.
+You make the calls. bi-copilot orients you on systems nobody documented, pins down what a metric actually means, preps you for the stakeholder meeting, pressure-tests your analysis before your reviewer does, holds the thread across months of interruptions, and always knows the next move — carrying a vague ask all the way to a decision you can defend.
+
+An expert partner for [Claude Code](https://docs.claude.com/en/docs/claude-code), built as an architecture that grows — not a one-shot chatbot.
 
 ![License: MIT](https://img.shields.io/badge/license-MIT-blue) &nbsp;![Claude Code plugin](https://img.shields.io/badge/Claude%20Code-plugin-8A2BE2) &nbsp;![data: read-only](https://img.shields.io/badge/data-read--only-success) &nbsp;![dependencies: none](https://img.shields.io/badge/dependencies-none-brightgreen)
 
 ---
 
-## The idea
+## Why
 
-Every hard moment in an analyst's week is the same wish — *"I wish a senior were here."* They fall into **six gaps**:
+You're good at this. That isn't the problem.
 
-| Gap | The moment it shows up |
-|---|---|
-| **Knowledge** | "I inherited this system and I don't understand it." |
-| **Judgment** | "Is this number actually right — and would it survive scrutiny?" |
-| **Craft** | "What's the clean way to model and build this?" |
-| **Communication** | "I have to present this and defend it to stakeholders." |
-| **Process** | "Where am I in this project, and what's the right next step?" |
-| **Confidence** | "Am I even solving the right problem?" |
+The problem is that good analytics delivery is a dozen disciplines run in parallel — orientation, definition, rigor, documentation, stakeholder comms, decision-tracking, knowing what's next — and under interrupt-driven, often-solo reality, the disciplines are the first thing to slip. The thread gets lost between context-switches. The metric never got pinned down before the dashboard got built. The meeting prep got skipped. The rationale for that call lives only in your head — until someone asks six weeks later, or you hand the project off, or the person who knew it leaves.
 
-`bi-copilot` is a **bench of mentors**, each built to close one gap. You don't get a do-everything bot that's mediocre at all of it — you get a focused senior for the moment you're actually in.
+bi-copilot runs those disciplines for you — tirelessly, every time — so your expertise goes to the calls only you can make. And on the calls that are genuinely hard, it doesn't just take notes: it spars.
+
+## The panel
+
+It's a copilot — so think of it as the board. You fly; it runs everything else.
+
+| System | What bi-copilot does | Status |
+|---|---|---|
+| **Pre-flight** | Orient on an undocumented or inherited system before you touch it; build the knowledge base | ✅ **live** |
+| **Checklists** | Completeness models per project type + a four-way gap engine — rigor that doesn't depend on your memory | ✅ **live** |
+| **Logbook** | A living knowledge base: current state + an append-only timeline, event capture, "catch me up," decision provenance | ✅ **live** |
+| **Flight plan** | The whole delivery lifecycle, its milestones, and the discovery↔definition↔analysis↔review↔evolution loops — with a navigator that calls your next move | ◐ coming online |
+| **Comms** | Stakeholder & meeting preparedness — prep packs, the questions to ask, the KPI contract, the findings brief | ◐ coming online¹ |
+| **Sparring** | Defend-the-number rehearsal, Socratic challenge, red-teaming the analysis before your reviewer or stakeholder does | ◐ coming online² |
+| **Instruments** | Data quality, lineage — *is this right, and will it hold?* | ◐ coming online¹ |
+
+¹ `groundwork` already drafts several of these as knowledge-base artifacts (KPI contract, lineage map, findings, meeting briefing); the dedicated, interactive modules come next. &nbsp; ² the Socratic challenge is live inside `groundwork` today.
 
 ## Philosophy — the design *is* the product
 
-- **An architecture, grown by accretion.** Each mentor is a lean, individually-invokable skill. New mentors slot in without bloating the others; the practice scales by adding *sharp tools*, never by inflating one mega-prompt.
-- **Comprehensive thinking, lean output.** It reasons against a full completeness model for your situation — then records only what matters. Rigor without bloat.
-- **A read-only bright line, by design.** It reads code, object definitions, docs, and static extracts you hand it — and **never connects to a live system or computes the deliverable itself**. That one rule is what makes it safe inside a regulated, on-prem, no-egress shop.
-- **Memory as a first-class output.** Everything it learns lands in a **living knowledge base** in your repo — *state* (the current truth) plus an append-only *timeline* (the history) — pointed at by an `AGENTS.md` so the next agent, or the next you, resumes instead of restarting.
-- **Meet you where you are.** The guide is keyed to the analytics lifecycle — Understand → Define → Design → Build → Validate → Deliver → Operate — and builds on what's already known instead of re-interrogating you.
+- **A peer, not a tutor.** It operates at your level: it does the work that's beneath you and argues with you about the work that isn't. No hand-holding, no lectures.
+- **An architecture, grown by accretion.** Each capability is a lean, sharp, individually-invokable skill. New ones slot in without bloating the others; the practice scales by adding instruments, never by inflating one mega-prompt.
+- **Comprehensive thinking, lean output.** It reasons against the *full* model of your situation — then records only what matters. Rigor without bloat.
+- **A read-only bright line, by design.** It reads code, object definitions, docs, and static extracts you hand it — and never connects to a live system or computes the deliverable itself. That one rule is what makes it safe inside a regulated, on-prem, no-egress shop.
+- **Memory is the product, not a side effect.** Everything it learns lands in a knowledge base in your repo — `state` + an append-only `timeline` — pointed at by an `AGENTS.md`, so the next agent (or the next you) resumes instead of restarting cold.
 
-## The bench
+## Live now: `groundwork`
 
-| Mentor | Closes | Status |
-|---|---|---|
-| **`groundwork`** | **Knowledge** — get oriented on an unfamiliar project and build the knowledge base | ✅ **Available now** |
-| requirements & stakeholder mentor | Communication · Confidence | planned |
-| findings & recommendations mentor | Craft · Communication | planned |
-| navigator — recommends your next move | Process | planned |
-
-One mentor is live today — the one you reach for first, before any of the others can help. The bench grows from there.
-
-## Available now: `groundwork`
-
-The senior who walks you onto an unfamiliar estate — inherited pipelines, stored procedures, scheduled jobs, reports, a vague ticket, or nothing — reads what already exists (code and text only), interrogates what's missing, and leaves a living knowledge base behind.
+The first instrument on the board — pre-flight. Point it at an unfamiliar estate: inherited pipelines, stored procedures, scheduled jobs, reports, a vague ticket, or nothing at all. Reading code and text only, it interrogates what's missing and leaves a living knowledge base behind.
 
 **Before:** a blank page and a pile of someone else's objects.
-**After:** a `knowledge-base/` in the repo. From one inherited transform and a one-line ticket, reading code only, it surfaces what you didn't know to ask:
+**After:** a `knowledge-base/` in the repo. From one inherited transform and a one-line ticket — reading code only — it surfaces what you didn't know to ask:
 
 ```markdown
 # open-questions.md  (excerpt)
@@ -72,6 +72,10 @@ flowchart TD
 
 Classify the project → ingest what you point it at (read-only) → run the four-mechanism gap engine → interview you for the highest-value gaps → write the knowledge base and append the timeline → report the picture, the open questions, and the single best next move.
 
+## Flight plan
+
+`groundwork` is live first because orientation comes first — you can't define, build, or defend anything until you know what you're standing on. From there the panel comes online by accretion: the navigator (where am I, what's next), the stakeholder/meeting and KPI-contract modules, the sparring / defend-the-number module, the findings package. Each ships when it can be genuinely expert-grade — not before.
+
 ## Install
 
 In Claude Code:
@@ -89,9 +93,9 @@ Restart, then just describe your situation — no command needed:
 
 ## FAQ
 
-**Why a bench instead of one big assistant?** Because a focused mentor that's genuinely senior-grade beats a broad bot that's mediocre everywhere. The architecture is built so each gap gets a sharp, dedicated skill — and so the suite can grow without any one part rotting into a do-everything prompt.
+**I already know what I'm doing — why would I use this?** Because expertise isn't your bottleneck; bandwidth and continuity are. You *could* run a completeness check on every project, journal every decision, keep a living knowledge base, and prep every meeting — but solo, under constant interruption, you won't, every time. bi-copilot runs those disciplines tirelessly so your judgment goes where only it can. And on the hard calls it spars — so you've already heard the toughest question before you're in the room.
 
-**Why only one skill today?** On purpose. A new mentor ships when it can be genuinely senior-grade at its gap — not before. `groundwork` is first because orientation comes first: you can't define, build, or defend anything until you understand what you're standing on.
+**Why is so much "coming online," with one module live?** On purpose. A module ships when it can be genuinely expert-grade at its job — not before. The architecture is built for the full panel; better one instrument you trust than seven you don't.
 
 **Does it touch my data?** No. It reads code, definitions, docs, and static extracts you hand it, and refuses to connect to or query a live system. When data profiling is needed at scale, it hands off rather than reaching for the database.
 
