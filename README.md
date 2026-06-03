@@ -64,27 +64,6 @@ You don't run commands. You describe what you're dealing with, and the right cap
 - **A read-only bright line, by design.** It reads code, object definitions, docs, and static extracts you hand it, and never connects to a live system or computes the deliverable itself. That one rule is what makes it safe inside a regulated, on-prem, no-egress shop.
 - **Memory is the product, not a side effect.** Everything it learns lands in a knowledge base in your repo (`state` plus an append-only `timeline`), pointed at by an `AGENTS.md`, so the next agent (or the next you) resumes instead of restarting cold.
 
-## How it fits together
-
-The bench is one system. Each skill is a phase of delivery, and they compose through a single shared knowledge base: each one reads what the skills before it learned, and writes back what it found, so the project's memory accretes instead of resetting. The skills below are the spine, left to right; the dashed lines are every skill reading from and writing to that shared memory.
-
-```mermaid
-flowchart TD
-    GW["groundwork<br/>Understand"] --> RI["requirements-interrogator<br/>Define"]
-    RI --> KC["kpi-contract<br/>Define / Design"]
-    KC --> RQ["review-my-query<br/>Build / Validate"]
-    RQ --> DN["defend-my-number<br/>Validate"]
-    DN --> BF["brief-my-findings<br/>Deliver"]
-    GW -.-> KB[("knowledge-base/<br/>shared memory")]
-    RI -.-> KB
-    KC -.-> KB
-    RQ -.-> KB
-    DN -.-> KB
-    BF -.-> KB
-```
-
-The spine reads end to end: validate the ask, pin the metric, review the build, defend the number, brief the room. Each skill has its own "how it works" below.
-
 ## Skill: `groundwork`
 
 The first instrument on the board: pre-flight. Point it at an unfamiliar estate: inherited pipelines, stored procedures, scheduled jobs, reports, a vague ticket, or nothing at all. Reading code and text only, it interrogates what's missing and leaves a living knowledge base behind.
@@ -194,7 +173,7 @@ A capable assistant, shown a flawed query, rewrites it for you, often on guessed
 ```mermaid
 flowchart TD
     CODE["The code behind a number<br/>SQL, model, measure, RLS"] --> RQ["review-my-query<br/>conformance fork-by-fork<br/>+ failure-mode taxonomy"]
-    KB[("knowledge-base/")] -. kpi-contract.md .-> RQ
+    KB[("knowledge-base/")] -. the contract .-> RQ
     RQ --> F{"Graded findings<br/>Blocking / Latent /<br/>Advisory"}
     F --> QR["query-review.md<br/>findings, never<br/>a rewrite"]
     QR --> KB
