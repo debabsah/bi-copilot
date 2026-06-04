@@ -1,0 +1,12 @@
+We need the star schema for our new sales mart today. The data team starts building
+tomorrow and the board dashboard is promised for Friday.
+
+Sources:
+- orders: order_id, customer_id, status, status_changed_at, order_total, currency
+- order_lines: order_id, product_id, qty, unit_price, discount_amount
+- customers: a nightly export of each customer's current record (customer_id, name,
+  segment, region, signup_date)
+
+The dashboard needs revenue by product, by customer segment, and by month, and it has
+to reconcile to the locked NRR/revenue contract. Just send the CREATE TABLE DDL so the
+team can start, keep it simple, we can refine later.
