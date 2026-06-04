@@ -29,6 +29,7 @@ It's a copilot, so picture the board. You fly; it runs everything else.
 | **Logbook** | A living knowledge base: current state, an append-only timeline, event capture, "catch me up," decision provenance | `groundwork` | ✅ **live** |
 | **Flight plan** | The whole delivery lifecycle, its milestones, and the discovery↔definition↔analysis↔review↔evolution loops, with a navigator that calls your next move | navigator *(planned)* | ◐ planned |
 | **Comms** | Stakeholder and requirements work: interrogate a request down to the real decision before you build, the questions to ask, the KPI contract, the findings brief | `requirements-interrogator`, `kpi-contract`, `brief-my-findings` | ✅ **live** |
+| **Blueprints** | Design the dimensional model before it's built: declare the grain, gate the source grain, pin every structural fork, no DDL | `model-contract` | ✅ **live** |
 | **Review** | Read the query, model, or measure that computes a number and check it against its locked definition before it ships: catch the bugs that quietly ship the wrong number | `review-my-query` | ✅ **live** |
 | **Sparring** | Defend-the-number rehearsal: role-plays the skeptic, drills you under escalating pressure, grades your answers, leaves a Defense Sheet. Socratic challenge and red-teaming too | `defend-my-number` | ✅ **live** |
 | **Diagnostics** | A number came out wrong or moved unexpectedly: run a systematic differential across the whole failure surface (code, data, pipeline, definition, or a real change) before you explain it | `triage-my-number` | ✅ **live** |
@@ -36,7 +37,7 @@ It's a copilot, so picture the board. You fly; it runs everything else.
 
 ## What you can ask it
 
-You don't run commands. You describe what you're dealing with, and the right capability picks it up. A sample across the lifecycle (the ✅ rows are live across `groundwork`, `requirements-interrogator`, `kpi-contract`, `defend-my-number`, `review-my-query`, `brief-my-findings`, and `triage-my-number`; the ◐ rows show where the panel is headed):
+You don't run commands. You describe what you're dealing with, and the right capability picks it up. A sample across the lifecycle (the ✅ rows are live across `groundwork`, `requirements-interrogator`, `kpi-contract`, `defend-my-number`, `review-my-query`, `brief-my-findings`, `triage-my-number`, and `model-contract`; the ◐ rows show where the panel is headed):
 
 | Stage | You say… | What happens | Status |
 |---|---|---|---|
@@ -45,7 +46,7 @@ You don't run commands. You describe what you're dealing with, and the right cap
 | Continuity | "Catch me up, I've been off this for three weeks." | Reads the timeline and state, then briefs you: where you are, what changed, what's next | ✅ |
 | Define | "The ticket just says 'improve sales reporting,' what do they actually need?" | Interrogates the request down to the real decision, then surfaces the gap between what was asked for and what that decision needs | ✅ |
 | Define | "Pin down what 'active customer' actually means before we build." | Walks every fork the definition hides, pins each with the owner, states the source reconciliation, and locks a versioned KPI contract | ✅ |
-| Design | "What's the cleanest, most maintainable way to model this?" | Talks through the trade-offs and the failure modes to avoid | ◐ |
+| Design | "Design the star schema for this mart before we build it." | Declares the grain, gates on the source grain, surfaces every modelling fork to pin, returns a logical design (no DDL) | ✅ |
 | Build | "We decided to exclude refunds, capture that and why." | Logs the decision with its rationale and provenance, so it's never re-litigated | ✅ |
 | Build | "I wrote the query behind this metric, is it right before it ships?" | Reviews the code against the locked definition, hunts the bugs that ship a wrong number, grades them and points the fix | ✅ |
 | Validate | "Pressure-test this before my lead sees it, what would they attack?" | Role-plays the skeptic and drills you under pressure, grades each answer, leaves a Defense Sheet of the holes to fix | ✅ |
@@ -56,7 +57,7 @@ You don't run commands. You describe what you're dealing with, and the right cap
 | Operate | "What's the right next move on this project?" | Infers where you are from the knowledge base and recommends the next step | ◐ |
 | Continuity | "The client just emailed a new constraint, log it." | Drops a dated event on the timeline with its source | ✅ |
 
-✅ live today (via `groundwork`, `requirements-interrogator`, `kpi-contract`, `defend-my-number`, `review-my-query`, `brief-my-findings`, and `triage-my-number`) · ◐ on the flight plan
+✅ live today (via `groundwork`, `requirements-interrogator`, `kpi-contract`, `defend-my-number`, `review-my-query`, `brief-my-findings`, `triage-my-number`, and `model-contract`) · ◐ on the flight plan
 
 ## Philosophy: the design *is* the product
 
@@ -138,6 +139,27 @@ flowchart TD
     KB[("knowledge-base/")] -. the brief .-> KC
     KC --> FL["The fork log<br/>each fork pinned, or<br/>[needs decision]"]
     FL --> CON["kpi-contract.md<br/>versioned, with the<br/>source reconciliation"]
+    CON --> KB
+```
+
+## Skill: `model-contract`
+
+The design step, before the build. You're about to design or restructure the dimensional model behind a mart or a set of reports: the facts, the dimensions, the grain. It declares the target grain, **gates on the source grain** before any structure, walks every modelling fork (fact type, additivity, SCD, conformance) for you to pin, and lays the star out logically. It never writes DDL and never invents a schema.
+
+**Before:** "Design the star schema for our sales mart, here are the source tables, the VP wants the DDL today."
+**After:** instead of `CREATE TABLE`s built on a guessed grain, it declares the target grain, blocks on the one question that decides everything ("is the orders feed one row per order, or one row per status change?"), surfaces the SCD and conformance calls as decisions for the owner, and returns a logical star plus a committable fork log. No DDL, no invented columns. The build team implements it; `review-my-query` later checks the build against it.
+
+A capable assistant, handed this under deadline, emits a plausible `CREATE TABLE` on an assumed grain and footnotes the risks. This runs the move it skips: pin the grain, gate the source grain, and let the owner pin every fork before a line is built.
+
+### How it works
+
+```mermaid
+flowchart TD
+    REQ["A model to design<br/>(mart, star schema,<br/>fact + dimensions)"] --> MC["model-contract<br/>grain-first,<br/>gate the source grain,<br/>walk the forks"]
+    KB[("knowledge-base/")] -. the contract .-> MC
+    MC --> GATE{"Source-grain gate<br/>evidenced /<br/>needs decision"}
+    GATE --> FL["The fork log<br/>each fork pinned,<br/>or needs decision"]
+    FL --> CON["model-contract<br/>logical star,<br/>never DDL"]
     CON --> KB
 ```
 
@@ -231,7 +253,7 @@ Start at [the walkthrough](examples/saas-retention/README.md). Everything is syn
 
 ## Flight plan
 
-`groundwork` is live first because orientation comes first: you can't define, build, or defend anything until you know what you're standing on. From there the panel grows by accretion: `requirements-interrogator` validates the ask, `kpi-contract` pins the metric, `review-my-query` checks the build against that contract, `defend-my-number` spars, `brief-my-findings` writes up the result for the room, and `triage-my-number` diagnoses a number that came out wrong once it is live. Still ahead are the navigator (where am I, what's next) and the stakeholder meeting-prep pack. Each ships when it can be genuinely expert-grade, not before.
+`groundwork` is live first because orientation comes first: you can't define, build, or defend anything until you know what you're standing on. From there the panel grows by accretion: `requirements-interrogator` validates the ask, `kpi-contract` pins the metric, `model-contract` designs the model, `review-my-query` checks the build against that contract, `defend-my-number` spars, `brief-my-findings` writes up the result for the room, and `triage-my-number` diagnoses a number that came out wrong once it is live. Still ahead are the navigator (where am I, what's next) and the stakeholder meeting-prep pack. Each ships when it can be genuinely expert-grade, not before.
 
 ## Install
 

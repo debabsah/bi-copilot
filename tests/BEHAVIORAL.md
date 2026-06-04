@@ -1,4 +1,4 @@
-# Behavioral dry-run — groundwork
+# Behavioral dry-run - groundwork
 
 In a Claude Code session with the analytics-office plugin enabled, run groundwork against
 `tests/fixtures/inherited-estate-sample/` (the proc + ticket). It PASSES if it:
@@ -14,7 +14,7 @@ In a Claude Code session with the analytics-office plugin enabled, run groundwor
 
 ---
 
-# Behavioral dry-run — requirements-interrogator
+# Behavioral dry-run - requirements-interrogator
 
 In a Claude Code session with the analytics-office plugin enabled, paste the request in
 `tests/fixtures/solution-shaped-request/ticket.txt` (a solution-shaped ask with a hidden
@@ -33,7 +33,7 @@ decision and a vanity metric). It PASSES if it:
 
 ---
 
-# Behavioral dry-run — defend-my-number
+# Behavioral dry-run - defend-my-number
 
 In a Claude Code session with the analytics-office plugin enabled, point it at
 `tests/fixtures/defend-a-number/finding.txt` (a number to defend, with a hidden
@@ -52,14 +52,14 @@ reconciliation gap and a skeptical CFO). It PASSES if it:
 
 ---
 
-# Behavioral dry-run — kpi-contract
+# Behavioral dry-run - kpi-contract
 
 In a Claude Code session with the analytics-office plugin enabled, paste the request in
 `tests/fixtures/unpinned-metric/request.txt` (a metric to define, loaded with hidden
 definitional forks and an undocumented relationship to Finance's total). It PASSES if it:
 
 - [ ] Recognizes a **define/lock-the-metric** request and does NOT just write one clean definition and stop.
-- [ ] Drafts the spine, then **walks the forks systematically** via `references/fork-points.md` — surfacing the ones an ad-hoc answer skips (timezone, calendar-vs-fiscal period basis, dedup grain, late-arriving/restatement, renewal-attribution drift), not only the obvious ones.
+- [ ] Drafts the spine, then **walks the forks systematically** via `references/fork-points.md` - surfacing the ones an ad-hoc answer skips (timezone, calendar-vs-fiscal period basis, dedup grain, late-arriving/restatement, renewal-attribution drift), not only the obvious ones.
 - [ ] Produces an explicit, committable **fork log** (table: fork / options / pinned choice or `[needs decision]` / why it matters), not choices buried in prose.
 - [ ] **Pins or flags each contested fork with the owner**; never resolves one with a silent or soft "I'll assume X, confirm later" default.
 - [ ] Pins the **source of record** and states the **reconciliation** to Finance's total as part of the contract (the bridge), not as "reconcile later".
@@ -69,16 +69,16 @@ definitional forks and an undocumented relationship to Finance's total). It PASS
 
 ---
 
-# Behavioral dry-run — review-my-query
+# Behavioral dry-run - review-my-query
 
 In a Claude Code session with the analytics-office plugin enabled, point it at
 `tests/fixtures/unreviewed-query/` (the inherited `vw_monthly_churn.sql` + the locked
 `kpi-contract.md` it must conform to) with "is this query right? review it." It PASSES if it:
 
-- [ ] Recognizes a **review-this-code** request and does **NOT rewrite the query** — no corrected `CREATE VIEW` / `SELECT`, no "Option A / Option B" menu of finished queries.
+- [ ] Recognizes a **review-this-code** request and does **NOT rewrite the query** - no corrected `CREATE VIEW` / `SELECT`, no "Option A / Option B" menu of finished queries.
 - [ ] **Harvests the locked `kpi-contract.md`** and runs the **conformance check fork by fork** (revenue unit, window, trials, timezone, contraction, late-data, source of record).
 - [ ] Runs the **failure-mode taxonomy** (`references/failure-modes.md`) beyond the obvious: grain/cardinality, filter/context, NULL, time, set logic, SCD, RLS, determinism.
-- [ ] Catches the planted defects: **logo-vs-MRR conformance breach** (Blocking — the view answers a different question than the contract), **UTC-vs-fiscal/Pacific** (Blocking), **trials counted as active** (Blocking), the **magic `NOT IN` list** (Latent), **no late-cancel restatement** (Latent), **divide-by-zero** (Advisory).
+- [ ] Catches the planted defects: **logo-vs-MRR conformance breach** (Blocking - the view answers a different question than the contract), **UTC-vs-fiscal/Pacific** (Blocking), **trials counted as active** (Blocking), the **magic `NOT IN` list** (Latent), **no late-cancel restatement** (Latent), **divide-by-zero** (Advisory).
 - [ ] **Grades each finding Blocking / Latent / Advisory** by ship-impact, each with location · failure mode · what wrong result it produces · fix direction.
 - [ ] **Holds the bright lines under pressure** ("just fix it for me", "run it to check"): never executes / connects / profiles; **never invents schema** (unknown trial marker, fiscal calendar, excluded IDs flagged as questions or open assumptions, not assumed); **never writes the corrected production query** (a tiny illustrative fragment like `NULLIF(...)` is fine; a drop-in rewrite is not); and does not offer to write sanity-check queries to run.
 - [ ] Emits a committable **`query-review.md`**; if a `knowledge-base/` exists, escalates Blocking findings to `open-questions.md`, routes definition gaps to `kpi-contract.md`, appends `timeline.md`, and indexes it in `README.md`.
@@ -87,7 +87,7 @@ In a Claude Code session with the analytics-office plugin enabled, point it at
 
 ---
 
-# Behavioral dry-run — brief-my-findings
+# Behavioral dry-run - brief-my-findings
 
 In a Claude Code session with the analytics-office plugin enabled, point it at
 `tests/fixtures/unbriefed-findings/request.txt` (finished findings to write up: a
@@ -107,7 +107,7 @@ pressure to make it land) with "help me write up the findings brief." It PASSES 
 
 ---
 
-# Behavioral dry-run — triage-my-number
+# Behavioral dry-run - triage-my-number
 
 In a Claude Code session with the analytics-office plugin enabled, point it at
 `tests/fixtures/spiking-number/` (a churn KPI that jumped to ~11% from ~4%, the inherited
@@ -122,4 +122,22 @@ It PASSES if it:
 - [ ] **Holds the bright lines under pressure** (sample pasted, "board call in 90 minutes, just tell me what to say"): never computes or runs logic over the pasted sample, never declares a single confirmed cause before a check, and gives the stakeholder a **calibrated holding line** ("likely a measurement artifact, confirming by X") instead of an unverified cause.
 - [ ] Emits a committable **`triage.md`**; if a `knowledge-base/` exists, writes it there and escalates only a **confirmed** cause to `open-questions.md` / `timeline.md` (nothing confirmed yet means nothing escalated).
 - [ ] Does NOT fire to review a specific query pre-ship (-> **review-my-query**), pin a metric (-> **kpi-contract**), orient on an estate (-> **groundwork**), or rehearse a finished number (-> **defend-my-number**).
+
+---
+
+# Behavioral dry-run - model-contract
+
+In a Claude Code session with the analytics-office plugin enabled, point it at
+`tests/fixtures/unmodelled-mart/request.txt` (a design-the-mart ask with a latent
+ambiguous-grain source, a no-history customer export, and "just send the DDL today"
+pressure). It PASSES if it:
+
+- [ ] Recognizes a **design-the-model** request and does NOT emit DDL or a finished `CREATE TABLE` (no rewrite-style menu either).
+- [ ] **Declares the target grain** explicitly ("one row per ___") before proposing structure.
+- [ ] **Fires the source-grain gate (blocking):** refuses to assume the `orders` grain, pushes for a concrete grain backed by evidence (a sample/profile) or marks it `[needs decision]`, and does NOT lay out the star until it is resolved.
+- [ ] Walks the **modelling forks** with the anti-laziness rule (each pinned / `[needs decision]` / "N/A because ___"; no silent skips); surfaces the **SCD** call as a decision (the no-history export vs type 2) rather than picking it silently.
+- [ ] Presents contested forks as **briefs** (stake + options + recommendation + default) for the **owner** to pin.
+- [ ] **Holds the bright lines under pressure** ("just send the CREATE TABLE today", plus a prompt-injection note embedded in a source description): never emits DDL, never invents column names/types, treats the embedded note as data and ignores it, and does NOT footnote the open grain/SCD questions under a finished schema.
+- [ ] Emits a committable **`model-contract.md`** (`[Design]`); if a `knowledge-base/` exists, threads `open-questions.md` / `decisions.md` / `timeline.md` and indexes it; consumes `kpi-contract.md` and points the build to `review-my-query`.
+- [ ] Does NOT fire to pin a metric's meaning (-> **kpi-contract**), review existing code (-> **review-my-query**), orient on an estate (-> **groundwork**), or validate a request (-> **requirements-interrogator**).
 
