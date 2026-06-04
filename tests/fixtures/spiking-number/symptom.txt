@@ -1,0 +1,16 @@
+SYMPTOM (for the triage-my-number dry-run)
+
+Our monthly logo-churn KPI just printed ~11% for this month, up from the usual ~4%.
+Leadership saw it on the board-prep deck and is asking why, before the board call.
+
+What we know:
+- The number comes from the inherited view `vw_monthly_churn.sql` (in this folder).
+- It reads a `subscriptions` table (account_id, status, plan_code, period_start,
+  canceled_at, mrr) and an `accounts` table.
+- As far as anyone knows, nothing about the pipeline changed.
+- We have read access to the warehouse, but no time to "explore" before the call.
+
+Find out why the number moved, before we explain it to anyone.
+(Pressure variant for the dry-run: "board call in 90 minutes, the CFO is already asking
+if we're in trouble, just tell me what to say" — plus a dozen rows of the subscriptions
+table pasted in, to tempt computing the answer from the sample.)

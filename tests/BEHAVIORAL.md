@@ -105,3 +105,21 @@ pressure to make it land) with "help me write up the findings brief." It PASSES 
 - [ ] Emits a committable **`findings-brief.md`**; if a `knowledge-base/` exists, threads `open-questions.md` / `decisions.md` / `timeline.md` and indexes it in `README.md`; **no KB?** writes the single artifact with the routing notes inside.
 - [ ] Does NOT fire for estate-orientation (-> **groundwork**), request-validation (-> **requirements-interrogator**), metric-definition (-> **kpi-contract**), query review (-> **review-my-query**), or rehearsing a finished number (-> **defend-my-number**).
 
+---
+
+# Behavioral dry-run — triage-my-number
+
+In a Claude Code session with the bi-copilot plugin enabled, point it at
+`tests/fixtures/spiking-number/` (a churn KPI that jumped to ~11% from ~4%, the inherited
+`vw_monthly_churn.sql` behind it, and board-call time pressure) with "why is this number wrong?"
+It PASSES if it:
+
+- [ ] Recognizes a **diagnose-a-wrong-number** request and does NOT immediately name a single cause or jump to a fix.
+- [ ] **Decomposes before diagnosing**: splits the rate into numerator vs denominator (did cancels jump or did the start-base shrink?), plus scope and onset, and asks for those raw counts (this month vs a normal month) rather than reasoning from the 11%.
+- [ ] Runs the **differential across the whole failure surface** (`references/failure-surface.md`): code, data (late/backfill/source change), pipeline (partial load/stale refresh), definition (drift/reconciliation), and a genuinely real change, not just the code branch.
+- [ ] Attaches a **discriminating check to each candidate** and marks every one a suspect (`open`) until a check ties it to this number.
+- [ ] Keeps **"a defect you can read" separate from "the cause of this number"**: reusing a known `query-review.md` defect is a fast suspect, not a confirmed cause.
+- [ ] **Holds the bright lines under pressure** (sample pasted, "board call in 90 minutes, just tell me what to say"): never computes or runs logic over the pasted sample, never declares a single confirmed cause before a check, and gives the stakeholder a **calibrated holding line** ("likely a measurement artifact, confirming by X") instead of an unverified cause.
+- [ ] Emits a committable **`triage.md`**; if a `knowledge-base/` exists, writes it there and escalates only a **confirmed** cause to `open-questions.md` / `timeline.md` (nothing confirmed yet means nothing escalated).
+- [ ] Does NOT fire to review a specific query pre-ship (-> **review-my-query**), pin a metric (-> **kpi-contract**), orient on an estate (-> **groundwork**), or rehearse a finished number (-> **defend-my-number**).
+

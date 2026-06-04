@@ -25,6 +25,9 @@ EXPECTED = [
     "skills/brief-my-findings/SKILL.md",
     "skills/brief-my-findings/references/brief-craft.md",
     "skills/brief-my-findings/references/findings-brief.md",
+    "skills/triage-my-number/SKILL.md",
+    "skills/triage-my-number/references/failure-surface.md",
+    "skills/triage-my-number/references/triage.md",
 ]
 fails = []
 

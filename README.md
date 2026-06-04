@@ -31,11 +31,12 @@ It's a copilot, so picture the board. You fly; it runs everything else.
 | **Comms** | Stakeholder and requirements work: interrogate a request down to the real decision before you build, the questions to ask, the KPI contract, the findings brief | `requirements-interrogator`, `kpi-contract`, `brief-my-findings` | ✅ **live** |
 | **Review** | Read the query, model, or measure that computes a number and check it against its locked definition before it ships: catch the bugs that quietly ship the wrong number | `review-my-query` | ✅ **live** |
 | **Sparring** | Defend-the-number rehearsal: role-plays the skeptic, drills you under escalating pressure, grades your answers, leaves a Defense Sheet. Socratic challenge and red-teaming too | `defend-my-number` | ✅ **live** |
+| **Diagnostics** | A number came out wrong or moved unexpectedly: run a systematic differential across the whole failure surface (code, data, pipeline, definition, or a real change) before you explain it | `triage-my-number` | ✅ **live** |
 | **Instruments** | Data quality and lineage: *is this right, and will it hold?* | `groundwork` drafts these; dedicated modules *(planned)* | ◐ planned |
 
 ## What you can ask it
 
-You don't run commands. You describe what you're dealing with, and the right capability picks it up. A sample across the lifecycle (the ✅ rows are live across `groundwork`, `requirements-interrogator`, `kpi-contract`, `defend-my-number`, `review-my-query`, and `brief-my-findings`; the ◐ rows show where the panel is headed):
+You don't run commands. You describe what you're dealing with, and the right capability picks it up. A sample across the lifecycle (the ✅ rows are live across `groundwork`, `requirements-interrogator`, `kpi-contract`, `defend-my-number`, `review-my-query`, `brief-my-findings`, and `triage-my-number`; the ◐ rows show where the panel is headed):
 
 | Stage | You say… | What happens | Status |
 |---|---|---|---|
@@ -51,10 +52,11 @@ You don't run commands. You describe what you're dealing with, and the right cap
 | Validate | "Is this number defensible? Rehearse defending it with me." | Plays the skeptic: the holes, the challenges, how you'd answer each | ✅ |
 | Deliver | "Turn these findings into a brief I can send." | Composes the brief from your evidence, every claim sourced and graded, observation → implication → action → watch-for, with the open questions kept open and the verdict carried | ✅ |
 | Deliver | "Show me where these numbers actually come from." | Builds a lineage map from the code you've pointed it at | ✅ |
+| Operate | "Churn jumped to 11% and the board call is in an hour. Why?" | Runs a systematic differential across code, data, pipeline, definition, and a real change, hands you the checks, and gives a calibrated holding line instead of a guess | ✅ |
 | Operate | "What's the right next move on this project?" | Infers where you are from the knowledge base and recommends the next step | ◐ |
 | Continuity | "The client just emailed a new constraint, log it." | Drops a dated event on the timeline with its source | ✅ |
 
-✅ live today (via `groundwork`, `requirements-interrogator`, `kpi-contract`, `defend-my-number`, `review-my-query`, and `brief-my-findings`) · ◐ on the flight plan
+✅ live today (via `groundwork`, `requirements-interrogator`, `kpi-contract`, `defend-my-number`, `review-my-query`, `brief-my-findings`, and `triage-my-number`) · ◐ on the flight plan
 
 ## Philosophy: the design *is* the product
 
@@ -199,6 +201,26 @@ flowchart TD
     FB --> KB
 ```
 
+## Skill: `triage-my-number`
+
+The number doctor. A KPI came out wrong, jumped, cratered, or two reports won't reconcile, and you have to find out why before you explain it to anyone. It decomposes the number (did the numerator jump or the denominator shrink?), runs a systematic differential across the whole failure surface (the code, the data, the pipeline, the definition, or a genuinely real change), attaches a check to every suspect, and gives you a calibrated holding line for the room. It never runs a query or computes the data itself, even from a sample you paste.
+
+**Before:** "Monthly churn just printed 11%, up from the usual 4%, and the board call is in 90 minutes. The CFO is asking if we're in trouble."
+**After:** instead of a confident "churn doubled because of trials," it hands you a ranked differential: is the denominator built from the wrong cohort, did trials swing, did a late-cancel batch land, was the load partial, or is it real? Each with the one cheap check that rules it in or out, every row still a suspect. And the line to give the CFO now: "likely a measurement artifact, not a real trend, confirming by EOD." No sample computed, no cause guessed at, no figure handed over unvalidated.
+
+A capable analyst, under that pressure, tunnels onto the first plausible cause and writes it into the board line, and reaches for the data to "just confirm." This runs the move it skips: hold the whole differential, keep a defect you can read separate from the cause of this number, and direct the checks instead of running them.
+
+### How it works
+
+```mermaid
+flowchart TD
+    SYMPTOM["A number that's wrong:<br/>jumped, cratered,<br/>won't reconcile"] --> TN["triage-my-number<br/>decompose, then<br/>differential across<br/>code / data / pipeline /<br/>definition / real"]
+    KB[("knowledge-base/")] -. contract + known defects .-> TN
+    TN --> D{"Ranked suspects,<br/>a check on each,<br/>cause not yet confirmed"}
+    D --> TR["triage.md<br/>differential + checks<br/>+ a calibrated line"]
+    TR --> KB
+```
+
 ## See the six compose: a worked example
 
 Reading what each skill does is one thing; watching them hand off through a shared knowledge base is another. [`examples/saas-retention/`](examples/saas-retention/) runs all six end to end on one fictional SaaS project, with the knowledge base accreting at every step.
@@ -209,7 +231,7 @@ Start at [the walkthrough](examples/saas-retention/README.md). Everything is syn
 
 ## Flight plan
 
-`groundwork` is live first because orientation comes first: you can't define, build, or defend anything until you know what you're standing on. From there the panel grows by accretion: `requirements-interrogator` validates the ask, `kpi-contract` pins the metric, `review-my-query` checks the build against that contract, `defend-my-number` spars, and `brief-my-findings` writes up the result for the room. Still ahead are the navigator (where am I, what's next) and the stakeholder meeting-prep pack. Each ships when it can be genuinely expert-grade, not before.
+`groundwork` is live first because orientation comes first: you can't define, build, or defend anything until you know what you're standing on. From there the panel grows by accretion: `requirements-interrogator` validates the ask, `kpi-contract` pins the metric, `review-my-query` checks the build against that contract, `defend-my-number` spars, `brief-my-findings` writes up the result for the room, and `triage-my-number` diagnoses a number that came out wrong once it is live. Still ahead are the navigator (where am I, what's next) and the stakeholder meeting-prep pack. Each ships when it can be genuinely expert-grade, not before.
 
 ## Install
 
@@ -233,6 +255,8 @@ Restart, then just describe your situation. No command needed:
 > "I have to defend this number to a skeptical VP tomorrow. Rehearse with me."
 >
 > "The analysis is done. Help me write up the findings brief for the board."
+>
+> "Churn just doubled overnight and the board call is in an hour. Help me figure out why before I explain it."
 
 The right skill takes it from there.
 
