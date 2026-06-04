@@ -1,6 +1,6 @@
 # Worked example: the seven skills on one project
 
-This is the bi-copilot bench run end to end on a single project, so you can watch
+This is the analytics-office bench run end to end on a single project, so you can watch
 the seven skills **compose through a shared knowledge base** instead of just reading
 that they do. One skill notices something while reading inherited SQL. Seven skills
 and a full lifecycle later, that same something is what keeps a bad number out of
@@ -179,7 +179,7 @@ panic, because the suspects were already written down.
 
 ## Run it yourself
 
-With the bi-copilot plugin enabled in Claude Code, from a copy of this folder:
+With the analytics-office plugin enabled in Claude Code, from a copy of this folder:
 
 1. Point **groundwork** at `inputs/vw_monthly_churn.sql` and `inputs/metrics_notes.md`:
    "I inherited this, help me get oriented." It builds the knowledge base.

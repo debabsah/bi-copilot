@@ -1,8 +1,8 @@
-# bi-copilot
+# analytics-office
 
 **Your expert copilot for analytics delivery: a second set of hands *and* a sparring partner.**
 
-You make the calls. bi-copilot orients you on systems nobody documented, pins down what a metric actually means, preps you for the stakeholder meeting, pressure-tests your analysis before your reviewer does, holds the thread across months of interruptions, and always knows the next move, carrying a vague ask all the way to a decision you can defend.
+You make the calls. analytics-office orients you on systems nobody documented, pins down what a metric actually means, preps you for the stakeholder meeting, pressure-tests your analysis before your reviewer does, holds the thread across months of interruptions, and always knows the next move, carrying a vague ask all the way to a decision you can defend.
 
 An expert partner for [Claude Code](https://docs.claude.com/en/docs/claude-code), built as an architecture that grows, not a one-shot chatbot.
 
@@ -16,13 +16,13 @@ You're good at this. That isn't the problem.
 
 The problem is that good analytics delivery is a dozen disciplines run in parallel: orientation, definition, rigor, documentation, stakeholder comms, decision-tracking, knowing what's next. Under interrupt-driven, often-solo reality, the disciplines are the first thing to slip. The thread gets lost between context-switches. The metric never got pinned down before the dashboard got built. The meeting prep got skipped. The rationale for that call lives only in your head, until someone asks six weeks later, or you hand the project off, or the person who knew it leaves.
 
-bi-copilot runs those disciplines for you, tirelessly and every time, so your expertise goes to the calls only you can make. And on the calls that are genuinely hard, it doesn't just take notes: it spars.
+analytics-office runs those disciplines for you, tirelessly and every time, so your expertise goes to the calls only you can make. And on the calls that are genuinely hard, it doesn't just take notes: it spars.
 
 ## The panel
 
 It's a copilot, so picture the board. You fly; it runs everything else.
 
-| System | What bi-copilot does | Powered by | Status |
+| System | What analytics-office does | Powered by | Status |
 |---|---|---|---|
 | **Pre-flight** | Orient on an undocumented or inherited system before you touch it; build the knowledge base | `groundwork` | ✅ **live** |
 | **Checklists** | Completeness models per project type plus a four-way gap engine, so rigor doesn't depend on your memory | `groundwork` | ✅ **live** |
@@ -239,7 +239,7 @@ In Claude Code:
 
 ```text
 /plugin marketplace add debabsah/bi-copilot
-/plugin install bi-copilot@bi-copilot
+/plugin install analytics-office@analytics-office
 ```
 
 Restart, then just describe your situation. No command needed:
@@ -262,7 +262,7 @@ The right skill takes it from there.
 
 ## FAQ
 
-**I already know what I'm doing, so why would I use this?** Because expertise isn't your bottleneck; bandwidth and continuity are. You *could* run a completeness check on every project, journal every decision, keep a living knowledge base, and prep every meeting. But solo, under constant interruption, you won't, every time. bi-copilot runs those disciplines tirelessly so your judgment goes where only it can. And on the hard calls it spars, so you've already heard the toughest question before you're in the room.
+**I already know what I'm doing, so why would I use this?** Because expertise isn't your bottleneck; bandwidth and continuity are. You *could* run a completeness check on every project, journal every decision, keep a living knowledge base, and prep every meeting. But solo, under constant interruption, you won't, every time. analytics-office runs those disciplines tirelessly so your judgment goes where only it can. And on the hard calls it spars, so you've already heard the toughest question before you're in the room.
 
 **Why is so much still planned?** On purpose. A skill ships when it can be genuinely expert-grade at its job, not before. The architecture is built for the full panel: better a few instruments you trust than seven you don't.
 

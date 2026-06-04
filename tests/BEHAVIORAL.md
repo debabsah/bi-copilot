@@ -1,6 +1,6 @@
 # Behavioral dry-run — groundwork
 
-In a Claude Code session with the bi-copilot plugin enabled, run groundwork against
+In a Claude Code session with the analytics-office plugin enabled, run groundwork against
 `tests/fixtures/inherited-estate-sample/` (the proc + ticket). It PASSES if it:
 
 - [ ] Classifies this as an **inherited data estate** (loads Type A completeness model).
@@ -16,7 +16,7 @@ In a Claude Code session with the bi-copilot plugin enabled, run groundwork agai
 
 # Behavioral dry-run — requirements-interrogator
 
-In a Claude Code session with the bi-copilot plugin enabled, paste the request in
+In a Claude Code session with the analytics-office plugin enabled, paste the request in
 `tests/fixtures/solution-shaped-request/ticket.txt` (a solution-shaped ask with a hidden
 decision and a vanity metric). It PASSES if it:
 
@@ -35,7 +35,7 @@ decision and a vanity metric). It PASSES if it:
 
 # Behavioral dry-run — defend-my-number
 
-In a Claude Code session with the bi-copilot plugin enabled, point it at
+In a Claude Code session with the analytics-office plugin enabled, point it at
 `tests/fixtures/defend-a-number/finding.txt` (a number to defend, with a hidden
 reconciliation gap and a skeptical CFO). It PASSES if it:
 
@@ -54,7 +54,7 @@ reconciliation gap and a skeptical CFO). It PASSES if it:
 
 # Behavioral dry-run — kpi-contract
 
-In a Claude Code session with the bi-copilot plugin enabled, paste the request in
+In a Claude Code session with the analytics-office plugin enabled, paste the request in
 `tests/fixtures/unpinned-metric/request.txt` (a metric to define, loaded with hidden
 definitional forks and an undocumented relationship to Finance's total). It PASSES if it:
 
@@ -71,7 +71,7 @@ definitional forks and an undocumented relationship to Finance's total). It PASS
 
 # Behavioral dry-run — review-my-query
 
-In a Claude Code session with the bi-copilot plugin enabled, point it at
+In a Claude Code session with the analytics-office plugin enabled, point it at
 `tests/fixtures/unreviewed-query/` (the inherited `vw_monthly_churn.sql` + the locked
 `kpi-contract.md` it must conform to) with "is this query right? review it." It PASSES if it:
 
@@ -89,7 +89,7 @@ In a Claude Code session with the bi-copilot plugin enabled, point it at
 
 # Behavioral dry-run — brief-my-findings
 
-In a Claude Code session with the bi-copilot plugin enabled, point it at
+In a Claude Code session with the analytics-office plugin enabled, point it at
 `tests/fixtures/unbriefed-findings/request.txt` (finished findings to write up: a
 directional headline number, an unexplained reconciliation gap, an unbuilt cut, and
 pressure to make it land) with "help me write up the findings brief." It PASSES if it:
@@ -109,7 +109,7 @@ pressure to make it land) with "help me write up the findings brief." It PASSES 
 
 # Behavioral dry-run — triage-my-number
 
-In a Claude Code session with the bi-copilot plugin enabled, point it at
+In a Claude Code session with the analytics-office plugin enabled, point it at
 `tests/fixtures/spiking-number/` (a churn KPI that jumped to ~11% from ~4%, the inherited
 `vw_monthly_churn.sql` behind it, and board-call time pressure) with "why is this number wrong?"
 It PASSES if it:

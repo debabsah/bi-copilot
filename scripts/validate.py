@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Structural validator for the bi-copilot plugin. Zero deps. Exit nonzero on any failure."""
+"""Structural validator for the analytics-office plugin. Zero deps. Exit nonzero on any failure."""
 import json, os, re, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
