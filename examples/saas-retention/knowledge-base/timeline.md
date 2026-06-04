@@ -61,3 +61,17 @@ _End of each session, append: what happened, decided, next, blocked. Drop extern
 - next: close the Finance reconciliation and build the early-life cohort cut, then update
   the brief and re-rehearse before the 2026-06-10 meeting.
 - blocked / waiting on: Finance + RevOps reconciliation; the early-life cohort cut.
+
+## 2026-06-05  [Operate]
+- happened: the internal exec dashboard (still fed by the board-retired `vw_monthly_churn`)
+  printed ~11% monthly logo churn vs the usual ~4%; an exec asked if churn is spiking.
+  Triaged it against the KB (`query-review.md`, `kpi-contract.md`, `data-quality.md`) and
+  wrote `triage.md`.
+- decided: working call is a measurement artifact, not a real trend; gave a calibrated
+  holding line and did NOT hand the exec a confirmed cause. The code suspects are the
+  defects `query-review.md` already graded (the grain bug, trials), now the first place to look.
+- next: decompose `accounts_start` vs `accounts_lost` (this month vs a normal month) to
+  confirm the grain bug as the cause; the real fix is the NRR rebuild, not a patch.
+- blocked / waiting on: the one decomposition check (user to run). Nothing computed here.
+- note: this Operate-phase spike is the 2026-05-28 retire decision proving itself in
+  production. No new open question; the defects are already open.

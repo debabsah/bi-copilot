@@ -1,8 +1,8 @@
-# Worked example: the six skills on one project
+# Worked example: the seven skills on one project
 
 This is the bi-copilot bench run end to end on a single project, so you can watch
-the six skills **compose through a shared knowledge base** instead of just reading
-that they do. One skill notices something while reading inherited SQL. Six skills
+the seven skills **compose through a shared knowledge base** instead of just reading
+that they do. One skill notices something while reading inherited SQL. Seven skills
 and a full lifecycle later, that same something is what keeps a bad number out of
 the board readout.
 
@@ -14,7 +14,7 @@ The reader-facing artifacts are real files you can open:
 
 - [`inputs/`](inputs/) - the raw material you start with (an inherited SQL view, a
   departed analyst's notes, a stakeholder request, a number to defend).
-- [`knowledge-base/`](knowledge-base/) - what the six skills produced and kept
+- [`knowledge-base/`](knowledge-base/) - what the seven skills produced and kept
   updating. Start at [`knowledge-base/README.md`](knowledge-base/README.md).
 
 ---
@@ -39,6 +39,7 @@ Hold onto that line. The bench does.
 | 4 | review-my-query | Build / Validate | the inherited `vw_monthly_churn` + the locked contract | 8 graded findings (4 Blocking); the view implements neither contracted metric | query-review, open-questions, decisions, data-quality, timeline |
 | 5 | defend-my-number | Validate | the 108% NRR claim + the board context | a rehearsal that cracks, and a "not yet" verdict | defense-sheet, open-questions, decisions, timeline |
 | 6 | brief-my-findings | Deliver | the locked contract, the query review, the defense sheet | a board readout that carries the "not yet" and keeps the gaps open | findings-brief, decisions, timeline |
+| 7 | triage-my-number | Operate | the retired view spiking in production + the KB | a measurement-artifact diagnosis, a calibrated line, no confirmed cause | triage, timeline, decisions (reinforced) |
 
 Each skill was pointed only at its own input. None was told "read the knowledge base."
 They read it because that is what the skills instruct, and because `groundwork` left an
@@ -94,6 +95,17 @@ items, and carried the rehearsal's **not yet** verdict into the brief rather tha
 smoothing it away. It wrote `findings-brief.md`, not the board slides. The honest readout
 is the one that does not blow up in the room.
 
+**7. triage-my-number (Operate).** Weeks of work later, the inherited view is still feeding
+an internal exec dashboard, and one month it prints 11% logo churn instead of the usual 4%.
+An exec asks if churn is spiking, days before the board call. Instead of tunnelling on the
+scariest cause or reaching for the data, it ran a differential across the whole failure
+surface and reached straight for the defects `query-review.md` had already graded: the
+cohort-grain bug shrinks the denominator, trials inflate the base. It kept "a defect you can
+read" separate from "the cause of this 11%", which still needs one decomposition check, gave
+the exec a calibrated holding line ("almost certainly a measurement artifact, confirming by
+EOD") instead of a guess, and never computed the number itself. The Build-phase review paid
+off in Operate: the spike is the retirement decision proving itself in production.
+
 ## The money shot: one gap, traced across the whole spine
 
 The single most important thing this example shows is not any one skill. It is what
@@ -137,11 +149,17 @@ early-life churn by cohort; it never made the contract's headline; and that gap 
 made the recommendation **wobble** under the last attack. The bench caught two problems,
 not one.)
 
+And a third thread shows the knowledge base compounding the other way. The defects
+`review-my-query` graded during the build become `triage-my-number`'s first suspects when
+the retired view misbehaves in production weeks later. Work done once, in Build, pays off
+again in Operate: diagnosing the 11% spike took minutes and a calibrated holding line, not a
+panic, because the suspects were already written down.
+
 ## What to notice
 
 - **Composition is consumption plus accretion.** Each skill read what came before and
   *extended* the knowledge base; none restated or overwrote another's work. The timeline
-  reads as one continuous project, not six disconnected runs.
+  reads as one continuous project, not seven disconnected runs.
 - **State is current truth.** The interrogator did not just append a note that the goal
   changed; it edited `purpose.md` and closed the stale question. A knowledge base that
   contradicts itself is worse than one that stayed quiet.
@@ -149,10 +167,11 @@ not one.)
   or wrote the production SQL. `groundwork` profiled a static file, `kpi-contract` pinned
   what the metric *means* and flagged what it could not know, `review-my-query` reviewed
   the inherited view without running it and pointed the fix direction instead of handing
-  back a rewrite, `defend-my-number` surfaced the gap instead of crunching it, and
+  back a rewrite, `defend-my-number` surfaced the gap instead of crunching it,
   `brief-my-findings` wrote the readout without computing a number or rendering the board
-  deck. The number 108% is never calculated here; it is defined, contracted, reviewed,
-  pressure-tested, and briefed.
+  deck, and `triage-my-number` diagnosed the production spike without computing the sample
+  it was handed. The number 108% is never calculated here; it is defined, contracted,
+  reviewed, pressure-tested, and briefed.
 - **The honest ending is the feature.** The chain ends in "reframe," two `[needs
   decision]` forks, and a "not yet" that the findings brief carries into the board readout
   itself rather than smoothing away. That is the bench doing its job: surfacing what a
@@ -171,6 +190,9 @@ With the bi-copilot plugin enabled in Claude Code, from a copy of this folder:
 5. Give **defend-my-number** the claim in `inputs/the-number.md` and rehearse.
 6. Ask **brief-my-findings** to "write up the findings brief for the board" from the
    knowledge base. It carries the "not yet" verdict instead of smoothing it.
+7. When the inherited view spikes in production, ask **triage-my-number** "why is this
+   number wrong?" It runs the differential, reaches for the known defects as suspects, and
+   gives a calibrated holding line, no compute.
 
 Each skill self-routes from how you phrase the ask; there is no router to configure. The
 knowledge base you end with should look like the one in [`knowledge-base/`](knowledge-base/).

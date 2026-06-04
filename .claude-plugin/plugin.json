@@ -1,6 +1,6 @@
 {
   "name": "bi-copilot",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "An expert copilot for analytics delivery, built as a growing bench of skills. Live: 'groundwork' (orient on an inherited estate and build a living knowledge base), 'requirements-interrogator' (drive a solution-shaped request to the real decision before building), 'kpi-contract' (pin a metric's exact definition and lock it as a versioned contract), 'defend-my-number' (rehearse defending a number against a skeptic before the meeting), 'review-my-query' (review the query or model behind a number against its locked definition, read-only), 'brief-my-findings' (compose a findings brief for a stakeholder with every claim sourced and graded and open questions kept open, read-only), and 'triage-my-number' (diagnose why a number is wrong or moved unexpectedly across the whole failure surface before explaining it, read-only).",
   "author": { "name": "debabsah" },
   "license": "MIT"

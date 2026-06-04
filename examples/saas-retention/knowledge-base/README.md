@@ -1,5 +1,5 @@
 # Meridian Retention - Knowledge Base
-_Last updated: 2026-06-02_
+_Last updated: 2026-06-05_
 
 Start here. This is the living understanding of the project, for me and for AI agents.
 
@@ -12,6 +12,7 @@ Start here. This is the living understanding of the project, for me and for AI a
   - [Query Review](query-review.md) - the inherited view reviewed against the contract (4 Blocking)
   - [Defense Sheet](defense-sheet.md) - board readout rehearsal (verdict: not yet)
   - [Findings Brief](findings-brief.md) - the board readout, composed from the evidence (verdict carried: not yet)
+  - [Triage](triage.md) - the retired view spiked in production; diagnosed as a measurement artifact (verdict: not a real trend, cause pending one check)
 
 > Meridian is a fictional B2B SaaS company. Every number, account, and name in this
-> example is invented to show the six skills working together.
+> example is invented to show the seven skills working together.

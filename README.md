@@ -221,11 +221,11 @@ flowchart TD
     TR --> KB
 ```
 
-## See the six compose: a worked example
+## See the seven compose: a worked example
 
-Reading what each skill does is one thing; watching them hand off through a shared knowledge base is another. [`examples/saas-retention/`](examples/saas-retention/) runs all six end to end on one fictional SaaS project, with the knowledge base accreting at every step.
+Reading what each skill does is one thing; watching them hand off through a shared knowledge base is another. [`examples/saas-retention/`](examples/saas-retention/) runs all seven end to end on one fictional SaaS project, with the knowledge base accreting at every step.
 
-Follow one thread. `groundwork` notices a throwaway line in a departed analyst's notes, that the churn view "never lines up" with Finance, and logs it. `requirements-interrogator` reframes the dashboard request to net revenue retention. `kpi-contract` formalizes that same Finance gap as a `[needs decision]`. `review-my-query` reviews the inherited view against the contract and finds the code-level root cause: it counts logos, not dollars. `defend-my-number` gets cracked by exactly that unresolved gap and returns a "not yet." Then `brief-my-findings` carries that "not yet" into the board readout instead of smoothing it into "retention is healthy." One caveat, read on day one, six skills and a full lifecycle later, is what keeps a bad number out of the board readout. No single skill carries that; the knowledge base does.
+Follow one thread. `groundwork` notices a throwaway line in a departed analyst's notes, that the churn view "never lines up" with Finance, and logs it. `requirements-interrogator` reframes the dashboard request to net revenue retention. `kpi-contract` formalizes that same Finance gap as a `[needs decision]`. `review-my-query` reviews the inherited view against the contract and finds the code-level root cause: it counts logos, not dollars. `defend-my-number` gets cracked by exactly that unresolved gap and returns a "not yet." Then `brief-my-findings` carries that "not yet" into the board readout instead of smoothing it into "retention is healthy." One caveat, read on day one, seven skills and a full lifecycle later, is what keeps a bad number out of the board readout. No single skill carries that; the knowledge base does. And it compounds the other way too: weeks later, when the retired view spikes to 11% in production, `triage-my-number` reaches for the very defects `review-my-query` graded during the build as its first suspects, and calls it a measurement artifact, not a real trend.
 
 Start at [the walkthrough](examples/saas-retention/README.md). Everything is synthetic: no real data, no number computed.
 

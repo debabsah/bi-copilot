@@ -27,3 +27,10 @@ _Each: the decision, rationale, rejected alternatives, date, source event._
   Rationale: a confident "retention is healthy, invest in growth" readout would over-state
   an unreconciled number and an unevidenced recommendation. Rejected: smoothing the open
   gap, or stating the recommendation as the answer. (per timeline: `findings-brief.md`.)
+- 2026-06-05 - **Production reinforced the retirement of `vw_monthly_churn`.** The retired
+  view spiked to ~11% on the internal dashboard; triage diagnosed it as almost certainly a
+  measurement artifact (its own grain bug or trial inclusion, per `query-review.md`), not a
+  real churn event, and gave the exec a calibrated holding line rather than a confirmed
+  cause. No new fix and no new decision: the board number comes from the NRR rebuild, not a
+  patched logo view. Rationale: the spike is exactly the unreliability the retirement
+  decision anticipated. (per timeline: `triage.md`.)
