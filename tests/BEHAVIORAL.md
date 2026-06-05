@@ -1,3 +1,36 @@
+# Behavioral bench — status ledger
+
+This ledger keeps two things honest (see `tests/COVERAGE-AUDIT.md` for the full diagnostic):
+
+- **Verification** — is the checklist below a *spec* of a dry-run, or a *banked run* with an
+  actual RED/GREEN transcript? A green `- [ ]` box is a specification; it is NOT evidence a
+  run happened. 8/10 skills are spec-only.
+- **Fixture narration** — does the model-facing fixture INPUT hand over its own trap (tests
+  **compliance**), or is the defect **latent** so the model must catch it cold (tests
+  **detection**)? Only a latent fixture can measure failure-prevention lift. The BEHAVIORAL
+  *descriptions* below narrate on purpose — they are the tester's answer key and are NOT
+  given to the model. Keep narrated answer keys (`FIXTURE.md`, this file) out of any
+  cold-run directory, or the trap leaks (the kb-reconcile confound).
+
+| Skill | Verification | Fixture (model-facing input) |
+|---|---|---|
+| kb-reconcile | ✅ banked RED + GREEN + injection (block below + `archive/poison-red/`) | latent |
+| audit-my-experiment | ✅ banked GREEN on Sonnet (`archive/ab-frontier-probe/green-audit-my-experiment.md`) | latent — subtle / glaring + clean control |
+| review-my-query | ⬜ specified-only | latent — **de-narrated 2026-06-05**: stripped 2 giveaway SQL comments (`trials also carry status='active'`, `??? inherited this list`); all 6 defects now latent |
+| brief-my-findings | ⬜ specified-only | latent — **de-narrated 2026-06-05**: `Caveat:`/`Open item:` labels removed; over-crediting + the $2.4M-vs-$2.05M reconciliation gap now presented as neutral facts to catch |
+| groundwork | ⬜ specified-only | latent |
+| requirements-interrogator | ⬜ specified-only | latent |
+| kpi-contract | ⬜ specified-only | latent |
+| model-contract | ⬜ specified-only | latent |
+| triage-my-number | ⬜ specified-only | latent |
+| defend-my-number | ⬜ specified-only | semi-narrated by design — the 32%-vs-9% gap is stated because defend *uses* it as the adversary's ammunition; it is not a detection target |
+
+`archive/` = `~/bi-copilot-design-archive/`. **Not yet measured:** 8/10 skills have no banked
+run; 0/10 have a precision/clean control (false-positive rate unmeasured — COVERAGE-AUDIT move #1).
+Those are the next moves, not claims this file should imply are done.
+
+---
+
 # Behavioral dry-run - groundwork
 
 In a Claude Code session with the analytics-office plugin enabled, run groundwork against

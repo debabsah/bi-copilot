@@ -10,7 +10,7 @@ WITH active_start AS (
         DATE_TRUNC('month', s.period_start) AS month,
         s.account_id
     FROM subscriptions s
-    WHERE s.status = 'active'                 -- NOTE: trials also carry status = 'active' in this schema
+    WHERE s.status = 'active'
     GROUP BY 1, 2
 ),
 canceled_in_month AS (
@@ -32,5 +32,5 @@ LEFT JOIN canceled_in_month c
       AND c.month      = a.month
 JOIN accounts acct ON acct.account_id = a.account_id
 WHERE acct.plan_code <> 'internal'                                   -- exclude internal accounts
-  AND acct.account_id NOT IN (4471, 4472, 5012, 5013, 5014)         -- ??? inherited this list, no idea who these are
+  AND acct.account_id NOT IN (4471, 4472, 5012, 5013, 5014)
 GROUP BY a.month;
