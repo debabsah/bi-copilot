@@ -36,9 +36,7 @@ revenue_lost AS (
         ) * -1 AS mrr_lost                                     -- flip to a positive loss amount
     FROM period_close pc
     JOIN mrr_change_events e
-      ON e.fiscal_period_id = pc.fiscal_period_id
-     AND ((e.event_ts AT TIME ZONE 'UTC') AT TIME ZONE 'America/Los_Angeles')
-            BETWEEN pc.period_start_pt AND pc.period_end_pt
+      ON e.fiscal_period_id = pc.fiscal_period_id          -- events pre-keyed to fiscal period (US/Pacific)
     WHERE e.change_type IN ('cancel', 'downgrade')
     GROUP BY pc.fiscal_period_id, e.account_id
 )

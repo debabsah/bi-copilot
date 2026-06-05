@@ -34,12 +34,12 @@ smooth. The skills add **structure / a graded artifact / don't-rewrite disciplin
 Consistent with the session thesis: detection lift concentrates on **invisible/computational** checks
 (the SRM chi-square → audit-my-experiment), not **legible** ones whose severity is on the page.
 
-**Not yet measured:** 6/10 skills have no banked run. **Precision / clean controls now BUILT** for the
-four auditor skills (kb-reconcile, review-my-query, triage-my-number, defend-my-number — 2026-06-05;
-audit-my-experiment already had `clean.txt`) — see the Precision-controls section below — but NOT yet
-measured (the GREEN/RED-on-clean false-positive run is the next move). A fair review-my-query GREEN
-still needs a held-out query (its trap-fixture IS the skill's own worked example). These are the next
-moves, not claims this file should imply are done.
+**Precision measured 2026-06-05** (Sonnet GREEN-on-clean; Precision-controls section below): 3 of 4
+auditors PASS (kb-reconcile, triage-my-number, defend-my-number); **review-my-query FAILS** — it
+over-grades schema-conditional concerns to Blocking on a conformant query (cries wolf on clean code).
+**Still open:** 6/10 skills have no recall (RED/GREEN) run; a fair review-my-query *recall* GREEN still
+needs a held-out query (its trap-fixture is the skill's own worked example). These are the next moves,
+not claims this file should imply are done.
 
 ---
 
@@ -277,6 +277,26 @@ checks shown and manufactures NO problem. They measure the **false-positive rate
 number for the auditor skills (the confusion matrix's untested column). Built 2026-06-05; each
 `tests/fixtures/<dir>/FIXTURE.md` documents the planted hard-negatives (answer keys — keep out of
 cold-run dirs).
+
+**Measured 2026-06-05 (Sonnet GREEN-on-clean; verdict `archive/precision-controls/`):**
+- **kb-reconcile — PASS.** No Blocking on the clean KB; cleared all three hard-negatives; correctly
+  marked the figures "unverified by live paste-back" (NOT "unsourced"); residual flags well-graded
+  Advisory/Latent. Good severity calibration. (It also caught two real bugs in the first draft of this
+  fixture — strong recall.)
+- **triage-my-number — PASS.** Held the differential, fabricated no artifact, gave the calibrated
+  "real, not broken" line.
+- **defend-my-number — PASS (opening).** Fair, grounded attack; no fabricated hole; no recompute.
+  (Interactive — the full drill was not run here.)
+- **review-my-query — FAIL (the finding this control exists to surface).** On the conformant query it
+  returned **3 Blocking "do not ship"** findings (reproduced across two runs), over-grading
+  schema-conditional concerns (table grain, integer division, an edge case) that its own bright line
+  says to raise as *questions*. The concerns are defensible to RAISE; grading them Blocking is the
+  precision miss — it cannot return "conforms, ship it" and will cry wolf on clean code. Fix direction
+  (in the skill): grade unverified-schema concerns Latent/verify; reserve Blocking for established defects.
+
+Net: precision good for 3 of 4 auditors; review-my-query over-escalates to Blocking. The contrast IS
+the lesson — kb-reconcile graded definitional uncertainty Advisory/Latent (right), review-my-query
+graded schema uncertainty Blocking (wrong).
 
 ## review-my-query — `tests/fixtures/conformant-query/`
 Point it at `vw_gross_revenue_churn.sql` + `kpi-contract.md` with "review it". PASSES if it:
