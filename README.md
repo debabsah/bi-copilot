@@ -33,11 +33,12 @@ It's a copilot, so picture the board. You fly; it runs the discipline behind eve
 | **Review** | Read the query, model, or measure that computes a number and check it against its locked definition before it ships: catch the bugs that quietly ship the wrong number | `review-my-query` | ✅ **live** |
 | **Sparring** | Defend-the-number rehearsal: role-plays the skeptic, drills you under escalating pressure, grades your answers, leaves a Defense Sheet. Socratic challenge and red-teaming too | `defend-my-number` | ✅ **live** |
 | **Diagnostics** | A number came out wrong or moved unexpectedly: run a systematic differential across the whole failure surface (code, data, pipeline, definition, or a real change) before you explain it | `triage-my-number` | ✅ **live** |
+| **Integrity** | Audit the accreted knowledge base against its sources and itself before its conclusions are used: catch drift, contradictions, partial-update lag, and unsourced numbers | `kb-reconcile` | ✅ **live** |
 | **Instruments** | Data quality and lineage: *is this right, and will it hold?* | `groundwork` drafts these; dedicated modules *(planned)* | ◐ planned |
 
 ## What you can ask it
 
-You don't run commands. You describe what you're dealing with, and the right capability picks it up. A sample across the lifecycle (the ✅ rows are live across `groundwork`, `requirements-interrogator`, `kpi-contract`, `defend-my-number`, `review-my-query`, `brief-my-findings`, `triage-my-number`, and `model-contract`; the ◐ rows show where the panel is headed):
+You don't run commands. You describe what you're dealing with, and the right capability picks it up. A sample across the lifecycle (the ✅ rows are live across `groundwork`, `requirements-interrogator`, `kpi-contract`, `defend-my-number`, `review-my-query`, `brief-my-findings`, `triage-my-number`, `model-contract`, and `kb-reconcile`; the ◐ rows show where the panel is headed):
 
 | Stage | You say… | What happens | Status |
 |---|---|---|---|
@@ -56,8 +57,9 @@ You don't run commands. You describe what you're dealing with, and the right cap
 | Operate | "Churn jumped to 11% and the board call is in an hour. Why?" | Runs a systematic differential across code, data, pipeline, definition, and a real change, hands you the checks, and gives a calibrated holding line instead of a guess | ✅ |
 | Operate | "What's the right next move on this project?" | Infers where you are from the knowledge base and recommends the next step | ◐ |
 | Continuity | "The client just emailed a new constraint, log it." | Drops a dated event on the timeline with its source | ✅ |
+| Continuity | "Before I lean on it for the board, is our knowledge base still accurate, or did something drift?" | Reconciles every claim against its cited source and the other files, flags contradictions, partial-update drift, and unsourced numbers, and writes the checks to run for what it can't verify read-only | ✅ |
 
-✅ live today (via `groundwork`, `requirements-interrogator`, `kpi-contract`, `defend-my-number`, `review-my-query`, `brief-my-findings`, `triage-my-number`, and `model-contract`) · ◐ on the flight plan
+✅ live today (via `groundwork`, `requirements-interrogator`, `kpi-contract`, `defend-my-number`, `review-my-query`, `brief-my-findings`, `triage-my-number`, `model-contract`, and `kb-reconcile`) · ◐ on the flight plan
 
 ## Philosophy: the design *is* the product
 
@@ -243,6 +245,27 @@ flowchart TD
     TR --> KB
 ```
 
+## Skill: `kb-reconcile`
+
+The record's auditor: the backward pass. The other skills write the knowledge base forward; this one checks it before you lean on its conclusions. Point it at a `knowledge-base/` ahead of a board readout, a handoff, or a funding call. It reconciles every material claim against its cited source and the other files, flags what has drifted, marks every number it can't verify read-only as unverified, and writes the exact check for you to run on the rest. It never edits the record it audits and never runs the check itself.
+
+**Before:** a knowledge base whose headline reads "Finance reconciliation closed, NRR 108% board-ready," days before the board call.
+**After:** instead of carrying that number forward, it catches that the contract of record the headline cites still marks the reconciliation `[needs decision]`, a partial-update nobody propagated; flags the 108% as unverified because no billing or GL source sits in the tree; writes the exact NRR query for you to run and paste back; and grades it all in a `reconcile.md`, with the escalations recommended and the record left untouched. No number computed, no file rewritten.
+
+A capable assistant, handed a knowledge base and a deadline, reads it and answers, trusting what it reads, so a planted "closed, board-ready" sails straight into the room. This runs the move it skips: switch out of answer-mode into adversarial audit-mode, assume every claim wrong until it reconciles against its source, and refuse to bless a number with no run behind it.
+
+### How it works
+
+```mermaid
+flowchart TD
+    KB[("knowledge-base/<br/>the accreted record")] --> KR["kb-reconcile<br/>adversarial audit:<br/>rank by stake,<br/>internal + source reconcile"]
+    KR --> D{"Per claim<br/>reconciled / drifted /<br/>unverified / contradicted"}
+    D --> RC["reconcile.md<br/>graded drift +<br/>recommended actions"]
+    D -. writes the check .-> RUN["You run it<br/>against source,<br/>paste back"]
+    RUN -. verified or contradicted .-> RC
+    RC --> KB
+```
+
 ## See the seven compose: a worked example
 
 Reading what each skill does is one thing; watching them hand off through a shared knowledge base is another. [`examples/saas-retention/`](examples/saas-retention/) runs all seven end to end on one fictional SaaS project, with the knowledge base accreting at every step.
@@ -253,7 +276,7 @@ Start at [the walkthrough](examples/saas-retention/README.md). Everything is syn
 
 ## Flight plan
 
-`groundwork` is live first because orientation comes first: you can't define, build, or defend anything until you know what you're standing on. From there the panel grows by accretion: `requirements-interrogator` validates the ask, `kpi-contract` pins the metric, `model-contract` designs the model, `review-my-query` checks the build against that contract, `defend-my-number` spars, `brief-my-findings` writes up the result for the room, and `triage-my-number` diagnoses a number that came out wrong once it is live. Still ahead are the navigator (where am I, what's next) and the stakeholder meeting-prep pack. Each ships when it can be genuinely expert-grade, not before.
+`groundwork` is live first because orientation comes first: you can't define, build, or defend anything until you know what you're standing on. From there the panel grows by accretion: `requirements-interrogator` validates the ask, `kpi-contract` pins the metric, `model-contract` designs the model, `review-my-query` checks the build against that contract, `defend-my-number` spars, `brief-my-findings` writes up the result for the room, `triage-my-number` diagnoses a number that came out wrong once it is live, and `kb-reconcile` audits the accreted record before its conclusions are used. Still ahead are the navigator (where am I, what's next) and the stakeholder meeting-prep pack. Each ships when it can be genuinely expert-grade, not before.
 
 ## Install
 
