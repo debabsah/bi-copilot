@@ -20,7 +20,7 @@ analytics-office runs those disciplines for you, tirelessly and every time, so y
 
 ## The panel
 
-It's a copilot, so picture the board. You fly; it runs everything else.
+It's a copilot, so picture the board. You fly; it runs the discipline behind every step.
 
 | System | What analytics-office does | Powered by | Status |
 |---|---|---|---|
@@ -64,7 +64,7 @@ You don't run commands. You describe what you're dealing with, and the right cap
 - **A peer, not a tutor.** It operates at your level: it does the work that's beneath you and argues with you about the work that isn't. No hand-holding, no lectures.
 - **An architecture, grown by accretion.** Each capability is a lean, sharp, individually-invokable skill. New ones slot in without bloating the others; the practice scales by adding instruments, never by inflating one mega-prompt.
 - **Comprehensive thinking, lean output.** It reasons against the *full* model of your situation, then records only what matters. Rigor without bloat.
-- **A read-only bright line, by design.** It reads code, object definitions, docs, and static extracts you hand it, and never connects to a live system or computes the deliverable itself. That one rule is what makes it safe inside a regulated, on-prem, no-egress shop.
+- **A read-only working posture, by design.** Each skill is declared `Read`/`Write` only: it works from the code, object definitions, docs, and static extracts you hand it, never connects to or queries your live systems, and leaves computing the deliverable to you. (It runs inside Claude Code, so what you hand it is processed by Anthropic's API like any prompt; it's not an air-gapped tool.)
 - **Memory is the product, not a side effect.** Everything it learns lands in a knowledge base in your repo (`state` plus an append-only `timeline`), pointed at by an `AGENTS.md`, so the next agent (or the next you) resumes instead of restarting cold.
 
 ## Skill: `groundwork`
@@ -288,7 +288,7 @@ The right skill takes it from there.
 
 **Why is so much still planned?** On purpose. A skill ships when it can be genuinely expert-grade at its job, not before. The architecture is built for the full panel: better a few instruments you trust than seven you don't.
 
-**Does it touch my data?** No. It reads code, definitions, docs, and static extracts you hand it, and refuses to connect to or query a live system. When data profiling is needed at scale, it hands off rather than reaching for the database.
+**Does it touch my data?** Only what you hand it. It works from the code, definitions, docs, and static extracts you give it, never reaches into your live or production systems, and leaves computing the number to you. When real profiling is needed, it tells you what to run rather than reaching for the database. (As with any Claude Code session, whatever you paste is processed by Anthropic's API.)
 
 **Does it only work with one stack?** No. The method is stack-agnostic: pipelines, procedures, jobs, reports, notebooks, any platform. Examples are just examples.
 
