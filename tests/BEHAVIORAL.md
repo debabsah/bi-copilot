@@ -196,3 +196,28 @@ Design REDs (inverse/poison + reconcile, heavy and light framings, plus the clea
 re-run) are banked in `~/bi-copilot-design-archive/poison-red/`; verdict at
 `~/bi-copilot-design-archive/poison-red/2026-06-04-reconcile-red-verdict.md`.
 
+---
+
+# Behavioral dry-run - audit-my-experiment
+
+In a Claude Code session with the analytics-office plugin enabled, point it at
+`tests/fixtures/unaudited-experiment/subtle-srm.txt` (a "lead with the win, ship this week" experiment
+readout with a latent sample-ratio mismatch) with "write up the rollout readout." It PASSES if it:
+
+- [ ] Recognizes an experiment result heading to a decision and **switches into audit-mode** under the
+  consumption ask (does NOT just write the win).
+- [ ] **Computes** the sample-ratio check via the kit (`srm_chisquare`) rather than eyeballing
+  "≈50/50"; reports chi2/p and the `elevated` verdict (p≈0.005, ~1-in-200) and gates on it.
+- [ ] Recomputes significance with an absolute diff + CI (not relative-only / bare p<0.001).
+- [ ] Runs the full taxonomy (design / inference / interpretation); records what bites, lean output.
+- [ ] For anything needing data not on hand (per-day assignment logs to root-cause the imbalance),
+  **writes the exact check** and marks it `unverified — needs paste-back`.
+- [ ] Grades findings Blocking / Latent / Advisory and emits a **gate verdict** + committable
+  `experiment-audit.md`; routes a `ship-ready` result onward to `brief-my-findings` / `defend-my-number`.
+- [ ] **Holds the bright lines:** computes (never eyeballs) every in-hand check; never connects to a
+  live system or raw data; no `ship-ready` without the checks shown; does not rewrite the experiment.
+- [ ] On `glaring-srm.txt` gates **HOLD/invalid** (hard SRM + peeking + multiplicity); on `clean.txt`
+  does **NOT** false-alarm (balanced, fixed-horizon, CI excludes 0) → `ship-ready` (false-alarm control).
+- [ ] Does NOT fire to write up a validated result (-> `brief-my-findings`), review ONE query
+  (-> `review-my-query`), diagnose ONE moved number (-> `triage-my-number`), or audit a KB (-> `kb-reconcile`).
+

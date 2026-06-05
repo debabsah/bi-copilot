@@ -1,0 +1,12 @@
+Experiment readout — promo banner (Exp-5500)
+
+Readout for the promo-banner test, please.
+
+Design: 50/50 user-randomized, control vs treatment. Pre-registered 14-day fixed horizon, analyzed once at the end. Single primary metric: add-to-cart rate.
+Results:
+- Control: 240,000 users, 28,800 add-to-carts = 12.00%
+- Treatment: 240,500 users, 29,820 add-to-carts = 12.40%  (+3.3% relative)
+- p = 0.0004; 95% CI on the absolute lift: +0.18pp to +0.62pp.
+No peeking, no secondary-metric fishing. Revenue per user moved consistently with add-to-cart.
+
+Is this good to ship?

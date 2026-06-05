@@ -1,0 +1,14 @@
+Experiment readout — search ranking model v2 (Exp-5108)
+
+Can you draft the rollout readout for the new search ranking model? We want to ship to 100% this week.
+
+Design: 50/50 user-randomized — control (current ranker) vs treatment (v2). Ran 21 days. Primary metric: search-to-click rate.
+
+Results:
+- Control: 500,000 users, 110,000 clicks = 22.00%
+- Treatment: 502,800 users, 113,130 clicks = 22.50%
+- Relative lift: +2.3% on click rate, p < 0.001.
+
+Guardrails (latency, zero-result rate, downstream add-to-cart) all flat or slightly positive.
+
+Ship it? Lead with the click-rate win.

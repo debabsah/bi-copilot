@@ -34,11 +34,12 @@ It's a copilot, so picture the board. You fly; it runs the discipline behind eve
 | **Sparring** | Defend-the-number rehearsal: role-plays the skeptic, drills you under escalating pressure, grades your answers, leaves a Defense Sheet. Socratic challenge and red-teaming too | `defend-my-number` | ✅ **live** |
 | **Diagnostics** | A number came out wrong or moved unexpectedly: run a systematic differential across the whole failure surface (code, data, pipeline, definition, or a real change) before you explain it | `triage-my-number` | ✅ **live** |
 | **Integrity** | Audit the accreted knowledge base against its sources and itself before its conclusions are used: catch drift, contradictions, partial-update lag, and unsourced numbers | `kb-reconcile` | ✅ **live** |
+| **Experiment validity** | Validity gate for experiment / A-B results: computes SRM, power, multiplicity, peeking checks before you ship — switches to audit-mode even on "write up our win". | `audit-my-experiment` | ✅ **live** |
 | **Instruments** | Data quality and lineage: *is this right, and will it hold?* | `groundwork` drafts these; dedicated modules *(planned)* | ◐ planned |
 
 ## What you can ask it
 
-You don't run commands. You describe what you're dealing with, and the right capability picks it up. A sample across the lifecycle (the ✅ rows are live across `groundwork`, `requirements-interrogator`, `kpi-contract`, `defend-my-number`, `review-my-query`, `brief-my-findings`, `triage-my-number`, `model-contract`, and `kb-reconcile`; the ◐ rows show where the panel is headed):
+You don't run commands. You describe what you're dealing with, and the right capability picks it up. A sample across the lifecycle (the ✅ rows are live across `groundwork`, `requirements-interrogator`, `kpi-contract`, `defend-my-number`, `review-my-query`, `brief-my-findings`, `triage-my-number`, `model-contract`, `kb-reconcile`, and `audit-my-experiment`; the ◐ rows show where the panel is headed):
 
 | Stage | You say… | What happens | Status |
 |---|---|---|---|
@@ -58,8 +59,9 @@ You don't run commands. You describe what you're dealing with, and the right cap
 | Operate | "What's the right next move on this project?" | Infers where you are from the knowledge base and recommends the next step | ◐ |
 | Continuity | "The client just emailed a new constraint, log it." | Drops a dated event on the timeline with its source | ✅ |
 | Continuity | "Before I lean on it for the board, is our knowledge base still accurate, or did something drift?" | Reconciles every claim against its cited source and the other files, flags contradictions, partial-update drift, and unsourced numbers, and writes the checks to run for what it can't verify read-only | ✅ |
+| Validate | "We ran an A-B test and want to ship — is the result actually valid?" | Computes SRM, recomputes significance with absolute diff + CI, checks for peeking and multiplicity, grades findings Blocking / Latent / Advisory, and gates the rollout: ship-ready or HOLD | ✅ |
 
-✅ live today (via `groundwork`, `requirements-interrogator`, `kpi-contract`, `defend-my-number`, `review-my-query`, `brief-my-findings`, `triage-my-number`, `model-contract`, and `kb-reconcile`) · ◐ on the flight plan
+✅ live today (via `groundwork`, `requirements-interrogator`, `kpi-contract`, `defend-my-number`, `review-my-query`, `brief-my-findings`, `triage-my-number`, `model-contract`, `kb-reconcile`, and `audit-my-experiment`) · ◐ on the flight plan
 
 ## Philosophy: the design *is* the product
 
@@ -266,6 +268,26 @@ flowchart TD
     RC --> KB
 ```
 
+## Skill: `audit-my-experiment`
+
+The validity gate. You have an experiment result — an A/B test, a randomized trial, a causal analysis — and you need to know if it is valid before you ship, brief, or defend it. It runs the full audit taxonomy (design integrity, statistical inference, interpretation), computes every in-hand check (sample-ratio mismatch, observed power, multiplicity correction, peeking) rather than eyeballing them, grades each finding Blocking / Latent / Advisory, and emits a gate verdict: `ship-ready`, `HOLD/pending`, or `HOLD/invalid`. It switches into audit-mode even when the ask is "write up our win" — validity before packaging.
+
+**Before:** "Can you draft the rollout readout for the new search ranking model? We want to ship to 100% this week. Lead with the click-rate win."
+**After:** instead of writing the win, it computes the sample-ratio check on the arm sizes (p≈0.005, ~1-in-200 — Blocking), reframes the bare relative lift as an absolute diff with a CI, runs the full taxonomy, and gates with HOLD/pending: the SRM must be root-caused before the readout is drafted. It writes the exact per-day assignment query to paste back, and routes to `brief-my-findings` / `defend-my-number` once the gate is cleared.
+
+A capable assistant, handed "lead with the win," writes the win. This runs the move it skips: compute the checks, hold the gate, and never let a readout go out that the data doesn't support.
+
+### How it works
+
+```mermaid
+flowchart TD
+    EXP["Experiment result<br/>A-B / causal /<br/>randomized trial"] --> AE["audit-my-experiment<br/>compute SRM, power,<br/>multiplicity, peeking;<br/>full taxonomy"]
+    AE --> G{"Gate verdict<br/>ship-ready /<br/>HOLD/pending /<br/>HOLD/invalid"}
+    G -- ship-ready --> BF["brief-my-findings<br/>/ defend-my-number"]
+    G -- HOLD --> EA["experiment-audit.md<br/>graded findings +<br/>paste-back checks"]
+    EA --> KB[("knowledge-base/")]
+```
+
 ## See the seven compose: a worked example
 
 Reading what each skill does is one thing; watching them hand off through a shared knowledge base is another. [`examples/saas-retention/`](examples/saas-retention/) runs all seven end to end on one fictional SaaS project, with the knowledge base accreting at every step.
@@ -276,7 +298,7 @@ Start at [the walkthrough](examples/saas-retention/README.md). Everything is syn
 
 ## Flight plan
 
-`groundwork` is live first because orientation comes first: you can't define, build, or defend anything until you know what you're standing on. From there the panel grows by accretion: `requirements-interrogator` validates the ask, `kpi-contract` pins the metric, `model-contract` designs the model, `review-my-query` checks the build against that contract, `defend-my-number` spars, `brief-my-findings` writes up the result for the room, `triage-my-number` diagnoses a number that came out wrong once it is live, and `kb-reconcile` audits the accreted record before its conclusions are used. Still ahead are the navigator (where am I, what's next) and the stakeholder meeting-prep pack. Each ships when it can be genuinely expert-grade, not before.
+`groundwork` is live first because orientation comes first: you can't define, build, or defend anything until you know what you're standing on. From there the panel grows by accretion: `requirements-interrogator` validates the ask, `kpi-contract` pins the metric, `model-contract` designs the model, `review-my-query` checks the build against that contract, `defend-my-number` spars, `brief-my-findings` writes up the result for the room, `triage-my-number` diagnoses a number that came out wrong once it is live, `kb-reconcile` audits the accreted record before its conclusions are used, and `audit-my-experiment` gates experiment / A-B results before they ship or get briefed. Still ahead are the navigator (where am I, what's next) and the stakeholder meeting-prep pack. Each ships when it can be genuinely expert-grade, not before.
 
 ## Install
 
