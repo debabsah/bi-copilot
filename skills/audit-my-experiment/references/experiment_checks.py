@@ -2,6 +2,8 @@
 import math
 from statistics import NormalDist
 
+__all__ = ["chi2_sf", "srm_chisquare", "two_prop_z", "multiplicity_correct", "power_mde", "peeking_flag"]
+
 _NORM = NormalDist()
 
 
@@ -56,6 +58,8 @@ def srm_chisquare(counts, expected_ratio=None, alarm=0.0005, watch=0.01):
     n, k = sum(counts), len(counts)
     if expected_ratio is None:
         expected_ratio = [1.0 / k] * k
+    if not math.isclose(sum(expected_ratio), 1.0, rel_tol=1e-9):
+        raise ValueError("expected_ratio must sum to 1.0")
     expected = [n * r for r in expected_ratio]
     chi2 = sum((o - e) ** 2 / e for o, e in zip(counts, expected))
     p = chi2_sf(chi2, k - 1)
@@ -69,13 +73,23 @@ def two_prop_z(c1, n1, c2, n2):
     p1, p2 = c1 / n1, c2 / n2
     pooled = (c1 + c2) / (n1 + n2)
     se_pooled = math.sqrt(pooled * (1 - pooled) * (1 / n1 + 1 / n2))
-    z = (p2 - p1) / se_pooled
-    p = math.erfc(abs(z) / math.sqrt(2.0))  # two-sided
+    if se_pooled == 0:
+        z, p = 0.0, 1.0
+    else:
+        z = (p2 - p1) / se_pooled
+        p = math.erfc(abs(z) / math.sqrt(2.0))  # two-sided
+    diff = p2 - p1
+    if diff == 0:
+        rel_lift = 0.0
+    elif p1 == 0:
+        rel_lift = float("inf")
+    else:
+        rel_lift = diff / p1
     se_unpooled = math.sqrt(p1 * (1 - p1) / n1 + p2 * (1 - p2) / n2)
     half = _NORM.inv_cdf(0.975) * se_unpooled
-    return {"p1": p1, "p2": p2, "abs_diff": p2 - p1,
-            "rel_lift": (p2 - p1) / p1 if p1 else float("inf"),
-            "z": z, "p": p, "ci95": (p2 - p1 - half, p2 - p1 + half)}
+    return {"p1": p1, "p2": p2, "abs_diff": diff,
+            "rel_lift": rel_lift,
+            "z": z, "p": p, "ci95": (diff - half, diff + half)}
 
 
 def multiplicity_correct(pvals, alpha=0.05, method="holm"):
@@ -112,6 +126,8 @@ def power_mde(n_per_arm, base_rate, alpha=0.05, power=0.8):
 
 def peeking_flag(looks, nominal_alpha=0.05):
     """Advisory: repeated looks inflate the false-positive rate above nominal_alpha."""
+    if looks < 0:
+        raise ValueError("looks must be >= 0")
     looks = int(looks)
     return {"looks": looks, "nominal_alpha": nominal_alpha,
             "conservative_alpha": nominal_alpha / looks if looks > 0 else nominal_alpha,
