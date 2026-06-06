@@ -290,6 +290,27 @@ flowchart TD
     EA --> KB[("knowledge-base/")]
 ```
 
+## Skill: `audit-my-assumptions`
+
+The pre-flight. You are about to build on something you inherited — rebuild a report from someone else's stored procs, derive a metric from an existing query, stack years onto an old workbook — and every one of those sources makes silent decisions you would otherwise adopt as fact. It surfaces each inherited assumption (the population definition, the grain, the unit a column is in, the date basis, the identity key, the magic constants), grades each by blast radius (a wrong trunk cascades; a wrong leaf is cosmetic), falsifies the load-bearing ones against the most generative source — including the population's trend over time, where a stale definition hides — and routes the intent questions to the owner. It emits a graded assumption register and never builds the deliverable on an unvalidated trunk.
+
+**Before:** "Here's the proc the data team uses for packages, and last year's run: 412 orders, $340K. Turn it into my branded-package slide for the board."
+**After:** instead of charting the clean number, it flags that `BUNDLEID IS NOT NULL` is an inherited *definition* of "package" that may no longer match what the business sells — a small, tidy number is exactly what a stale definition produces — calls for the by-year trend the single window hides, notes the excluded add-on line type is where today's promo bundles may now live, and routes "what counts as a promo bundle today" to the owner before a slide exists.
+
+A capable assistant, handed a clean inherited number, builds the deliverable and adopts the source's premises as fact; the cascade is invisible because the output looks right. This runs the move it skips: treat every inherited definition as an assumption to falsify, check the trend even from one window, and clear the foundation before pouring anything on it.
+
+### How it works
+
+```mermaid
+flowchart TD
+    SRC["Inherited source<br/>proc / query / export<br/>you're about to build on"] --> AA["audit-my-assumptions<br/>inventory premises,<br/>grade by blast radius,<br/>falsify the load-bearing<br/>trend, not snapshot"]
+    KB[("knowledge-base/")] -. contract + decisions .-> AA
+    AA --> D{"Each assumption:<br/>verified / assumption /<br/>falsified / needs-decision"}
+    D --> AR["assumption-register.md<br/>graded trunks +<br/>the checks to run"]
+    D -. intent it can't derive .-> OWN["Owner decides<br/>gating"]
+    AR --> KB
+```
+
 ## See the seven compose: a worked example
 
 Reading what each skill does is one thing; watching them hand off through a shared knowledge base is another. [`examples/saas-retention/`](examples/saas-retention/) runs all seven end to end on one fictional SaaS project, with the knowledge base accreting at every step.
@@ -300,7 +321,7 @@ Start at [the walkthrough](examples/saas-retention/README.md). Everything is syn
 
 ## Flight plan
 
-`groundwork` is live first because orientation comes first: you can't define, build, or defend anything until you know what you're standing on. From there the panel grows by accretion: `requirements-interrogator` validates the ask, `kpi-contract` pins the metric, `model-contract` designs the model, `review-my-query` checks the build against that contract, `defend-my-number` spars, `brief-my-findings` writes up the result for the room, `triage-my-number` diagnoses a number that came out wrong once it is live, `kb-reconcile` audits the accreted record before its conclusions are used, and `audit-my-experiment` gates experiment / A-B results before they ship or get briefed. Still ahead are the navigator (where am I, what's next) and the stakeholder meeting-prep pack. Each ships when it can be genuinely expert-grade, not before.
+`groundwork` is live first because orientation comes first: you can't define, build, or defend anything until you know what you're standing on. From there the panel grows by accretion: `requirements-interrogator` validates the ask, `kpi-contract` pins the metric, `model-contract` designs the model, `review-my-query` checks the build against that contract, `defend-my-number` spars, `brief-my-findings` writes up the result for the room, `triage-my-number` diagnoses a number that came out wrong once it is live, `kb-reconcile` audits the accreted record before its conclusions are used, and `audit-my-experiment` gates experiment / A-B results before they ship or get briefed, and `audit-my-assumptions` audits the silent assumptions inherited from a source before you build on them. Still ahead are the navigator (where am I, what's next) and the stakeholder meeting-prep pack. Each ships when it can be genuinely expert-grade, not before.
 
 ## Install
 
