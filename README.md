@@ -35,11 +35,12 @@ It's a copilot, so picture the board. You fly; it runs the discipline behind eve
 | **Diagnostics** | A number came out wrong or moved unexpectedly: run a systematic differential across the whole failure surface (code, data, pipeline, definition, or a real change) before you explain it | `triage-my-number` | ✅ **live** |
 | **Integrity** | Audit the accreted knowledge base against its sources and itself before its conclusions are used: catch drift, contradictions, partial-update lag, and unsourced numbers | `kb-reconcile` | ✅ **live** |
 | **Experiment validity** | Validity gate for experiment / A-B results: computes SRM, power, multiplicity, peeking checks before you ship — switches to audit-mode even on "write up our win". | `audit-my-experiment` | ✅ **live** |
+| **Assumption pre-flight** | Before you build on inherited procs/queries/exports: surface every silent assumption, grade it by blast radius, and falsify the load-bearing ones (the trend included) so a stale premise doesn't cascade into a plausible wrong output | `audit-my-assumptions` | ✅ **live** |
 | **Instruments** | Data quality and lineage: *is this right, and will it hold?* | `groundwork` drafts these; dedicated modules *(planned)* | ◐ planned |
 
 ## What you can ask it
 
-You don't run commands. You describe what you're dealing with, and the right capability picks it up. A sample across the lifecycle (the ✅ rows are live across `groundwork`, `requirements-interrogator`, `kpi-contract`, `defend-my-number`, `review-my-query`, `brief-my-findings`, `triage-my-number`, `model-contract`, `kb-reconcile`, and `audit-my-experiment`; the ◐ rows show where the panel is headed):
+You don't run commands. You describe what you're dealing with, and the right capability picks it up. A sample across the lifecycle (the ✅ rows are live across `groundwork`, `requirements-interrogator`, `kpi-contract`, `defend-my-number`, `review-my-query`, `brief-my-findings`, `triage-my-number`, `model-contract`, `kb-reconcile`, `audit-my-experiment`, and `audit-my-assumptions`; the ◐ rows show where the panel is headed):
 
 | Stage | You say… | What happens | Status |
 |---|---|---|---|
@@ -60,8 +61,9 @@ You don't run commands. You describe what you're dealing with, and the right cap
 | Continuity | "The client just emailed a new constraint, log it." | Drops a dated event on the timeline with its source | ✅ |
 | Continuity | "Before I lean on it for the board, is our knowledge base still accurate, or did something drift?" | Reconciles every claim against its cited source and the other files, flags contradictions, partial-update drift, and unsourced numbers, and writes the checks to run for what it can't verify read-only | ✅ |
 | Validate | "We ran an A-B test and want to ship — is the result actually valid?" | Computes SRM, recomputes significance with absolute diff + CI, checks for peeking and multiplicity, grades findings Blocking / Latent / Advisory, and gates the rollout: ship-ready or HOLD | ✅ |
+| Build | "Before I rebuild this report from the old procs — what am I silently assuming that could be wrong?" | Surfaces every inherited assumption, grades each by blast radius, falsifies the load-bearing ones (trend included), and routes intent to the owner — before a line is built | ✅ |
 
-✅ live today (via `groundwork`, `requirements-interrogator`, `kpi-contract`, `defend-my-number`, `review-my-query`, `brief-my-findings`, `triage-my-number`, `model-contract`, `kb-reconcile`, and `audit-my-experiment`) · ◐ on the flight plan
+✅ live today (via `groundwork`, `requirements-interrogator`, `kpi-contract`, `defend-my-number`, `review-my-query`, `brief-my-findings`, `triage-my-number`, `model-contract`, `kb-reconcile`, `audit-my-experiment`, and `audit-my-assumptions`) · ◐ on the flight plan
 
 ## Philosophy: the design *is* the product
 
