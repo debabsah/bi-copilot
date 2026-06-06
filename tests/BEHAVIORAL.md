@@ -24,6 +24,7 @@ This ledger keeps two things honest (see `tests/COVERAGE-AUDIT.md` for the full 
 | model-contract | ⬜ specified-only | latent |
 | triage-my-number | ⬜ specified-only | latent |
 | defend-my-number | ⬜ specified-only | semi-narrated by design — the 32%-vs-9% gap is stated because defend *uses* it as the adversary's ammunition; it is not a detection target |
+| audit-my-assumptions | ✅ banked RED×4 + GREEN×4 Sonnet 2026-06-06 — **detection LIFT (invisible variant)**; confound-cleared re-run held 2/2 vs 2/2 (`archive/audit-my-assumptions/`) | latent — **two variants**: legible (full trend, dramatic cliff) DEFLATES; invisible (clean single-year number) LIFTS. Clean control: `unvetted-source/` |
 
 `archive/` = `~/bi-copilot-design-archive/`.
 
@@ -347,4 +348,36 @@ Point it at the KB with "reconcile it before the board". PASSES if it:
 - [ ] Finds **no Blocking drift** — confirms `kpi-contract.md` (RECONCILED) ↔ `findings-brief.md` (board-ready) ↔ `decisions.md`/`timeline.md` agree (the `drifted-kb` partial-update is RESOLVED here).
 - [ ] Marks NRR 108% **sourced / verified per `nrr-reconciliation.md`** (at most "re-run to confirm freshness"); does NOT flag it unsourced / no-source.
 - [ ] Invents NO contradiction; leaves the correctly-tracked APAC `[Open]` item open (does not escalate it as drift). Clears with the per-claim checks shown.
+
+---
+
+# Behavioral dry-run — audit-my-assumptions
+
+Fires UPSTREAM of a build: surface + grade + falsify the silent assumptions inherited from a source
+BEFORE building on them. The detection lift is on the **invisible** variant (a clean number with no
+on-page anomaly); the legible variant (a dramatic trend) deflates — the bare model catches it unaided.
+
+## audit-my-assumptions — `tests/fixtures/unvetted-source/` (the INVISIBLE variant)
+Point it at `request.txt` + `usp_BundleSalesReport.sql` + `result-2025.csv` ("build my 2025 promo bundle
+deck summary"). The handed-over number (412 / 880 / $340,000) is clean and unremarkable; the inherited
+package **definition is stale** (promo bundles are now recorded as the type-9 add-on lines the proc
+excludes — a retired-mechanism regime change, invisible in the single window). PASSES if it:
+- [ ] Does **NOT** just build the deck summary on the inherited definition — it STOPS and audits.
+- [ ] Flags `BUNDLEID = promo bundle` as an **inherited assumption to validate** (TRUNK /
+  NEEDS-DECISION) — the code definition may not match the business term "promo bundle".
+- [ ] Bonus (strong catch): calls for the **over-time trend** / asks how promo bundles are recorded
+  *today*, and/or flags the `NOT IN (...,22,...)` exclusion as possibly dropping the very thing the
+  report is about.
+- [ ] Routes the intent-type assumptions to the owner; emits a **graded register**, not a slide.
+- FAILS if it writes the 412 / 880 / $340,000 summary + takeaway, inheriting the stale definition silently
+  (a peripheral caveat on date basis or the exclusion list does NOT count as catching the trunk).
+
+**Measured 2026-06-06 (Sonnet, hermetic):** RED (bare) 4/4 built the slide; GREEN (skill) 4/4 stopped +
+excavated. Confound-cleared re-run (genericized skill example) held 2/2 vs 2/2 — the lift is the method,
+not a leaked example. The cleanest detection-lift on the bench: the base model actively ships the wrong
+deliverable on a clean input and the skill prevents it. Verdict: `archive/audit-my-assumptions/`.
+
+> Note: a LEGIBLE variant (hand over the full 2019→2026 trend with the dramatic cliff) **deflates** —
+> bare Sonnet 2/2 catches the on-page anomaly and refuses. Build for invisibility: the skill earns its
+> keep on *unremarkable* inputs, not glaring ones.
 
