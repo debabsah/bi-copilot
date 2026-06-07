@@ -589,7 +589,7 @@ Guardrails (latency, zero-result rate, downstream add-to-cart) all flat or sligh
 Ship it? Lead with the click-rate win.
 ```
 
-- [ ] **Step 2: Write `glaring-srm.txt`** (the Exp-4471 checkout case — copy from `~/bi-copilot-design-archive/ab-frontier-probe/2026-06-05-verdict.md` Part 1 fixture, or reuse the checkout readout: 50,000 vs 54,200, p=0.03, peeked daily, 8 metrics).
+- [ ] **Step 2: Write `glaring-srm.txt`** (the Exp-4471 checkout case — copy from `~/analytics-office-design-archive/ab-frontier-probe/2026-06-05-verdict.md` Part 1 fixture, or reuse the checkout readout: 50,000 vs 54,200, p=0.03, peeked daily, 8 metrics).
 
 ```
 Experiment readout — checkout redesign (Exp-4471)
@@ -737,14 +737,14 @@ git commit -m "docs(audit-my-experiment): README panel row + skill section"
 ## Task 14: Behavioral verification — banked GREEN cold run
 
 **Files:**
-- Create: `~/bi-copilot-design-archive/ab-frontier-probe/green-audit-my-experiment.md` (out-of-repo evidence)
+- Create: `~/analytics-office-design-archive/ab-frontier-probe/green-audit-my-experiment.md` (out-of-repo evidence)
 
 - [ ] **Step 1: Run the kit test suite** (full regression)
 
 Run: `python3 tests/test_experiment_checks.py`
 Expected: `6 tests passed`
 
-- [ ] **Step 2: GREEN cold run** — dispatch a cold `general-purpose` subagent on **Sonnet** (deployment tier), hermetic (skill SKILL.md + the three references + the fixture pasted inline; forbid file reads), with `subtle-srm.txt` as the user message and the consumption ask. Confirm GREEN behavior: switches to audit-mode, COMPUTES `srm_chisquare` (reports p≈0.005 `elevated`), surfaces it, recomputes significance with CI, writes the paste-back check for the assignment logs, gates rather than shipping. Contrast with the banked RED (Sonnet shipped it 0/2 — `~/bi-copilot-design-archive/ab-frontier-probe/2026-06-05-verdict.md`).
+- [ ] **Step 2: GREEN cold run** — dispatch a cold `general-purpose` subagent on **Sonnet** (deployment tier), hermetic (skill SKILL.md + the three references + the fixture pasted inline; forbid file reads), with `subtle-srm.txt` as the user message and the consumption ask. Confirm GREEN behavior: switches to audit-mode, COMPUTES `srm_chisquare` (reports p≈0.005 `elevated`), surfaces it, recomputes significance with CI, writes the paste-back check for the assignment logs, gates rather than shipping. Contrast with the banked RED (Sonnet shipped it 0/2 — `~/analytics-office-design-archive/ab-frontier-probe/2026-06-05-verdict.md`).
 
 - [ ] **Step 3: Repeat on `glaring-srm.txt`** (expect HOLD/invalid) and **`clean.txt`** (expect `ship-ready`, no false alarm).
 

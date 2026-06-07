@@ -16,12 +16,12 @@ claim X" must be answered per-instrument.
 |---|---|---|
 | **Triggering eval** | `tests/triggering/cases.tsv` (automated) | the *right skill fires* — routing only, not behavior |
 | **Behavioral checklist** | `tests/BEHAVIORAL.md` `- [ ]` boxes | a *spec* of what a manual dry-run should check — **not a run** |
-| **Banked behavioral run** | BEHAVIORAL.md kb-reconcile block + `~/bi-copilot-design-archive/` | an actual RED/GREEN transcript — **the only real evidence** |
+| **Banked behavioral run** | BEHAVIORAL.md kb-reconcile block + `~/analytics-office-design-archive/` | an actual RED/GREEN transcript — **the only real evidence** |
 
 Key fact: **every behavioral checkbox across all 9 skills is an unticked `- [ ]`.** Only
 `kb-reconcile` carries a "Behavioral evidence (banked)" block with an actual transcript. The other
 8 skills' green checkmarks are specifications of a dry-run, not records that one happened. Banked
-evidence beyond kb-reconcile lives in `~/bi-copilot-design-archive/`, organized by *cross-cutting
+evidence beyond kb-reconcile lives in `~/analytics-office-design-archive/`, organized by *cross-cutting
 property* (injection, data-grounding, citation, composition, consume-mode) — out-of-repo, n=1, and
 mostly kb-reconcile-flavored.
 
@@ -122,5 +122,5 @@ negative-space tests; the precision control proper is the clean/hard-negative on
 
 Built by reading: `tests/BEHAVIORAL.md`, `tests/triggering/{cases.tsv,README.md}`, all 9
 `skills/*/references/*` taxonomy docs, `tests/fixtures/*`, the git RED/GREEN trail, and
-`~/bi-copilot-design-archive/` verdicts. Numbers (breadth ratios, routing counts) are countable from
+`~/analytics-office-design-archive/` verdicts. Numbers (breadth ratios, routing counts) are countable from
 those sources; re-run the audit when fixtures or checklists change.

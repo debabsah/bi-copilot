@@ -26,7 +26,7 @@ This ledger keeps two things honest (see `tests/COVERAGE-AUDIT.md` for the full 
 | defend-my-number | ⬜ specified-only | semi-narrated by design — the 32%-vs-9% gap is stated because defend *uses* it as the adversary's ammunition; it is not a detection target |
 | audit-my-assumptions | ✅ RED×4 + GREEN×4 (inline) + **in-situ RED/GREEN + held-out recall 2/2** Sonnet 2026-06-06 — **detection LIFT**; confound-cleared; triggers correctly among distractors (`archive/audit-my-assumptions/`) | latent — **two variants**: legible DEFLATES, invisible LIFTS. Fixtures: `unvetted-source/` (invisible) + `unvetted-source-subscribers/` (held-out, different domain) |
 
-`archive/` = `~/bi-copilot-design-archive/`.
+`archive/` = `~/analytics-office-design-archive/`.
 
 **Measured 2026-06-05 (Sonnet, `archive/bench-de-narration/`):** review-my-query + brief-my-findings
 both **deflate** — bare Sonnet catches the latent defects (all 6 in the SQL; the reconciliation gap
@@ -245,8 +245,8 @@ It even re-derived every finding independently rather than trusting a stray prio
 and verified the audited files were byte-for-byte unchanged.
 
 Design REDs (inverse/poison + reconcile, heavy and light framings, plus the clean artifact-free
-re-run) are banked in `~/bi-copilot-design-archive/poison-red/`; verdict at
-`~/bi-copilot-design-archive/poison-red/2026-06-04-reconcile-red-verdict.md`.
+re-run) are banked in `~/analytics-office-design-archive/poison-red/`; verdict at
+`~/analytics-office-design-archive/poison-red/2026-06-04-reconcile-red-verdict.md`.
 
 ---
 

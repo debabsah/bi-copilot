@@ -9,7 +9,7 @@ review, dimensional modelling, KB governance). The **inferential half** — expe
 testing, causal inference, forecasting — was uncovered, and was hypothesized to be a high-lift
 frontier (a base model weak enough that a skill earns a kb-reconcile-sized green-red gap).
 
-A 17-run cold probe (banked at `~/bi-copilot-design-archive/ab-frontier-probe/2026-06-05-verdict.md`)
+A 17-run cold probe (banked at `~/analytics-office-design-archive/ab-frontier-probe/2026-06-05-verdict.md`)
 tested that hypothesis on latent (not narrated) A-B defects, hermetically, across Opus and Sonnet.
 Finding:
 

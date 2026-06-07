@@ -43,14 +43,14 @@ _Cross-cutting (off-ladder): **defend-my-number** — rehearse defending a finis
 Probes use cold `general-purpose` subagents with the fixture + skill pasted **inline** (hermetic — no filesystem, so no repo answer-keys leak), on the deployment model. Default probe/RED target: **Opus** for the "is even the strongest model weak here?" go/no-go; **Sonnet** to measure deployment-tier value (Opus holding never clears Sonnet).
 
 ## Provenance / evidence
-- Inferential-frontier probe (17 runs): `~/bi-copilot-design-archive/ab-frontier-probe/2026-06-05-verdict.md`
-- Sonnet deployment sweep + latent-fixture probe: `~/bi-copilot-design-archive/sonnet-deployment-sweep/`
+- Inferential-frontier probe (17 runs): `~/analytics-office-design-archive/ab-frontier-probe/2026-06-05-verdict.md`
+- Sonnet deployment sweep + latent-fixture probe: `~/analytics-office-design-archive/sonnet-deployment-sweep/`
 - audit-my-experiment: spec `docs/superpowers/specs/2026-06-05-audit-my-experiment-design.md` · plan `docs/superpowers/plans/2026-06-05-audit-my-experiment.md`
-- Forecasting-frontier probe (9 runs → no-build): `~/bi-copilot-design-archive/forecasting-frontier-probe/2026-06-05-verdict.md`
-- Bench de-narration + payoff (7 runs → both deflate): `~/bi-copilot-design-archive/bench-de-narration/2026-06-05-verdict.md`
-- Precision / clean controls (built + measured, 3/4 pass): `~/bi-copilot-design-archive/precision-controls/2026-06-05-verdict.md`
-- review-my-query precision fix (verified: precision fixed, recall preserved): `~/bi-copilot-design-archive/review-my-query-precision-fix/2026-06-05-verdict.md`
-- review-my-query RED-on-clean (bare Sonnet over-blocks clean 2/2 → skill has a precision LIFT, not parity): `~/bi-copilot-design-archive/review-my-query-red-on-clean/2026-06-05-verdict.md`
-- audit-my-assumptions probe → BUILD (invisible variant: RED 4/4 builds + inherits stale definition, GREEN 4/4 stops; confound-cleared 2/2): `~/bi-copilot-design-archive/audit-my-assumptions/2026-06-06-verdict.md`
+- Forecasting-frontier probe (9 runs → no-build): `~/analytics-office-design-archive/forecasting-frontier-probe/2026-06-05-verdict.md`
+- Bench de-narration + payoff (7 runs → both deflate): `~/analytics-office-design-archive/bench-de-narration/2026-06-05-verdict.md`
+- Precision / clean controls (built + measured, 3/4 pass): `~/analytics-office-design-archive/precision-controls/2026-06-05-verdict.md`
+- review-my-query precision fix (verified: precision fixed, recall preserved): `~/analytics-office-design-archive/review-my-query-precision-fix/2026-06-05-verdict.md`
+- review-my-query RED-on-clean (bare Sonnet over-blocks clean 2/2 → skill has a precision LIFT, not parity): `~/analytics-office-design-archive/review-my-query-red-on-clean/2026-06-05-verdict.md`
+- audit-my-assumptions probe → BUILD (invisible variant: RED 4/4 builds + inherits stale definition, GREEN 4/4 stops; confound-cleared 2/2): `~/analytics-office-design-archive/audit-my-assumptions/2026-06-06-verdict.md`
 - **Released 2026-06-06:** `v0.10.0` (audit-my-experiment, skill 10 — catch-up; was live in `skills/`+README but never in the manifest), `v0.11.0` (audit-my-assumptions, skill 11), and `v0.11.1` (audit-my-assumptions triggering fix — broadened description + `brief-my-findings` provenance gate; efficacy + triggering + over-trigger precision all validated in the real harness). Marketplace manifests (`.claude-plugin/`) current at **11 skills @ v0.11.1**; all cut as git tags + GitHub releases (`gh release list`). Convention: `v0.N.0` = skill N; patch (`v0.N.M`) = a fix.
 - agentmemory: `mem_mq2r0n9h` (final release — v0.11.1 shipped; audit-my-assumptions validated end to end on efficacy/triggering/precision) · `mem_mq2o6sgs` (session-wrap H — triggering gap found+fixed+confirmed; efficacy vs triggering are separate axes; gate the competing skill) · `mem_mq26wgo3` (session-wrap G — audit-my-assumptions in-situ validated: RED misses trunk/code-correctness-vs-definition-currency, held-out GREEN 2/2 triggers+catches) · `mem_mq25iqt2` (session-wrap F — NEW skill audit-my-assumptions built+measured; detection lift on invisible variant; thesis confirmed 3rd time) · `mem_mq18mtwp` (session-wrap E — RED-on-clean: skill has a precision lift, invisibility cuts both ways) · `mem_mq185ru6` (session-wrap D — review-my-query precision fixed) · `mem_mq17h3up` (C — precision controls) · `mem_mq16a302` (B — forecasting no-build + de-narration) · `mem_mq0tpabz` (A) · `mem_mq0ta6pm` (A/B resolved + shipped) · `mem_mq0oiwou` (validation lessons)
