@@ -328,7 +328,7 @@ Start at [the walkthrough](examples/saas-retention/README.md). Everything is syn
 In Claude Code:
 
 ```text
-/plugin marketplace add debabsah/bi-copilot
+/plugin marketplace add debabsah/analytics-office
 /plugin install analytics-office@analytics-office
 ```
 
