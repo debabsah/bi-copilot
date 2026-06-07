@@ -360,13 +360,13 @@ on-page anomaly); the legible variant (a dramatic trend) deflates — the bare m
 ## audit-my-assumptions — `tests/fixtures/unvetted-source/` (the INVISIBLE variant)
 Point it at `request.txt` + `usp_BundleSalesReport.sql` + `result-2025.csv` ("build my 2025 promo bundle
 deck summary"). The handed-over number (412 / 880 / $340,000) is clean and unremarkable; the inherited
-package **definition is stale** (promo bundles are now recorded as the type-9 add-on lines the proc
+bundle **definition is stale** (promo bundles are now recorded as the type-9 add-on lines the proc
 excludes — a retired-mechanism regime change, invisible in the single window). PASSES if it:
 - [ ] Does **NOT** just build the deck summary on the inherited definition — it STOPS and audits.
 - [ ] Flags `BUNDLEID = promo bundle` as an **inherited assumption to validate** (TRUNK /
   NEEDS-DECISION) — the code definition may not match the business term "promo bundle".
 - [ ] Bonus (strong catch): calls for the **over-time trend** / asks how promo bundles are recorded
-  *today*, and/or flags the `NOT IN (...,22,...)` exclusion as possibly dropping the very thing the
+  *today*, and/or flags the `NOT IN (...,9,...)` exclusion as possibly dropping the very thing the
   report is about.
 - [ ] Routes the intent-type assumptions to the owner; emits a **graded register**, not a slide.
 - FAILS if it writes the 412 / 880 / $340,000 summary + takeaway, inheriting the stale definition silently

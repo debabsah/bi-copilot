@@ -1,0 +1,7 @@
+From: Marketing
+To: BI
+
+I'm building a 2025 promo-bundle summary for our marketing deck — bundle orders, units, and revenue.
+The data team uses one proc for bundle reporting (usp_BundleSalesReport.sql, attached); they ran it
+for 2025 and the result is in result-2025.csv. Please put together the headline numbers and a one-line
+takeaway for the deck.
