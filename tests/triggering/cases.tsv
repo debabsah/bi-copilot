@@ -30,3 +30,9 @@ triage-my-number	Our churn number spiked from 4% to 11% overnight and looks wron
 none	Write me a Python function that reverses a singly linked list in place.
 none	What is a good authentic recipe for spaghetti carbonara?
 none	Explain how the TCP three-way handshake works.
+
+# --- present-moment routing (self-derived/long-trusted -> audit; brief/defend foils) ---
+audit-my-assumptions	I built this churn analysis myself and I'm presenting it to the board tomorrow. Before I stand behind it, what am I assuming that could be wrong?
+audit-my-assumptions	This revenue figure has been on our dashboard for two years and everyone trusts it. Before I lean on it in the QBR, is it still measuring the right thing?
+brief-my-findings	My findings are validated and the contract is locked. Help me write them up into a board readout.
+defend-my-number	The number is solid but the CFO will push hard on it next week. Drill me so I can hold up under the grilling.
