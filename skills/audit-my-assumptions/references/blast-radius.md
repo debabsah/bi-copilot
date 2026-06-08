@@ -1,10 +1,10 @@
 # Blast-radius taxonomy + falsification — audit-my-assumptions
 
-Load when running the loop (steps 2 and 4). Two jobs: classify each inherited premise by how far a wrong one cascades (trunk vs leaf), and know the three ways to try to break the load-bearing ones.
+Load when running the loop (steps 2 and 4). Two jobs: classify each inherited premise by how far a wrong one cascades (trunk vs leaf), and know the ways to try to break the load-bearing ones.
 
 ## The trunk-vs-leaf taxonomy
 
-A **trunk** assumption sits under the whole output: get it wrong and every number is poisoned, silently. A **leaf** is cosmetic: a wrong one is embarrassing, not catastrophic. Grade by blast radius, validate trunks first.
+A **trunk** assumption sits under the whole output — whoever set it (the source, you, or a long-ago author of a trusted artifact): get it wrong and every number is poisoned, silently. A **leaf** is cosmetic: a wrong one is embarrassing, not catastrophic. Grade by blast radius, validate trunks first.
 
 | Trunk class | The silent question it answers | How a wrong one cascades | Worked instance |
 |---|---|---|---|
@@ -17,7 +17,7 @@ A **trunk** assumption sits under the whole output: get it wrong and every numbe
 
 **Leaf** (name it, don't spend the budget): labels, formatting, column order, a cosmetic rename, a display rounding. A leaf becomes a trunk only if a downstream measure keys on it.
 
-## The three falsification checks (loop step 4)
+## The falsification checks (loop step 4)
 
 You are trying to **break** each trunk assumption, against the most generative source reachable — **live system > generative code > windowed export > hand-touched workbook**. Never refinance a premise against a derivative.
 
@@ -33,6 +33,13 @@ Derive a load-bearing figure a **second independent way** (a different table, a 
 - Never validate a premise against a **derivative** (the prior report, an inline reconstruction of the proc) — it can carry the same wrong assumption.
 - Never validate a **filtered metric with a whole-table sum** — match the scope and the date basis, or the check passes while the number is wrong.
 - Always separate **"matches the source"** (verifiable) from **"correct for the business"** (a Decision only the owner can settle).
+
+### (d) Decompose-and-trend-each / conditioning-on-outcome
+Check (a) catches a **structural break**. It is blind to **selection/survivorship**, which has none — the series declines *smoothly*, or a compensating-pair ratio holds *flat*, so (a) reads "fine" and reassures while the population is poisoned. Two moves:
+- **Decompose-and-trend-each.** For a load-bearing ratio, profile its numerator population AND its denominator population over time, separately. A ratio that looks stable can hide both legs moving (a real change) or one leg silently redefined (a stale premise).
+- **Conditioning-on-outcome (survivorship).** Ask whether the population is defined by something that already encodes the outcome — "accounts still active today", "deals that closed", "customers who didn't churn". If so, the metric is computed on the winners and any trend over that population is an artifact of the conditioning, not the business.
+
+**Worked instance — the "healthy" retention curve.** A retention chart declines smoothly from 100% → 70% over 12 months; check (a) sees no break and passes it. But the cohort is "accounts still live as of today" — survivors. Re-derived on the *as-booked* cohort (everyone who started, churned or not), retention is 70% → 40%: the smooth curve was the conditioning, not the product. (a) could never catch this; (d) does.
 
 ## Worked example — "Promo Bundle Sales by Year" (the inherited-definition + regime-change miss)
 
