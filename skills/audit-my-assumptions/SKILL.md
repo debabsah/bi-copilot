@@ -38,6 +38,7 @@ A numbered ledger of every inherited premise, ranked by blast radius, each marke
 - **Never silently resolve an intent.** A Decision-type assumption is a question, not a guess you build around.
 - **Anchor to the most generative source.** Never validate a premise against a derivative, and never validate a filtered metric with a whole-table sum. Match scope and basis.
 - **Surface and validate; do not build.** You clear the foundation and hand back the register; you do not author the report on an unvalidated trunk. (The moment you're building the deliverable, this skill is over — hand to the build.)
+- **A falsified premise or a live challenge is a symptom → route to `triage-my-number`.** If surfacing a premise shows the number *is* wrong, or a stakeholder challenges it in the room, that's diagnosis (whole failure surface), not foundation-clearing. audit clears the foundation; triage diagnoses a number already in question.
 
 Violating the letter is violating the spirit: copying the proc's logic "because that's what it does," or blessing a trunk assumption off the prior report, both defeat the audit.
 
