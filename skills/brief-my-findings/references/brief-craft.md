@@ -49,10 +49,11 @@ Read-only: composed from evidence on hand; no number computed; nothing manufactu
 - **Bottom line:** retention is trending up, but the recommendation is **not yet defensible** — two items must close first.
 
 ## Findings
-1. **NRR is 108%, up from 102% a year ago** `[Directional-only : kpi-contract — not yet reconciled to Finance]`
+1. **NRR is 108% (cohort n=412 starting accounts; trailing-12-mo; excludes trials), up from 102% a year ago** `[Directional-only : kpi-contract — not yet reconciled to Finance]`
    - Implication: the existing base is growing on its own, which would favor funding growth over onboarding.
    - Action: hold the recommendation until the reconciliation closes (below).
    - Watch-for: "Finance says revenue grew ~2%, you say 108% — which is wrong?"
+   - **Carry onto the slide:** the n=412 base and the trailing-12-mo / excludes-trials scope ride with the 108% — a bare "NRR is 108%" on the deck is the laundering this brief prevents.
 2. **The prior board churn number came from a view that measured the wrong thing** `[Supported : query-review, 4 Blocking]`
    - Implication: past slides understated revenue loss; the change in numbers is a fix, not a goalpost move.
    - Action: state plainly that the metric was corrected and re-based.
