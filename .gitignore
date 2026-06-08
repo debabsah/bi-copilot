@@ -10,3 +10,6 @@ docs/EVAL-BENCHMARK.md
 
 # Local-only working record - contains real-work provenance, never publish
 docs/OUTCOME-LEDGER.md
+
+# Session journal / research log - internal tracking of work ON the bench, never publish
+docs/journal/
