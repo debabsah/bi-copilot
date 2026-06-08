@@ -33,9 +33,18 @@ The trap: treating a non-RCT as "basically an A/B" and running SRM — irrelevan
 - **Multiplicity** — N metrics tested, one significant? `multiplicity_correct(pvals)` — "nothing
   else hit significance" is the expected null, not reassurance.
 - **Power / MDE** — `power_mde(n, base_rate)` — is the test powered for the effect claimed? A "flat"
-  guardrail may be underpowered, not neutral.
+  guardrail may be underpowered, not neutral. (MDE = smallest *detectable* effect — distinct from the
+  MME, the smallest *meaningful* effect; see Materiality.)
 - **Significance reported honestly** — recompute with `two_prop_z`; show absolute diff + 95% CI, not
   just relative lift or a bare "p<0.05". A CI whose lower bound ≈ 0 is weak even if "significant".
+- **Materiality vs the decision (significance ≠ materiality)** — significance says the effect is
+  non-zero; materiality says it's big enough to act on. Pin the **minimum-meaningful-effect (MME)**
+  (elicit it, or mark `materiality-unverified` — never invent it), then `classify_materiality(ci_low,
+  ci_high, mme)`: whole CI ≥ MME → **material**; CI straddles the MME → **straddles-MME** (significant
+  but underpowered *for the decision*); significant but CI entirely below MME → **immaterial** (real
+  but too small to act on). **MDE ≠ MME:** `power_mde` is the smallest *detectable* effect (design /
+  sensitivity); the MME is the smallest *meaningful* effect (business). "Powered to detect" is not
+  "worth shipping" — conflating them is the trap.
 
 ## Layer 3 — Interpretation validity (does the number mean what they think?)
 - **Simpson's paradox / segment mix** — does the pooled result reverse within segments? If a
