@@ -11,8 +11,8 @@ Read-only: composed from evidence on hand; no number computed or re-derived; not
 - **Bottom line:** <the one-line takeaway, at the confidence the evidence supports — including "not yet" if that is the verdict>
 
 ## Findings
-Each: observation → implication → action → watch-for. Tag every claim with its status `[Supported | Directional-only | Open - needs decision | Inferred : source]`.
-1. **<observation>** `[Supported : kpi-contract + query-review]`
+Each: observation → implication → action → watch-for. Tag every claim with its status AND qualifier `[Supported | Directional-only | Open - needs decision | Inferred : source · n=<base>, ±<interval>, scope <window/filter>]` — the qualifier rides with the figure (drop nothing the number arrived with; an exact count needs no interval). **Carry each figure's qualifier onto the final slide/email — the brief states it; the downstream medium must not strip it.**
+1. **<observation, carrying its qualifier — e.g. "churn 4.2% (n=1,240; trailing-90-day)">** `[Supported : kpi-contract + query-review]`
    - Implication: <what it means for the decision>
    - Action: <what to do / recommend — or "hold" if the verdict is not yet>
    - Watch-for: <what would change this; the pushback to expect → feeds defend-my-number>
