@@ -100,6 +100,25 @@ def test_two_prop_z_zero_variance():
     assert r2["rel_lift"] == 0.0
 
 
+def test_classify_materiality():
+    # whole CI at/above the MME => material
+    assert ec.classify_materiality(0.02, 0.05, 0.01)["verdict"] == "material"
+    # whole CI below the MME => immaterial (significant but too small to act on)
+    assert ec.classify_materiality(0.001, 0.008, 0.01)["verdict"] == "immaterial"
+    # CI spans the MME => straddles (underpowered for the decision)
+    assert ec.classify_materiality(0.005, 0.02, 0.01)["verdict"] == "straddles-mme"
+    # boundary: ci_low == mme => material (inclusive)
+    assert ec.classify_materiality(0.01, 0.03, 0.01)["verdict"] == "material"
+    # carries mme + ci through
+    r = ec.classify_materiality(0.02, 0.05, 0.01)
+    assert r["mme"] == 0.01 and r["ci"] == (0.02, 0.05)
+    # guard: ci_low > ci_high must raise
+    try:
+        ec.classify_materiality(0.05, 0.02, 0.01); assert False, "should have raised"
+    except ValueError:
+        pass
+
+
 if __name__ == "__main__":
     fns = [v for k, v in sorted(globals().items()) if k.startswith("test_") and callable(v)]
     for f in fns:

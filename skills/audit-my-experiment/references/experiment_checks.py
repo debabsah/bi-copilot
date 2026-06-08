@@ -2,7 +2,7 @@
 import math
 from statistics import NormalDist
 
-__all__ = ["chi2_sf", "srm_chisquare", "two_prop_z", "multiplicity_correct", "power_mde", "peeking_flag"]
+__all__ = ["chi2_sf", "srm_chisquare", "two_prop_z", "multiplicity_correct", "power_mde", "peeking_flag", "classify_materiality"]
 
 _NORM = NormalDist()
 
@@ -135,3 +135,22 @@ def peeking_flag(looks, nominal_alpha=0.05):
             "note": ("Naive peeking overstates evidence; the nominal p is optimistic. "
                      "Bonferroni-per-look is a conservative bound — use a sequential test "
                      "(O'Brien-Fleming / Pocock / always-valid p-values) for the precise threshold.")}
+
+
+def classify_materiality(ci_low, ci_high, mme):
+    """Classify a SIGNIFICANT result's effect against the minimum-meaningful-effect (MME).
+
+    ci_low, ci_high: the 95% CI on the absolute difference (from two_prop_z); run this AFTER
+    significance is established (CI excludes 0). mme: the smallest effect worth acting on — a
+    positive magnitude. v1 assumes a positive effect direction; a two-sided / harmful-effect
+    MME is a follow-on. Verdict: 'material' (whole CI clears the bar), 'immaterial' (whole CI
+    below the bar), 'straddles-mme' (CI spans the bar — underpowered for the decision)."""
+    if ci_low > ci_high:
+        raise ValueError("ci_low must be <= ci_high")
+    if ci_low >= mme:
+        verdict = "material"
+    elif ci_high < mme:
+        verdict = "immaterial"
+    else:
+        verdict = "straddles-mme"
+    return {"verdict": verdict, "mme": mme, "ci": (ci_low, ci_high)}
