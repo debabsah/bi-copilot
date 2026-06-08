@@ -22,6 +22,7 @@ Read-only: computed on provided summary numbers; no live system or raw data touc
 | Simpson's paradox / segment mix | <segment breakdown present or needs-data> | `pass` / Blocking / Latent / Advisory / `unverified` | Ships pooled result that reverses within segments | Check segment-level results; flag if unavailable |
 | Novelty / time-trend | <week-over-week lift: decaying / stable / needs-data> | `pass` / Blocking / Latent / Advisory / `unverified` | Ships overstated durable lift from early novelty | Report week-over-week; do not average over novelty period |
 | Metric-vs-proxy / primary-vs-guardrail | proxy: <val>; primary: <val>; guardrail: <val> | `pass` / Blocking / Latent / Advisory / `unverified` | Ships proxy win that doesn't move the business metric | Require primary metric to move; treat flat guardrail as a flag |
+| Materiality vs MME | MME=<val>; abs diff=<val>, 95% CI [<lo>,<hi>]; verdict via `classify_materiality` | `material` / `immaterial` / `straddles-MME` / `materiality-unverified` | Ships a significant-but-trivial effect as a win | Pin the MME; report the materiality verdict, not significance alone |
 
 ## Needs paste-back
 Exact checks to run against data not on hand. Each remains `unverified` until a run result is pasted back.
@@ -34,8 +35,13 @@ Exact checks to run against data not on hand. Each remains `unverified` until a 
 
 <Lead with the Blocking defect if any. Example: "invalid — SRM χ²=7.8 p=0.005; the comparison is untrustworthy until randomization/logging is audited.">
 
+## Materiality verdict
+**`material` / `immaterial` / `straddles-MME` / `materiality-unverified`**
+
+<Rides alongside the gate; a `ship-ready` validity gate does NOT imply material. Example: "ship-ready (valid) but immaterial — abs diff +0.3% [CI 0.1%, 0.5%], MME 1.0%; real but below the decision bar.">
+
 ## Routing
-- If `ship-ready`: hand off to `brief-my-findings` (to write up the result) or `defend-my-number` (to rehearse the defense).
+- If `ship-ready`: hand off to `brief-my-findings` (to write up the result) or `defend-my-number` (to rehearse the defense). **The materiality verdict travels with the handoff — a ship-ready-but-immaterial result may not be written up as a material win.**
 - If `hold-pending-checks`: list the exact paste-back runs needed before the gate can clear.
 - If `invalid`: name the Blocking defect and the condition for re-audit.
 ```
