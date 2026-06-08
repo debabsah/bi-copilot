@@ -18,6 +18,11 @@ Not every mode applies to every object. Run the list, keep the ones that bite.
 - Fan-out (1-to-many) join silently multiplying rows → sums and counts overstated.
 - Aggregation at the wrong grain; double-counting; missing dedup; accidental cross join.
 - Denominator/numerator built from misaligned populations → rows silently dropped or mismatched.
+- **Non-additive measure re-aggregated below/across its valid grain** — a correct measure summed or sliced where its math doesn't hold. **Tell: it ties to the grand total but is wrong per-slice — a total tie-out does NOT clear it.**
+  - *avg-of-ratios / average-of-averages* — sum the components and divide once at the slice; don't average the rates.
+  - *COUNT(DISTINCT) summed across slices* — distinct counts don't add; anything spanning slices double-counts.
+  - *semi-additive balance (MRR, headcount, inventory, AR) summed across time* — take period-end or average, don't sum months.
+  Text tells: `SUM`/`AVG` wrapping a ratio or already-aggregated measure; `COUNT(DISTINCT)` in a summed subtotal; a measure used at a grain ≠ its definition. Read-only check: re-derive at the breakdown grain from summed components and compare to the slice. Blocking only when the code text shows it; otherwise Latent / verify + that check. When a KB exists, anchor to the additivity class `model-contract` pinned.
 
 **Filter & context**
 - Filter at the wrong stage (WHERE vs HAVING vs the join's ON) → rows kept/dropped at the wrong time.
@@ -31,8 +36,10 @@ Not every mode applies to every object. Run the list, keep the ones that bite.
 
 **Time**
 - Timezone: truncating UTC when the report is in a local/reporting zone → boundary rows land in the wrong period.
-- Period off-by-one; calendar vs fiscal; as-of date vs transaction date; DST.
-- Late-arriving data not restated (or restated when it should be frozen).
+- Period off-by-one; calendar vs fiscal; as-of date vs transaction date.
+- **DST / offset arithmetic:** a fixed `UTC±N` or hardcoded "+8h" offset instead of a named, DST-aware zone double-/zero-counts the repeated or skipped local hour at a transition, and is wrong for half the year. → does the code use a named timezone or a fixed offset?
+- **Incremental watermark:** a high-watermark filter on load-time / `updated_at` drops rows whose *business event-time* predates the advanced watermark — late rows silently never loaded (distinct from the existing "loaded but not restated"). → is the watermark column the event-time grain the metric is keyed on? *(reads the predicate in the code, not the load schedule)*
+- Late-arriving data not restated (or restated when it should be frozen) — incl. a query that recomputes a "frozen" period live instead of reading the frozen snapshot.
 
 **Set logic**
 - `UNION` (dedups, often unintended) vs `UNION ALL`; `EXCEPT`/`INTERSECT` NULL handling.
@@ -65,10 +72,11 @@ The inherited board-churn view (counts canceled logos / accounts active at month
 | 6 | `acct.plan_code <> 'internal'` | NULL: `NULL <> 'internal'` is NULL → falsy | accounts with a NULL plan_code silently dropped | Latent | decide intent; `plan_code IS DISTINCT FROM 'internal'` if NULLs should stay |
 | 7 | no close rule | time/late data: contract pins 5-business-day-then-freeze | a backdated cancellation silently changes an already-reported month | Latent | apply the close-then-freeze rule from the contract |
 | 8 | `1.0 * lost / start` | determinism: no zero guard | divide-by-zero / NULL on an empty cohort month | Advisory | guard the denominator, e.g. `NULLIF(..., 0)` |
+| 9 | emitted `churn_rate` (`1.0*lost/start`) | grain/additivity: a per-month ratio, non-additive across periods | correct per month, but averaging it to a quarter/year rate weights a 50-account month equally with a 5,000-account one → wrong blended rate; a grand-total tie-out won't catch it | Latent / verify (→ Blocking if a rollup averages the monthly rates) | flag the measure non-additive; for a period rate, sum `lost` and `start` across the window and divide once |
 
 ## Verdict
 - **Blocking:** 3 — established from the code + contract (#1 wrong unit, #4 wrong cohort grain, #3 missing timezone handling); must resolve before this feeds the board or gets defended (most fundamentally, it answers a different question than the contract).
-- **Latent / verify:** 4 — real impact, but each hinges on a fact not in hand (#2 trials-in-`active`, #5 the magic IDs, #6 NULL `plan_code`, #7 the close rule); each carries its discriminating check and becomes Blocking once confirmed.
+- **Latent / verify:** 5 — real impact, but each hinges on a fact not in hand (#2 trials-in-`active`, #5 the magic IDs, #6 NULL `plan_code`, #7 the close rule, #9 the non-additive rate-rollup); each carries its discriminating check and becomes Blocking once confirmed.
 - **Advisory:** 1.
 - **Assumptions this review depends on:** trial marker field, fiscal-calendar definition, and the identity of the excluded account IDs all remain open (asked of the user; not assumed) — which is exactly why #2 is graded Latent / verify, not Blocking. Asserting Blocking on an unconfirmed schema fact is the over-blocking failure mode.
 ```
