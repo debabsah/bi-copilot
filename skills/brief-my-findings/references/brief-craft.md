@@ -8,6 +8,16 @@ Load when building the claim ledger (loop step 3). Two jobs: ledger every claim,
 - **[Open - needs decision]** — a fork the contract left open, an unreconciled gap, a cut not yet built. It stays open in the brief. You report that it is open and why it matters; you do not resolve it in prose.
 - **Inferred** — your reasoning beyond the data. Allowed only when labeled as inference, and only when it helps the decision; never dressed up as a finding. An external benchmark nobody measured is not even Inferred — it has no provenance, so it is cut.
 
+## Qualifiers travel with the figure (the anti-laundering rule)
+A status tag is not enough — the number's **qualifier** must ride with it as part of the figure, or a soft estimate reads as a hard fact by the time it hits the slide. The closed set:
+- **Interval / error band** (±, 95% CI) — for an *estimate* only.
+- **Denominator / base** (n=, the population the rate is over).
+- **Measurement-scope caveat** — window + filter ("first-90-day only", "excludes refunds", "US accounts").
+
+**Estimate vs exact (so the rule doesn't cry wolf):** an *estimate* (sampled / modeled / projected / a rate with sampling error) carries a mandatory interval; an *exact* figure (full-population count, ledger total) needs no interval but still carries its base and scope. The trigger is a **dropped** qualifier, not a missing-by-nature one — if the figure *arrived* with a CI/n/scope (from the analysis or `audit-my-experiment`'s handoff) and the brief would strip it, that is laundering: keep it. A bare estimate whose interval/base/scope is **unknown** is `[Open]` (not yet sayable as a hard fact), never one the brief invents — read-only: carry the qualifier the analysis produced; never compute or widen one. Anchor the denominator/scope to what `kpi-contract` already defined — the brief ensures it rides along, it does not redefine it. When the figure came from `audit-my-experiment`, carry its CI **and** its materiality verdict (`material` / `immaterial` / `straddles-MME`) — both are part of the number's honest statement.
+
+**Carrying it onward (instruct, don't render).** The brief keeps each figure's qualifier verbatim; because the slide/email is the user's to write, the brief does NOT draft it — it adds a one-line handoff instruction ("carry the ±/n/scope onto the slide; do not drop it in the deck") so stripping the qualifier downstream is a visible, named choice, not a silent one.
+
 ## Building the claim ledger
 For every sentence the brief will assert, ask **"says who?"** and attach the source and status before it earns a place. A claim that cannot name a source is cut or demoted to an open item. Two failure shapes to catch in yourself:
 - **The smoothing reflex:** an open gap is uncomfortable in a brief, so the instinct is to explain it away ("the gap is just timing / just new logos"). If the KB marks it `[needs decision]`, that explanation is a finding you are inventing. Keep it `[Open]`.
