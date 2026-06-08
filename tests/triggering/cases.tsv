@@ -36,3 +36,7 @@ audit-my-assumptions	I built this churn analysis myself and I'm presenting it to
 audit-my-assumptions	This revenue figure has been on our dashboard for two years and everyone trusts it. Before I lean on it in the QBR, is it still measuring the right thing?
 brief-my-findings	My findings are validated and the contract is locked. Help me write them up into a board readout.
 defend-my-number	The number is solid but the CFO will push hard on it next week. Drill me so I can hold up under the grilling.
+
+# --- B1 de-collision locks (triage symptom vs kpi definition-dispute) ---
+triage-my-number	Two dashboards show different revenue and I don't know why. Find what's driving the gap before I explain it to anyone.
+kpi-contract	Marketing and Finance each define "active customer" their own way and the numbers disagree. Pin one authoritative definition.
