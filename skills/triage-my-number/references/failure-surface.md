@@ -8,7 +8,7 @@ The single highest-value move, and the one a tunnelling diagnosis skips. Before 
 - **Scope.** One metric, one segment, one source, or everything? A break in one slice points at that slice's data/join; a break everywhere points at the pipeline or the definition.
 - **Onset.** Since when? A step-change on a date points at a load/source/code change on that date; a gradual drift points at data or a real trend.
 
-`(numerator vs denominator) × (scope) × (onset)` usually halves the differential before you've named a single root cause.
+`(numerator vs denominator) × (scope) × (onset)` usually halves the differential before you've named a single root cause. Compute the split with the tested kit (`triage_checks.py`: `decompose_rate` for which leg moved, `mix_shift` for mix-vs-rate across segments) on the counts the user pastes — the eyeballed split is how a denominator quietly takes the blame.
 
 ## The branches (the engine)
 Walk all five. The classic failure is to stop at the first plausible hit — usually the code, because it's the thing you can read.
