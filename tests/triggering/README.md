@@ -75,6 +75,26 @@ opening-position constraints on the thief, then de-baiting the route-away clause
 not move any of them, and two rounds regressed a previously-passing foil; the loop was
 stopped on that overfit signal and the descriptions reverted to the best-measured state.
 
+## Family structure (v0.17.0, 2026-06-11) — the measured verdict
+
+The bench reorganized into four description families (Shape / Audit / Investigate /
+Deliver), each member's description opening with a validator-enforced shared stanza;
+budget 15,779 -> 12,675 chars. Measured with a Sonnet-4.6 sensitivity baseline (a weaker
+router surfaces description faults the default model absorbs) + full after-sweeps on both
+models + a pure-bench probe (co-installed plugins disabled).
+
+Results: Sonnet intra-bench defects 5 -> 3 (the two fixed are cross-family, as the stanza
+thesis predicted). One fix round was spent: the Investigate stanza's "the estate needs
+seeing" proved orientation-flavored magnet vocabulary and was retuned to "a picture of the
+estate needs drawing" (the magnet lesson now operates at stanza level), and kb-reconcile
+claimed "audit the whole knowledge base" after a within-family loss. After the fix the
+default-model gate passed with zero new defects. The pure-bench probe delivered the
+headline: BOTH kpi-contract KNOWN-SEAMs PASS under family structure when only the bench is
+installed — their remaining real-environment failures are shadow-interaction (co-installed
+skills shift intra-bench ranking), not description defects. The "write up the win" seam
+persists everywhere (flaky on Sonnet) and stays filed; its behavioral provenance gate
+contains it downstream.
+
 Addendum (v0.16.0): `map-my-estate`'s two positives SHADOW to a co-installed `graphify`
 skill in this runner's environment (diagram vocabulary is its home turf) — zero intra-bench
 defects; same environment-dependent class as `superpowers:brainstorming` shadowing

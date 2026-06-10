@@ -3,6 +3,30 @@
 Notable changes to the analytics-office bench. Versions follow the plugin manifest;
 commit-level detail lives in git history.
 
+## [0.17.0] — 2026-06-11
+
+Structural release, no new skill — **family-structure routing** (the wall comes down):
+
+- The 15 descriptions reorganize into four families — **Shape** (groundwork,
+  requirements-interrogator, kpi-contract, model-contract), **Audit** (the three audits,
+  review-my-query, kb-reconcile), **Investigate** (triage-my-number, explore-my-data,
+  map-my-estate), **Deliver** (brief-my-findings, defend-my-number, status-truth). Each
+  member's description opens with its family's shared stanza (validator-enforced
+  verbatim); members discriminate only within the family; cross-family mentions are capped
+  boundary pointers. A structured no-router — the bet is preserved, the O(n^2) bounded.
+- The always-in-context description budget drops **15,779 -> 12,675 chars** (both prior
+  cap raises undone; caps now 1,800/skill and 13,000 total), with every previously-passing
+  Detects phrase preserved verbatim.
+- The validator's skill-count wall is replaced by the family registry: every skill belongs
+  to exactly one family, at most 6 members per family (a 7th forces a split decision), all
+  lints RED-proven.
+- Measured before/after on two models (the default plus a Sonnet-4.6 sensitivity baseline)
+  plus a pure-bench probe: Sonnet intra-bench defects 5 -> 3; both kpi-contract known
+  seams PASS pure-bench under family structure (their real-env failures are
+  shadow-interaction, not description defects); one stanza retuned within the bounded fix
+  budget after "the estate needs seeing" proved to be magnet vocabulary. Full story in
+  tests/triggering/README.md.
+
 ## [0.16.0] — 2026-06-10
 
 - **map-my-estate** (15th skill — provenance-graded cartography): ER and lineage views in

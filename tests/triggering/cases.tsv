@@ -6,7 +6,7 @@
 # --- one positive per skill (phrased near a neighbour to make routing earn it) ---
 groundwork	I just inherited a data warehouse from someone who left. I don't know what's in it or what feeds what. Where do I even start?
 requirements-interrogator	My stakeholder asked me to build a dashboard showing our social media follower growth by week. Can you help me scope it?
-# KNOWN-SEAM (2026-06-10, claude-fable-5): routes to requirements-interrogator; 4 surgery rounds failed to move it — re-test on the next hardening pass
+# KNOWN-SEAM (2026-06-10, claude-fable-5): routes to requirements-interrogator; 4 surgery rounds failed to move it — re-test on the next hardening pass | family-structure re-test 2026-06-11: PASSES pure-bench (both kpi seams) — real-env failure is shadow-interaction; sm27 persists everywhere
 # kpi-contract	Before we build anything I need to pin down exactly what "active customer" means - the definition keeps shifting between teams. Lock it down.
 model-contract	Design the star schema for our new sales mart - what is the grain of the fact table and how should the dimensions hang off it?
 review-my-query	Here is a SQL view one of my analysts wrote for monthly churn. Can you review it for correctness before we ship it?
@@ -15,7 +15,7 @@ brief-my-findings	I have finished the analysis. Help me write it up into a findi
 triage-my-number	Our churn KPI suddenly jumped from 4% to 11% overnight and leadership is asking why. The number looks wrong - what happened?
 
 # --- intra-bench confusion probes (the no-router bet: the right neighbour must win) ---
-# KNOWN-SEAM (2026-06-10, claude-fable-5): routes to kb-reconcile on the verb "reconciles" — re-test on the next hardening pass
+# KNOWN-SEAM (2026-06-10, claude-fable-5): routes to kb-reconcile on the verb "reconciles" — re-test on the next hardening pass | family-structure re-test 2026-06-11: PASSES pure-bench (both kpi seams) — real-env failure is shadow-interaction; sm27 persists everywhere
 # kpi-contract	The revenue metric reconciles differently in two dashboards. I need one authoritative definition with the edge cases nailed down.
 model-contract	We are about to build the subscription mart. How should I model the SCD on the customer dimension and what grain should the fact be?
 review-my-query	Is this query right? It is supposed to match our locked churn contract but the numbers feel off.
@@ -44,7 +44,7 @@ triage-my-number	Two dashboards show different revenue and I don't know why. Fin
 kpi-contract	Marketing and Finance each define "active customer" their own way and the numbers disagree. Pin one authoritative definition.
 
 # --- the two compute-gated audits (consumption asks must route to audit, not brief) + boundary probes ---
-# KNOWN-SEAM (2026-06-10, claude-fable-5): routes to brief-my-findings on "write up the win" — the consumption trap at routing level; behavioral provenance gates still catch it post-fire. Re-test on the next hardening pass
+# KNOWN-SEAM (2026-06-10, claude-fable-5): routes to brief-my-findings on "write up the win" — the consumption trap at routing level; behavioral provenance gates still catch it post-fire. Re-test on the next hardening pass | family-structure re-test 2026-06-11: PASSES pure-bench (both kpi seams) — real-env failure is shadow-interaction; sm27 persists everywhere
 # audit-my-experiment	We A/B tested the new checkout flow for two weeks and conversion is up with p=0.03. Write up the win so we can ship it this week.
 audit-my-experiment	The test passed and treatment beat control, but the two arms look slightly uneven in size. Should we roll it out?
 audit-my-forecast	The demand forecast's backtest looks great - 3% MAPE. Should we plan next quarter's warehouse capacity against it?
