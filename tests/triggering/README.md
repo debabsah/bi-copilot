@@ -102,6 +102,10 @@ UNCHANGED under the new stanza — fourth description-level configuration it has
 the conclusion is that this seam is lexical ("write up" owns the routing moment), it stays
 filed, and brief's behavioral provenance gate remains its containment.
 
+Addendum (v0.21.0): `prove-my-parity`'s two positives both FIRE on the fresh install; the
+kb-reconcile foil holds its case and the triage foil MISSes (the known flaky class) rather
+than being stolen by the new "reconcile" vocabulary — both contested seams held.
+
 Addendum (v0.19.0): `review-my-dashboard`'s two positives both FIRE on the fresh install;
 the review-my-query foil MISSed (nothing fired — the known fable flaky-miss class; the new
 sibling did NOT steal it, which is the seam that mattered).
