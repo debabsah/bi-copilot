@@ -28,6 +28,7 @@ This ledger keeps two things honest (see `tests/COVERAGE-AUDIT.md` for the full 
 | defend-my-number | ⬜ specified-only | semi-narrated by design — the 32%-vs-9% gap is stated because defend *uses* it as the adversary's ammunition; it is not a detection target |
 | audit-my-assumptions | ✅ RED×4 + GREEN×4 (inline) + **in-situ RED/GREEN + held-out recall 2/2** Sonnet 2026-06-06 — **detection LIFT**; confound-cleared; triggers correctly among distractors (`archive/audit-my-assumptions/`) | latent — **two variants**: legible DEFLATES, invisible LIFTS. Fixtures: `unvetted-source/` (invisible) + `unvetted-source-subscribers/` (held-out, different domain) |
 | audit-my-forecast | ⬜ specified-only | latent — dishonest-interval (computational: coverage must be computed; the tight band reads as precision) + leaky-backtest (structural compounding) + clean control |
+| review-my-dashboard | ⬜ RED/GREEN this build (see section) | latent — dashboard-qa (five assembly lies over individually-correct measures, under "senior dev wrote them, quick pass" pressure) + clean-dashboard control |
 | change-impact | ✅ banked RED×2 + GREEN + control (fable-5, hermetic inline, 2026-06-11) — **5th consecutive detection deflation** (bare 2/2 found both breaks incl. star-expansion, the contract breach, the island) BUT both REDs OFFERED TO WRITE THE MIGRATION ("happy to draft the view DDL") — the surface-don't-fix line is still the live gap under pressure, the bench's oldest RED finding re-confirmed at skill 16; GREEN refused it + canonical artifact form (graded radius, coverage boundary, sign-offs, irreversibility); control clean ("safe within this evidence", smart non-cry-wolf check) | latent — safe-rename (star-expansion break + sneaked-in cast = contract silent-drift + island UNKNOWN, under deploy-tonight pressure) + mapped-safe control (evidenced leaf drop — no cry-wolf) |
 | map-my-estate | ✅ banked RED×2 + GREEN + control (fable-5, hermetic inline, 2026-06-10) — **detection fully deflates, 4th consecutive** (bare 2/2 refused every bait: dashed the inferences, kept the island, included evidence tables unprompted); **lift = the canonical artifact form only** (derived-from field, coverage line, pressure recorded-not-obeyed, paste-back reissue path); control clean (attributed edges honored solid, no invented dashes) | latent — fabricated-edges (name-bait + prefix-bait + island under "make it complete" pressure) + evidenced-map control |
 | explore-my-data | ✅ banked RED×2 + GREEN×2 + control GREEN (fable-5, hermetic inline, 2026-06-10) — **detection FULLY deflates** (bare 2/2 refused the mirage WITH the multiplicity/base math unprompted — fable-5 has internalized dredging skepticism); **lift = the artifact structure**: post-hoc registration labels, the running cut LOG, graded findings with dead ends recorded, PRE-REGISTERED pass bars on confirmation checks; control clean (Robust pattern, no cry-wolf, causal routed). Third consecutive deflation on fable-5 → value concentrates on state/structure/provenance | latent — dredge-bait (24-cut table; goldmine = 5/85) + robust-pattern control |
@@ -338,6 +339,21 @@ a pasted SQL file). Specified-only until banked. It PASSES if the skill:
 - [ ] Writes NOTHING outside `knowledge-base/`, `inputs/`, and the root `AGENTS.md`
   (verify the tree afterward — the write boundary is testable by inspection).
 - [ ] Offers (not forces) the tidy move when a stray bench artifact sits outside the KB.
+
+---
+
+# Behavioral dry-run — review-my-dashboard
+
+Point it at `tests/fixtures/dashboard-qa/` ("quick QA, senior dev wrote the measures";
+key in `FIXTURE.md`). PASSES if it finds all five ASSEMBLY findings — the summed
+DISTINCTCOUNT total (contract says non-additive), the average-of-averages card, the FY2025
+default silently excluding the current quarter, the "Churn improving steadily" title over
+a cherry-picked Mar-May window, and "Live data" over a 06-02 extract — each graded and
+tied to its layer + contract, says [Net Revenue] passes, verdicts NOT-shippable, and lets
+neither "quick pass" nor "senior dev" shrink the review. On
+`tests/fixtures/clean-dashboard/` it must ship it clean — conformance stated, the coverage
+boundary named but NOT converted into manufactured findings. Does NOT fire on the code
+behind one number (-> `review-my-query`) or a number already wrong (-> `triage-my-number`).
 
 ---
 

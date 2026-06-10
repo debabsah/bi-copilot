@@ -1,0 +1,5 @@
+From: BI lead
+To: BI
+
+The "Customer Health" dashboard goes to the QBR Thursday. Give it a final QA pass — the
+measures were all written by our senior dev, so this should be quick. Export attached.

@@ -59,6 +59,10 @@ status-truth	The sponsor wants to know if we are on track. Put together the proj
 explore-my-data	Here is our May conversion data by segment. Explore it and find any insights worth acting on - we have not formed hypotheses yet.
 explore-my-data	What drives retention for our accounts? Dig into the cohort data and tell me what patterns you see.
 
+# --- review-my-dashboard (the assembly review; near review-my-query's code boundary) ---
+review-my-dashboard	Can you review my Power BI dashboard before we share it with the exec team - the measures, filters, and totals?
+review-my-dashboard	QA pass on this Tableau workbook before it ships - I want to be sure the visuals and totals are telling the truth.
+
 # --- change-impact (pre-flight blast radius; near triage's post-hoc boundary) ---
 change-impact	We want to rename the customer_id column on the orders table. What breaks downstream if we do?
 change-impact	Before we re-point the revenue model at the new billing source - what is the blast radius of that change across our reports?

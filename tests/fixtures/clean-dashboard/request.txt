@@ -1,0 +1,12 @@
+From: BI lead
+To: BI
+
+QA pass on the small "Revenue Ops" dashboard before it ships, please. Export:
+
+Page filter default: none (all time shown; title says "All-time Revenue Ops").
+Measures: [Net Revenue] = SUM(orders[amount]) — card + trend, contract v1.2 (LOCKED, SUM
+of orders.amount, additive); [Order Count] = COUNTROWS(orders) — per-region table with
+grand total (additive count, total recomputed at total grain per export config).
+Visuals: trend titled "Net Revenue, all months" showing all months; axis starts at 0.
+Dataset: import extract, refreshed nightly, last refresh 2026-06-11 (today); subtitle on
+cards: "Refreshed nightly — last: Jun 11".
