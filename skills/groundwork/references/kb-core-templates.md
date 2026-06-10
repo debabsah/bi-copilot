@@ -170,6 +170,7 @@ index when none exists.
 | explore-my-data | exploration-log.md | append new questions | never | append | never | add link | copy results tables |
 | map-my-estate | estate-map.md | append gaps/islands | never | append | never | add link | copy DDL/code |
 | change-impact | change-impact.md | append unknowns | never | append | never | add link | copy manifest/DDL |
+| review-my-dashboard | dashboard-review.md | append findings | never | append | never | add link | copy exports/definitions |
 
 ## knowledge-base/README.md (the index — start here)
 ```markdown

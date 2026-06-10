@@ -58,6 +58,9 @@ EXPECTED = [
     "skills/change-impact/SKILL.md",
     "skills/change-impact/references/impact-engine.md",
     "skills/change-impact/references/change-impact.md",
+    "skills/review-my-dashboard/SKILL.md",
+    "skills/review-my-dashboard/references/dashboard-engine.md",
+    "skills/review-my-dashboard/references/dashboard-review.md",
 ]
 fails = []
 
@@ -115,10 +118,10 @@ if os.path.isdir(skills_dir):
 # Description lints — the no-router bet, instrumented. Descriptions are the router AND a
 # permanent always-in-context token cost; growth must be a conscious cap raise, never drift.
 DESC_CHAR_CAP = 1800    # per-description ceiling (family-structure schema; max today: 1090)
-DESC_TOTAL_CAP = 13800  # whole-bench ceiling. Family-era growth is amortized (~750/skill)
+DESC_TOTAL_CAP = 14700  # whole-bench ceiling. Family-era growth is amortized (~750/skill)
                         # and BOUNDED: 4 families x 6 members caps the bench at 24 skills
                         # (~19-20k ultimate ceiling). Raised 13000->13800 for skill #16
-                        # (change-impact) — a skill-sized step, never drift.
+                        # (change-impact), then 13800->14700 for #17 (review-my-dashboard).
 
 # Family-structure routing (VNEXT §2.1.3, landed 2026-06-11): every skill belongs to
 # exactly ONE family; its description STARTS with the family stanza verbatim; a family
@@ -134,7 +137,7 @@ FAMILIES = {
     },
     "Audit": {
         "stanza": "Use when a finished thing — a source, a result, code, or the record — is about to be trusted or consumed; the gate fires before the work leans on it.",
-        "members": ["audit-my-assumptions", "audit-my-experiment", "audit-my-forecast", "review-my-query", "kb-reconcile"],
+        "members": ["audit-my-assumptions", "audit-my-experiment", "audit-my-forecast", "review-my-query", "kb-reconcile", "review-my-dashboard"],
     },
     "Investigate": {
         "stanza": "Use when the work is hands-in-the-data right now — a number moved, an open question needs exploring, a picture of the estate needs drawing, a change needs its blast radius known.",
