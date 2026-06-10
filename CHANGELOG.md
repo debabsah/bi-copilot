@@ -3,6 +3,20 @@
 Notable changes to the analytics-office bench. Versions follow the plugin manifest;
 commit-level detail lives in git history.
 
+## [0.16.0] — 2026-06-10
+
+- **map-my-estate** (15th skill — provenance-graded cartography): ER and lineage views in
+  mermaid where every edge cites its evidence (FK in DDL, a join in code, documented
+  lineage, an attributed owner statement — never name similarity or a prefix convention);
+  unsupported edges render dashed `[unverified]`, islands stay labeled islands, and every
+  map ships its derived-from set, edge ledger, and coverage line — so the map doubles as a
+  coverage picture of the record, and `kb-reconcile`'s new `map-staleness` drift type can
+  flag it when the record moves on. Ships with the fabricated-edges trap + evidenced-map
+  control and banked evidence (recorded honestly: the fourth consecutive detection
+  deflation on the current frontier model — the lift is the canonical artifact form).
+  Carries the second budget raise (14,900 → 15,800) **and the wall**: the validator now
+  fails the build beyond 15 skills until family-structure routing lands.
+
 ## [0.15.0] — 2026-06-10
 
 - **explore-my-data** (14th skill — the daily-est analyst moment, harnessed): open-ended

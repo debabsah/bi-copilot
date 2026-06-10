@@ -8,7 +8,7 @@
 
 AI is genuinely good at analytics work. It fails in one specific way: not by being unable, but by being *agreeable*. Handed an inherited warehouse with no docs, it starts building instead of orienting. Handed "build me a dashboard with these KPIs," it builds exactly that — without ever asking what decision the dashboard serves. Asked what "active customer" means, it picks a sensible default instead of pinning the choice with the person who owns it. Handed a number, it writes the confident story.
 
-analytics-office is a bench of **14 read-only skills for Claude Code** that switches the model out of answer-mode and into the discipline each moment of analytics work actually needs — orienting on an unfamiliar estate, interrogating requirements, locking metric definitions, designing models, auditing inherited premises, reviewing the code behind a number, diagnosing a break, briefing stakeholders, surviving the meeting. Each skill is engineered against a documented failure of the bare model. All of them write to one living knowledge base you resume from.
+analytics-office is a bench of **15 read-only skills for Claude Code** that switches the model out of answer-mode and into the discipline each moment of analytics work actually needs — orienting on an unfamiliar estate, interrogating requirements, locking metric definitions, designing models, auditing inherited premises, reviewing the code behind a number, diagnosing a break, briefing stakeholders, surviving the meeting. Each skill is engineered against a documented failure of the bare model. All of them write to one living knowledge base you resume from.
 
 *Read-only by construction · computes instead of eyeballing · no required sequence — any skill, any moment.*
 
@@ -78,6 +78,7 @@ Twelve skills, ordered here like a project — but **there is no pipeline**. Eve
 | "The CFO will grill me on this number." | `defend-my-number` | a live sparring drill, graded honestly, and a defense sheet of what held and what cracked |
 | "Write my weekly status update for steering." | `status-truth` | a provenance-graded status where every green earns its color and slips carry their delta |
 | "Explore this data — find me insights." | `explore-my-data` | a harnessed exploration: every cut counted, found ≠ confirmed, the lucky cell never becomes the headline |
+| "Draw the ER / lineage diagram of our mart." | `map-my-estate` | a cited map: every edge carries its evidence, guesses render dashed, islands stay islands |
 
 ---
 
