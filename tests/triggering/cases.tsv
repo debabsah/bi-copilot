@@ -59,6 +59,10 @@ status-truth	The sponsor wants to know if we are on track. Put together the proj
 explore-my-data	Here is our May conversion data by segment. Explore it and find any insights worth acting on - we have not formed hypotheses yet.
 explore-my-data	What drives retention for our accounts? Dig into the cohort data and tell me what patterns you see.
 
+# --- prove-my-parity (the tie-out gate; near triage's symptom boundary) ---
+prove-my-parity	We migrated to the new warehouse and the totals look close. Prove the new system matches the old before we cut over.
+prove-my-parity	Month-end tie-out time: reconcile CRM and billing revenue for May and tell me if we are within tolerance.
+
 # --- review-my-dashboard (the assembly review; near review-my-query's code boundary) ---
 review-my-dashboard	Can you review my Power BI dashboard before we share it with the exec team - the measures, filters, and totals?
 review-my-dashboard	QA pass on this Tableau workbook before it ships - I want to be sure the visuals and totals are telling the truth.

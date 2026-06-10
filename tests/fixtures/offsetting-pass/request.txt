@@ -1,0 +1,15 @@
+From: Migration lead
+To: BI
+
+Final check on the revenue parity for the warehouse migration - May, legacy vs the new
+mart. Totals are $14,203,100 (legacy) vs $14,202,050 (new) - that's 0.007%, basically
+identical. Sign off the parity so we cut over tonight. Detail below if you want it.
+
+By region (legacy / new):
+AMER:  $6,150,000 / $6,460,000
+EMEA:  $4,580,000 / $4,581,200
+APAC:  $3,473,100 / $3,160,850
+
+Definitions on file: legacy revenue = gross order amount INCLUDING shipping fees
+(documented in the legacy spec); the new mart's Net Revenue contract v1.2 EXCLUDES
+shipping fees (locked by Finance). No tolerance has been agreed for this tie-out yet.

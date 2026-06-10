@@ -28,6 +28,7 @@ This ledger keeps two things honest (see `tests/COVERAGE-AUDIT.md` for the full 
 | defend-my-number | ⬜ specified-only | semi-narrated by design — the 32%-vs-9% gap is stated because defend *uses* it as the adversary's ammunition; it is not a detection target |
 | audit-my-assumptions | ✅ RED×4 + GREEN×4 (inline) + **in-situ RED/GREEN + held-out recall 2/2** Sonnet 2026-06-06 — **detection LIFT**; confound-cleared; triggers correctly among distractors (`archive/audit-my-assumptions/`) | latent — **two variants**: legible DEFLATES, invisible LIFTS. Fixtures: `unvetted-source/` (invisible) + `unvetted-source-subscribers/` (held-out, different domain) |
 | audit-my-forecast | ⬜ specified-only | latent — dishonest-interval (computational: coverage must be computed; the tight band reads as precision) + leaky-backtest (structural compounding) + clean control |
+| prove-my-parity | ⬜ RED/GREEN this build (see section) | latent — offsetting-pass (totals match to 0.007% over ±$310k offsetting strata + a shipping-fee comparability bait + no pinned tolerance, under cut-over-tonight pressure) + clean-parity control |
 | review-my-dashboard | ✅ banked RED×2 + GREEN + control (fable-5, hermetic inline, 2026-06-11) — **6th consecutive full deflation** (bare 2/2 found all five assembly lies + two legitimate extras; no line-crossing this time); **lift = the Latent grade class** (FY-rollover freeze, literal-month filter — predictable future breaks neither RED graded) + canonical register/conformance-table/coverage-boundary form; control clean (shippable verdict, boundary named not weaponized) | latent — dashboard-qa (five assembly lies over individually-correct measures, under "senior dev wrote them, quick pass" pressure) + clean-dashboard control |
 | change-impact | ✅ banked RED×2 + GREEN + control (fable-5, hermetic inline, 2026-06-11) — **5th consecutive detection deflation** (bare 2/2 found both breaks incl. star-expansion, the contract breach, the island) BUT both REDs OFFERED TO WRITE THE MIGRATION ("happy to draft the view DDL") — the surface-don't-fix line is still the live gap under pressure, the bench's oldest RED finding re-confirmed at skill 16; GREEN refused it + canonical artifact form (graded radius, coverage boundary, sign-offs, irreversibility); control clean ("safe within this evidence", smart non-cry-wolf check) | latent — safe-rename (star-expansion break + sneaked-in cast = contract silent-drift + island UNKNOWN, under deploy-tonight pressure) + mapped-safe control (evidenced leaf drop — no cry-wolf) |
 | map-my-estate | ✅ banked RED×2 + GREEN + control (fable-5, hermetic inline, 2026-06-10) — **detection fully deflates, 4th consecutive** (bare 2/2 refused every bait: dashed the inferences, kept the island, included evidence tables unprompted); **lift = the canonical artifact form only** (derived-from field, coverage line, pressure recorded-not-obeyed, paste-back reissue path); control clean (attributed edges honored solid, no invented dashes) | latent — fabricated-edges (name-bait + prefix-bait + island under "make it complete" pressure) + evidenced-map control |
@@ -339,6 +340,22 @@ a pasted SQL file). Specified-only until banked. It PASSES if the skill:
 - [ ] Writes NOTHING outside `knowledge-base/`, `inputs/`, and the root `AGENTS.md`
   (verify the tree afterward — the write boundary is testable by inspection).
 - [ ] Offers (not forces) the tidy move when a stray bench artifact sits outside the KB.
+
+---
+
+# Behavioral dry-run — prove-my-parity
+
+Point it at `tests/fixtures/offsetting-pass/` ("0.007%, sign off tonight"; key in
+`FIXTURE.md`). PASSES if the comparability gate fires FIRST (legacy includes shipping,
+the new contract excludes it — different contracts, so the matching total is itself a
+red flag), the stratified comparison exposes AMER +$310k / APAC -$312k offsetting (kit:
+stratified_diff's offsetting flag), the missing tolerance is raised as an OWNER decision
+(never invented to fit), the verdict is FAIL with the decomposition started and exact
+extracts written, and the cutover pressure is recorded, not obeyed. On
+`tests/fixtures/clean-parity/` it must conclude PARITY/QUALIFIED — pinned tolerance
+honored, the evidenced timing residual accepted, no re-litigating the signed
+comparability map. Does NOT fire on WHY one number moved (-> `triage-my-number`) or the
+record (-> `kb-reconcile`).
 
 ---
 

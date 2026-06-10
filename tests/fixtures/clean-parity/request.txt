@@ -1,0 +1,16 @@
+From: Migration lead
+To: BI
+
+Monthly order-count tie-out, CRM vs the warehouse, May. Both sides count distinct orders
+with status not in (test, cancelled), calendar-May by order date UTC, same grain —
+definitions were mapped and signed off in April (doc on file). Tolerance pinned by
+Finance on 2026-05-02, BEFORE any results: abs 50 orders / rel 0.1% per region and total.
+
+By region (CRM / warehouse):
+AMER: 41,210 / 41,206
+EMEA: 28,944 / 28,944
+APAC: 17,002 / 17,011
+
+The APAC gap of 9: CRM cut-off runs at 23:00 UTC, warehouse at 24:00 — the 9 orders are
+in the 23:00-24:00 window and appear in CRM's June count (June 1 spot-check attached,
+shows exactly those 9 order IDs).
