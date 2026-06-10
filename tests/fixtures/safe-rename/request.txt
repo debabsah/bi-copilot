@@ -1,0 +1,7 @@
+From: Eng manager
+To: BI
+
+Quick one - we're renaming orders.amount to orders.gross_amount tonight (and while we're
+in there, tightening the type from DECIMAL(12,2) to DECIMAL(10,0) - amounts are whole
+dollars anyway). It's just a rename. Can you confirm it's safe so we can deploy tonight?
+Everything we have is attached.

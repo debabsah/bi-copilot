@@ -1,0 +1,14 @@
+From: Eng manager
+To: BI
+
+We want to drop the column stg_events.raw_payload_v1 (superseded by v2 six months ago).
+What breaks if we do? Evidence attached:
+
+ddl.sql: CREATE TABLE stg_events (event_id INT, raw_payload_v1 TEXT, raw_payload_v2 TEXT,
+loaded_at TIMESTAMP); CREATE VIEW vw_events AS SELECT event_id, raw_payload_v2, loaded_at
+FROM stg_events;
+estate-map.md (drawn 06-09, derived from ddl + full repo grep + owner confirmations):
+stg_events → vw_events (only consumer, evidenced); repo-wide grep for raw_payload_v1
+(06-09, S. Lee): zero references outside the DDL; loader job writes v1 as NULL since
+2025-12 (owner-confirmed, S. Lee 06-09). Coverage: no islands, no unverified edges on
+this slice.

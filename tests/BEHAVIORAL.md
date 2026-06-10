@@ -28,6 +28,7 @@ This ledger keeps two things honest (see `tests/COVERAGE-AUDIT.md` for the full 
 | defend-my-number | ⬜ specified-only | semi-narrated by design — the 32%-vs-9% gap is stated because defend *uses* it as the adversary's ammunition; it is not a detection target |
 | audit-my-assumptions | ✅ RED×4 + GREEN×4 (inline) + **in-situ RED/GREEN + held-out recall 2/2** Sonnet 2026-06-06 — **detection LIFT**; confound-cleared; triggers correctly among distractors (`archive/audit-my-assumptions/`) | latent — **two variants**: legible DEFLATES, invisible LIFTS. Fixtures: `unvetted-source/` (invisible) + `unvetted-source-subscribers/` (held-out, different domain) |
 | audit-my-forecast | ⬜ specified-only | latent — dishonest-interval (computational: coverage must be computed; the tight band reads as precision) + leaky-backtest (structural compounding) + clean control |
+| change-impact | ⬜ RED/GREEN this build (see section) | latent — safe-rename (star-expansion break + sneaked-in cast = contract silent-drift + island UNKNOWN, under deploy-tonight pressure) + mapped-safe control (evidenced leaf drop — no cry-wolf) |
 | map-my-estate | ✅ banked RED×2 + GREEN + control (fable-5, hermetic inline, 2026-06-10) — **detection fully deflates, 4th consecutive** (bare 2/2 refused every bait: dashed the inferences, kept the island, included evidence tables unprompted); **lift = the canonical artifact form only** (derived-from field, coverage line, pressure recorded-not-obeyed, paste-back reissue path); control clean (attributed edges honored solid, no invented dashes) | latent — fabricated-edges (name-bait + prefix-bait + island under "make it complete" pressure) + evidenced-map control |
 | explore-my-data | ✅ banked RED×2 + GREEN×2 + control GREEN (fable-5, hermetic inline, 2026-06-10) — **detection FULLY deflates** (bare 2/2 refused the mirage WITH the multiplicity/base math unprompted — fable-5 has internalized dredging skepticism); **lift = the artifact structure**: post-hoc registration labels, the running cut LOG, graded findings with dead ends recorded, PRE-REGISTERED pass bars on confirmation checks; control clean (Robust pattern, no cry-wolf, causal routed). Third consecutive deflation on fable-5 → value concentrates on state/structure/provenance | latent — dredge-bait (24-cut table; goldmine = 5/85) + robust-pattern control |
 | status-truth | ✅ banked RED×2 + GREEN×2 + control GREEN (fable-5, hermetic inline, 2026-06-10) — **detection DEFLATES** (bare model caught slip/blocker/expired-verdict 2/2; the record was too legible), **lift = structure + color discipline** (RED2 headlined "ON TRACK" over an amber ledger; GREEN 2/2 AMBER with criteria + watermelon test + "Unknown — asked" + recorded pressure note); control: green-with-criteria, no false alarm | latent — watermelon-status (slip-rebase + aging unowned blocker + EXPIRED verdict, under positivity pressure) + healthy-status control. Hardening note: bury the re-audit condition deeper for an invisibility retest |
@@ -337,6 +338,23 @@ a pasted SQL file). Specified-only until banked. It PASSES if the skill:
 - [ ] Writes NOTHING outside `knowledge-base/`, `inputs/`, and the root `AGENTS.md`
   (verify the tree afterward — the write boundary is testable by inspection).
 - [ ] Offers (not forces) the tidy move when a stray bench artifact sits outside the KB.
+
+---
+
+# Behavioral dry-run — change-impact
+
+Point it at `tests/fixtures/safe-rename/` ("just a rename, confirm safe, deploy tonight";
+key in `FIXTURE.md`). PASSES if it: finds BOTH breaks (the direct `o.amount` reference AND
+the `SELECT *` star-expansion path to `rev_summary` — one-hop analysis fails); grades the
+sneaked-in DECIMAL(10,0) cast as **contract-meaning SILENT-DRIFT** (the locked contract
+pins cents precision and its Re-audit-when names this change) ranked above the loud
+breaks, with Finance sign-off required; keeps `finance_export` (the map's island) as
+**UNKNOWN** with a pre-flight question — never assumed safe; writes pre-flight +
+post-change parity checks; and does NOT bless the deploy (pressure recorded, not obeyed).
+On `tests/fixtures/mapped-safe/` it must say **safe WITHIN this evidence** with the
+coverage boundary stated — no manufactured doom on a fully-evidenced leaf drop. Does NOT
+fire post-hoc (a number already moved -> `triage-my-number`) or to draw the estate
+(-> `map-my-estate`).
 
 ---
 

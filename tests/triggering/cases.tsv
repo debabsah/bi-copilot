@@ -59,6 +59,10 @@ status-truth	The sponsor wants to know if we are on track. Put together the proj
 explore-my-data	Here is our May conversion data by segment. Explore it and find any insights worth acting on - we have not formed hypotheses yet.
 explore-my-data	What drives retention for our accounts? Dig into the cohort data and tell me what patterns you see.
 
+# --- change-impact (pre-flight blast radius; near triage's post-hoc boundary) ---
+change-impact	We want to rename the customer_id column on the orders table. What breaks downstream if we do?
+change-impact	Before we re-point the revenue model at the new billing source - what is the blast radius of that change across our reports?
+
 # --- map-my-estate (cartography; near model-contract's design boundary) ---
 map-my-estate	Draw the ER diagram of our existing sales mart from the DDL and views we have - I want to see how the tables actually connect.
 map-my-estate	Map the data flow for the revenue dashboard - from the source systems through the warehouse to the report.
