@@ -75,6 +75,11 @@ opening-position constraints on the thief, then de-baiting the route-away clause
 not move any of them, and two rounds regressed a previously-passing foil; the loop was
 stopped on that overfit signal and the descriptions reverted to the best-measured state.
 
+Addendum (v0.14.0): `status-truth`'s two positives probed on a verified-fresh install —
+"are we on track / project status" fires; the "weekly status update for the steering
+committee" phrasing MISSes (nothing fired) — the same fable-5 miss class as the four
+sweep misses, recorded as a warning per the policy above.
+
 Two honest notes. First: routing is model-dependent — these three were not defects on the
 previous baseline model, so the re-baseline cadence is not optional. Second: the
 brief-my-findings misroute is caught downstream anyway — its behavioral provenance gate
