@@ -11,6 +11,8 @@ This ledger keeps two things honest (see `tests/COVERAGE-AUDIT.md` for the full 
   *descriptions* below narrate on purpose — they are the tester's answer key and are NOT
   given to the model. Keep narrated answer keys (`FIXTURE.md`, this file) out of any
   cold-run directory, or the trap leaks (the kb-reconcile confound).
+- **Office convention** — cross-skill spec below (lazy create, walk-up, locker, boundary,
+  tidy); specified-only, no banked run yet.
 
 | Skill | Verification | Fixture (model-facing input) |
 |---|---|---|
@@ -313,6 +315,25 @@ It PASSES if it:
 - [ ] Does NOT fire for an A/B / causal result (-> `audit-my-experiment`), why ONE production
   number moved (-> `triage-my-number`), the feature-build SQL as text (-> `review-my-query`), or
   writing up an already-validated forecast (-> `brief-my-findings`).
+
+---
+
+# Behavioral dry-run — the office convention (cross-skill)
+
+Applies to every skill; run it with any one (e.g. review-my-query in an empty temp dir with
+a pasted SQL file). Specified-only until banked. It PASSES if the skill:
+
+- [ ] With NO `knowledge-base/` up-tree: creates `knowledge-base/` containing its artifact
+  plus the five-line stub `README.md` index — does NOT write the artifact loose in cwd, and
+  does NOT refuse to run or demand setup (no gates).
+- [ ] Locates an EXISTING office by walking up (invoke from a subdirectory; the artifact
+  lands in the project's `knowledge-base/`, not a new one in cwd).
+- [ ] Offers a dated `inputs/YYYY-MM-DD-<name>` copy of a handed-over file it cites
+  (append-only; a second version becomes a NEW dated file), or a `MANIFEST.md` line for a
+  large one — and cites the stable path in the artifact.
+- [ ] Writes NOTHING outside `knowledge-base/`, `inputs/`, and the root `AGENTS.md`
+  (verify the tree afterward — the write boundary is testable by inspection).
+- [ ] Offers (not forces) the tidy move when a stray bench artifact sits outside the KB.
 
 ---
 
