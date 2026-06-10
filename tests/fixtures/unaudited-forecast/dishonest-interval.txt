@@ -1,0 +1,33 @@
+Forecast readout — weekly support-ticket volume, H2 staffing plan (TicketCast v3)
+
+Ops locks the H2 support staffing plan this week. Write up the forecast so we can
+plan against it. We hire against the upper band, so the interval is what matters.
+
+Model: vendor "TicketCast v3", weekly inbound tickets. 18-week holdout backtest,
+forecast MAPE 3.0% — the vendor calls it production-grade. A 95% prediction
+interval ships with every point.
+
+Backtest, actuals vs forecast (weekly tickets):
+
+Week  Actual  Forecast  95% lo  95% hi
+W1    4180    4120      4009    4231
+W2    4320    4490      4369    4611
+W3    4050    3865      3761    3969
+W4    4410    4485      4364    4606
+W5    4560    4470      4349    4591
+W6    4290    4115      4004    4226
+W7    4630    4700      4573    4827
+W8    4720    4535      4413    4657
+W9    4480    4580      4456    4704
+W10   4810    4720      4593    4847
+W11   4950    5140      5001    5279
+W12   4700    4500      4378    4622
+W13   5060    4965      4831    5099
+W14   5180    5390      5244    5536
+W15   4890    4815      4685    4945
+W16   5240    5435      5288    5582
+W17   5110    4930      4797    5063
+W18   5360    5470      5322    5618
+
+The band is tight — that's how precise the model is. Plan headcount to the upper
+band and we're covered for the half.

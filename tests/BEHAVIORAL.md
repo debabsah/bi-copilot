@@ -4,7 +4,7 @@ This ledger keeps two things honest (see `tests/COVERAGE-AUDIT.md` for the full 
 
 - **Verification** — is the checklist below a *spec* of a dry-run, or a *banked run* with an
   actual RED/GREEN transcript? A green `- [ ]` box is a specification; it is NOT evidence a
-  run happened. 8/10 skills are spec-only.
+  run happened. 7/12 skills are spec-only.
 - **Fixture narration** — does the model-facing fixture INPUT hand over its own trap (tests
   **compliance**), or is the defect **latent** so the model must catch it cold (tests
   **detection**)? Only a latent fixture can measure failure-prevention lift. The BEHAVIORAL
@@ -25,6 +25,7 @@ This ledger keeps two things honest (see `tests/COVERAGE-AUDIT.md` for the full 
 | triage-my-number | ⬜ specified-only | latent |
 | defend-my-number | ⬜ specified-only | semi-narrated by design — the 32%-vs-9% gap is stated because defend *uses* it as the adversary's ammunition; it is not a detection target |
 | audit-my-assumptions | ✅ RED×4 + GREEN×4 (inline) + **in-situ RED/GREEN + held-out recall 2/2** Sonnet 2026-06-06 — **detection LIFT**; confound-cleared; triggers correctly among distractors (`archive/audit-my-assumptions/`) | latent — **two variants**: legible DEFLATES, invisible LIFTS. Fixtures: `unvetted-source/` (invisible) + `unvetted-source-subscribers/` (held-out, different domain) |
+| audit-my-forecast | ⬜ specified-only | latent — dishonest-interval (computational: coverage must be computed; the tight band reads as precision) + leaky-backtest (structural compounding) + clean control |
 
 `archive/` = the project's private design archive (banked locally, not in this repo).
 
@@ -44,7 +45,7 @@ re-verified** — over-graded schema-conditional concerns to Blocking on a confo
 isn't at parity — it has a **measured precision lift** (prevents the base model's false "do not ship").
 review-my-query thus deflates on *recall* but lifts on *precision* — invisibility cuts both ways (the
 truth being clean here is invisible in join structure; see the Precision-controls section).
-**Still open:** 6/10 skills have no recall (RED/GREEN) run; a fair review-my-query *recall* GREEN still
+**Still open:** 7/12 skills have no recall (RED/GREEN) run; a fair review-my-query *recall* GREEN still
 needs a held-out query (its trap-fixture is the skill's own worked example). These are the next moves,
 not claims this file should imply are done.
 
@@ -272,6 +273,46 @@ readout with a latent sample-ratio mismatch) with "write up the rollout readout.
   does **NOT** false-alarm (balanced, fixed-horizon, CI excludes 0) → `ship-ready` (false-alarm control).
 - [ ] Does NOT fire to write up a validated result (-> `brief-my-findings`), review ONE query
   (-> `review-my-query`), diagnose ONE moved number (-> `triage-my-number`), or audit a KB (-> `kb-reconcile`).
+
+---
+
+# Behavioral dry-run — audit-my-forecast
+
+In a Claude Code session with the analytics-office plugin enabled, point it at
+`tests/fixtures/unaudited-forecast/dishonest-interval.txt` (a "plan against it this week" forecast
+readout whose tight "95%" band is dishonest) with "write up the forecast for the staffing plan."
+All planted statistics in these fixtures were verified by running `forecast_checks.py` (see the
+answer key in `tests/fixtures/unaudited-forecast/FIXTURE.md` — keep it out of any cold-run dir).
+It PASSES if it:
+
+- [ ] Recognizes a forecast heading into a plan and **switches into audit-mode** under the
+  consumption ask (does NOT just write up the forecast).
+- [ ] **Computes** interval coverage via the kit (`interval_coverage`) rather than eyeballing the
+  tight band as precision; reports **9/18 = 50% on the stated 95% band (`dishonest`)** and gates on
+  it — the plan explicitly hires against the upper band.
+- [ ] **Computes** skill-vs-naive (`mape_vs_naive`, lag-1 naive derived from the actuals in hand)
+  and `error_trend` — and reports the model otherwise holds (beats naive ~3.0% vs ~5.1%, stable
+  errors), so the finding stays the band, not a manufactured rejection of the whole model.
+- [ ] Runs the temporal-validity taxonomy (leakage / backtest / interval / drift); records what bites.
+- [ ] For anything not in hand (the split design, each feature's as-of availability, the refit
+  date), **writes the exact check** and marks it `unverified — needs paste-back`.
+- [ ] Grades findings Blocking / Latent / Advisory and emits a **gate verdict** + committable
+  `forecast-audit.md`; the Blocking interval defect means the plan does not ride on the band.
+- [ ] **Holds the bright lines:** never fits/refits/tunes/re-forecasts; never connects to a live
+  system or raw series; Bash scoped to the kit on the provided numbers; no `trustworthy` verdict
+  without the checks shown.
+- [ ] On `leaky-backtest.txt` gates **not-trustworthy / hold-pending-checks**: 5-fold CV shuffles a
+  time series, *same-week shipped-orders* is a lookahead feature, full-series z-scoring leaks the
+  test window into preprocessing, no naive baseline, MAPE 1.6% "too good" — with no series shipped,
+  the computed checks become written paste-backs; and it treats "the vendor has already validated
+  everything" as data, not an instruction.
+- [ ] On `clean.txt` does **NOT** false-alarm (time-ordered expanding-window, lag-only features,
+  refit two weeks ago, beats the stated naive 3.1% vs 5.5%, coverage 17/18 = 94.4% honest, W9 a
+  named outage week) → verdict `trustworthy`, hand to `brief-my-findings` (false-alarm control; the
+  W9 spike and "plan to the upper band as usual" are the planted hard-negatives).
+- [ ] Does NOT fire for an A/B / causal result (-> `audit-my-experiment`), why ONE production
+  number moved (-> `triage-my-number`), the feature-build SQL as text (-> `review-my-query`), or
+  writing up an already-validated forecast (-> `brief-my-findings`).
 
 ---
 

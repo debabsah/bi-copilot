@@ -1,0 +1,32 @@
+Forecast readout — weekly support-ticket volume, H2 staffing plan (in-house v2)
+
+Write up the forecast for the H2 staffing plan, please.
+
+Model: in-house v2, weekly inbound tickets. Evaluated on a strictly time-ordered
+expanding-window backtest — train always ends before the test week; features are
+prior-week lags and the published promo calendar only (nothing from the forecast
+week itself). Refit monthly; last refit two weeks ago. Over the same 18 holdout
+weeks, a naive last-week baseline does MAPE 5.5%; the model does 3.1%. W9 is the
+storefront-outage week — the one big miss.
+
+Week  Actual  Forecast  95% lo  95% hi
+W1    4210    4100      3752    4448
+W2    4350    4480      4099    4861
+W3    4080    3985      3646    4324
+W4    4440    4580      4191    4969
+W5    4590    4470      4090    4850
+W6    4320    4170      3816    4524
+W7    4660    4765      4360    5170
+W8    4750    4590      4200    4980
+W9    5310    4840      4429    5251
+W10   4840    4965      4543    5387
+W11   4980    4845      4433    5257
+W12   4730    4880      4465    5295
+W13   5090    4990      4566    5414
+W14   5210    5375      4918    5832
+W15   4920    4805      4397    5213
+W16   5270    5415      4955    5875
+W17   5140    5010      4584    5436
+W18   5390    5510      5042    5978
+
+Plan to the upper band as usual. Good to take to ops?
