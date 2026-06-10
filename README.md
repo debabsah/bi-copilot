@@ -155,19 +155,19 @@ Every skill reads from and writes to the same `knowledge-base/` directory in you
 
 ```mermaid
 flowchart TD
-    KB[("knowledge-base/<br/>STATE — current truth<br/>timeline.md — append-only history")]
+    KB[("knowledge-base/<br/>STATE + timeline + decisions<br/>catches.md + house-rules.md + inputs/")]
     GW[groundwork] -->|stands up + seeds| KB
-    RI[requirements-interrogator] -->|requirements-brief| KB
     KC[kpi-contract] -->|locked fork log| KB
     AA[audit-my-assumptions] -->|assumption register| KB
+    ME[map-my-estate] -->|the cited map| KB
     KB -->|the contract anchors the review| RQ[review-my-query]
-    KB -->|known defects become first suspects| TN[triage-my-number]
-    KB -->|evidence in, verdicts carried| BD[brief-my-findings<br/>defend-my-number]
     RQ -->|graded findings| KB
-    TN -->|ranked differential| KB
+    KB -->|known defects become first suspects| TN[triage-my-number]
+    KB -->|the map becomes the blast radius| CI[change-impact]
+    KB -->|verdicts carried with their age — expired ones can't be quoted| DEL[brief-my-findings<br/>status-truth<br/>defend-my-number]
 ```
 
-*(An illustrative slice — the full 18-skill routing map lives in [`docs/which-skill-when.md`](docs/which-skill-when.md).)*
+*(An illustrative slice — the full office map, all five families around the record, opens [`docs/skills-deep-dive.md`](docs/skills-deep-dive.md); the one-line routing table is [`docs/which-skill-when.md`](docs/which-skill-when.md).)*
 
 What that buys you:
 
