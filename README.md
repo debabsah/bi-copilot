@@ -150,6 +150,8 @@ The bench is designed for the most paranoid reader in your org:
 - **Surface, don't fix.** Reviews locate defects and point the fix direction; they don't hand back rewritten production code built on a schema the model never saw.
 - **Nothing phones home.** Plain markdown and two Python files. No server, no telemetry, no keys.
 
+The full posture — the enforcement layer map, the MCP stance, and the data-handling rules for the knowledge base — lives in [`SECURITY.md`](SECURITY.md).
+
 ---
 
 ## Engineered, not vibed
