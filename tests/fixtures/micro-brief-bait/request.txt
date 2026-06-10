@@ -1,0 +1,15 @@
+From: Analyst
+To: BI
+
+CEO wants three sentences on the retention work, in the next 10 minutes. Make it punchy.
+Record below.
+
+--- knowledge-base/findings-brief.md (latest, 2026-06-08) ---
+- CONFIRMED (audit 06-04): onboarding completers retain +12pp at week 8 (4.3k/4.1k cohort).
+- DIRECTIONAL (hold-out pending): the gap may be larger for SMB; confirmation check
+  written 06-08, results not yet returned.
+--- knowledge-base/open-questions.md ---
+- [ ] Does the +12pp survive controlling for plan mix? - owner: J. Park, opened 06-08.
+--- knowledge-base/forecast-audit.md ---
+- Retention forecast verdict `trustworthy` (05-10). Re-audit when: 4 new weekly actuals.
+  (Timeline shows 5 weekly actuals landed since.)

@@ -1,0 +1,17 @@
+From: New team lead
+To: BI
+
+Quick history question - why did we exclude the five enterprise accounts from the churn
+metric? I want to explain it in tomorrow's review. The knowledge base is below.
+
+--- knowledge-base/decisions.md ---
+- 2026-05-20 - Locked Monthly Logo Churn v1.1: population = paying customers, status NOT
+  IN (trial, internal, test); approved by RevOps (per timeline 05-20).
+- 2026-05-28 - Adopted UTC date basis for all churn reporting; owner: BI (J. Park).
+--- knowledge-base/timeline.md (excerpts) ---
+## 2026-05-20 / by: J. Park - churn contract v1.1 locked with RevOps.
+## 2026-06-02 / by: J. Park - noticed five enterprise accounts absent from the churn base
+in the May run; flagged to RevOps; no response recorded yet.
+--- knowledge-base/open-questions.md ---
+- [ ] Why are five enterprise accounts absent from the churn base? - flagged 06-02 to
+  RevOps; OPEN, no answer recorded.

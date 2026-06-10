@@ -3,6 +3,25 @@
 Notable changes to the analytics-office bench. Versions follow the plugin manifest;
 commit-level detail lives in git history.
 
+## [0.23.0] — 2026-06-11
+
+**Modes batch #2** — six daily-use modes, zero new routing surface:
+
+- **Micro-brief** (brief-my-findings): the three-sentence exec reply with the claim-ledger
+  discipline compressed, never dropped — statuses travel inline, expired verdicts are
+  never quoted as standing, and the honesty valve says what was cut. Likely the bench's
+  most frequent daily entry.
+- **Delta brief** (brief-my-findings): "what changed since the last readout," composed as
+  a diff of the record — moved, closed, flipped/expired, new, and unchanged-named-as-unchanged.
+- **Meeting armament** (defend-my-number): the 30-minute card — current state, holding
+  lines, likely attacks, and the DO-NOT-SAY list of everything not settled.
+- **The ask-the-record quartet** (groundwork): morning brief / open loops (pending
+  paste-backs, expired verdicts, aging opens); decision archaeology (answers only from the
+  record with citations — "the record is silent" is a legitimate answer, confabulated
+  history is the named enemy); the handoff package (what normally walks out the door with
+  a departing analyst); and meeting capture (raw notes to candidate KB entries, every
+  attribution confirmed-or-[unconfirmed], owner-pinned before write).
+
 ## [0.22.0] — 2026-06-11
 
 The first **modes batch** — capability without routing surface (zero description changes,

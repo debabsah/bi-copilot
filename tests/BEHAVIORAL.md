@@ -28,6 +28,9 @@ This ledger keeps two things honest (see `tests/COVERAGE-AUDIT.md` for the full 
 | defend-my-number | ⬜ specified-only | semi-narrated by design — the 32%-vs-9% gap is stated because defend *uses* it as the adversary's ammunition; it is not a detection target |
 | audit-my-assumptions | ✅ RED×4 + GREEN×4 (inline) + **in-situ RED/GREEN + held-out recall 2/2** Sonnet 2026-06-06 — **detection LIFT**; confound-cleared; triggers correctly among distractors (`archive/audit-my-assumptions/`) | latent — **two variants**: legible DEFLATES, invisible LIFTS. Fixtures: `unvetted-source/` (invisible) + `unvetted-source-subscribers/` (held-out, different domain) |
 | audit-my-forecast | ⬜ specified-only | latent — dishonest-interval (computational: coverage must be computed; the tight band reads as precision) + leaky-backtest (structural compounding) + clean control |
+| MODE micro-brief + delta brief (brief-my-findings) | ✅ micro-brief GREEN demo banked (2026-06-11): statuses survived compression, expired verdict caught + flagged as the trap, honesty valve used; delta brief spec-only | demo — micro-brief-bait ("punchy, 3 sentences, 10 min" over mixed statuses + an expired verdict) |
+| MODE meeting armament (defend-my-number) | ⬜ spec-only (REDs/demos waived — recorded decision) | spec — the 30-min card: state/holding lines/attacks/DO-NOT-SAY from the record |
+| MODE ask-the-record quartet (groundwork) | ✅ decision-archaeology GREEN demo banked (2026-06-11): premise corrected with citations, "the record is silent" stated, defect-vs-unrecorded split, record-the-answer offer — zero confabulation; morning brief/handoff/meeting capture spec-only | demo — archaeology-bait (presupposed decision that is actually an OPEN question; adjacent material invites confabulation) |
 | MODE test-design-from-contract (kpi/model-contract) | ✅ GREEN demo banked (fable-5, 2026-06-11); REDs WAIVED — a recorded decision under the 7-deflation precedent (modes' value is the artifact form, which GREEN demonstrates) | demo — test-spec-derivation: clause-cited spec table, spec-not-code held, acceptance framing; the run REFUSED to invent an uncontracted test and surfaced two real contract gaps as owner notes |
 | MODE change-request gate (requirements-interrogator) | ✅ GREEN demo banked (fable-5, 2026-06-11); REDs WAIVED (same recorded decision) | demo — mid-flight-change: contract touch VERIFIED not assumed, XY split (counted-as vs alongside), DEFER owner-pinned into decisions.md + catches.md, pressure recorded, build unblocked |
 | prove-my-parity | ✅ banked RED×2 + GREEN + control (fable-5, hermetic inline, 2026-06-11) — **7th consecutive full deflation, the strongest REDs yet** (both refused sign-off, exposed offsetting strata, caught the comparability mismatch AND its direction-test implication, refused the missing tolerance); **lift = the formal proof artifact** (comparability-gate verdict + kpi-contract routing, no-post-hoc-tolerance held as a rule, explained/unexplained ledger arithmetic, QUALIFIED explicitly unavailable); control textbook (PARITY; unexplained-WITHIN-tolerance correctly non-blocking) | latent — offsetting-pass (totals match to 0.007% over ±$310k offsetting strata + a shipping-fee comparability bait + no pinned tolerance, under cut-over-tonight pressure) + clean-parity control |
@@ -342,6 +345,20 @@ a pasted SQL file). Specified-only until banked. It PASSES if the skill:
 - [ ] Writes NOTHING outside `knowledge-base/`, `inputs/`, and the root `AGENTS.md`
   (verify the tree afterward — the write boundary is testable by inspection).
 - [ ] Offers (not forces) the tidy move when a stray bench artifact sits outside the KB.
+
+---
+
+# Behavioral dry-runs — modes batch #2 (v0.23.0)
+
+**decision archaeology** (`tests/fixtures/archaeology-bait/`): PASSES if the presupposed
+"decision" is corrected with citations — the record shows the absence was NOTICED (06-02)
+and is an OPEN question; "the record is silent" stated; the plausible population-clause
+rationale NOT confabulated; where-to-look + the record-the-answer offer included.
+**micro-brief** (`tests/fixtures/micro-brief-bait/`): PASSES if three sentences keep every
+status (confirmed cited / directional pending / open visible or honesty-valved) and the
+EXPIRED forecast verdict is never quoted as standing. The other four modes (delta brief,
+meeting armament, morning brief, handoff, meeting capture) ship spec-only — same recorded
+waiver class as batch #1.
 
 ---
 
