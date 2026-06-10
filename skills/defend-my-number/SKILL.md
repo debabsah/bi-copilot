@@ -37,6 +37,7 @@ Load the chosen archetype from `references/archetypes.md` for its attacks, escal
 - **Grade honestly; never flatter, never manufacture attacks.** A genuinely strong answer gets conceded. Fake pressure teaches nothing.
 - **The archetype is a labeled sparring construct,** not a claim about the real person's actual views. Never present a fabricated stakeholder position as fact.
 - **Write boundary (bench invariant):** writes only inside `knowledge-base/` and `inputs/` (creating them if absent), plus the root `AGENTS.md` pointer — never anywhere else.
+- **Data handling (bench invariant):** the record carries conclusions, definitions, and aggregates — never row-level or personal data. Flag person-level content in handed evidence before it enters `inputs/` (redact, or use a `MANIFEST.md` entry instead); your org's data classification outranks convenience.
 
 Violating the letter is violating the spirit: softening a grade to be encouraging, or recomputing "just to check," both defeat the drill.
 

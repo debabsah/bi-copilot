@@ -34,6 +34,7 @@ A table of candidate causes spanning the whole failure surface, each with its di
 - **Never hand a stakeholder an unconfirmed cause.** Give the calibrated holding line ("likely a measurement artifact, not a real trend; confirming by X") plus the check that would confirm it — not a confident story.
 - **Surface the diagnosis, don't fix it.** Point at the defect and the fix *direction*; hand a code bug to `review-my-query`. Don't rewrite the query.
 - **Write boundary (bench invariant):** writes only inside `knowledge-base/` and `inputs/` (creating them if absent), plus the root `AGENTS.md` pointer — never anywhere else.
+- **Data handling (bench invariant):** the record carries conclusions, definitions, and aggregates — never row-level or personal data. Flag person-level content in handed evidence before it enters `inputs/` (redact, or use a `MANIFEST.md` entry instead); your org's data classification outranks convenience.
 
 Violating the letter is violating the spirit: computing the handed-you sample "just to confirm," or writing the most-likely cause into the board line before a check confirms it, both defeat the triage.
 

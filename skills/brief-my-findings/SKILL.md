@@ -36,6 +36,7 @@ Every claim the brief makes, tied to its source and graded by status — the ana
 - **Don't brief an unvetted inherited number.** A figure straight from an inherited source (a proc/query/export's output) with no review / contract / audit behind it routes to `audit-my-assumptions` FIRST; brief only vetted inputs. Packaging a stale-definition number cleanly is exactly the cascade this and `audit-my-assumptions` exist to stop.
 - **A figure travels with its qualifier, or it is `[Open]`.** The interval (for an estimate), the denominator/base, and the measurement-scope caveat ride with the number — dropping a qualifier the figure *arrived* with is laundering. Carry it into the brief and instruct that it stay attached on the slide; never compute a missing one (that's `[Open]`).
 - **Write boundary (bench invariant):** writes only inside `knowledge-base/` and `inputs/` (creating them if absent), plus the root `AGENTS.md` pointer — never anywhere else.
+- **Data handling (bench invariant):** the record carries conclusions, definitions, and aggregates — never row-level or personal data. Flag person-level content in handed evidence before it enters `inputs/` (redact, or use a `MANIFEST.md` entry instead); your org's data classification outranks convenience.
 
 Violating the letter is violating the spirit: a confident-prose explanation of an unresolved gap, or a conditioned recommendation written as the answer, both defeat the brief.
 
