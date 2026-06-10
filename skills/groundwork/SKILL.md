@@ -18,13 +18,14 @@ Orient by **reading what already exists** — query/transformation code, pipelin
 Two hard limits:
 - **Never touch live systems** — don't connect to, query, or pull from a live database or production feed. Work only from artifacts already given to you.
 - **Don't compute the deliverable** — profiling structure is not producing the answer. The moment you're calculating the actual metric or building the pipeline, orientation is over: stop and hand off to the real task.
+- **Write boundary (bench invariant):** writes only inside `knowledge-base/` and `inputs/` (creating them if absent), plus the root `AGENTS.md` pointer — never anywhere else.
 
 Violating the letter is violating the spirit: if you catch yourself running a live extract, or computing the KPI "just to check," stop.
 
 ## The loop (point-and-interrogate)
 1. **Warm start** — before interviewing, harvest what's already known (this conversation, prior decisions, existing docs/KB) and pre-fill the KB + completeness checklist from it. Interview only the still-empty slots; never re-ask what's already settled.
 2. **Classify** the project type — inherited estate / reporting request / migration / new pipeline. If unclear, ask. Load its checklist from `references/completeness-models.md`.
-3. **Ingest** what the user points you at — object definitions and any static extract — reading and profiling it (see Bright line). Note what each object does and how they connect.
+3. **Ingest** what the user points you at — object definitions and any static extract — reading and profiling it (see Bright line). Note what each object does and how they connect. Offer a dated copy of each cited artifact into `inputs/` at the project root (`YYYY-MM-DD-<name>`; a large file gets an `inputs/MANIFEST.md` line instead) so the record's citations survive.
 4. **Run the gap engine** (below) to find what's unknown.
 5. **Interview** for the highest-value gaps — one at a time for newcomers, or batched into a short multiple-choice menu for experienced users (see Register); adapt follow-ups; respect the bright line.
 6. **Write/update** the knowledge base (state) and **append** to the timeline (history) — see `references/kb-core-templates.md`.
@@ -38,11 +39,11 @@ Violating the letter is violating the spirit: if you catch yourself running a li
 Comprehensive thinking, lean output: check everything; record only what matters.
 
 ## The knowledge base (state + continuity)
-Create/maintain `knowledge-base/` in the project directory (templates: `references/kb-core-templates.md`; optional artifacts: `references/kb-catalog.md`). If there's no git repo yet, still create the folder; if the project sits inside a larger unrelated repo, keep everything under the project's own subtree and don't assume you can commit it.
+Create/maintain `knowledge-base/` at the project root — locate an existing office first by walking up from the working directory to the nearest `knowledge-base/` / root `AGENTS.md` (templates: `references/kb-core-templates.md`; optional artifacts: `references/kb-catalog.md`). If there's no git repo yet, still create the folder; if the project sits inside a larger unrelated repo, keep everything under the project's own subtree and don't assume you can commit it.
 - **Always-on core:** `README.md` (index), `purpose.md`, `landscape.md`, `open-questions.md`, `decisions.md`, `notes.md`, `timeline.md`, plus `AGENTS.md` at the project root.
 - **State** = current truth (update/overwrite). Tag each entry with the phase it satisfies (`[Understand]`, `[Define]`, …) so progress is legible.
 - **Continuity** = `timeline.md`, append-only. At the END of every session, append a dated entry (happened · decided · next · blocked). When the user reports an external event (email/meeting/doc), append it with date + source. Link state entries back to the timeline event that produced them (provenance).
-- **Resume:** when the user returns or says "catch me up", read `timeline.md` + the core, and brief them: where they are, what's happened since, what's next, what's waiting on whom.
+- **Resume:** when the user returns or says "catch me up", read `timeline.md` + the core, and brief them: where they are, what's happened since, what's next, what's waiting on whom. While there: if stray bench artifacts sit outside `knowledge-base/` nearby (a `query-review.md` from a pre-office session), offer to move them in and fix their citations.
 - **Adaptive catalog:** propose only the optional artifacts the project type needs; never instantiate the whole catalog. An irrelevant section simply doesn't exist.
 - **Right-size it:** on a small or single-session project the core files may start as brief stubs — even a line or two each — and grow as understanding does. Don't pad an empty section; an unknown one just says "(nothing yet)".
 
