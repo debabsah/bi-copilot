@@ -46,6 +46,45 @@ Start here — the living record of this project, for humans and agents.
 - `groundwork` can flesh out the full core (purpose · landscape · open questions · decisions · notes · timeline).
 ```
 
+## The artifact lifecycle (born → carried → resolved/expired)
+
+Artifacts accrete; without a closure convention they rot. Three rules keep the record governed:
+
+- **Resolution stamps.** A graded finding that gets fixed gains a stamp on its row —
+  `→ resolved <date> (<event/evidence>)` — applied when the user reports the fix (or a
+  later skill pass confirms it). Never delete the row: the record keeps its history; the
+  stamp closes it. (`open-questions.md` already works this way — `[x] … Closed <date> by
+  <event>` — this generalizes the pattern.)
+- **Re-audit conditions.** Every gate verdict (`experiment-audit`, `forecast-audit`,
+  `assumption-register`) carries a standing `Re-audit when: <condition>` — a date, a data
+  volume, a rerun, a source change; whatever would invalidate the verdict. A verdict
+  without an expiry condition is one that silently never expires.
+- **Verdict age travels.** A downstream consumer (a brief, a defense) states each carried
+  verdict's date and whether its re-audit condition has been met. A verdict whose condition
+  HAS been met is **expired**: it routes back to its audit instead of being carried, and
+  `kb-reconcile` flags consumed-stale verdicts as `expired-verdict` drift.
+
+## Who writes what (the write-permission matrix)
+
+The office write boundary (`knowledge-base/` + `inputs/` + root `AGENTS.md`) is the outer
+wall; inside it, each skill touches only its lane. Any skill may lazy-create the KB + stub
+index when none exists.
+
+| Skill | Own artifact | open-questions.md | decisions.md | timeline.md | core STATE (purpose/landscape/notes) | README index | inputs/ |
+|---|---|---|---|---|---|---|---|
+| groundwork | (the core files) | create/update | create/append | append | create/update | create/update | copy evidence |
+| requirements-interrogator | requirements-brief.md | append + close answered | append | append | update `purpose.md` to current truth | add link | copy evidence |
+| kpi-contract | kpi-contract.md | append open forks | append | append | never | add link | copy evidence |
+| model-contract | model-contract.md | append open forks/grain | append | append | never | add link | copy evidence |
+| audit-my-assumptions | assumption-register.md | append gating trunks | never | append | never | never | copy sources |
+| review-my-query | query-review.md | append Blocking | append | append | never | add link | copy reviewed code |
+| audit-my-experiment | experiment-audit.md | append Blocking | never | append | never | add link | copy readout |
+| audit-my-forecast | forecast-audit.md | append Blocking | never | append | never | add link | copy readout |
+| triage-my-number | triage.md | append confirmed cause only | never | append confirmed only | never | never | copy extract |
+| brief-my-findings | findings-brief.md | append newly-exposed opens | append comms calls | append | never | add link | never |
+| defend-my-number | defense-sheet.md | append holes | append drill calls | append | never | add link | never |
+| kb-reconcile | reconcile.md ONLY | never (recommends) | never (recommends) | never (recommends) | never | never | never |
+
 ## knowledge-base/README.md (the index — start here)
 ```markdown
 # <Project> — Knowledge Base
