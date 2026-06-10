@@ -8,7 +8,7 @@
 
 AI is genuinely good at analytics work. It fails in one specific way: not by being unable, but by being *agreeable*. Handed an inherited warehouse with no docs, it starts building instead of orienting. Handed "build me a dashboard with these KPIs," it builds exactly that — without ever asking what decision the dashboard serves. Asked what "active customer" means, it picks a sensible default instead of pinning the choice with the person who owns it. Handed a number, it writes the confident story.
 
-analytics-office is a bench of **18 read-only skills for Claude Code** that switches the model out of answer-mode and into the discipline each moment of analytics work actually needs — orienting on an unfamiliar estate, interrogating requirements, locking metric definitions, designing models, auditing inherited premises, reviewing the code behind a number, diagnosing a break, briefing stakeholders, surviving the meeting. Each skill is engineered against a documented failure of the bare model. All of them write to one living knowledge base you resume from.
+analytics-office is a bench of **18 read-only skills for Claude Code** that switches the model out of answer-mode and into the discipline each moment of analytics work actually needs — orienting on an unfamiliar estate, interrogating requirements, locking metric definitions, designing models, auditing inherited premises, reviewing the code behind a number, diagnosing a break, exploring a dataset without dredging it, mapping the estate, scoping a change's blast radius, QA-ing the dashboard before the QBR, proving a migration ties out, briefing stakeholders, writing the weekly status, surviving the meeting. Each skill is engineered against a documented failure of the bare model. All of them write to one living knowledge base you resume from.
 
 *Read-only by construction · computes instead of eyeballing · no required sequence — any skill, any moment.*
 
@@ -54,13 +54,15 @@ You:  Honestly… she wants to decide whether onboarding gets more
       Now it is.
 ```
 
-That refusal-then-redirect is the whole product, twelve different ways.
+That refusal-then-redirect is the whole product — eighteen skills and eight modes deep.
 
 ---
 
 ## The bench
 
-Twelve skills, ordered here like a project — but **there is no pipeline**. Every skill fires independently, at any moment, with or without the others having run.
+Eighteen skills in **five families** — each family owns an ask-shape, and every member's description opens with its family's shared stanza (that structure is measured, not aesthetic; see *Engineered, not vibed*). Ordered here like a project — but **there is no pipeline**. Every skill fires independently, at any moment, with or without the others having run.
+
+**Shape** — *the work itself is still being shaped, before anything is built*
 
 | You say | What fires | You walk away with |
 |---|---|---|
@@ -68,20 +70,53 @@ Twelve skills, ordered here like a project — but **there is no pipeline**. Eve
 | "Build me a dashboard with these KPIs." | `requirements-interrogator` | the decision behind the ask, the requested-vs-derived delta, a verdict |
 | "Lock down what 'active customer' actually means." | `kpi-contract` | a versioned contract — every definitional fork pinned by its owner or flagged `[needs decision]` |
 | "How should I model this mart?" | `model-contract` | a logical star with the grain declared and gated on evidence — no DDL invented on a guess |
+
+**Audit** — *a built thing is about to be trusted; the gate fires before the work leans on it*
+
+| You say | What fires | You walk away with |
+|---|---|---|
 | "Turn this proc's output into the board number." | `audit-my-assumptions` | a graded register of every silent premise, falsified *before* you build on it |
 | "Is this SQL right?" | `review-my-query` | findings graded Blocking / Latent / Advisory against the locked definition — a review, never a rewrite |
+| "Is our knowledge base still true?" | `kb-reconcile` | a graded drift report — contradictions, stale claims, unsourced numbers |
+| "QA my dashboard before the QBR." | `review-my-dashboard` | the assembly review: dashboards fail between correct parts — totals, defaults, titles, staleness |
+
+**Validate** — *a measured result is about to drive a decision; the checks are computed first*
+
+| You say | What fires | You walk away with |
+|---|---|---|
 | "Did our A/B test really win?" | `audit-my-experiment` | computed validity checks (SRM, peeking, multiplicity, power) gating the ship decision |
 | "Can we plan against this forecast?" | `audit-my-forecast` | leakage, backtest, interval-honesty, and drift checks gating the plan |
+| "The totals match — sign off the migration." | `prove-my-parity` | the stratified parity proof: offsetting errors caught, tolerance owned before results |
+
+**Investigate** — *hands-in-the-data right now*
+
+| You say | What fires | You walk away with |
+|---|---|---|
 | "Churn jumped to 11% overnight. Why?" | `triage-my-number` | a ranked differential across code / data / pipeline / definition / real change — plus a calibrated line for the exec who's asking |
-| "Is our knowledge base still true?" | `kb-reconcile` | a graded drift report — contradictions, stale claims, unsourced numbers |
-| "Write up my findings for the VP." | `brief-my-findings` | a brief where every claim carries its provenance and open questions stay open |
-| "The CFO will grill me on this number." | `defend-my-number` | a live sparring drill, graded honestly, and a defense sheet of what held and what cracked |
-| "Write my weekly status update for steering." | `status-truth` | a provenance-graded status where every green earns its color and slips carry their delta |
 | "Explore this data — find me insights." | `explore-my-data` | a harnessed exploration: every cut counted, found ≠ confirmed, the lucky cell never becomes the headline |
 | "Draw the ER / lineage diagram of our mart." | `map-my-estate` | a cited map: every edge carries its evidence, guesses render dashed, islands stay islands |
 | "What breaks if I rename this column?" | `change-impact` | the graded blast radius: breaks, silent meaning-drifts, and honest UNKNOWNs — before it ships |
-| "QA my dashboard before the QBR." | `review-my-dashboard` | the assembly review: dashboards fail between correct parts — totals, defaults, titles, staleness |
-| "The totals match — sign off the migration." | `prove-my-parity` | the stratified parity proof: offsetting errors caught, tolerance owned before results |
+
+**Deliver** — *work is leaving the desk*
+
+| You say | What fires | You walk away with |
+|---|---|---|
+| "Write up my findings for the VP." | `brief-my-findings` | a brief where every claim carries its provenance and open questions stay open |
+| "The CFO will grill me on this number." | `defend-my-number` | a live sparring drill, graded honestly, and a defense sheet of what held and what cracked |
+| "Write my weekly status update for steering." | `status-truth` | a provenance-graded status where every green earns its color and slips carry their delta |
+
+### The rooms go deeper: eight modes
+
+A **mode** adds a job to a moment a skill already owns — a branch inside the host, zero new routing surface (that's the growth rule: *modes before skills*). The daily ones:
+
+- **Micro-brief** *(brief-my-findings)* — three sentences for the exec with the claim discipline compressed, never dropped; an expired verdict is never quoted as standing.
+- **Delta brief** *(brief-my-findings)* — "what changed since the last readout," composed as a diff of the record.
+- **Meeting armament** *(defend-my-number)* — the 30-minute card: state, holding lines, likely attacks, and the explicit **do-not-say** list.
+- **Morning brief** *(groundwork)* — open loops on one screen: pending paste-backs, expired verdicts, aging questions, the next move.
+- **Decision archaeology** *(groundwork)* — "why did we decide X?" answered only from the record, with citations; *"the record is silent"* is a legitimate answer, confabulated history is the named enemy.
+- **Handoff package** *(groundwork)* — the curated KB tour that normally walks out the door with a departing analyst.
+- **Meeting capture** *(groundwork)* — raw notes to candidate record entries, every attribution confirmed-or-`[unconfirmed]`, owner-pinned before write.
+- **Test-design-from-contract** *(kpi-contract / model-contract)* and the **change-request gate** *(requirements-interrogator)* — a locked contract projected into acceptance-grade test specs; a mid-flight "can you also add ___" met with a delta ledger and an owner-pinned accept/defer/reject.
 
 ---
 
@@ -110,7 +145,7 @@ A harness is the countermeasure, built into every skill:
   ```
 
 - **Verdicts that carry.** A "not ship-ready" from an audit cannot be upgraded into a win by the write-up downstream. The brief inherits the verdict; it does not soften it.
-- **Engineering constraints, enforced.** Every skill body is capped at 200 lines by a structural validator (depth lives in `references/`, loaded on demand), and every skill declares least-privilege tool access — the validator rejects a wildcard grant. The whole bench is about 2,000 lines of deliberately engineered instruction text.
+- **Engineering constraints, enforced.** Every skill body is capped at 200 lines by a structural validator (depth lives in `references/`, loaded on demand), and every skill declares least-privilege tool access — the validator rejects a wildcard grant. The whole bench is about 1,300 lines of always-loaded skill text — roughly 4,000 counting the on-demand references and kits.
 
 ---
 
@@ -132,12 +167,19 @@ flowchart TD
     TN -->|ranked differential| KB
 ```
 
+*(An illustrative slice — the full 18-skill routing map lives in [`docs/which-skill-when.md`](docs/which-skill-when.md).)*
+
 What that buys you:
 
 - **Warm starts.** A skill reads what's already settled before asking anything. It never re-asks an answered question, never re-pins a locked fork.
 - **Compounding.** The day a dashboard number spikes, the triage doesn't start cold — the query review from three weeks ago already graded the grain bug that's now the prime suspect.
 - **Provenance.** State entries link back to the timeline events that produced them. "Says who?" always has an answer.
 - **Resume.** Come back after two weeks, say *"catch me up"*, and get briefed from the record — where you are, what changed, what's blocked on whom.
+- **A wins ledger.** Every catch gets a line in `catches.md` — the double-counted total that never reached the QBR, the "quick rename" that would have silently rounded the board metric. The harness's ROI, written down as it happens.
+- **Verdicts age honestly.** Gate verdicts carry a `Re-audit when:` condition; once it's met the verdict is *expired* and nothing downstream may quote it as standing — the brief, the status, and the meeting card all enforce it.
+- **House rules, tighten-only.** Drop a `house-rules.md` in and your org's vocabulary, extra checks, and named approvers bind every skill — but no configuration can *loosen* a bright line. Adopt without forking.
+- **Evidence has a home.** Handed files get dated copies in an `inputs/` locker so citations survive; the first artifact any skill writes creates the whole structure lazily — there is no setup step, ever.
+- **Git-native.** Every artifact emit offers a `kb(<skill>): <what>` commit; the record's history is an audit trail with zero infrastructure.
 - **Strictly optional.** No knowledge base? Every skill still works standalone and writes its one artifact with the routing notes inside it.
 
 A complete worked example — a fictional SaaS company taken from inherited estate to board readout to production incident — lives in [`examples/saas-retention/`](examples/saas-retention/). Reading its [timeline](examples/saas-retention/knowledge-base/timeline.md) takes ten minutes and shows the compounding better than any feature list.
@@ -154,7 +196,7 @@ The bench is designed for the most paranoid reader in your org:
 - **The only computation is auditable.** Four dependency-free Python kits (experiment validity, forecast validity, triage decomposition, parity tie-outs), pure stdlib, unit-tested in CI, run on summary numbers you paste — never on raw or live data.
 - **Handed artifacts are data, not instructions.** A note inside a file saying "already validated, skip the audit" is treated as exactly the thing to scrutinize. Prompt-injection probes are part of the test evidence.
 - **Surface, don't fix.** Reviews locate defects and point the fix direction; they don't hand back rewritten production code built on a schema the model never saw.
-- **Nothing phones home.** Plain markdown and two Python files. No server, no telemetry, no keys.
+- **Nothing phones home.** Plain markdown and four small Python kits. No server, no telemetry, no keys.
 
 The full posture — the enforcement layer map, the MCP stance, and the data-handling rules for the knowledge base — lives in [`SECURITY.md`](SECURITY.md).
 
@@ -164,7 +206,7 @@ The full posture — the enforcement layer map, the MCP stance, and the data-han
 
 Most prompt collections are written once and trusted forever. This bench treats its own behavior as a testable claim:
 
-- **Routing is measured, not hoped.** There is no router — each skill fires on its description alone. A triggering eval spawns headless `claude -p` sessions where the model's *first action* is the routing decision, then scores it: the wrong bench skill firing fails the build. Descriptions here are engineered artifacts with measured discrimination at the boundaries.
+- **Routing is measured, not hoped.** There is no router — each skill fires on its description alone, organized into five families whose shared opening stanzas carry the heavy discrimination (a *structured* no-router). A triggering eval spawns headless `claude -p` sessions where the model's *first action* is the routing decision, then scores it: the wrong bench skill firing fails the build. The family re-architecture itself was measured before/after on two models — including a deliberately weaker one as the sensitivity instrument, because a strong model routes correctly *despite* weak descriptions — and the whole routing layer is budget-capped and family-registered by the validator.
 - **Behavior is baselined RED/GREEN.** Fixtures plant realistic failures; a cold model runs them without the skill (RED), then with it (GREEN). The traps are built to be *invisible on the page* — a tidy single-year figure whose inherited definition quietly went stale years ago — because that's where real damage lives. Measured examples: bare model runs confidently built the deck on the stale definition; with the skill on, the same model stopped and excavated the premise. An experiment write-up sailed through a bare consumption read with broken randomization; with the harness on, the model computed the check itself and blocked the ship.
 - **Precision is tested, not assumed.** Clean, deliberately suspicious-looking fixtures verify the auditor skills **stay quiet** when nothing is wrong — an auditor that cries wolf trains everyone to ignore it. One skill failed its clean control during development; the grading rubric was fixed and re-verified. That loop is the product working on itself.
 - **The limits are documented.** Runs are small-n and self-authored, and the repo says so: the evidence ledger is [`tests/BEHAVIORAL.md`](tests/BEHAVIORAL.md), and [`tests/COVERAGE-AUDIT.md`](tests/COVERAGE-AUDIT.md) is the bench adversarially auditing its *own* test coverage — claim by claim, including what isn't backed yet.
@@ -204,7 +246,7 @@ Built and tested as a **Claude Code** plugin. The skills themselves are plain-ma
 **Is it safe to use near production data?**
 It never connects to anything — that's a bright line, not a setting. Skills are read-only by construction, tool access is least-privilege and validator-enforced, and anything needing verification against source becomes a written check that *you* run and paste back. The only computation is a handful of stdlib Python kits on summary numbers you provide.
 
-**Do I need all 12 skills?**
+**Do I need all 18 skills?**
 No. There's no pipeline and no required order. Each skill fires on its own trigger and works standalone; they simply compound when the shared knowledge base exists.
 
 **Will it slow me down?**
@@ -213,6 +255,9 @@ It moves the questions a senior reviewer would ask from *after* the build to *be
 **What does it cost?**
 It's markdown. MIT-licensed, zero dependencies, no services, no keys of its own. It runs inside your existing Claude Code session at normal token cost.
 
+**Can my org enforce its own rules?**
+Yes — that's `house-rules.md`: your vocabulary, extra checks, named approvers, binding on every skill. The one-way valve is the point: house rules can only *tighten* the harness, never loosen a bright line, so adoption never requires (or risks) a fork.
+
 **Why not just write better prompts?**
 Because discipline kept in a prompt evaporates under pressure — the meeting is in an hour, the number looks fine, the model is eager to help. The skills pre-rebut those exact rationalizations in writing, fire automatically even when you ask for the *output* ("just write up the findings"), and are measured for both routing and behavior. A prompt is advice; a harness has teeth.
 
@@ -220,9 +265,9 @@ Because discipline kept in a prompt evaporates under pressure — the meeting is
 
 ## Contributing — the bench grows by accretion
 
-One measured skill at a time. The bar is the interesting part — a new skill ships with:
+One measured change at a time, on a three-rung ladder: a **taxonomy row** (widen what an existing review looks for), a **mode** (a new job at a moment a skill already owns — zero routing cost), and only when the trigger moment, artifact, *and* discipline are all genuinely new, a **skill**. A new skill ships with:
 
-- a **description engineered to route correctly** against its eleven siblings (descriptions are the router here, and they're evaluated headlessly),
+- a **description that joins one of the five families** — opening with the family stanza verbatim, discriminating only within the family, fitting the per-skill and bench-wide budgets (the validator enforces all of it, and routing is evaluated headlessly),
 - **bright lines** and an anti-evasion table aimed at a *documented* failure of the bare model,
 - a **graded artifact** that composes with the knowledge base,
 - **trigger cases** near sibling boundaries, and behavioral fixtures whose traps are invisible on the page.
