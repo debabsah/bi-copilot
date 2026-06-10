@@ -8,7 +8,7 @@
 
 AI is genuinely good at analytics work. It fails in one specific way: not by being unable, but by being *agreeable*. Handed an inherited warehouse with no docs, it starts building instead of orienting. Handed "build me a dashboard with these KPIs," it builds exactly that — without ever asking what decision the dashboard serves. Asked what "active customer" means, it picks a sensible default instead of pinning the choice with the person who owns it. Handed a number, it writes the confident story.
 
-analytics-office is a bench of **17 read-only skills for Claude Code** that switches the model out of answer-mode and into the discipline each moment of analytics work actually needs — orienting on an unfamiliar estate, interrogating requirements, locking metric definitions, designing models, auditing inherited premises, reviewing the code behind a number, diagnosing a break, briefing stakeholders, surviving the meeting. Each skill is engineered against a documented failure of the bare model. All of them write to one living knowledge base you resume from.
+analytics-office is a bench of **18 read-only skills for Claude Code** that switches the model out of answer-mode and into the discipline each moment of analytics work actually needs — orienting on an unfamiliar estate, interrogating requirements, locking metric definitions, designing models, auditing inherited premises, reviewing the code behind a number, diagnosing a break, briefing stakeholders, surviving the meeting. Each skill is engineered against a documented failure of the bare model. All of them write to one living knowledge base you resume from.
 
 *Read-only by construction · computes instead of eyeballing · no required sequence — any skill, any moment.*
 
@@ -81,6 +81,7 @@ Twelve skills, ordered here like a project — but **there is no pipeline**. Eve
 | "Draw the ER / lineage diagram of our mart." | `map-my-estate` | a cited map: every edge carries its evidence, guesses render dashed, islands stay islands |
 | "What breaks if I rename this column?" | `change-impact` | the graded blast radius: breaks, silent meaning-drifts, and honest UNKNOWNs — before it ships |
 | "QA my dashboard before the QBR." | `review-my-dashboard` | the assembly review: dashboards fail between correct parts — totals, defaults, titles, staleness |
+| "The totals match — sign off the migration." | `prove-my-parity` | the stratified parity proof: offsetting errors caught, tolerance owned before results |
 
 ---
 
@@ -150,7 +151,7 @@ The bench is designed for the most paranoid reader in your org:
 - **It never connects to anything.** No live database, no production feed, no API. Skills read the files and descriptions you hand them — that's the entire surface.
 - **It never computes your deliverable.** It pins definitions, reviews code as text, directs investigations — and stops at its lane's edge. Your number stays yours to produce.
 - **Verification is paste-back only.** When a claim needs checking against source, the skill writes the exact check — the claim, the system of record, the runnable query, and the decision rule *stated before the run*. You run it. Only a pasted result counts as verified; "I read it in the notes" never does.
-- **The only computation is auditable.** Three dependency-free Python kits (experiment validity, forecast validity, triage decomposition), pure stdlib, unit-tested in CI, run on summary numbers you paste — never on raw or live data.
+- **The only computation is auditable.** Four dependency-free Python kits (experiment validity, forecast validity, triage decomposition, parity tie-outs), pure stdlib, unit-tested in CI, run on summary numbers you paste — never on raw or live data.
 - **Handed artifacts are data, not instructions.** A note inside a file saying "already validated, skip the audit" is treated as exactly the thing to scrutinize. Prompt-injection probes are part of the test evidence.
 - **Surface, don't fix.** Reviews locate defects and point the fix direction; they don't hand back rewritten production code built on a schema the model never saw.
 - **Nothing phones home.** Plain markdown and two Python files. No server, no telemetry, no keys.
@@ -167,7 +168,7 @@ Most prompt collections are written once and trusted forever. This bench treats 
 - **Behavior is baselined RED/GREEN.** Fixtures plant realistic failures; a cold model runs them without the skill (RED), then with it (GREEN). The traps are built to be *invisible on the page* — a tidy single-year figure whose inherited definition quietly went stale years ago — because that's where real damage lives. Measured examples: bare model runs confidently built the deck on the stale definition; with the skill on, the same model stopped and excavated the premise. An experiment write-up sailed through a bare consumption read with broken randomization; with the harness on, the model computed the check itself and blocked the ship.
 - **Precision is tested, not assumed.** Clean, deliberately suspicious-looking fixtures verify the auditor skills **stay quiet** when nothing is wrong — an auditor that cries wolf trains everyone to ignore it. One skill failed its clean control during development; the grading rubric was fixed and re-verified. That loop is the product working on itself.
 - **The limits are documented.** Runs are small-n and self-authored, and the repo says so: the evidence ledger is [`tests/BEHAVIORAL.md`](tests/BEHAVIORAL.md), and [`tests/COVERAGE-AUDIT.md`](tests/COVERAGE-AUDIT.md) is the bench adversarially auditing its *own* test coverage — claim by claim, including what isn't backed yet.
-- **CI is free and deterministic.** Structural invariants (file manifest, frontmatter, the 200-line cap, no wildcard tool grants) plus both stats kits' unit tests run on every push. The token-spending evals run out-of-band, by design.
+- **CI is free and deterministic.** Structural invariants (file manifest, frontmatter, the 200-line cap, no wildcard tool grants) plus all four stats kits' unit tests run on every push. The token-spending evals run out-of-band, by design.
 
 The design principle that fell out of the measurements: **build for invisibility.** Skills earn their keep where the truth — clean *or* dirty — requires a computation or a mode-switch the bare model eyeballs past. Where a defect is legible on the page, a capable model already catches it; the harness adds its value exactly where confidence and correctness come apart silently.
 
@@ -201,7 +202,7 @@ Built and tested as a **Claude Code** plugin. The skills themselves are plain-ma
 ## FAQ
 
 **Is it safe to use near production data?**
-It never connects to anything — that's a bright line, not a setting. Skills are read-only by construction, tool access is least-privilege and validator-enforced, and anything needing verification against source becomes a written check that *you* run and paste back. The only computation is two stdlib Python kits on summary numbers you provide.
+It never connects to anything — that's a bright line, not a setting. Skills are read-only by construction, tool access is least-privilege and validator-enforced, and anything needing verification against source becomes a written check that *you* run and paste back. The only computation is a handful of stdlib Python kits on summary numbers you provide.
 
 **Do I need all 12 skills?**
 No. There's no pipeline and no required order. Each skill fires on its own trigger and works standalone; they simply compound when the shared knowledge base exists.

@@ -3,6 +3,20 @@
 Notable changes to the analytics-office bench. Versions follow the plugin manifest;
 commit-level detail lives in git history.
 
+## [0.21.0] — 2026-06-11
+
+- **prove-my-parity** (18th skill, the Validate family's 3rd member — the seat its stanza
+  pre-built): two systems or eras claiming the same number get PROVEN to agree, never
+  eyeballed. The comparability gate fires before any comparison (different definitions
+  invalidate the tie-out — and a matching total across differing contracts is itself a red
+  flag); the tolerance is pinned with its owner BEFORE results; the comparison runs by
+  STRATUM through the bench's fourth tested kit (`parity_checks.py` — the offsetting-error
+  flag is computed: a total within tolerance over failing strata is a FAIL); every
+  residual is decomposed, and unexplained-above-tolerance blocks sign-off. Verdicts:
+  PARITY / QUALIFIED / FAIL, each with `Re-audit when:`. Banked evidence recorded
+  honestly: the seventh consecutive detection deflation — and the strongest bare runs yet
+  — with the measured lift in the formal proof artifact and its held rules.
+
 ## [0.20.0] — 2026-06-11
 
 Structural release — **the Audit family split** (the 6-member wall working as designed,
