@@ -6,6 +6,7 @@ Load when running the engine (loop step 3). Two layers: **conformance** (does th
 - **Blocking** — ships a wrong number you can demonstrate **from what's in hand**, with no plausible reading of the unseen schema under which the code is correct: a conformance breach (computes a different thing than the contract pins), an omitted contract-required transformation, or a logic error visible in the code itself. Escalates to `open-questions.md`.
 - **Latent / verify** — real ship-impact that is **conditional**: either correct-today-will-break (an unhandled edge, an SCD that will move, late-arriving data, a magic filter that will rot, a NULL path not yet hit), *or* a potential defect that hinges on a fact you cannot see (a table's grain, a column's type/nullability, whether a `status` value includes trials). State the discriminating check and what it becomes if confirmed ("→ Blocking if …"). A resolve-before-ship item — but never graded Blocking on an assumption.
 - **Advisory** — correct and robust, but unclear or unmaintainable: naming, structure, a missing comment on a non-obvious choice.
+- **Cost findings are Advisory by default** — a wrong number outranks an expensive one; escalate only when the cost mechanism can corrupt the result (timeout truncation, sampling fallback).
 
 **The Blocking bar, sharply:** if whether the number is wrong depends on a schema fact you can't see — and there is a plausible world where the code conforms — it is **Latent / verify**, not Blocking. Over-blocking a conformant query (a wall of Blockings that are really "verify X") makes every real Blocking suspect; a clean query must be allowed to come back "conforms — no Blocking."
 
@@ -65,6 +66,16 @@ Not every mode applies to every object. Run the list, keep the ones that bite.
 - `TOP` / `LIMIT` without `ORDER BY`; window-function ties; unpinned `CURRENT_DATE` / `NOW()`; non-deterministic aggregation order.
 
 > Two rules while hunting: a finding is a **departure from the contract or a real bug**, not your style preference; and an **unknown is a question for the user**, not a guess you write code around.
+
+**Performance & cost (Advisory by default — a wrong number outranks an expensive one)**
+On pay-per-scan/credit warehouses, a right-number query that burns money every run is a shipped defect too — it just shows up on the invoice instead of the dashboard. Grade these Advisory unless the cost mechanically threatens correctness (a timeout that truncates, a sampled fallback).
+- `SELECT *` (or a wide CTE) feeding a few columns → full-width scan; name the columns.
+- Missing partition/cluster predicate where the table is partitioned → full-table scan on every run; the filter exists downstream but arrives too late to prune.
+- Non-sargable predicate (`WHERE f(col) = x`, leading-wildcard LIKE, implicit cast on the indexed/clustered side) → defeats pruning/indexes.
+- Exploding join "fixed" by DISTINCT/GROUP BY downstream → the fan-out is paid for, then deduped; fix the join, not the symptom (often ALSO a grain bug — check both).
+- Re-computation of the same heavy CTE N times where the engine doesn't materialize it; correlated subquery per row where a join aggregates once.
+- ORDER BY in a view/subquery nobody consumes; DISTINCT-as-superstition on an already-unique grain (also hides real fan-out — check the join).
+Text tells suffice — this is still a read-only review; never benchmark, never run EXPLAIN yourself: where a cost suspicion needs the plan, write the EXPLAIN for the user to run and paste back.
 
 ## Worked example — reviewing `vw_monthly_churn` against the locked contract
 The inherited board-churn view (counts canceled logos / accounts active at month start) reviewed against a contract that pins **MRR-based NRR + gross revenue churn**, trials excluded, contraction included, fiscal US/Pacific, 5-business-day-then-freeze. The signature output:

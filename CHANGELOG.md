@@ -3,6 +3,26 @@
 Notable changes to the analytics-office bench. Versions follow the plugin manifest;
 commit-level detail lives in git history.
 
+## [0.24.0] — 2026-06-11
+
+The two taxonomy extensions — wider eyes, same skills, zero new surface:
+
+- **Performance & cost family** (review-my-query's failure-modes taxonomy): the defect
+  class that shows up on the invoice instead of the dashboard — SELECT* feeding three
+  columns, missing partition predicates, non-sargable filters, exploding joins "fixed" by
+  DISTINCT, re-computed heavy CTEs. Advisory by default (a wrong number outranks an
+  expensive one — the rubric says so explicitly); still read-only — a needed query plan
+  becomes an EXPLAIN written for the user to run and paste back.
+- **Term-drift** (kb-reconcile's drift-type table): the vocabulary failure — a term the
+  contracts pin precisely ("churn": logo vs revenue) used unqualified or inconsistently
+  across briefs, statuses, and titles. Flagged with both readings; the fix qualifies the
+  term or pins the missing variant. Catches two people agreeing while meaning different
+  numbers — the contracts' precision becomes enforceable downstream.
+
+With this, every line item in the v-next foundation roadmap is shipped or deliberately
+deferred (the twice-yearly RED re-baseline is a cadence; the cross-project registry is
+HORIZON, build-later by design).
+
 ## [0.23.0] — 2026-06-11
 
 **Modes batch #2** — six daily-use modes, zero new routing surface:
