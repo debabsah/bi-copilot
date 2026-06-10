@@ -63,6 +63,25 @@ plugins disabled - for example temporarily `claude plugin disable superpowers` i
 throwaway profile, or a config that enables only this plugin. The default runner does
 **not** require that, and does not change your setup.
 
+## Known seams (measured 2026-06-10, default model claude-fable-5)
+
+A full sweep on the then-new default model: 18 PASS, 3 intra-bench misroutes, 6 shadows,
+4 misses. The three misroutes are commented out in `cases.tsv` as `KNOWN-SEAM` (preserved
+for re-testing, not silently deleted): a before-we-build definition-lock going to
+requirements-interrogator, a "reconciles differently" definition dispute going to
+kb-reconcile, and a "write up the win" unaudited A/B going to brief-my-findings. Four
+rounds of description surgery — verbatim Detects claims on the rightful winner,
+opening-position constraints on the thief, then de-baiting the route-away clauses — did
+not move any of them, and two rounds regressed a previously-passing foil; the loop was
+stopped on that overfit signal and the descriptions reverted to the best-measured state.
+
+Two honest notes. First: routing is model-dependent — these three were not defects on the
+previous baseline model, so the re-baseline cadence is not optional. Second: the
+brief-my-findings misroute is caught downstream anyway — its behavioral provenance gate
+routes an unaudited result back to the audit after firing — so the routing defect is a
+detour, not a discipline breach. The next levers are structural (description family
+grouping), not more prose.
+
 ## Adding cases
 
 Append `expected<TAB>prompt` lines to `cases.tsv` (`none` = no bench skill should
