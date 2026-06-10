@@ -54,3 +54,7 @@ audit-my-forecast	The forecast missed badly the last two months. Can we still tr
 # --- status-truth (the PM persona; near brief-my-findings' boundary) ---
 status-truth	Write my weekly status update for the steering committee - where we are on the migration, what slipped, and what is blocking us.
 status-truth	The sponsor wants to know if we are on track. Put together the project status with risks and blockers for Friday.
+
+# --- explore-my-data (open-ended exploration; near triage's symptom boundary) ---
+explore-my-data	Here is our May conversion data by segment. Explore it and find any insights worth acting on - we have not formed hypotheses yet.
+explore-my-data	What drives retention for our accounts? Dig into the cohort data and tell me what patterns you see.

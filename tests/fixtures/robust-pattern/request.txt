@@ -1,0 +1,11 @@
+From: Product lead
+To: BI
+
+Before looking at anything we registered one question for this quarter: do accounts that
+complete the new guided onboarding retain better at week 8? The cohort numbers are in —
+explore what we found and tell me where this stands.
+
+Completed guided onboarding: 4,310 accounts, 1,466 retained at week 8 (34.0%)
+Skipped/abandoned onboarding:  4,118 accounts,   906 retained at week 8 (22.0%)
+Same split by plan tier: starter 33% vs 21%, pro 35% vs 23%, enterprise 34% vs 22%.
+Prior quarter (before guided onboarding existed): week-8 retention 22.4% overall.

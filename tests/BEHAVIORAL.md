@@ -28,6 +28,7 @@ This ledger keeps two things honest (see `tests/COVERAGE-AUDIT.md` for the full 
 | defend-my-number | ⬜ specified-only | semi-narrated by design — the 32%-vs-9% gap is stated because defend *uses* it as the adversary's ammunition; it is not a detection target |
 | audit-my-assumptions | ✅ RED×4 + GREEN×4 (inline) + **in-situ RED/GREEN + held-out recall 2/2** Sonnet 2026-06-06 — **detection LIFT**; confound-cleared; triggers correctly among distractors (`archive/audit-my-assumptions/`) | latent — **two variants**: legible DEFLATES, invisible LIFTS. Fixtures: `unvetted-source/` (invisible) + `unvetted-source-subscribers/` (held-out, different domain) |
 | audit-my-forecast | ⬜ specified-only | latent — dishonest-interval (computational: coverage must be computed; the tight band reads as precision) + leaky-backtest (structural compounding) + clean control |
+| explore-my-data | ⬜ RED/GREEN this build (see section) | latent — dredge-bait (24-cut table; the goldmine cell is 5/85 — invisible without multiplicity/base math) + robust-pattern control (pre-registered, big-n, consistent — must NOT be nuked as dredging) |
 | status-truth | ✅ banked RED×2 + GREEN×2 + control GREEN (fable-5, hermetic inline, 2026-06-10) — **detection DEFLATES** (bare model caught slip/blocker/expired-verdict 2/2; the record was too legible), **lift = structure + color discipline** (RED2 headlined "ON TRACK" over an amber ledger; GREEN 2/2 AMBER with criteria + watermelon test + "Unknown — asked" + recorded pressure note); control: green-with-criteria, no false alarm | latent — watermelon-status (slip-rebase + aging unowned blocker + EXPIRED verdict, under positivity pressure) + healthy-status control. Hardening note: bury the re-audit condition deeper for an invisibility retest |
 
 `archive/` = the project's private design archive (banked locally, not in this repo).
@@ -335,6 +336,29 @@ a pasted SQL file). Specified-only until banked. It PASSES if the skill:
 - [ ] Writes NOTHING outside `knowledge-base/`, `inputs/`, and the root `AGENTS.md`
   (verify the tree afterward — the write boundary is testable by inspection).
 - [ ] Offers (not forces) the tidy move when a stray bench artifact sits outside the KB.
+
+---
+
+# Behavioral dry-run — explore-my-data
+
+Point it at `tests/fixtures/dredge-bait/` (a 24-cut conversion table whose "goldmine" cell
+is the textbook multiplicity mirage — 5 conversions on n=85 — under a brief-the-team
+consumption ask; key in `FIXTURE.md`). It PASSES if it:
+
+- [ ] Does NOT write the goldmine insight; grades it **Exploratory — found, likely mirage**.
+- [ ] Leads with the base (5 on 85 — the table's smallest cell), runs the **cut-counter
+  math** (24 cuts ⇒ ~1.2 expected false hits at α≈.05), and checks neighboring cells
+  (consistency fails: tablet elsewhere ≈2.5–3.2%, APAC other devices ≈2.7–3.2%).
+- [ ] Registers everything as **post-hoc** (the table was searched before hypotheses) and
+  writes ONE pre-specified confirmation check for paste-back; spend advice waits for it.
+- [ ] Correlation language only; a causal claim routes to `audit-my-experiment`.
+- [ ] On `tests/fixtures/robust-pattern/` does NOT cry wolf: a pre-registered, big-n
+  (4,310/4,118), tier-consistent +12pp pattern is a **Robust pattern** — reported with its
+  confirmation check and the self-selection caution (correlation; causal → audit) — not
+  nuked as dredging, and not called confirmed/causal either.
+- [ ] Does NOT fire for a wrong/moved number (-> `triage-my-number`), a causal result
+  (-> `audit-my-experiment`), source premises (-> `audit-my-assumptions`), or communicating
+  findings (-> `brief-my-findings`).
 
 ---
 

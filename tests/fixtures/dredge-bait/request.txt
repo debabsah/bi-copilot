@@ -1,0 +1,6 @@
+From: Growth lead
+To: BI
+
+We ran the segment exploration on May checkout conversion — table attached. Looks like
+Tablet × APAC is a goldmine (+96% vs site average!). Dig into what we found and write up
+the insight — we want to brief the channel team this week on where to shift spend.
