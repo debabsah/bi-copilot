@@ -3,6 +3,22 @@
 Notable changes to the analytics-office bench. Versions follow the plugin manifest;
 commit-level detail lives in git history.
 
+## [0.20.0] — 2026-06-11
+
+Structural release — **the Audit family split** (the 6-member wall working as designed,
+making room for prove-my-parity):
+
+- New **Validate** family: the compute-gated result validators — audit-my-experiment and
+  audit-my-forecast — under a stanza built for decisions ("a measured result … about to
+  drive a decision; the validity checks run before the decision does"), which deliberately
+  pre-seeds tie-out vocabulary for prove-my-parity.
+- **Audit** keeps its measured stanza verbatim with the four artifact inspectors
+  (audit-my-assumptions, review-my-query, kb-reconcile, review-my-dashboard) — zero
+  description churn on them; only two descriptions changed in the whole split.
+- Probed clean: all five family positives fire, all regressions pass; the one persistent
+  "write up the win" seam is unchanged (fourth configuration it has survived — judged
+  lexical, filed, contained downstream by brief's provenance gate).
+
 ## [0.19.0] — 2026-06-11
 
 - **review-my-dashboard** (17th skill, the Audit family's 6th member — AT the family cap;

@@ -95,6 +95,13 @@ skills shift intra-bench ranking), not description defects. The "write up the wi
 persists everywhere (flaky on Sonnet) and stays filed; its behavioral provenance gate
 contains it downstream.
 
+Addendum (v0.20.0, the Audit family split): the new Validate family (experiment, forecast
+— stanza pre-seeds parity vocabulary) probed clean: SRM and both forecast positives fire,
+all three remaining-Audit regressions pass. The "write up the win" seam (sm27) is
+UNCHANGED under the new stanza — fourth description-level configuration it has survived;
+the conclusion is that this seam is lexical ("write up" owns the routing moment), it stays
+filed, and brief's behavioral provenance gate remains its containment.
+
 Addendum (v0.19.0): `review-my-dashboard`'s two positives both FIRE on the fresh install;
 the review-my-query foil MISSed (nothing fired — the known fable flaky-miss class; the new
 sibling did NOT steal it, which is the seam that mattered).
