@@ -13,7 +13,7 @@ A **trunk** assumption sits under the whole output — whoever set it (the sourc
 | **Unit** | what is this measure denominated in? | numbers off by a factor or meaning a different thing | a "Revenue" column that holds *cost* on package rows (a swap) |
 | **Period basis** | which date defines the period? | a different population than the one the consumer expects | booking-date vs travel-date — a ~20% population swing, invisible until you tie out |
 | **Identity** | what is one entity? | over/under-counted entities; wrong rollups | one `ItemLabel` per property — false when variants / renames / "DO NOT USE" fragment one property across many |
-| **Magic constants / exclusions** | which hardcoded list shapes the result? | silently drops or keeps the wrong rows; rots as the catalog changes | `NOT IN (8,9,12)` — correct once, but "what is 22 today, and does the thing I need live there?" |
+| **Magic constants / exclusions** | which hardcoded list shapes the result? | silently drops or keeps the wrong rows; rots as the catalog changes | `NOT IN (8,9,12)` — correct once, but "what is 9 today, and does the thing I need live there?" |
 
 **Leaf** (name it, don't spend the budget): labels, formatting, column order, a cosmetic rename, a display rounding. A leaf becomes a trunk only if a downstream measure keys on it.
 
@@ -54,7 +54,7 @@ Check (a) catches a **structural break**. It is blind to **selection/survivorshi
 **What the audit catches, where the build doesn't:**
 - **Population/definition (TRUNK, NEEDS-DECISION):** `BUNDLEID = promo bundle` is an inherited assumption, not a fact. The business term ("promo bundle") may not match what the code captures. → ask the owner how promo bundles are recorded *today*.
 - **Trend check (a):** profile package counts by year — the 2021→2022 structural break is the alarm; it is invisible in the single 2025 window.
-- **Magic exclusion (TRUNK):** `NOT IN (...,22,...)` — what is type 9, and could the thing the report is *about* live there? (It does.)
+- **Magic exclusion (TRUNK):** `NOT IN (...,9,...)` — what is type 9, and could the thing the report is *about* live there? (It does.)
 - **Period basis, grain, unit, cancellations:** each its own trunk row with its check.
 
 The lesson the example teaches: the worst assumption is the one that produces a *clean, plausible number* — so you check the definition and the trend **before** you build, not after the stakeholder squints.

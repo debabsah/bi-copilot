@@ -15,4 +15,4 @@ Start here. This is the living understanding of the project, for me and for AI a
   - [Triage](triage.md) - the retired view spiked in production; diagnosed as a measurement artifact (verdict: not a real trend, cause pending one check)
 
 > Meridian is a fictional B2B SaaS company. Every number, account, and name in this
-> example is invented to show the seven skills working together.
+> example is invented to show seven of the bench's skills working together.
