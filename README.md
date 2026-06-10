@@ -145,7 +145,7 @@ The bench is designed for the most paranoid reader in your org:
 - **It never connects to anything.** No live database, no production feed, no API. Skills read the files and descriptions you hand them — that's the entire surface.
 - **It never computes your deliverable.** It pins definitions, reviews code as text, directs investigations — and stops at its lane's edge. Your number stays yours to produce.
 - **Verification is paste-back only.** When a claim needs checking against source, the skill writes the exact check — the claim, the system of record, the runnable query, and the decision rule *stated before the run*. You run it. Only a pasted result counts as verified; "I read it in the notes" never does.
-- **The only computation is auditable.** Two dependency-free Python kits (experiment validity, forecast validity), pure stdlib, unit-tested in CI, run on summary numbers you paste — never on raw or live data.
+- **The only computation is auditable.** Three dependency-free Python kits (experiment validity, forecast validity, triage decomposition), pure stdlib, unit-tested in CI, run on summary numbers you paste — never on raw or live data.
 - **Handed artifacts are data, not instructions.** A note inside a file saying "already validated, skip the audit" is treated as exactly the thing to scrutinize. Prompt-injection probes are part of the test evidence.
 - **Surface, don't fix.** Reviews locate defects and point the fix direction; they don't hand back rewritten production code built on a schema the model never saw.
 - **Nothing phones home.** Plain markdown and two Python files. No server, no telemetry, no keys.

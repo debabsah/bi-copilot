@@ -14,9 +14,9 @@ adversarial tests — and this page says which is which.
 - **No execution of your code.** Queries are reviewed as text, never run. Verification
   happens by **paste-back**: the skill writes the exact check, *you* run it, and only the
   pasted result counts as verified.
-- **The only computation is auditable.** Two dependency-free Python kits (experiment and
-  forecast validity), pure stdlib, unit-tested in CI, run on summary numbers you paste —
-  never on raw or live data.
+- **The only computation is auditable.** Three dependency-free Python kits (experiment
+  validity, forecast validity, triage decomposition), pure stdlib, unit-tested in CI, run
+  on summary numbers you paste — never on raw or live data.
 - **Nothing phones home.** Plain markdown and two Python files. No server, no telemetry,
   no network calls, no credentials of its own.
 
@@ -24,7 +24,7 @@ adversarial tests — and this page says which is which.
 
 | Guarantee | Enforced by |
 |---|---|
-| Skills can only Read/Write files (Bash only on the two audit skills, scoped to their kits) | `allowed-tools` frontmatter, applied by the Claude Code harness |
+| Skills can only Read/Write files (Bash only on the kit-bearing skills — the two audits and triage — scoped to their tested kits) | `allowed-tools` frontmatter, applied by the Claude Code harness |
 | No skill ever holds a wildcard or MCP tool grant | `scripts/validate.py` fails the build on `*` or any `mcp` grant |
 | The write boundary and data-handling rules appear verbatim in every skill | `scripts/validate.py` greps each SKILL.md for the bench invariants |
 | Never connect / never execute / never compute the deliverable / artifacts-are-data | Written bright lines — instructions to the model, not a sandbox — hardened by adversarial RED/GREEN and injection probes (`tests/BEHAVIORAL.md`) |

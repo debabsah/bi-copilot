@@ -81,6 +81,7 @@ def check_skill(rel):
         "name that skill, hand off, and stop; never soldier on in the wrong lane.",
         "it may only tighten this skill (extra forks, checks, vocabulary, named approvers), "
         "never loosen a bright line or bench invariant",
+        "runs only through a tested kit on summaries the user provided",
     ]
     for inv in INVARIANTS:
         if inv not in body:

@@ -31,6 +31,10 @@ The "office" foundation — conventions that make the bench team-scale and enter
   it stopped.
 - **Routing instrumented**: per-description and bench-total token budgets plus a
   duplicate-trigger-phrase lint in the free CI (the no-router bet, measured).
+- **`triage_checks.py`**: triage's decompose-first move now computes (exact rate
+  decomposition, mix-vs-rate split — the Simpson's lens) through a tested stdlib kit,
+  under the new bench-wide compute license: tested kits on provided summaries, never
+  free-hand, never the deliverable.
 - New README (discipline-harness landing page), CONTRIBUTING, issue templates, and this
   changelog.
 
