@@ -32,3 +32,5 @@ _Run <date>. Scope: <load-bearing first / exhaustive>. For: <the decision/readou
 - Route a definitional gap back toward `kpi-contract.md`, a wrong-code finding toward `review-my-query`, a single number whose cause is unknown toward `triage-my-number`.
 
 A reconcile is the backward/audit counterpart to the capture skills: they write the record forward, this checks it before its conclusions are leaned on. If no `knowledge-base/` exists, there is nothing to reconcile — point the user at `groundwork` (or any skill's first artifact, which creates the office) so the record is auditable next time.
+
+When the office is git-tracked, offer the commit — `kb(kb-reconcile): reconcile — <N> Blocking, <M> unverified` — one artifact, one commit (the git-native convention in groundwork's kb-core-templates).

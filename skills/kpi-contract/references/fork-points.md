@@ -38,7 +38,7 @@ Not every fork applies to every metric. Run the list, keep the ones that bite, p
 > Two rules while walking the list: the **owner** pins each fork (you surface and recommend), and the **decision** drives the definition — never let the columns that happen to exist define the metric.
 
 ## KPI Contract — template
-One page per metric, committable. Lives at `knowledge-base/kpi-contract.md` (append per metric); no `knowledge-base/` anywhere up-tree → create it now with the contract plus the stub `README.md` index (per the office convention in groundwork's kb-core-templates). Phase-tag the heading `[Define]`.
+One page per metric, committable. Lives at `knowledge-base/kpi-contract.md` (append per metric); no `knowledge-base/` anywhere up-tree → create it now with the contract plus the stub `README.md` index (per the office convention in groundwork's kb-core-templates). Phase-tag the heading `[Define]`. When the office is git-tracked, offer the commit — `kb(kpi-contract): lock <metric> v<N>` — one artifact, one commit.
 
 ```markdown
 # KPI Contract — <metric name>  [Define]

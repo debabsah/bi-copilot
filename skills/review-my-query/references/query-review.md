@@ -36,3 +36,5 @@ When a `knowledge-base/` exists (from `groundwork`), thread the result in rather
 A reviewed build then feeds `defend-my-number`: a number whose query was checked against the contract is what survives the data/method skeptic, and the Blocking findings here are the holes the drill would otherwise expose live.
 
 If no `knowledge-base/` exists anywhere up-tree, create it now with the review + stub `README.md` index (`groundwork` can flesh it out later) — the next review (and the eventual defense) builds on this one.
+
+When the office is git-tracked, offer the commit — `kb(review-my-query): <object> review — <N> Blocking` — one artifact, one commit (the git-native convention in groundwork's kb-core-templates).
