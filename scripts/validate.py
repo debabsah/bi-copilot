@@ -65,6 +65,9 @@ EXPECTED = [
     "skills/prove-my-parity/references/parity-engine.md",
     "skills/prove-my-parity/references/parity-proof.md",
     "skills/prove-my-parity/references/parity_checks.py",
+    "skills/kpi-contract/references/test-spec.md",
+    "skills/model-contract/references/test-spec.md",
+    "skills/requirements-interrogator/references/change-request-gate.md",
 ]
 fails = []
 

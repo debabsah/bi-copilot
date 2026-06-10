@@ -77,5 +77,9 @@ Experienced user: be terse, skip the rationale, batch the ladder into a tight co
 | "No clear decision, but I'll build it anyway." | No decision = vanity metric. Flag it; don't green-light it. |
 | "I'll write the brief later." | The brief is the deliverable here. No brief, no validated requirement. |
 
+## Mode: the change-request gate
+When the ask is a MID-FLIGHT CHANGE to work already underway or contracts already locked ("while you're in there, can you also add ___"), the interrogation gains the **delta ledger**: what the change does to scope, effort, and dependencies; WHICH pinned contracts it touches (does it reopen a locked kpi-contract definition? shift a model-contract grain?); and a forced, owner-pinned disposition — **accept / defer / reject, with rationale, written into `knowledge-base/decisions.md`**. No change is absorbed silently. An ACCEPTED change routes onward: blast radius to `change-impact`, a touched definition to `kpi-contract` for re-versioning, and the scope delta into the next `status-truth` report. Ledger template in `references/change-request-gate.md`.
+
 ## References (load on demand)
 - `references/frameworks.md` — XY Problem, Jobs-to-be-Done, 5 Whys, decision-backwards, the vanity-metric test, the re-derivation method, and the Requirements Brief template.
+- `references/change-request-gate.md` — the delta ledger, the contract-touch checklist, and the disposition protocol (the change-request gate mode).

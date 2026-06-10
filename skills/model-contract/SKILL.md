@@ -78,5 +78,9 @@ Capture the result as a committable Model Contract (template in `references/mode
 - Open source-grain questions and `[needs decision]` forks go to `open-questions.md`; design calls and rejected alternatives to `decisions.md`; the lock as a dated event in `timeline.md`; add it to the KB `README.md` index.
 - It consumes `kpi-contract.md` (the metrics the model must serve) and feeds `review-my-query` (the build is later reviewed against this design and the contract).
 
+## Mode: test-design-from-contract
+When the design LOCKS (or a locked one returns with "what tests should we add?"), offer the derived **test specification**: the declared fact grain becomes a uniqueness/PK test, each relationship a referential test, each SCD choice an as-of behavior check, conformance claims become cross-mart consistency checks, and additivity rules become total-grain assertions. A SPEC for the user's stack — never DDL, never runnable tests. Append as `## Test specification (derived vN)` on the model contract; it doubles as the build's acceptance criteria. Derivation table in `references/test-spec.md`.
+
 ## References (load on demand)
 - `references/modelling-forks.md` - the modelling-fork checklist, a compact dimensional-modelling primer (fact types, SCD types, additivity), the Model Contract template, and a worked subscription/MRR example.
+- `references/test-spec.md` - the design→test derivation table and the Test Specification section template (the test-design-from-contract mode).

@@ -77,5 +77,9 @@ Capture the result as a committable **KPI Contract** (template in `references/fo
 - A pinned contract is the ammunition `defend-my-number` harvests — the reconciliation you state here is what survives the data/method skeptic.
 - The locked contract feeds `model-contract` (the dimensional model that serves these metrics is designed against it) and `review-my-query` (the build is later checked against it).
 
+## Mode: test-design-from-contract
+When the contract LOCKS (or a locked one is handed back with "what tests should we add?"), offer the derived **test specification** — the contract projected into checks, fork by fork: the declared grain becomes a uniqueness test, every pinned enum an accepted-values test, the late-data rule a freshness threshold, the source-of-record reconciliation a tie-out tolerance, the null/zero policy an assertion. It is a SPEC the user implements in their stack (dbt tests, Great Expectations, SQL asserts) — never runnable code, the same line as the contract itself. Append it to the contract artifact as `## Test specification (derived vN)`; it doubles as acceptance criteria for the build. Derivation table in `references/test-spec.md`.
+
 ## References (load on demand)
 - `references/fork-points.md` — the definitional fork-point checklist, the KPI Contract template, and a worked example.
+- `references/test-spec.md` — the contract→test derivation table and the Test Specification section template (the test-design-from-contract mode).
