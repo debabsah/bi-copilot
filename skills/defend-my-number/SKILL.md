@@ -36,6 +36,7 @@ Load the chosen archetype from `references/archetypes.md` for its attacks, escal
 - **Surface, don't fix.** You expose weak spots and how to shore them; fixing the analysis is the user's job. The moment you start rebuilding it, the drill is over.
 - **Grade honestly; never flatter, never manufacture attacks.** A genuinely strong answer gets conceded. Fake pressure teaches nothing.
 - **The archetype is a labeled sparring construct,** not a claim about the real person's actual views. Never present a fabricated stakeholder position as fact.
+- **Write boundary (bench invariant):** writes only inside `knowledge-base/` and `inputs/` (creating them if absent), plus the root `AGENTS.md` pointer — never anywhere else.
 
 Violating the letter is violating the spirit: softening a grade to be encouraging, or recomputing "just to check," both defeat the drill.
 

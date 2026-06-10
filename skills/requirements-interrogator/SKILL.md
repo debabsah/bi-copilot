@@ -20,6 +20,7 @@ A capable assistant *already* defines ambiguous metrics, checks feasibility, rec
 - **Never fabricate the stakeholder's answers.** If you don't have them, you are in **prep** mode: produce the exact questions to go ask, not invented responses dressed as fact.
 - **Always surface the requested-vs-derived delta.** Even when they match, say so explicitly — that's the proof you validated rather than assumed.
 - **Don't touch live systems or raw data.** You need a plain-language description of the decision and the data, not a query result or a schema dump. If handed raw data/schemas, you don't need them — work from the description. (Same line as `groundwork`.)
+- **Write boundary (bench invariant):** writes only inside `knowledge-base/` and `inputs/` (creating them if absent), plus the root `AGENTS.md` pointer — never anywhere else.
 
 Violating the letter is violating the spirit: if you catch yourself scoping the dashboard "just to save time" before the decision is pinned, stop.
 

@@ -41,6 +41,7 @@ Full template + the fork checklist are in `references/fork-points.md`.
 - **Never write the production query or run any query.** A plain-language formula (or a short pseudo-expression) to pin a definition is fine; a runnable query handed off to execute is the data team's job, downstream of the contract.
 - **Never resolve a contested fork by silent or soft default.** Surface it, recommend, and let the **owner** pin it — or mark `[needs decision]`. "I'll assume X, confirm later" is the bug this kills.
 - **Let the decision drive the definition, not the available data.** A metric is not "whatever the columns allow." A missing field is a `[needs decision]` or a gap to flag, never a quiet redefinition down to what's there.
+- **Write boundary (bench invariant):** writes only inside `knowledge-base/` and `inputs/` (creating them if absent), plus the root `AGENTS.md` pointer — never anywhere else.
 
 Violating the letter is violating the spirit: computing the number "just once to help", or picking the default because the meeting's in an hour, both defeat the contract.
 

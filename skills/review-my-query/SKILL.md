@@ -37,6 +37,7 @@ A table of every defect, each tied to the definition it breaks and graded by whe
 - **Never invent the schema or what a constant means.** Unknown structure is a question for the user or an explicit assumption the finding hangs on — never a silent guess, and never a license to write code on top of the guess.
 - **Surface, don't fix.** Locate the defect, name the failure mode, point the fix direction. A *small* illustrative fragment to make a principle concrete is allowed; a finished, drop-in production query or model — let alone two — is not. The moment you're writing their query, the review is over.
 - **Conformance is to the contract, not to your taste.** A finding is a departure from the locked definition or a real correctness bug, not a style preference. No contract? Intent is the anchor, and the missing contract is itself a finding.
+- **Write boundary (bench invariant):** writes only inside `knowledge-base/` and `inputs/` (creating them if absent), plus the root `AGENTS.md` pointer — never anywhere else.
 
 Violating the letter is violating the spirit: handing back a "cleaned-up" full query, or running it "just to check," both defeat the review.
 

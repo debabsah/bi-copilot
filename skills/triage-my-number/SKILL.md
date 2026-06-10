@@ -33,6 +33,7 @@ A table of candidate causes spanning the whole failure surface, each with its di
 - **Confirmed defect ≠ confirmed cause.** Reading the code proves it *can* produce a wrong number; proving it produced *this* one needs a check against the data — which is the user's to run. Until then it is a suspect.
 - **Never hand a stakeholder an unconfirmed cause.** Give the calibrated holding line ("likely a measurement artifact, not a real trend; confirming by X") plus the check that would confirm it — not a confident story.
 - **Surface the diagnosis, don't fix it.** Point at the defect and the fix *direction*; hand a code bug to `review-my-query`. Don't rewrite the query.
+- **Write boundary (bench invariant):** writes only inside `knowledge-base/` and `inputs/` (creating them if absent), plus the root `AGENTS.md` pointer — never anywhere else.
 
 Violating the letter is violating the spirit: computing the handed-you sample "just to confirm," or writing the most-likely cause into the board line before a check confirms it, both defeat the triage.
 
