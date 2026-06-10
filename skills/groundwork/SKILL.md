@@ -64,7 +64,15 @@ If the user is new to this kind of work, explain why each question/step matters 
 | "I'll write the KB at the end." | Capture as you go and journal each session, or the thread is lost. |
 | "I understand it well enough." | Run the completeness model anyway — the gap you can't see is the whole point. |
 
+## Modes: ask the record (resume-side)
+Four asks the living KB answers directly — all share one bright line: **answer ONLY from the record, with citations; "the record is silent on that" is a legitimate, stated answer; never confabulate a plausible history.** Details and templates in `references/record-modes.md`.
+- **Morning brief / open loops** — "where did we leave off": pending paste-backs (checks written, never returned), expired verdicts (Re-audit-when met), aging unowned open questions, the next move.
+- **Decision archaeology** — "why did we decide X?": the answer is decisions.md + timeline citations or it is "the record is silent" — the answer-mode failure here is confabulated rationale, and it is worse than no answer.
+- **Handoff package** — "package this for my successor": the curated KB tour (start-here order, live contracts and their ages, open loops with owners, the catches that justify the disciplines) — what normally walks out the door with a departing analyst, composed in minutes.
+- **Meeting capture** — paste raw meeting notes: candidate `decisions.md` / `open-questions.md` / `timeline.md` entries with every attribution marked confirmed-or-`[unconfirmed]`, owner-pinned BEFORE anything is written — minutes that never say more than the meeting did.
+
 ## References (load on demand)
+- `references/record-modes.md` — morning brief, decision archaeology, handoff package, meeting capture (the ask-the-record modes).
 - `references/completeness-models.md` — load the matching project-type checklist when you classify (loop step 2).
 - `references/kb-core-templates.md` — when creating/updating the always-on core.
 - `references/kb-catalog.md` — when proposing optional artifacts.

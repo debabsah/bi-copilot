@@ -68,6 +68,9 @@ EXPECTED = [
     "skills/kpi-contract/references/test-spec.md",
     "skills/model-contract/references/test-spec.md",
     "skills/requirements-interrogator/references/change-request-gate.md",
+    "skills/brief-my-findings/references/brief-modes.md",
+    "skills/defend-my-number/references/meeting-armament.md",
+    "skills/groundwork/references/record-modes.md",
 ]
 fails = []
 

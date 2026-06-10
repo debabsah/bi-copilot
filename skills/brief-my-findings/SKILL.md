@@ -66,6 +66,11 @@ Experienced user: terse, lead with the decision and the recommendation's status,
 | "I'll add a number for context." | No claim without provenance. |
 | "I'll draft the actual slides / email." | Stop at the internal brief; the final medium is the user's. |
 
+## Modes: micro-brief and delta brief
+**Micro-brief** — "give me three sentences for the exec / a Slack reply": the claim-ledger discipline COMPRESSED, never dropped. Brevity makes over-claiming worse: every sentence still carries only vetted claims, an open question stays visibly open ("X is confirmed; Y is still being verified"), and a verdict's qualifier survives the compression — if the honest version doesn't fit in three sentences, the third sentence says what was left out. Likely the bench's most frequent daily entry.
+**Delta brief** — "what changed since the last readout": composed from the record's diff — timeline events since the last brief, opens closed (with their answers), verdicts that flipped or expired, numbers that moved (cited). Nothing re-narrated from memory; an unchanged item is "unchanged," not re-sold. Templates for both in `references/brief-modes.md`.
+
 ## References (load on demand)
+- `references/brief-modes.md` — the micro-brief and delta-brief templates (compression rules; the record-diff method).
 - `references/brief-craft.md` — the claim-ledger engine, the status rubric, audience calibration, the observation→implication→action→watch-for shape, and a worked Meridian brief done right. Load when building the ledger (loop step 3).
 - `references/findings-brief.md` — the Findings Brief artifact template + how it composes into the knowledge base.

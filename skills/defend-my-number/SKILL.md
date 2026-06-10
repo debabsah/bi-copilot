@@ -65,6 +65,10 @@ Experienced user: terse, straight into the hardest attacks, escalate fast. New u
 | "I'll go easy so they feel ready." | False readiness gets them hurt in the room. Grade honestly; the room won't be kind. |
 | "I'll write the sheet later, or skip it." | The Defense Sheet is the deliverable. No sheet, no rehearsal of record. |
 
+## Mode: meeting armament
+"Meeting in 30 minutes — arm me": when there is no time for the full sparring drill, compose the **armament card** from the record — (1) the current state of the number (value, verdict, age, qualifiers — carried exactly); (2) the holding lines (what the evidence supports saying, phrased to survive follow-ups); (3) the likely attacks with one-line responses (from the defense sheet if one exists, from the open questions if not); and (4) **what NOT to say** — the unverified claims, expired verdicts, and open questions that must not be presented as settled, listed explicitly. An armament card never upgrades a status to make the meeting easier. Template in `references/meeting-armament.md`.
+
 ## References (load on demand)
+- `references/meeting-armament.md` — the armament card template (the meeting-armament mode).
 - `references/archetypes.md` — the three adversaries: attacks, escalation tactics, what each trains, how to tune to a real person, how to grade.
 - `references/defense-sheet.md` — the Defense Sheet template + how it composes into the knowledge base.
