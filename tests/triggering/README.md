@@ -75,6 +75,12 @@ opening-position constraints on the thief, then de-baiting the route-away clause
 not move any of them, and two rounds regressed a previously-passing foil; the loop was
 stopped on that overfit signal and the descriptions reverted to the best-measured state.
 
+Addendum (v0.16.0): `map-my-estate`'s two positives SHADOW to a co-installed `graphify`
+skill in this runner's environment (diagram vocabulary is its home turf) — zero intra-bench
+defects; same environment-dependent class as `superpowers:brainstorming` shadowing
+model-contract. To measure the map↔model-contract seam purely, run with other plugins
+disabled.
+
 Addendum (v0.14.0): `status-truth`'s two positives probed on a verified-fresh install —
 "are we on track / project status" fires; the "weekly status update for the steering
 committee" phrasing MISSes (nothing fired) — the same fable-5 miss class as the four
