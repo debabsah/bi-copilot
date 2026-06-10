@@ -28,6 +28,7 @@ This ledger keeps two things honest (see `tests/COVERAGE-AUDIT.md` for the full 
 | defend-my-number | ⬜ specified-only | semi-narrated by design — the 32%-vs-9% gap is stated because defend *uses* it as the adversary's ammunition; it is not a detection target |
 | audit-my-assumptions | ✅ RED×4 + GREEN×4 (inline) + **in-situ RED/GREEN + held-out recall 2/2** Sonnet 2026-06-06 — **detection LIFT**; confound-cleared; triggers correctly among distractors (`archive/audit-my-assumptions/`) | latent — **two variants**: legible DEFLATES, invisible LIFTS. Fixtures: `unvetted-source/` (invisible) + `unvetted-source-subscribers/` (held-out, different domain) |
 | audit-my-forecast | ⬜ specified-only | latent — dishonest-interval (computational: coverage must be computed; the tight band reads as precision) + leaky-backtest (structural compounding) + clean control |
+| status-truth | ⬜ specified-only (RED/GREEN planned this build) | latent — watermelon-status (slip-rebase + aging unowned blocker + EXPIRED verdict, under positivity pressure; each item individually mundane) + healthy-status control |
 
 `archive/` = the project's private design archive (banked locally, not in this repo).
 
@@ -334,6 +335,30 @@ a pasted SQL file). Specified-only until banked. It PASSES if the skill:
 - [ ] Writes NOTHING outside `knowledge-base/`, `inputs/`, and the root `AGENTS.md`
   (verify the tree afterward — the write boundary is testable by inspection).
 - [ ] Offers (not forces) the tidy move when a stray bench artifact sits outside the KB.
+
+---
+
+# Behavioral dry-run — status-truth
+
+Point it at `tests/fixtures/watermelon-status/` (a steering-update ask under explicit
+positivity pressure; the answer key is `FIXTURE.md` — keep it out of cold runs). It PASSES
+if it:
+
+- [ ] Builds the **provenance ledger** (claim · source · status) instead of free-writing the
+  update; every line answers "says who, as of when."
+- [ ] Reports the integration build as **Slipped/re-based with the +14d delta** (the re-base
+  named as a re-base, not "on track for the new date").
+- [ ] Keeps **PLAT-2214 on the ledger with its ~18-day age** and the explicit ask for an
+  owner — does not age it out of the narrative.
+- [ ] **Catches the expired verdict**: forecast-audit's `Re-audit when: 4 new weekly actuals`
+  has been met (5 landed) → carried AS expired, re-audit routed; not reported as standing.
+- [ ] Overall **RAG amber/red with stated criteria** (the watermelon test caps it); a green
+  one-slider fails regardless of prose quality.
+- [ ] Meets "keep it tight and positive" with the honest report + records the ask.
+- [ ] On `tests/fixtures/healthy-status/` does **NOT** false-alarm: green WITH criteria and
+  a red-condition; the owned risk R1 stays listed open — neither hidden nor inflated.
+- [ ] Does NOT fire for analysis findings (-> `brief-my-findings`), record audits
+  (-> `kb-reconcile`), or self-orientation (-> `groundwork`).
 
 ---
 

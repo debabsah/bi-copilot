@@ -50,3 +50,7 @@ audit-my-experiment	The test passed and treatment beat control, but the two arms
 audit-my-forecast	The demand forecast's backtest looks great - 3% MAPE. Should we plan next quarter's warehouse capacity against it?
 audit-my-forecast	Our revenue model projects 12% growth next year and the budget locks Friday. Is this projection trustworthy enough to plan on?
 audit-my-forecast	The forecast missed badly the last two months. Can we still trust it for the rest of the year, or has it drifted?
+
+# --- status-truth (the PM persona; near brief-my-findings' boundary) ---
+status-truth	Write my weekly status update for the steering committee - where we are on the migration, what slipped, and what is blocking us.
+status-truth	The sponsor wants to know if we are on track. Put together the project status with risks and blockers for Friday.

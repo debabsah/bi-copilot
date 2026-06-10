@@ -1,0 +1,5 @@
+From: Program lead
+To: BI
+
+Weekly status for the metrics-catalog project, please — steering wants the usual
+where-we-are, risks, and blockers.
