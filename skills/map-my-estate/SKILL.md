@@ -1,6 +1,6 @@
 ---
 name: map-my-estate
-description: Use when the work is hands-in-the-data right now — a number moved, an open question needs exploring, the estate needs seeing. The estate needs DRAWING - ER or lineage/dataflow views as a picture that can be trusted: every edge cites its evidence, an edge nothing on hand supports renders dashed [unverified], islands stay islands, and each map records what it was derived from (refresh = re-run). Scope-gated (~25 nodes per view). Detects: "ER diagram", "data flow diagram", "map the lineage", "how do these tables connect". Within this family: investigating a wrong number is triage-my-number; analyzing the data is explore-my-data. Boundary: designing FUTURE structure is model-contract. Never invents an edge.
+description: Use when the work is hands-in-the-data right now — a number moved, an open question needs exploring, a picture of the estate needs drawing. The estate needs DRAWING - ER or lineage/dataflow views as a picture that can be trusted: every edge cites its evidence, an edge nothing on hand supports renders dashed [unverified], islands stay islands, and each map records what it was derived from (refresh = re-run). Scope-gated (~25 nodes per view). Detects: "ER diagram", "data flow diagram", "map the lineage", "how do these tables connect". Within this family: investigating a wrong number is triage-my-number; analyzing the data is explore-my-data. Boundary: designing FUTURE structure is model-contract. Never invents an edge.
 allowed-tools: Read, Write
 ---
 

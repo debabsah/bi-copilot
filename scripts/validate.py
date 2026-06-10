@@ -132,7 +132,7 @@ FAMILIES = {
         "members": ["audit-my-assumptions", "audit-my-experiment", "audit-my-forecast", "review-my-query", "kb-reconcile"],
     },
     "Investigate": {
-        "stanza": "Use when the work is hands-in-the-data right now — a number moved, an open question needs exploring, the estate needs seeing.",
+        "stanza": "Use when the work is hands-in-the-data right now — a number moved, an open question needs exploring, a picture of the estate needs drawing.",
         "members": ["triage-my-number", "explore-my-data", "map-my-estate"],
     },
     "Deliver": {
