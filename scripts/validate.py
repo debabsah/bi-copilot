@@ -33,6 +33,17 @@ EXPECTED = [
     "skills/kb-reconcile/SKILL.md",
     "skills/kb-reconcile/references/reconcile-engine.md",
     "skills/kb-reconcile/references/reconcile.md",
+    "skills/audit-my-experiment/SKILL.md",
+    "skills/audit-my-experiment/references/validity-taxonomy.md",
+    "skills/audit-my-experiment/references/experiment_checks.py",
+    "skills/audit-my-experiment/references/experiment-audit.md",
+    "skills/audit-my-assumptions/SKILL.md",
+    "skills/audit-my-assumptions/references/blast-radius.md",
+    "skills/audit-my-assumptions/references/assumption-register.md",
+    "skills/audit-my-forecast/SKILL.md",
+    "skills/audit-my-forecast/references/temporal-validity.md",
+    "skills/audit-my-forecast/references/forecast_checks.py",
+    "skills/audit-my-forecast/references/forecast-audit.md",
 ]
 fails = []
 

@@ -1,7 +1,7 @@
 name: CI
 
 # Free, deterministic checks on every push/PR. No API key, no tokens, no third-party
-# deps (validate.py and the stats kit are pure stdlib). The token-spending sweeps
+# deps (validate.py and the stats kits are pure stdlib). The token-spending sweeps
 # (triggering + behavioral evals) are deliberately NOT wired here -- see the decision log
 # in the eval benchmark doc.
 
@@ -23,3 +23,5 @@ jobs:
         run: python3 scripts/validate.py
       - name: Experiment-kit unit tests (chi2 / SRM / two-prop-z / Holm-BH / power / peeking)
         run: python3 tests/test_experiment_checks.py
+      - name: Forecast-kit unit tests (interval coverage / skill-vs-naive / error trend)
+        run: python3 tests/test_forecast_checks.py
