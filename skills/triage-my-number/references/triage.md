@@ -41,3 +41,4 @@ _Read-only: diagnosed from code, definitions, and what the user reports back; no
 - **Hands off:** a confirmed code defect → `review-my-query` (which grades it and points the fix); a definition drift or reconciliation gap → `kpi-contract` (to re-pin / version); a pipeline or source issue → the relevant owner. The calibrated line is what feeds a stakeholder or a `defend-my-number` rehearsal.
 - **No KB anywhere up-tree?** Create `knowledge-base/` now with `triage.md` + stub index, hand-off notes inside it (`groundwork` can flesh it out later) — the next triage builds on this one.
 - When the office is git-tracked, offer the commit — `kb(triage-my-number): <symptom> — <status>` — one artifact, one commit (the git-native convention in groundwork's kb-core-templates).
+- A confirmed measurement-artifact cause (a real number saved from a false story) also appends one line to `knowledge-base/catches.md` — the wins ledger.

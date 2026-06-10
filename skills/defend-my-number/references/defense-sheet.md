@@ -30,3 +30,5 @@ When a `knowledge-base/` exists (from `groundwork`), thread the result in rather
 If no `knowledge-base/` exists anywhere up-tree, create it now with the sheet + stub `README.md` index (`groundwork` can flesh it out later) — the next rehearsal builds on this one.
 
 When the office is git-tracked, offer the commit — `kb(defend-my-number): <claim> drill — <readiness>` — one artifact, one commit (the git-native convention in groundwork's kb-core-templates).
+
+A cracked claim caught before the room caught it also appends one line to `knowledge-base/catches.md` — the wins ledger.

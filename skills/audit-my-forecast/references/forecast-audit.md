@@ -45,3 +45,4 @@ When a `knowledge-base/` exists, thread the result in rather than leaving it str
 - Add the Forecast Audit to the KB `README.md` index.
 - No KB anywhere up-tree → create `knowledge-base/` with this artifact + stub index, routing notes inside it (`groundwork` can flesh it out later).
 - When the office is git-tracked, offer the commit — `kb(audit-my-forecast): <forecast> — <gate verdict>` — one artifact, one commit (the git-native convention in groundwork's kb-core-templates).
+- A Blocking temporal-validity defect (a bad plan stopped) also appends one line to `knowledge-base/catches.md` — the wins ledger.

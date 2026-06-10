@@ -57,3 +57,4 @@ When a `knowledge-base/` exists, thread the result in rather than leaving it str
 - Add the Experiment Audit to the KB `README.md` index.
 - No KB anywhere up-tree → create `knowledge-base/` with this artifact + stub index, routing notes inside it (`groundwork` can flesh it out later) — the next audit and eventual defense build on this one.
 - When the office is git-tracked, offer the commit — `kb(audit-my-experiment): <experiment> — <gate verdict>` — one artifact, one commit (the git-native convention in groundwork's kb-core-templates).
+- A Blocking validity defect (a bad ship stopped) also appends one line to `knowledge-base/catches.md` — the wins ledger.

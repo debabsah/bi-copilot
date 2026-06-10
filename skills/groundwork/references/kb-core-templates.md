@@ -64,6 +64,20 @@ Artifacts accrete; without a closure convention they rot. Three rules keep the r
   HAS been met is **expired**: it routes back to its audit instead of being carried, and
   `kb-reconcile` flags consumed-stale verdicts as `expired-verdict` drift.
 
+## catches.md — the wins ledger (append-only)
+
+A discipline product's tragedy: when it works, nothing happens — the catch evaporates into
+a chat transcript. So every gate verdict and every Blocking-grade catch appends one line
+here. Over a quarter, this ledger is the retention answer ("what has the harness actually
+caught?"), the enterprise ROI case, and the honest brag sheet.
+
+```markdown
+# Catches — what the harness stopped (append-only)
+| Date | Skill | What was caught | Grade | What would have shipped | by |
+|---|---|---|---|---|---|
+| <date> | review-my-query | logo-churn view standing in for MRR retention | Blocking | a wrong board number | <person/agent> |
+```
+
 ## The override protocol (logged disagreement)
 
 A bright line ends in a gate, not a wall. When the accountable owner decides to proceed

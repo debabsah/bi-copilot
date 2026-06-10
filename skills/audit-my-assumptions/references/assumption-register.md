@@ -53,3 +53,4 @@ carries "built over an open trunk assumption" visibly.
 - **Hands off**: once the trunk rows clear, the build proceeds — and a confirmed code-level concern goes to `review-my-query`, a wrong number that slips through to `triage-my-number`. This skill is the front door; those are downstream.
 - No KB anywhere up-tree? Create `knowledge-base/` now with the register + stub `README.md` index, routing notes inside it (`groundwork` can flesh it out later) — the next build inherits this one's cleared foundation.
 - When the office is git-tracked, offer the commit — `kb(audit-my-assumptions): <deliverable> register — <verdict>` — one artifact, one commit (the git-native convention in groundwork's kb-core-templates).
+- A FALSIFIED trunk premise (a build stopped before it poisoned a quarter) also appends one line to `knowledge-base/catches.md` — the wins ledger.

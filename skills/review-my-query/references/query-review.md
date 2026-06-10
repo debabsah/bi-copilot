@@ -41,3 +41,5 @@ A reviewed build then feeds `defend-my-number`: a number whose query was checked
 If no `knowledge-base/` exists anywhere up-tree, create it now with the review + stub `README.md` index (`groundwork` can flesh it out later) — the next review (and the eventual defense) builds on this one.
 
 When the office is git-tracked, offer the commit — `kb(review-my-query): <object> review — <N> Blocking` — one artifact, one commit (the git-native convention in groundwork's kb-core-templates).
+
+A Blocking-grade catch also appends one line to `knowledge-base/catches.md` — the wins ledger (what was caught, what it would have shipped).
