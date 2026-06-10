@@ -1,6 +1,6 @@
 ---
 name: defend-my-number
-description: Use when a BI/analytics professional has a number, finding, or recommendation they will have to defend in a meeting and wants to rehearse against challenge before the room does. Use before a stakeholder review, exec readout, board deck, or any high-stakes presentation of a result. Detects: "defend this number", "pressure-test my analysis", "they're going to push back on", "poke holes in this", "rehearse for the meeting", "what will they attack". For orienting on an unfamiliar estate use groundwork; for validating a request before building use requirements-interrogator. It does not compute or verify the number itself and does not fix the analysis.
+description: Use when work is leaving the desk — findings, a status, or a number that must hold up in the room. A number, finding, or recommendation must hold up in a meeting - rehearse against challenge before the room does it for real: a stakeholder review, exec readout, board deck. Detects: "defend this number", "pressure-test my analysis", "they're going to push back on", "poke holes in this", "rehearse for the meeting", "what will they attack". Within this family: writing the findings up is brief-my-findings; the weekly status is status-truth. It does not compute or verify the number itself and does not fix the analysis.
 allowed-tools: Read, Write
 ---
 

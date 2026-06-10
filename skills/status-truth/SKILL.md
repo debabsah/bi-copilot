@@ -1,6 +1,6 @@
 ---
 name: status-truth
-description: Use when a BI program lead or analyst reports the state of the WORK itself — a status report or weekly/steering update — and the truth must survive the pull to look green. Composes status from the record (timeline, open-question ages, decisions, verdicts) plus updates you supply with named sources: every claim carries provenance, every green names what would turn it red, slipped is slipped with the delta, risks stay open until their owner closes them, verdicts travel with their age. Detects: "status report", "weekly update for steering", "are we on track", "RAG status". Analysis FINDINGS go to brief-my-findings; auditing the record is kb-reconcile; catching yourself up is groundwork. Never invents progress; never recolors to please the room.
+description: Use when work is leaving the desk — findings, a status, or a number that must hold up in the room. The state of the WORK itself is being reported - a status report or weekly/steering update - and the truth must survive the pull to look green: every claim carries provenance, every green names what would turn it red, slipped is slipped with the delta, risks stay open until their owner closes them, verdicts travel with their age. Detects: "status report", "weekly update for steering", "are we on track", "RAG status". Within this family: analysis FINDINGS are brief-my-findings; rehearsing under attack is defend-my-number. Boundary: auditing the record is kb-reconcile. Never invents progress; never recolors to please the room.
 allowed-tools: Read, Write
 ---
 
