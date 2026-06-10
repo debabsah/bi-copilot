@@ -13,6 +13,7 @@ Every finding is one of these. Name it, run its read-only check, take its action
 | Decision-violated | a later artifact breaks a logged decision | check artifacts against `decisions.md` | flag; Blocking if it ships a wrong number |
 | Qualifier-erosion | a directional / `[needs decision]` claim re-cited bare | trace each cited status back to its origin | restore the qualifier |
 | Status-rot | open list lists closed items or omits real ones | reconcile `open-questions.md` against the timeline + decisions | correct the status |
+| Expired-verdict | a carried/consumed verdict whose `Re-audit when:` condition has since been met, or whose evidence post-dates it | compare each carried verdict's date + re-audit condition against the timeline and later artifacts | flag stale; recommend re-audit before the verdict is used again |
 | Broken-provenance | a claim cites a source that is absent/renamed | resolve every citation | mark `unverified`; flag the dangling ref |
 | Unsourced-number | a quantitative claim with no checkable source on hand | look for the cited artifact in the tree | mark `unverified`; write the paste-back check |
 | Staleness / garbage-in / derivation-error | the KB is internally consistent but wrong vs the data | NOT read-only catchable | write the paste-back check (only re-derivation reaches it) |
