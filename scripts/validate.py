@@ -49,6 +49,9 @@ EXPECTED = [
     "skills/status-truth/SKILL.md",
     "skills/status-truth/references/status-engine.md",
     "skills/status-truth/references/status-report.md",
+    "skills/explore-my-data/SKILL.md",
+    "skills/explore-my-data/references/exploration-engine.md",
+    "skills/explore-my-data/references/exploration-log.md",
 ]
 fails = []
 
@@ -106,7 +109,9 @@ if os.path.isdir(skills_dir):
 # Description lints — the no-router bet, instrumented. Descriptions are the router AND a
 # permanent always-in-context token cost; growth must be a conscious cap raise, never drift.
 DESC_CHAR_CAP = 2600    # per-description ceiling (max today: 2449)
-DESC_TOTAL_CAP = 14000  # whole-bench ceiling (total today: 13153)
+DESC_TOTAL_CAP = 14900  # whole-bench ceiling — DELIBERATE RAISE 2026-06-10 (was 14000)
+                        # for skill #14 (explore-my-data). Family-structure (VNEXT §2.1.3)
+                        # is due before ~skill 16; the next raise should hurt.
 descs = {}
 if os.path.isdir(skills_dir):
     for name in sorted(os.listdir(skills_dir)):

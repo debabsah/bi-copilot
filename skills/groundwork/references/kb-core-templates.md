@@ -167,6 +167,7 @@ index when none exists.
 | defend-my-number | defense-sheet.md | append holes | append drill calls | append | never | add link | never |
 | kb-reconcile | reconcile.md ONLY | never (recommends) | never (recommends) | never (recommends) | never | never | never |
 | status-truth | status-report.md | append new blockers/risks | never | append | never | add link | never |
+| explore-my-data | exploration-log.md | append new questions | never | append | never | add link | copy results tables |
 
 ## knowledge-base/README.md (the index — start here)
 ```markdown
