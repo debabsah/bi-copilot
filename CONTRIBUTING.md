@@ -24,10 +24,14 @@ gap first; let the maintainers and the rule decide the shape.
 
 ## What a new skill must ship with
 
-1. **A description engineered to route.** Descriptions ARE the router (there is no
-   dispatcher). Yours must discriminate against all sibling skills, fit the per-skill
-   budget (2,600 chars) and the bench-wide budget (14,000 chars total), claim no
-   `Detects:` phrase a sibling already claims — `scripts/validate.py` enforces all three —
+1. **A description engineered to route — inside a family.** Descriptions ARE the router
+   (there is no dispatcher), organized in four families (Shape / Audit / Investigate /
+   Deliver — see `docs/which-skill-when.md`). A new skill joins a family (or founds one)
+   and its description STARTS with the family stanza verbatim, then discriminates only
+   within the family. It must fit the per-skill budget (1,800 chars) and the bench-wide
+   budget (13,000 chars total), keep cross-family mentions to at most two boundary
+   pointers, and claim no `Detects:` phrase a sibling already claims —
+   `scripts/validate.py` enforces all of it —
    and earn its routing in `tests/triggering/cases.tsv` with cases phrased near sibling
    boundaries.
 2. **The five bench invariants, verbatim** (validator-enforced): write boundary,

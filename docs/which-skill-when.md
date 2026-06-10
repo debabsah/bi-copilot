@@ -4,6 +4,18 @@ The skills route themselves from your natural phrasing; you never need this page
 bench. It exists for the moments a human wants to *choose* deliberately — the seams where
 two skills sound alike but do different jobs.
 
+## The four families
+
+Every skill belongs to one family, and its description opens with the family's shared
+stanza — the family carries the heavy discrimination, members discriminate within it:
+
+| Family | The ask-shape | Members |
+|---|---|---|
+| **Shape** | the work itself is still being shaped, before anything is built | groundwork · requirements-interrogator · kpi-contract · model-contract |
+| **Audit** | a finished thing is about to be trusted; the gate fires first | audit-my-assumptions · audit-my-experiment · audit-my-forecast · review-my-query · kb-reconcile |
+| **Investigate** | hands-in-the-data right now | triage-my-number · explore-my-data · map-my-estate |
+| **Deliver** | work is leaving the desk | brief-my-findings · defend-my-number · status-truth |
+
 ## The three gate questions
 
 **1. Is there a symptom in hand?**
