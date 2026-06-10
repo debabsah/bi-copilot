@@ -40,3 +40,10 @@ defend-my-number	The number is solid but the CFO will push hard on it next week.
 # --- B1 de-collision locks (triage symptom vs kpi definition-dispute) ---
 triage-my-number	Two dashboards show different revenue and I don't know why. Find what's driving the gap before I explain it to anyone.
 kpi-contract	Marketing and Finance each define "active customer" their own way and the numbers disagree. Pin one authoritative definition.
+
+# --- the two compute-gated audits (consumption asks must route to audit, not brief) + boundary probes ---
+audit-my-experiment	We A/B tested the new checkout flow for two weeks and conversion is up with p=0.03. Write up the win so we can ship it this week.
+audit-my-experiment	The test passed and treatment beat control, but the two arms look slightly uneven in size. Should we roll it out?
+audit-my-forecast	The demand forecast's backtest looks great - 3% MAPE. Should we plan next quarter's warehouse capacity against it?
+audit-my-forecast	Our revenue model projects 12% growth next year and the budget locks Friday. Is this projection trustworthy enough to plan on?
+audit-my-forecast	The forecast missed badly the last two months. Can we still trust it for the rest of the year, or has it drifted?
