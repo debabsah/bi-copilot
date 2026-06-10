@@ -64,6 +64,23 @@ Artifacts accrete; without a closure convention they rot. Three rules keep the r
   HAS been met is **expired**: it routes back to its audit instead of being carried, and
   `kb-reconcile` flags consumed-stale verdicts as `expired-verdict` drift.
 
+## Git-native by convention (team scale with zero infrastructure)
+
+The KB is plaintext in your repo, so git is its missing multiplayer layer — authorship,
+history, merge tooling, audit trail — without building any:
+
+- **Track the office.** The project root (with `knowledge-base/` and `inputs/`) lives in a
+  git-tracked path. Not under git yet? Suggest `git init` once, then move on.
+- **Offer the commit.** After writing or updating an artifact, a skill offers a
+  conventional commit — `kb(<skill>): <what>` (e.g. `kb(kpi-contract): lock NRR v1.0`) —
+  and makes it when accepted. One artifact, one commit: the KB's history becomes the
+  project's audit trail.
+- **`by:` on timeline entries.** Every timeline entry names its author — a person or an
+  agent — so "who decided" always has an answer (the enterprise word is attribution).
+- **Conflicts are just text.** The timeline and `inputs/` are append-only and STATE files
+  are small, so merges stay trivial. Explicitly out of scope: sync services, locking,
+  real-time collaboration — git already won that race.
+
 ## house-rules.md — the org overlay (optional, tighten-only)
 
 The extension point that lets a team or enterprise adopt the bench **without forking a
@@ -174,6 +191,7 @@ _Each: the decision · rationale · rejected alternatives · date · source even
 # Timeline  (append-only — newest at bottom)
 _End of each session, append: what happened · decided · next · blocked. Drop external events with date + source._
 ## <date>
+- by: <person / agent>
 - happened:
 - decided:
 - next:
