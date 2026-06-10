@@ -1,0 +1,16 @@
+From: Analytics engineer
+To: BI
+
+We locked the churn contract last week (below). The build starts Monday - what tests
+should we add so we know the build matches what we pinned?
+
+--- knowledge-base/kpi-contract.md (excerpt) ---
+# KPI Contract - Monthly Logo Churn v1.1 (LOCKED 2026-06-04, owner: RevOps)
+- Grain: one row per (customer_id, month).
+- Population: paying customers only; status NOT IN (trial, internal, test).
+- Churn event: subscription_end_date in month AND no reactivation within 30 days.
+- Date basis: UTC, calendar month by subscription_end_date.
+- Late data: cancellations can arrive up to 48h late; month closes T+2.
+- Null policy: customer_id never null; a null end_date means active (not churned).
+- Source of record: billing system; monthly reconciliation to CRM within 0.5% relative.
+- Re-audit when: billing schema changes or the reactivation window is renegotiated.

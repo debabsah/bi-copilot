@@ -3,6 +3,25 @@
 Notable changes to the analytics-office bench. Versions follow the plugin manifest;
 commit-level detail lives in git history.
 
+## [0.22.0] — 2026-06-11
+
+The first **modes batch** — capability without routing surface (zero description changes,
+zero new seams, per the modes-before-skills growth rule):
+
+- **test-design-from-contract** (a mode of kpi-contract AND model-contract): when a
+  contract locks — or returns with "what tests should we add?" — the contract is projected
+  into a test specification, fork by fork: grain → uniqueness, pinned enums →
+  accepted-values, the late-data rule → freshness, the reconciliation clause → a tie-out
+  tolerance. Every line cites the clause it projects; it is a spec the user implements
+  (dbt/GE/SQL asserts), never runnable code; and the table doubles as the build's
+  acceptance criteria. Closes the contracts→checks loop the contracts already paid for.
+- **the change-request gate** (a mode of requirements-interrogator): mid-flight "can you
+  also add ___" gets the delta ledger — scope, effort, dependencies, WHICH LOCKED
+  CONTRACTS IT TOUCHES (verified, never assumed), downstream surface — and a forced,
+  owner-pinned accept/defer/reject into decisions.md. A changed population is a different
+  metric, never a quiet edit; accepted changes route to change-impact, kpi-contract, and
+  the next status report.
+
 ## [0.21.0] — 2026-06-11
 
 - **prove-my-parity** (18th skill, the Validate family's 3rd member — the seat its stanza

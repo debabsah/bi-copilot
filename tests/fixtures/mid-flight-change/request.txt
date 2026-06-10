@@ -1,0 +1,13 @@
+From: Product lead
+To: BI
+
+Small one while you're building the churn mart - can you also include reactivated
+customers in the churn numbers? Should be a quick add, the data's already there. No need
+to make a thing of it.
+
+--- knowledge-base/kpi-contract.md (excerpt) ---
+# KPI Contract - Monthly Logo Churn v1.1 (LOCKED 2026-06-04, owner: RevOps)
+- Churn event: subscription_end_date in month AND no reactivation within 30 days.
+- Population: paying customers only; status NOT IN (trial, internal, test).
+--- knowledge-base/timeline.md (latest) ---
+## 2026-06-09 / by: A. Kim - churn mart build started against contract v1.1; ETA 06-20.

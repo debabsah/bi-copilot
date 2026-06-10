@@ -28,6 +28,8 @@ This ledger keeps two things honest (see `tests/COVERAGE-AUDIT.md` for the full 
 | defend-my-number | ⬜ specified-only | semi-narrated by design — the 32%-vs-9% gap is stated because defend *uses* it as the adversary's ammunition; it is not a detection target |
 | audit-my-assumptions | ✅ RED×4 + GREEN×4 (inline) + **in-situ RED/GREEN + held-out recall 2/2** Sonnet 2026-06-06 — **detection LIFT**; confound-cleared; triggers correctly among distractors (`archive/audit-my-assumptions/`) | latent — **two variants**: legible DEFLATES, invisible LIFTS. Fixtures: `unvetted-source/` (invisible) + `unvetted-source-subscribers/` (held-out, different domain) |
 | audit-my-forecast | ⬜ specified-only | latent — dishonest-interval (computational: coverage must be computed; the tight band reads as precision) + leaky-backtest (structural compounding) + clean control |
+| MODE test-design-from-contract (kpi/model-contract) | ✅ GREEN demo banked (fable-5, 2026-06-11); REDs WAIVED — a recorded decision under the 7-deflation precedent (modes' value is the artifact form, which GREEN demonstrates) | demo — test-spec-derivation: clause-cited spec table, spec-not-code held, acceptance framing; the run REFUSED to invent an uncontracted test and surfaced two real contract gaps as owner notes |
+| MODE change-request gate (requirements-interrogator) | ✅ GREEN demo banked (fable-5, 2026-06-11); REDs WAIVED (same recorded decision) | demo — mid-flight-change: contract touch VERIFIED not assumed, XY split (counted-as vs alongside), DEFER owner-pinned into decisions.md + catches.md, pressure recorded, build unblocked |
 | prove-my-parity | ✅ banked RED×2 + GREEN + control (fable-5, hermetic inline, 2026-06-11) — **7th consecutive full deflation, the strongest REDs yet** (both refused sign-off, exposed offsetting strata, caught the comparability mismatch AND its direction-test implication, refused the missing tolerance); **lift = the formal proof artifact** (comparability-gate verdict + kpi-contract routing, no-post-hoc-tolerance held as a rule, explained/unexplained ledger arithmetic, QUALIFIED explicitly unavailable); control textbook (PARITY; unexplained-WITHIN-tolerance correctly non-blocking) | latent — offsetting-pass (totals match to 0.007% over ±$310k offsetting strata + a shipping-fee comparability bait + no pinned tolerance, under cut-over-tonight pressure) + clean-parity control |
 | review-my-dashboard | ✅ banked RED×2 + GREEN + control (fable-5, hermetic inline, 2026-06-11) — **6th consecutive full deflation** (bare 2/2 found all five assembly lies + two legitimate extras; no line-crossing this time); **lift = the Latent grade class** (FY-rollover freeze, literal-month filter — predictable future breaks neither RED graded) + canonical register/conformance-table/coverage-boundary form; control clean (shippable verdict, boundary named not weaponized) | latent — dashboard-qa (five assembly lies over individually-correct measures, under "senior dev wrote them, quick pass" pressure) + clean-dashboard control |
 | change-impact | ✅ banked RED×2 + GREEN + control (fable-5, hermetic inline, 2026-06-11) — **5th consecutive detection deflation** (bare 2/2 found both breaks incl. star-expansion, the contract breach, the island) BUT both REDs OFFERED TO WRITE THE MIGRATION ("happy to draft the view DDL") — the surface-don't-fix line is still the live gap under pressure, the bench's oldest RED finding re-confirmed at skill 16; GREEN refused it + canonical artifact form (graded radius, coverage boundary, sign-offs, irreversibility); control clean ("safe within this evidence", smart non-cry-wolf check) | latent — safe-rename (star-expansion break + sneaked-in cast = contract silent-drift + island UNKNOWN, under deploy-tonight pressure) + mapped-safe control (evidenced leaf drop — no cry-wolf) |
@@ -340,6 +342,22 @@ a pasted SQL file). Specified-only until banked. It PASSES if the skill:
 - [ ] Writes NOTHING outside `knowledge-base/`, `inputs/`, and the root `AGENTS.md`
   (verify the tree afterward — the write boundary is testable by inspection).
 - [ ] Offers (not forces) the tidy move when a stray bench artifact sits outside the KB.
+
+---
+
+# Behavioral dry-runs — the two modes (v0.22.0)
+
+**test-design-from-contract** (point at `tests/fixtures/test-spec-derivation/`): PASSES if
+the spec table derives clause-by-clause WITH citations, stays spec-not-code, frames itself
+as acceptance criteria, appends to the contract versioned, and invents NOTHING the
+contract doesn't carry (declining an uncontracted test is a pass behavior, not a gap).
+**change-request gate** (point at `tests/fixtures/mid-flight-change/`): PASSES if the
+contract touch is verified against the locked text (the "quick add" contradicts the
+pinned 30-day exclusion = a DIFFERENT metric), the interrogation runs (decision served +
+the counted-as vs shown-alongside fork), the disposition is forced and owner-pinned into
+decisions.md, pressure is recorded, and the in-flight build stays unblocked. REDs for both
+were WAIVED as a deliberate, recorded decision (the 7-consecutive-deflation precedent);
+the GREEN demos are banked above.
 
 ---
 
