@@ -55,6 +55,9 @@ EXPECTED = [
     "skills/map-my-estate/SKILL.md",
     "skills/map-my-estate/references/estate-engine.md",
     "skills/map-my-estate/references/estate-map.md",
+    "skills/change-impact/SKILL.md",
+    "skills/change-impact/references/impact-engine.md",
+    "skills/change-impact/references/change-impact.md",
 ]
 fails = []
 
@@ -112,8 +115,10 @@ if os.path.isdir(skills_dir):
 # Description lints — the no-router bet, instrumented. Descriptions are the router AND a
 # permanent always-in-context token cost; growth must be a conscious cap raise, never drift.
 DESC_CHAR_CAP = 1800    # per-description ceiling (family-structure schema; max today: 1090)
-DESC_TOTAL_CAP = 13000  # whole-bench ceiling — both 2026-06-10 raises UNDONE by the
-                        # family-structure compression (total today: 12599).
+DESC_TOTAL_CAP = 13800  # whole-bench ceiling. Family-era growth is amortized (~750/skill)
+                        # and BOUNDED: 4 families x 6 members caps the bench at 24 skills
+                        # (~19-20k ultimate ceiling). Raised 13000->13800 for skill #16
+                        # (change-impact) — a skill-sized step, never drift.
 
 # Family-structure routing (VNEXT §2.1.3, landed 2026-06-11): every skill belongs to
 # exactly ONE family; its description STARTS with the family stanza verbatim; a family
@@ -132,8 +137,8 @@ FAMILIES = {
         "members": ["audit-my-assumptions", "audit-my-experiment", "audit-my-forecast", "review-my-query", "kb-reconcile"],
     },
     "Investigate": {
-        "stanza": "Use when the work is hands-in-the-data right now — a number moved, an open question needs exploring, a picture of the estate needs drawing.",
-        "members": ["triage-my-number", "explore-my-data", "map-my-estate"],
+        "stanza": "Use when the work is hands-in-the-data right now — a number moved, an open question needs exploring, a picture of the estate needs drawing, a change needs its blast radius known.",
+        "members": ["triage-my-number", "explore-my-data", "map-my-estate", "change-impact"],
     },
     "Deliver": {
         "stanza": "Use when work is leaving the desk — findings, a status, or a number that must hold up in the room.",
