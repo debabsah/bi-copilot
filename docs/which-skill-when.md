@@ -4,14 +4,14 @@ The skills route themselves from your natural phrasing; you never need this page
 bench. It exists for the moments a human wants to *choose* deliberately — the seams where
 two skills sound alike but do different jobs.
 
-## The four families
+## The five families
 
 Every skill belongs to one family, and its description opens with the family's shared
 stanza — the family carries the heavy discrimination, members discriminate within it:
 
 | Family | The ask-shape | Members |
 |---|---|---|
-| **Shape** | the work itself is still being shaped, before anything is built | groundwork · requirements-interrogator · kpi-contract · model-contract |
+| **Shape** | the work itself is still being shaped, before anything is built | groundwork · requirements-interrogator · worth-knowing · kpi-contract · model-contract |
 | **Audit** | a built thing is about to be trusted; inspect before the work leans on it | audit-my-assumptions · review-my-query · kb-reconcile · review-my-dashboard |
 | **Validate** | a measured result is about to drive a decision; compute the validity checks first | audit-my-experiment · audit-my-forecast · prove-my-parity |
 | **Investigate** | hands-in-the-data right now | triage-my-number · explore-my-data · map-my-estate · change-impact |
@@ -46,6 +46,7 @@ stanza — the family carries the heavy discrimination, members discriminate wit
 |---|---|---|
 | Starting blind | `groundwork` | orient on an estate, stand up the living knowledge base |
 | A solution-shaped request arrives | `requirements-interrogator` | drive the ask back to the decision; requested-vs-derived delta |
+| No question yet — "what can our data tell us?" | `worth-knowing` | the question charter: decision-anchored candidates, the unasked, hypotheses never findings |
 | A metric needs one meaning | `kpi-contract` | pin every definitional fork; owner pins or `[needs decision]` |
 | A mart needs structure | `model-contract` | declare the grain, gate on source grain, log the modelling forks |
 | About to build on / present unvetted inputs | `audit-my-assumptions` | excavate, grade, falsify the silent premises first |
@@ -75,6 +76,9 @@ stanza — the family carries the heavy discrimination, members discriminate wit
   consumption ask does not skip the gate); brief composes only vetted findings.
 - **"Catch me up" / "where did we leave off"** → `groundwork` (resume mode reads the
   timeline and briefs you).
+- **"Insights"** — data (or an extract) in hand and a look to run → `explore-my-data`
+  (the harnessed looking); no question chosen yet, "what *could* our data tell us?" →
+  `worth-knowing` (the charter of questions worth running — it proposes, never runs).
 
 There is no pipeline: every skill fires independently, at any moment, with or without the
 others having run. The order above is a story, not a sequence.

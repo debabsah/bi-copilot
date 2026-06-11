@@ -65,6 +65,9 @@ EXPECTED = [
     "skills/prove-my-parity/references/parity-engine.md",
     "skills/prove-my-parity/references/parity-proof.md",
     "skills/prove-my-parity/references/parity_checks.py",
+    "skills/worth-knowing/SKILL.md",
+    "skills/worth-knowing/references/charter-engine.md",
+    "skills/worth-knowing/references/question-charter.md",
     "skills/kpi-contract/references/test-spec.md",
     "skills/model-contract/references/test-spec.md",
     "skills/requirements-interrogator/references/change-request-gate.md",
@@ -129,10 +132,12 @@ if os.path.isdir(skills_dir):
 # Description lints — the no-router bet, instrumented. Descriptions are the router AND a
 # permanent always-in-context token cost; growth must be a conscious cap raise, never drift.
 DESC_CHAR_CAP = 1800    # per-description ceiling (family-structure schema; max today: 1090)
-DESC_TOTAL_CAP = 15600  # whole-bench ceiling. Family-era growth is amortized (~750/skill)
-                        # and BOUNDED: 4 families x 6 members caps the bench at 24 skills
+DESC_TOTAL_CAP = 16500  # whole-bench ceiling. Family-era growth is amortized (~750/skill)
+                        # and BOUNDED: families x 6 members cap the bench's sprawl
                         # (~19-20k ultimate ceiling). Raised 13000->13800 for skill #16
-                        # (change-impact), then 13800->14700 for #17 (review-my-dashboard).
+                        # (change-impact), then 13800->14700 for #17 (review-my-dashboard),
+                        # 14700->15600 for #18 (prove-my-parity), 15600->16500 for #19
+                        # (worth-knowing).
 
 # Family-structure routing (VNEXT §2.1.3, landed 2026-06-11): every skill belongs to
 # exactly ONE family; its description STARTS with the family stanza verbatim; a family
@@ -144,7 +149,7 @@ MAX_CROSS_FAMILY_MENTIONS = 2
 FAMILIES = {
     "Shape": {
         "stanza": "Use when the work itself is still being shaped — a new project, an incoming request, a metric, a model — before anything is built.",
-        "members": ["groundwork", "requirements-interrogator", "kpi-contract", "model-contract"],
+        "members": ["groundwork", "requirements-interrogator", "worth-knowing", "kpi-contract", "model-contract"],
     },
     "Audit": {
         "stanza": "Use when a finished thing — a source, a result, code, or the record — is about to be trusted or consumed; the gate fires before the work leans on it.",

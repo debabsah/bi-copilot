@@ -3,6 +3,57 @@
 Notable changes to the analytics-office bench. Versions follow the plugin manifest;
 commit-level detail lives in git history.
 
+## [0.25.0] — 2026-06-11
+
+**`worth-knowing`** — the 19th skill, Shape family's 5th member, and the mirror of
+`requirements-interrogator`: *interrogator = wrong ask, work backwards; worth-knowing =
+no ask, work forwards.* A stakeholder has data and goals but no question — "what can our
+data tell us?" — and what's worth knowing must be proposed without being invented:
+
+- **The question charter** (`knowledge-base/question-charter.md`): a living agenda of
+  candidate questions — each anchored to an elicited decision or honestly tiered
+  *curiosity* (never outranking an anchored one), feasibility cited against the described
+  estate or marked UNVERIFIED, every expected answer labeled **HYPOTHESIS — no data
+  examined**, ranking criteria printed on the page. Re-firing with stakeholder reactions
+  updates the charter in place; declined candidates stay visible.
+- **The unasked, mandatory**: at least one candidate the stakeholder's stated goals
+  didn't steer — unwelcome answers included — or a written reason why none. The
+  anti-flattery discipline lives in the artifact's structure, not in exhortation.
+- **The cardinal bright line**: hypotheses are never findings — "top 3 insights by
+  tonight" gets the charter and the honest board language, never three bullets the room
+  will quote as results.
+- Four generation lenses (decision-backwards, estate-forwards, outside-in, the unasked)
+  + the ranking rubric + a worked example in `references/charter-engine.md`; the artifact
+  template + KB composition in `references/question-charter.md`. No kit — ranking is
+  judgment, not arithmetic.
+- Routes by name: accepted questions → `explore-my-data` (the harnessed looking);
+  a crystallized metric → `kpi-contract`; a build ask → `requirements-interrogator`.
+- Origin honestly recorded: a user-surfaced gap (the second from lived work) that hid
+  *under* `explore-my-data`'s vocabulary — "find insights IN data" vs "find what insights
+  are POSSIBLE" are different moments; the persona audit had conflated them.
+- Validator: Shape registry 4→5 (wall 6), description budget cap 15,600 → 16,500
+  (deliberate; bench total lands 16,495), EXPECTED manifest 68 → 71 files.
+- One Sonnet-only seam measured, surgically attempted, honestly FILED: the
+  engagement-opening positive ("what can our data tell us" + a list of sources) routes
+  to `explore-my-data` on Sonnet despite containing two of worth-knowing's Detects-class
+  phrases verbatim. Fix round 1 — the thief-side boundary pointer, `explore-my-data`'s
+  first cross-family mention — didn't move it (all foils stayed green; loop stopped
+  before overfit). The pure-bench probe reclassified it: with co-installed plugins
+  disabled the same case fails to a DIFFERENT thief (groundwork), so this is a
+  three-room basin whose weak-router pick shifts with the environment — not a lexical
+  capture. fable-5 resolves it correctly in every configuration. Round 2 spent on
+  containment: `explore-my-data`'s body gate now hands the no-question moment to
+  `worth-knowing` by name post-fire. No measured Detects string was touched.
+- Evidence: RED×3 bare fable-5 (hermetic inline) — detection **deflates, the 8th
+  consecutive** (bare model refuses fabrication and counters flattery unprompted), and
+  all three REDs cast themselves as the analysis *runner* — the offer-to-do-it gap
+  confirmed on a third family; lift = the charter form + the paste-back spine +
+  HYPOTHESIS-as-structure. GREEN×3 banked, all PASS (two beyond-key catches: the
+  person-level agent field flagged; "tickets show demand, not capacity"). Routing,
+  measured dual-model: **fable-5 after-sweep 42/42 — the first perfect sweep on
+  record**; Sonnet-4.6 sensitivity 32 PASS / 5 WRONG-BENCH (4 pre-existing flaky
+  classes + the 1 filed basin above); pure-bench probe fable 5/5, Sonnet 4/5.
+
 ## [0.24.0] — 2026-06-11
 
 The two taxonomy extensions — wider eyes, same skills, zero new surface:

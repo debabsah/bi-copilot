@@ -102,6 +102,28 @@ UNCHANGED under the new stanza — fourth description-level configuration it has
 the conclusion is that this seam is lexical ("write up" owns the routing moment), it stays
 filed, and brief's behavioral provenance gate remains its containment.
 
+Addendum (v0.25.0, `worth-knowing` — the full dual-model protocol): same-day Sonnet
+before-baseline on the untouched 18-skill bench (29 PASS / 4 WRONG-BENCH / 6 SHADOW /
+1 MISS — the pre-existing flaky classes; prove-my-parity's baseline defect vanished in
+the after-sweep, confirming that class is model-flaky, not structural). After adding the
+skill: **fable-5 after-sweep 42/42 PASS — the first perfect sweep on record** (zero
+defects, zero shadows, zero misses; both new positives fire). Sonnet after-sweep: one NEW
+defect — the engagement-opening positive ("we just got an analytics budget… what can our
+data tell us? We have billing, wholesale orders…") routed to explore-my-data despite
+containing two of worth-knowing's Detects-class phrases verbatim. Fix round 1 (the
+thief-side boundary pointer — explore-my-data's first cross-family mention) did not move
+it; all four explore/groundwork/interrogator foils stayed green, so the loop was stopped
+before overfit. The pure-bench probe reclassified the seam: with co-installed plugins
+disabled the same case fails to a DIFFERENT thief (groundwork, not explore-my-data) —
+this is not a stable lexical capture (the sm27 class) but a **three-room basin**: the
+engagement-opening phrasing legitimately resembles orientation, exploration, and the
+charter, and the weaker router's pick shifts with the environment while fable-5 resolves
+it correctly in every configuration. FILED as Sonnet-sensitivity-only; containment is
+body-level — explore-my-data's gate now hands the no-question moment to worth-knowing by
+name post-fire. The second positive passes everywhere on both models. Pure-bench bonus
+data: groundwork's real-env loss to map-my-estate and interrogator's loss to
+brainstorming both PASS pure-bench — the established shadow-interaction class, again.
+
 Addendum (v0.21.0): `prove-my-parity`'s two positives both FIRE on the fresh install; the
 kb-reconcile foil holds its case and the triage foil MISSes (the known flaky class) rather
 than being stolen by the new "reconcile" vocabulary — both contested seams held.

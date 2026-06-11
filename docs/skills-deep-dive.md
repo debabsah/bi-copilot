@@ -24,7 +24,7 @@ loosen). Evidence you hand over gets dated copies in `inputs/`.
 ```mermaid
 flowchart TD
     subgraph SHAPE["Shape — before anything is built"]
-        GW[groundwork]; RI[requirements-interrogator]; KC[kpi-contract]; MC[model-contract]
+        GW[groundwork]; RI[requirements-interrogator]; WK[worth-knowing]; KC[kpi-contract]; MC[model-contract]
     end
     subgraph AUDIT["Audit — a built thing, before trust"]
         AA[audit-my-assumptions]; RQ[review-my-query]; KR[kb-reconcile]; RD[review-my-dashboard]
@@ -53,16 +53,19 @@ the others having run. The order below is a story, not a sequence.
 
 ## Shape — *the work itself is still being shaped, before anything is built*
 
-The Shape family owns the start of work: an unfamiliar estate, an incoming request, a
-metric or model that needs one exact meaning before anyone builds on it. Its members hand
-off naturally — but each works alone too.
+The Shape family owns the start of work: an unfamiliar estate, an incoming request — or no
+request at all — a metric or model that needs one exact meaning before anyone builds on
+it. Its members hand off naturally — but each works alone too.
 
 ```mermaid
 flowchart LR
     EST[an inherited estate] --> GW[groundwork]
     ASK[a solution-shaped ask] --> RI[requirements-interrogator]
+    NOASK[data + goals, no ask] --> WK[worth-knowing]
     GW -->|"metrics worth locking"| KC[kpi-contract]
     RI -->|"validated metrics"| KC
+    WK -->|"a metric crystallizes"| KC
+    WK -.->|"accepted questions"| EXP[explore-my-data, harnessed]
     KC -->|"the locked meaning"| MC[model-contract]
     KC -.->|"test-design mode"| TS[test spec / acceptance criteria]
     MC -.->|"test-design mode"| TS
@@ -144,6 +147,51 @@ delta ledger (scope, effort, dependencies, *which locked contracts it touches* �
 never assumed) and a forced, owner-pinned accept/defer/reject into `decisions.md`. A
 changed population is a different metric, never a quiet edit; accepted changes route to
 `change-impact`, `kpi-contract`, and the next status report.
+
+### `worth-knowing`
+
+**The job.** The mirror of `requirements-interrogator`: the stakeholder has data and goals
+but *no question at all* — "what can our data tell us?" — and what's worth knowing has to
+be proposed. It builds the **question charter**: candidate questions, obvious and hidden,
+each anchored to a real decision (or honestly tiered as curiosity), feasibility cited
+against the estate as described, ranked by criteria printed on the page. The consultant's
+discovery phase, harnessed.
+
+**The trap.** Asked "what can our data tell us?", a capable model performs the consultant
+fluently — and ships three failures dressed as help: impressive generic analyses whose
+feasibility was never checked against what data exists; candidates ranked by
+interestingness instead of by any decision anyone will make; and worst, *predicted
+answers* — "you'll likely find repeat buyers retain better" — that the stakeholder walks
+out quoting as findings no data has ever produced. Add the social one: candidates shaped
+to flatter what the room already believes, so the unwelcome questions are never proposed.
+
+**The loop.** (1) Elicit the decision landscape — who decides what, how often.
+(2) Inventory the askable from the *described* estate only; every availability claim cites
+its source or is marked `UNVERIFIED`. (3) Generate candidates through four lenses
+(decision-backwards, estate-forwards, outside-in, the unasked); every expected answer is
+labeled **HYPOTHESIS — no data examined**. (4) **The unasked, mandatory:** at least one
+candidate the stakeholder's stated goals didn't steer — unwelcome answers included — or a
+written reason why none. (5) Rank by stated criteria; a curiosity candidate never outranks
+a decision-anchored one. (6) Present, log reactions, and re-fire to update — the charter
+is a living artifact. Accepted questions route by name: `explore-my-data` runs them,
+`kpi-contract` locks what crystallizes.
+
+**You walk away with** `question-charter.md` — the agenda the engagement keeps coming
+back to:
+
+```text
+Q1. Do punch-pass holders convert to memberships, or substitute for them?
+    Tier: ANCHORED — the October renewal decision (COO, annual)
+    Expected shape: HYPOTHESIS — no data examined
+    Confirms via: explore-my-data, pre-registered cohort cut, paste-back
+    Data: POS sales (cited) × membership starts (cited) · Effort: L
+```
+
+**Wrong room when:** they handed you a dashboard spec, not a blank
+(`requirements-interrogator`), you're orienting on an unfamiliar estate (`groundwork`), a
+question is already chosen and ready to run (`explore-my-data`), or a number is already
+wrong (`triage-my-number`). And it never *answers* the questions: no analysis runs here,
+and a hypothesis is never presented as a finding — hedged or not.
 
 ### `kpi-contract`
 

@@ -74,3 +74,8 @@ change-impact	Before we re-point the revenue model at the new billing source - w
 # --- map-my-estate (cartography; near model-contract's design boundary) ---
 map-my-estate	Draw the ER diagram of our existing sales mart from the DDL and views we have - I want to see how the tables actually connect.
 map-my-estate	Map the data flow for the revenue dashboard - from the source systems through the warehouse to the report.
+
+# --- worth-knowing (no-ask consultative discovery; near groundwork's orientation, explore's data-in-hand, and interrogator's solution-shaped boundaries) ---
+# SONNET-SENSITIVITY (2026-06-11, filed): the first positive PASSES on fable-5 everywhere (incl. pure-bench) but fails on claude-sonnet-4-6 — real-env to explore-my-data, pure-bench to groundwork (a THREE-ROOM BASIN, environment-split; not the sm27 lexical class). Fix round 1 (thief-side pointer) didn't move it; containment is explore-my-data's body gate. Case stays ACTIVE — it passes the default-model gate.
+worth-knowing	We just got an analytics budget but honestly we don't know what we need yet. What can our data tell us? We have billing, wholesale orders, and a support desk - no dashboards, no metrics defined.
+worth-knowing	Our COO has no specific question yet - he wants to know what's worth analyzing here across our subscription business. Suggest analyses for this data and what each could tell us.

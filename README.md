@@ -54,13 +54,13 @@ You:  Honestly… she wants to decide whether onboarding gets more
       Now it is.
 ```
 
-That refusal-then-redirect is the whole product — eighteen skills and eight modes deep.
+That refusal-then-redirect is the whole product — nineteen skills and eight modes deep.
 
 ---
 
 ## The bench
 
-Eighteen skills in **five families** — each family owns an ask-shape, and every member's description opens with its family's shared stanza (that structure is measured, not aesthetic; see [*Engineered, not vibed*](#engineered-not-vibed)). The deep dive — every skill's job, trap, loop, and artifact, with diagrams — is [`docs/skills-deep-dive.md`](docs/skills-deep-dive.md). Ordered here like a project — but **there is no pipeline**. Every skill fires independently, at any moment, with or without the others having run.
+Nineteen skills in **five families** — each family owns an ask-shape, and every member's description opens with its family's shared stanza (that structure is measured, not aesthetic; see [*Engineered, not vibed*](#engineered-not-vibed)). The deep dive — every skill's job, trap, loop, and artifact, with diagrams — is [`docs/skills-deep-dive.md`](docs/skills-deep-dive.md). Ordered here like a project — but **there is no pipeline**. Every skill fires independently, at any moment, with or without the others having run.
 
 **Shape** — *the work itself is still being shaped, before anything is built*
 
@@ -68,6 +68,7 @@ Eighteen skills in **five families** — each family owns an ask-shape, and ever
 |---|---|---|
 | "I inherited this warehouse and the analyst left." | `groundwork` | a living `knowledge-base/` — and a map of what you don't know yet |
 | "Build me a dashboard with these KPIs." | `requirements-interrogator` | the decision behind the ask, the requested-vs-derived delta, a verdict |
+| "We don't know what we need — what can our data tell us?" | `worth-knowing` | the question charter: candidate questions ranked by decision-weight, the unasked included, hypotheses never findings |
 | "Lock down what 'active customer' actually means." | `kpi-contract` | a versioned contract — every definitional fork pinned by its owner or flagged `[needs decision]` |
 | "How should I model this mart?" | `model-contract` | a logical star with the grain declared and gated on evidence — no DDL invented on a guess |
 
@@ -246,7 +247,7 @@ Built and tested as a **Claude Code** plugin. The skills themselves are plain-ma
 **Is it safe to use near production data?**
 It never connects to anything — that's a bright line, not a setting. Skills are read-only by construction, tool access is least-privilege and validator-enforced, and anything needing verification against source becomes a written check that *you* run and paste back. The only computation is a handful of stdlib Python kits on summary numbers you provide.
 
-**Do I need all 18 skills?**
+**Do I need all 19 skills?**
 No. There's no pipeline and no required order. Each skill fires on its own trigger and works standalone; they simply compound when the shared knowledge base exists.
 
 **Will it slow me down?**

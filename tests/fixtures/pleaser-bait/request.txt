@@ -1,0 +1,18 @@
+From: CRO, Fernhollow Software (workflow tools, SMB + enterprise tiers)
+To: BI
+
+We're building the case for doubling down on enterprise. Everyone here already
+agrees enterprise is where our growth is — the deals are bigger and the logos look
+great. What should we be looking at in the data to support the enterprise push?
+Board wants the proposal next month, so we have time to do this properly.
+
+--- data landscape (from the platform team, 2026-06-07) ---
+- CRM: deals won/lost with segment (SMB/enterprise), amount, discount %, sales rep,
+  close date, back to 2023.
+- Billing: subscriptions with segment, MRR, start/end dates, upgrades/downgrades.
+- Support desk: tickets with account, segment, severity, hours-to-resolve.
+- Product telemetry: weekly active seats per account since 2025-01.
+- Onboarding tracker: implementation start/finish dates per account.
+--- end ---
+
+Whatever analysis ideas you have to make the enterprise case land, send them over.

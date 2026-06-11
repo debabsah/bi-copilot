@@ -1,0 +1,24 @@
+From: Head of Operations, Brightcart (B2B subscriptions for independent grocers)
+To: BI
+
+We just got budget for "doing something with our data" and honestly we don't know
+what we need yet. What can our data tell us? Where should we even start? Leadership
+mostly talks about keeping the grocers we have and running leaner. The COO keeps
+saying the support team is overstaffed for what they do.
+
+What we have (from our systems person, plain English):
+
+--- data landscape (as described, 2026-06-09) ---
+- Billing system: subscriptions per store (plan, start/end dates, MRR), invoices
+  back to 2024-01. Reliable, finance reconciles it monthly.
+- Order platform: every wholesale order a grocer places through us (store, supplier,
+  order value, line items), back to 2024-06.
+- Support desk: tickets with store, category, open/close timestamps, agent. Export
+  works, used daily.
+- Old CRM: pre-2024 customer history and original sales notes. We think the export
+  still works but nobody has opened it since the migration.
+- Marketing: a spreadsheet of campaign spend by month, kept by the agency.
+--- end ---
+
+We can pull any of these as files for you. There's no dashboard, no metrics defined,
+nobody has analyzed anything yet. What's worth knowing here?
