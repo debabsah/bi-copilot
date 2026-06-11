@@ -1,0 +1,51 @@
+
+```markdown
+# KB Reconcile — Audit for ~2026-08-10 board readout
+_Reconcile date: 2026-07-20. Requested by: Priya Sharma. Scope: all KB files provided.
+Read-only: no code executed, no files edited. This file is the only output._
+_Audit boundary: KB files on hand; `findings-brief.md`, `query-review.md`,
+`requirements-brief.md`, `defense-sheet.md`, `triage.md`, `landscape.md`,
+`vw_monthly_churn.sql`, `data-quality.md`, and `inputs/` directory not provided —
+claims citing those files are marked unverified or noted where the KB itself restates them._
+
+---
+
+## Drift (graded)
+
+| # | Claim (file · location) | Drift type | Evidence | Grade | Suggested action |
+|---|---|---|---|---|---|
+| D1 | "**Blocking the 2026-06-10 board meeting.**" (`open-questions.md`, NRR reconciliation row) | Partial-update + Status-rot | `timeline.md` (2026-06-01): "event: board meeting scheduled 2026-06-10." Today is 2026-07-20 — 40 days later. No `timeline.md` entry records the meeting outcome. `status-report.md` (2026-07-17) asks still include: "RevOps or Finance BI — assign owner to A9 … Gates mart-to-board-deck reconciliation" — confirming the Finance reconciliation is still unresolved. The "blocking the 2026-06-10 meeting" label now references a past event; readers will not know this gap is still live and now blocks the **next** readout. | **Blocking** | (1) Update `open-questions.md` NRR reconciliation row: change "Blocking the 2026-06-10 board meeting" → "Blocking the ~2026-08-10 board readout." (2) Add a `timeline.md` entry for the 2026-06-10 meeting: what was presented, how the board received the "not yet" verdict, whether any follow-up was requested. This entry is currently absent — [needs decision: confirm what happened at the June meeting before the August deck is built on KB that has no record of it.] |
+| D2 | `estate-map.md` node: `billing_export_daily (no documented downstream)` | Map-staleness | (a) `change-impact.md` (2026-06-15): "billing_export_daily → billing_export_v2" — the extract was replaced; `parity-proof.md` (2026-06-24) confirms "v2 shipped 2026-06-17." The map does not show `billing_export_v2`. (b) `model-contract.md` (2026-06-10): "`billing_export_daily` … GATE source" for the retention mart ETL, establishing the mart as a documented consumer. The "no documented downstream" label is now wrong. `estate-map.md` header: "Derived from: `landscape.md` (2026-05-22) · `inputs/vw_monthly_churn.sql` (inherited, undated) · Marcus Okafor verbal 2026-06-09 — re-run this skill to refresh." Three topology changes postdate the map: v2 rename, mart ETL consumer, and the v2 parity proof completing the cutover. | **Blocking** | Re-run `map-my-estate`. Until then, note in the map header that it predates (a) `billing_export_v2` ship date 2026-06-17, (b) model-contract.md 2026-06-10, (c) parity-proof.md 2026-06-24. The "no documented downstream" label on `billing_export_daily` must be removed — the retention mart ETL is its documented consumer. |
+| D3 | `status-report.md` (2026-07-17) ledger has no row for the dashboard-review | Partial-update | `dashboard-review.md` (2026-07-13): "**Do not ship as-is** — 4 Blocking / 1 Latent / 3 Advisory." `timeline.md` carries: "2026-07-13 — review-my-dashboard: do not ship as-is (4 Blocking / 1 Latent / 3 Advisory)" — the timeline has the entry. But `status-report.md`'s **ledger** (the exec-facing table) has no row for the dashboard status. Priya's deck team will read the status ledger; the gate that the dashboard cannot ship will not be visible there. The board readout is in 3 weeks. | **Blocking** | Add a ledger row to `status-report.md`: "Retention dashboard — **BLOCKING gate — do not ship as-is** (4 Blocking / 1 Latent / 3 Advisory, dashboard-review.md 2026-07-13) — Blocking findings: YTD active-account non-additivity (#1), 'all customers' title over Starter-excluded default (#2), 'live' subtitle on a weekly extract (#3), '(validated)' title on the onboarding pilot chart (#4)." |
+| D4 | `question-charter.md` Q1 "Status: **PROPOSED**" | Partial-update | `exploration-log.md` (2026-06-12): "H1: **Exploratory — found**"; `status-report.md` (2026-07-17): "Q1 finding: first-90-day churn +17.2pp — **In-progress (Exploratory-found)**." The charter is the living decision document that anchors the annual budget ask; a status of "PROPOSED" on Q1 when three other files grade it "Exploratory-found" creates a false read of the evidence base. | Latent | Update `question-charter.md` Q1 Status: "In-progress — Exploratory-found (2026-06-12). Hold-out Check 1 pre-registered for 2026-09. H2 (Starter tier) PENDING — per-tier flat-hazard column missing from paste-back. H3 dead end." |
+| D5 | `status-report.md`: "Retention mart — design: **Done (evidenced)**" | Qualifier-erosion | `model-contract.md` title: "v1.0-**draft**, 2026-06-10." The contract has open gates: "billing_export_daily grain (gate) — **verify before build**"; "subscriptions grain (gate) — **not profiled**"; and three `[needs decision]` forks (dim_plan SCD, win-backs, Finance reconciliation). "Done (evidenced)" drops the "draft/gated" qualifier. A deck author reading only the status ledger will read the design as build-ready. | Latent | Change the status-report ledger row to: "Retention mart — design: **Draft complete; gates open** — fct_account_month + dims specified (model-contract v1.0-draft, 2026-06-10); build blocked on A3/A9 and A10/subscriptions grain confirmation." |
+| D6 | `parity-proof.md`: "Re-audit when: next period closes **(Jul-2026 trailing-12)**" | Expired-verdict (imminent) | Today is 2026-07-20. July 2026 closes in ~11 days. The re-audit condition fires at month-end. Additionally: "kpi-contract unit amendment (RevOps + Finance sign-off) pending" — the amendment sign-off is a second re-audit trigger per the same clause, and it is still open per `status-report.md` (2026-07-17 asks: "RevOps or Finance BI — assign owner to A9"). The PARITY verdict is technically standing today but will require re-audit before the ~2026-08-10 board readout. | Latent (→ Blocking if August board deck uses parity to assert NRR comparability without re-audit) | Schedule parity re-audit for the Jul-2026 close (≈ 2026-07-31). Route to `prove-my-parity`; same strata (tier × cohort-half × region), extended window to Jul-2025..Jul-2026. Add a `timeline.md` and `open-questions.md` entry to track this. |
+| D7 | `parity-proof.md`: "kpi-contract unit amendment (RevOps + Finance sign-off) pending — **see open-questions.md**" | Broken provenance | `open-questions.md` has no entry for the kpi-contract unit amendment (mrr_amount USD dollars, DECIMAL(12,2), RevOps + Finance sign-off required). The cross-reference from `parity-proof.md` and `change-impact.md` is dangling. The item is tracked in `kpi-contract.md` ("Status: **pending sign-off**") and `change-impact.md` ("Sign-offs … Status: **pending sign-off**") but not in the open-questions register where owners and blocking status are managed. | Latent | Add an entry to `open-questions.md`: "kpi-contract unit amendment (mrr_amount = USD dollars, DECIMAL(12,2)): RevOps (primary) + Finance (co-signer) sign-off required before board deck is regenerated from v2 data. Owner: RevOps. Blocking board deck regeneration. Flagged: kpi-contract.md (amendment note), change-impact.md (sign-offs), parity-proof.md." |
+| D8 | 2026-06-10 board meeting outcome — no `timeline.md` entry | Status-rot (historical gap) | `timeline.md` (2026-06-01): "event: board meeting scheduled 2026-06-10." `decisions.md` (2026-06-02): "Brief the board honestly: carry the 'not yet' verdict." No subsequent `timeline.md` entry records the meeting. The next readout will be built on a KB that has no record of what the board heard and responded to six weeks ago. | Advisory | Append a `timeline.md` entry for 2026-06-10: what was presented, board reception, any requests or follow-up commitments. Without this, the August readout team cannot know whether the Finance gap was raised, how it landed, or what the board expects to see resolved. [needs decision: confirm with whoever attended.] |
+| D9 | `experiment-audit.md`: "Apr-1 – Jun-15 2026, stopped week **7 of 10**" | Internal inconsistency (advisory) | Apr-1 + 7 weeks = ~May-20; the stated end date is Jun-15 (~11 weeks from Apr-1). The two figures don't reconcile. Doesn't affect the peeking finding (which is computed from the sequential z-critical, not the calendar dates) but any board or sponsor brief citing both figures will be challenged. | Advisory | Confirm the correct description: either "11 weeks of enrollment, with the primary-metric analysis run at week 7" or "stopped at week 7 (May-20) with data collected through Jun-15 for other purposes." Whichever is correct, make the language consistent before the finding is cited. |
+
+---
+
+## Unverified — no checkable source on hand; run and paste back
+
+### U1 — NRR = 108% (directional)
+
+**Claim:** "NRR 108% as directional (not reconciled)" (`decisions.md`, 2026-06-02 entry; references `findings-brief.md`).
+
+**Status:** Correctly labeled "directional" throughout the record. `findings-brief.md` is not on hand; the number cannot be verified or updated from the files provided. `parity-proof.md` gives per-cohort NRR (Starter 94–97%, Growth 103–106%, Enterprise 109–112%) but no blended company-wide figure — a weighted average depends on MRR weights not in the proof. The 108% remains unverified for the August board deck.
+
+**Source to run against:** `billing_export_v2` (post-migration source of record; parity proof confirmed v2 is the current source as of 2026-06-17).
+
+**Check:** Using the locked `kpi-contract.md` v1.0 formula, compute trailing-12 blended NRR:
+```sql
+-- Run against fct_account_month (once built) or directly against billing_export_v2
+SELECT
+  SUM(base_mrr)       AS cohort_base_mrr,
+  SUM(current_mrr)    AS cohort_end_mrr,
+  SUM(current_mrr) * 100.0 / NULLIF(SUM(base_mrr), 0) AS nrr_pct
+FROM fct_account_month
+WHERE month_end = <last_fiscal_quarter_end>   -- trailing-12 window per kpi-contract
+  AND cohort_month BETWEEN <12_months_prior> AND <last_fiscal_quarter_end>;
+-- If mart not yet built, reconstruct from billing_export_v2 directly using
+-- the kpi-contract formula: (cohort_start_mrr + expansion - contraction - churn)
+--  / cohort_start_mrr for the trailing-12 cohort.

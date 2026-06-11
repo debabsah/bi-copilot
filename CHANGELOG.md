@@ -3,6 +3,27 @@
 Notable changes to the analytics-office bench. Versions follow the plugin manifest;
 commit-level detail lives in git history.
 
+## [0.28.0] — 2026-06-11
+
+**The example catches up to the bench: Act II.** `examples/saas-retention` now threads
+**all nineteen disciplines** (it had stalled at seven, twelve releases ago). Twelve new
+runs extend the Meridian story from the honest board readout to the onboarding-budget
+evidence: the question charter whose mandatory unasked candidate tests the VP's own
+conviction, the exploration that grades +17.2pp as *found-not-confirmed* and refuses an
+ungradeable cut, the assumption register that catches the Act-I Finance gap about to be
+re-inherited ("building the gap twice, at larger scale"), the v2 migration arc
+(blast radius → stratified PARITY proof), the pilot write-up refused on a computed
+peeking correction, the forecast whose 80% bands cover 50%, the dashboard that may not
+ship, the AMBER status under "keep it green" pressure, and the kb-reconcile finale whose
+three Blocking drifts were all created naturally by the story itself.
+
+Honesty notes, on the record: every Act II artifact is **verbatim output of real runs on
+claude-sonnet-4-6** (the standing sensitivity instrument — discipline that survives the
+weaker executor is structure, not model heroics), lightly trimmed; the v0.26.0 seam
+wiring is exercised live (charter→explore sync, map→model gate, impact→parity strata,
+the "(validated)" claim routed back to its gate); one artifact correction by the
+integrator is disclosed in the run log (a finding based on a truncated context feed).
+
 ## [0.27.0] — 2026-06-11
 
 **The identity & portability release.**

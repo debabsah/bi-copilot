@@ -159,7 +159,7 @@ What that buys you:
 - **Git-native.** Every artifact emit offers a `kb(<skill>): <what>` commit; the record's history is an audit trail with zero infrastructure.
 - **Strictly optional.** No knowledge base? Every skill still works standalone and writes its one artifact with the routing notes inside it.
 
-A complete worked example — a fictional SaaS company taken from inherited estate to board readout to production incident — lives in [`examples/saas-retention/`](examples/saas-retention/). Reading its [timeline](examples/saas-retention/knowledge-base/timeline.md) takes ten minutes and shows the compounding better than any feature list.
+A complete worked example — a fictional SaaS company taken from inherited estate through board readout, a live migration, a gated experiment, and a pre-readout self-audit, with **all nineteen disciplines threaded on one living knowledge base** — lives in [`examples/saas-retention/`](examples/saas-retention/). Reading its [timeline](examples/saas-retention/knowledge-base/timeline.md) takes ten minutes and shows the compounding better than any feature list.
 
 ---
 

@@ -52,3 +52,11 @@ _Locked 2026-05-22, v1.0. Source: the reframed metrics in `requirements-brief.md
 - **Owner:** RevOps. **Version:** v1.0, 2026-05-22.
 - **Caveats:** gross churn improving while NRR is flat can mean expansion is slowing;
   read the two together, never alone.
+---
+**CONTRACT-MEANING DRIFT NOTED 2026-06-15**
+Proposed change: billing_export_daily → billing_export_v2 changes `mrr_amount` from INTEGER (cents) to DECIMAL(12,2) (dollars). The NRR contract's source-of-record clause does not currently pin `mrr_amount` units.
+Impact: any NRR computation that mixes a v1-sourced snapshot (cents) with v2 events (dollars) produces a ~100× ratio error. Pure-v2 NRR preserves the ratio, but absolute MRR values change by 100×.
+Required amendment: add to the NRR source-of-record clause — "`mrr_amount` is USD dollars, DECIMAL(12,2), as of billing_export_v2."
+Owner sign-off: RevOps (primary) + Finance (co-signer) — required before board deck is regenerated from v2 data.
+Assessed in: change-impact.md (2026-06-15). Status: **pending sign-off**.
+---
