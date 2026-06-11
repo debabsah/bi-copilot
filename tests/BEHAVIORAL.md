@@ -4,7 +4,7 @@ This ledger keeps two things honest (see `tests/COVERAGE-AUDIT.md` for the full 
 
 - **Verification** — is the checklist below a *spec* of a dry-run, or a *banked run* with an
   actual RED/GREEN transcript? A green `- [ ]` box is a specification; it is NOT evidence a
-  run happened. 7/12 skills are spec-only.
+  run happened. 7/12 skills were spec-only as of the 2026-06-05 audit (the ledger rows below are newer and authoritative).
 - **Fixture narration** — does the model-facing fixture INPUT hand over its own trap (tests
   **compliance**), or is the defect **latent** so the model must catch it cold (tests
   **detection**)? Only a latent fixture can measure failure-prevention lift. The BEHAVIORAL

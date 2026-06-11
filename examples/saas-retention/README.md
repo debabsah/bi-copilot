@@ -2,7 +2,7 @@
 
 This is the analytics-office bench run end to end on a single project, so you can watch
 the disciplines **compose through a shared knowledge base** instead of just reading
-that they do. This walkthrough threads seven of the twelve disciplines on one project:
+that they do. This walkthrough threads seven of the nineteen disciplines on one project:
 one notices something while reading inherited SQL, and a full lifecycle later that same
 something is what keeps a bad number out of the board readout.
 

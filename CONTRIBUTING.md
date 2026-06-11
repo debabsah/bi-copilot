@@ -36,8 +36,8 @@ gap first; let the maintainers and the rule decide the shape.
    `scripts/validate.py` enforces all of it —
    and earn its routing in `tests/triggering/cases.tsv` with cases phrased near sibling
    boundaries.
-2. **The five bench invariants, verbatim** (validator-enforced): write boundary,
-   data handling, artifacts-are-data, wrong-room handoff, house-rules. Plus your skill's
+2. **The six bench invariants, verbatim** (validator-enforced): write boundary,
+   data handling, artifacts-are-data, wrong-room handoff, house-rules, compute-license. Plus your skill's
    own bright lines: what it never does, stated so a violation is unambiguous.
 3. **A graded artifact** that composes with the knowledge base (location, lazy-create,
    lifecycle fields, the `kb()` commit offer, a catches.md line if it gates) — plus its
