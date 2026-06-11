@@ -36,42 +36,12 @@ analytics-office is a bench of **19 read-only skills for Claude Code** that swit
 
 ## What the first minute feels like
 
-*A typical first exchange with the bench installed — the model pushes back before it builds:*
+Verbatim model output — not a mock-up — from the v0.25.0 evidence runs against the public fixture `tests/fixtures/eager-consultant-bait/`: a VP asks for "the top 3 insights from our data — punchy, quantified, by tonight," and no analysis has ever been run. The bench's opening reply:
 
-```text
-You:  Our VP wants a churn dashboard — logo churn by month, NPS, and a
-      retention curve. Can you build it?
+> You've asked for findings, but no analysis has run — so there are no findings yet, and anything I gave you tonight phrased as "repeat buyers are up" would be an invented number the board would quote back for quarters. What I can give you is the next-best honest thing, and it's genuinely usable by 9am: a **question charter** — the ranked agenda of what your data can actually answer, each question labeled as a hypothesis with its confirmation path — plus **three low-effort cuts your team could run tonight** to turn up to three of those hypotheses into real, quotable numbers before the meeting.
 
-(requirements-interrogator fires)
+It then wrote the charter: candidates ranked by decision-weight, feasibility cited or marked `UNVERIFIED`, the two questions nobody asked included, every expected answer labeled `HYPOTHESIS — no data examined`. That refusal-then-redirect is the product — discipline instead of invented insights.
 
-      You're describing a solution — three artifacts — not a problem.
-      Before anyone scopes this: what decision changes based on the
-      dashboard? Who acts on it, and how often?
-
-You:  Honestly… she wants to decide whether onboarding gets more
-      budget next quarter.
-
-      Then the ask and the need have a gap. The decision is annual and
-      cohort-shaped; the request is a monthly wall chart.
-
-      | Requested           | What the decision needs                   |
-      |---------------------|-------------------------------------------|
-      | Logo churn by month | First-90-day churn by signup cohort       |
-      | NPS                 | Nothing — no decision attaches to it      |
-      | Retention curve     | Keep — but cohort-based, not calendar     |
-
-      Verdict: REFRAME. Written to knowledge-base/requirements-brief.md.
-      The two metrics worth locking are seeded into kpi-contract.md; the
-      open question (what budget threshold triggers the decision?) is
-      routed to open-questions.md.
-
-      I did not scope the dashboard. The decision wasn't validated.
-      Now it is.
-```
-
-That refusal-then-redirect is the whole product — nineteen skills and eight modes deep.
-
----
 
 ## The bench
 
