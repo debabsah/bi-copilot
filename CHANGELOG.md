@@ -37,6 +37,12 @@ surface):
   structure — dashed `[unverified]` edges are dependencies the new design must not lean
   on.
 
+Pre-launch gate catch: **the parity kit never ran in CI** — a YAML plain-scalar fold
+(shipped v0.21.0) made `test_parity_checks.py` a silently-ignored *argument* to the
+triage test step while the badge stayed green. Now its own step. (The stranger's install
+path — fresh profile, marketplace from public GitHub — was exercised end-to-end as part
+of the same gate: 19 skills install clean.)
+
 Plus: the **`CONSUMES` registry** in `scripts/validate.py` (RED-proven — 9 failures
 against the unwired bodies, green after) pins every wired seam so skill #20 can't
 reintroduce the gap; CONTRIBUTING gains the seams-both-directions bar item (3b) and
